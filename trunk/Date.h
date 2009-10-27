@@ -10,9 +10,21 @@
 	 </ul>
  @
 */
-#include <iostream>
-#include "Member.h"
+#ifndef _DATETIME_H
+#define _DATETIME_H
 using namespace std;
 
-Member::Member() {}
-Member::~Member() {}
+class Date
+{
+private:
+    int hour;
+    int minute;
+    int second;
+    int day;
+    int month;
+    int year;
+public:
+    Date();
+    ~Date();
+};
+#endif

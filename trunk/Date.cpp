@@ -11,8 +11,8 @@
  @
 */
 #include <iostream>
-#include "Member.h"
+#include "Date.h"
 using namespace std;
 
-Member::Member() {}
-Member::~Member() {}
+Date::Date() {}
+Date::~Date() {}
