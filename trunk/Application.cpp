@@ -67,7 +67,7 @@ int Application::run()
         {
             cout << x << "\n";
         }
-        this->setState(false);
+        this->setState(false);//break;
 	}
 	return this->terminate();
 }
