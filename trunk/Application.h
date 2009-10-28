@@ -10,9 +10,20 @@
 	 </ul>
  @
 */
-#include <iostream>
-#include "TextBook.h"
+#ifndef _APPLICATION_H
+#define _APPLICATION_H
+
 using namespace std;
 
-TextBook::TextBook() {}
-TextBook::~TextBook() {}
+class Application
+{
+private:
+	bool state;
+public:
+    Application();
+    ~Application();
+    void setState(bool = true);
+    bool getState();
+	int run();
+};
+#endif
