@@ -15,29 +15,34 @@
 using namespace std;
 
 Application::Application() {
-    setState();
+    this->setState();
 }
 
 Application::~Application() {}
 
-void Application::setState(bool _state)
+void Application::setState(bool state)
 {
-    state = _state;
+    this->state = state;
 }
 
 bool Application::getState()
 {
-   return state;
+   return this->state;
+}
+
+int Application::terminate()
+{
+    return 0;
 }
 
 int Application::run() {
-	while(getState()==true)
+	while(this->getState())
 	{
         for(int x=0;x<10;x++)
         {
             cout << x << "\n";
         }
-        setState(false);
+        this->setState(false);
 	}
-	return 0;
+	return this->terminate();
 }

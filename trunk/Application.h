@@ -24,6 +24,7 @@ public:
     ~Application();
     void setState(bool = true);
     bool getState();
+    int terminate();
 	int run();
 };
 #endif
