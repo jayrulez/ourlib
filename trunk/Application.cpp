@@ -50,6 +50,7 @@ bool Application::getState()
 */
 int Application::terminate()
 {
+    //delete this;
     return 0;
 }
 

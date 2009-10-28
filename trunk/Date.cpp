@@ -17,7 +17,8 @@ using namespace std;
 /*
 *
 */
-Date::Date() {}
+Date::Date() {
+}
 
 /*
 *

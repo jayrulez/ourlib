@@ -31,7 +31,6 @@ using namespace std;
 */
 int main()
 {
-    Application _app;
-    Application *app = &_app;
+    Application *app = new Application();
     return app->run();
 }
