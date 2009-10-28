@@ -61,7 +61,7 @@ int Application::terminate()
 */
 int Application::run()
 {
-	while(this->getState())
+	while(this->getState()==true)
 	{
         for(int x=0;x<10;x++)
         {

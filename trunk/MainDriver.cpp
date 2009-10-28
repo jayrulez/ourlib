@@ -22,7 +22,6 @@
 #include "Magazine.h"
 #include "TextBook.h"
 */
-
 using namespace std;
 
 /*
