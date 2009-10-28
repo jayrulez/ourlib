@@ -45,6 +45,14 @@ int Application::terminate()
     return 0;
 }
 
+void Application::process()
+{
+    for(int x=0;x<10;x++)
+    {
+        cout << x << "\n";
+    }
+}
+
 /*
 * Starts the application
 * Application runs while @attribute Application::state is true
@@ -54,11 +62,18 @@ int Application::run()
 {
 	while(this->getState()==true)
 	{
-        for(int x=0;x<10;x++)
-        {
-            cout << x << "\n";
-        }
-        //this->setState(false);//break;
+	    /*
+	    * The application process
+	    */
+        this->process();
+
+        /*
+        * Sets @attribute Application::state to false
+        * Stops the loop from running again in order
+        * for method Application::terminate() to be returned
+        * after the loop
+        */
+        this->setState(false);
 	}
 	return this->terminate();
 }

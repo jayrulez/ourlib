@@ -10,6 +10,7 @@ public:
     ~Application();
     void setState(bool = true);
     bool getState();
+    void process();
     int terminate();
 	int run();
 };
