@@ -24,6 +24,11 @@
 
 using namespace std;
 
+/*
+* The entry point for the application.
+* Create Application Object
+* @Return @method Application::run
+*/
 int main()
 {
     Application _app;
