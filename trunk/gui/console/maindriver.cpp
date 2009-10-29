@@ -116,6 +116,8 @@ void menu_browser_op(item *iptr,media sound)
     DWORD AmtRead;
     scroller scr;
     hIn=GetStdHandle(STD_INPUT_HANDLE);
+    scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
+    scr.scroll();
     bool read=false;
     while(!read)
     {
@@ -128,20 +130,30 @@ void menu_browser_op(item *iptr,media sound)
                     switch(InRec.Event.KeyEvent.wVirtualKeyCode)
                     {
                         case VK_LEFT:
-                        sound.play("sound/button-15");
+                            sound.play("sound/button-15");
                         break;
                         case VK_RIGHT:
-                        sound.play("sound/button-15");
+                            sound.play("sound/button-15");
                         break;
                         case VK_UP:
-                        scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
-                        scr.scroll();
-                        sound.play("sound/button-15");
+                            pos=pos-1;
+                            if(pos<0)
+                            {
+                                pos=MAIN_SIZ-1;
+                            }
+                            sound.play("sound/button-15");
                         break;
                         case VK_DOWN:
-                        sound.play("sound/button-15");
+                            pos=pos+1;
+                            if(pos>MAIN_SIZ-1)
+                            {
+                                pos=0;
+                            }
+                            sound.play("sound/button-15");
                         break;
                     }
+                    scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
+                    scr.scroll();
                 }
             break;
         }

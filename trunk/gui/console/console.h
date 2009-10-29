@@ -13,6 +13,7 @@ class console
     public:
         console();
         ~console();
+        void clr_scr();
         void setColour(int);
         void xyCoord(int, int);
         void setCursor(bool,int);

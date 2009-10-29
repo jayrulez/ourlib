@@ -32,6 +32,7 @@
 		<Unit filename="maindriver.cpp" />
 		<Unit filename="media.cpp" />
 		<Unit filename="media.h" />
+		<Unit filename="menu.h" />
 		<Unit filename="screen.cpp" />
 		<Unit filename="screen.h" />
 		<Unit filename="scroller.cpp" />
