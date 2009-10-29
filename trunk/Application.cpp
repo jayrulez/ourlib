@@ -10,7 +10,8 @@ using namespace std;
 */
 Application::Application()
 {
-	this->setState();
+	if(!this->getState()==true)
+		this->setState(true);
 }
 
 /*
@@ -72,7 +73,8 @@ int Application::run()
 		* for method Application::terminate() to be returned
 		* after the loop
 		*/
-		this->setState(false);
+		if(this->getState()==true && this->reRun==false)
+			this->setState(false);
 	}
 	return this->terminate();
 }

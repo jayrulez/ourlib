@@ -4,7 +4,8 @@
 class Application
 {
 private:
-	bool state;
+	bool state = true;
+	bool reRun = false;
 public:
 	Application();
 	~Application();
