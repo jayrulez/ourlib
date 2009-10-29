@@ -2,5 +2,10 @@
 #include "Installer.h"
 #endif
 
-Installer::Installer() {}
-Installer::~Installer() {}
+Installer::Installer()
+{
+}
+
+Installer::~Installer()
+{
+}

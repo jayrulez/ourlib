@@ -5,10 +5,13 @@
 /*
 *
 */
-Date::Date() {
+Date::Date()
+{
 }
 
 /*
 *
 */
-Date::~Date() {}
+Date::~Date()
+{
+}

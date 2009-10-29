@@ -4,7 +4,7 @@
 class DBCommand
 {
 public:
-    DBCommand();
-    ~DBCommand();
+	DBCommand();
+	~DBCommand();
 };
 #endif

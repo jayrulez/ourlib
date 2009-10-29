@@ -5,9 +5,13 @@
 /*
 *
 */
-Magazine::Magazine() {}
+Magazine::Magazine()
+{
+}
 
 /*
 *
 */
-Magazine::~Magazine() {}
+Magazine::~Magazine()
+{
+}

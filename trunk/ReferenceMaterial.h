@@ -4,11 +4,11 @@
 class ReferenceMaterial
 {
 protected:
-    char* referenceNumber;
-    char* title;
-    char* author;
+	char* referenceNumber;
+	char* title;
+	char* author;
 public:
-    ReferenceMaterial();
-    ~ReferenceMaterial();
+	virtual ReferenceMaterial();
+	~ReferenceMaterial();
 };
 #endif

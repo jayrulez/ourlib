@@ -12,7 +12,7 @@ private:
 	Date requestDate;
 	char loanType;
 public:
-    Loan();
-    ~Loan();
+	Loan();
+	~Loan();
 };
 #endif

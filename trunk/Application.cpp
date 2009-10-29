@@ -8,14 +8,17 @@ using namespace std;
 /*
 * Sets @attribute Application::state to true upon instantiation
 */
-Application::Application() {
-    this->setState();
+Application::Application()
+{
+	this->setState();
 }
 
 /*
 * Destroys the Application Object
 */
-Application::~Application() {}
+Application::~Application()
+{
+}
 
 /*
 * Sets the state of the application
@@ -23,7 +26,7 @@ Application::~Application() {}
 */
 void Application::setState(bool state)
 {
-    this->state = state;
+	this->state = state;
 }
 
 /*
@@ -32,7 +35,7 @@ void Application::setState(bool state)
 */
 bool Application::getState()
 {
-   return this->state;
+	return this->state;
 }
 
 /*
@@ -41,16 +44,12 @@ bool Application::getState()
 */
 int Application::terminate()
 {
-    //delete this;
-    return 0;
+	return 0;
 }
 
 void Application::process()
 {
-    for(int x=0;x<10;x++)
-    {
-        cout << x << "\n";
-    }
+	cout << "Application Skeleton";
 }
 
 /*
@@ -62,18 +61,18 @@ int Application::run()
 {
 	while(this->getState()==true)
 	{
-	    /*
-	    * The application process
-	    */
-        this->process();
+		/*
+		* The application process
+		*/
+		this->process();
 
-        /*
-        * Sets @attribute Application::state to false
-        * Stops the loop from running again in order
-        * for method Application::terminate() to be returned
-        * after the loop
-        */
-        this->setState(false);
+		/*
+		* Sets @attribute Application::state to false
+		* Stops the loop from running again in order
+		* for method Application::terminate() to be returned
+		* after the loop
+		*/
+		this->setState(false);
 	}
 	return this->terminate();
 }

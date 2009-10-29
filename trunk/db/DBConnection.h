@@ -4,8 +4,8 @@
 class DBConnection
 {
 public:
-    DBConnection();
-    ~DBConnection();
+	DBConnection();
+	~DBConnection();
 };
 #endif
 

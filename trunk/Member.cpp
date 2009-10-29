@@ -5,9 +5,13 @@
 /*
 *
 */
-Member::Member() {}
+Member::Member()
+{
+}
 
 /*
 *
 */
-Member::~Member() {}
+Member::~Member()
+{
+}

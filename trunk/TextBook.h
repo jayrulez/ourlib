@@ -15,7 +15,7 @@ private:
 	char* publisher;
 	Date datePublished;
 public:
-    TextBook();
-    ~TextBook();
+	TextBook();
+	~TextBook();
 };
 #endif

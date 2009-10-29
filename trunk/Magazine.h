@@ -14,7 +14,7 @@ private:
 	char* issueTopic;
 	Date issueDate;
 public:
-    Magazine();
-    ~Magazine();
+	Magazine();
+	~Magazine();
 };
 #endif

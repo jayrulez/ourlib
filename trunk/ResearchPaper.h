@@ -7,11 +7,11 @@
 class ResearchPaper:public ReferenceMaterial
 {
 private:
-    char* researchTopic;
-    char* superVisor;
-    char* sponsor;
+	char* researchTopic;
+	char* superVisor;
+	char* sponsor;
 public:
-    ResearchPaper();
-    ~ResearchPaper();
+	ResearchPaper();
+	~ResearchPaper();
 };
 #endif

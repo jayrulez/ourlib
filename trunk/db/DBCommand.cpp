@@ -2,5 +2,10 @@
 #include "DBCommand.h"
 #endif
 
-DBCommand::DBCommand() {}
-DBCommand::~DBCommand() {}
+DBCommand::DBCommand()
+{
+}
+
+DBCommand::~DBCommand()
+{
+}

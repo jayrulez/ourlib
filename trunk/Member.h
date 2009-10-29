@@ -10,7 +10,7 @@ private:
 	char* address;
 	char* contactNumber;
 public:
-    Member();
-    ~Member();
+	Member();
+	~Member();
 };
 #endif

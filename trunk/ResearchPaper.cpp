@@ -5,9 +5,13 @@
 /*
 *
 */
-ResearchPaper::ResearchPaper() {}
+ResearchPaper::ResearchPaper()
+{
+}
 
 /*
 *
 */
-ResearchPaper::~ResearchPaper() {}
+ResearchPaper::~ResearchPaper()
+{
+}

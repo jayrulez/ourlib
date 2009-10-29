@@ -5,9 +5,13 @@
 /*
 *
 */
-ReferenceMaterial::ReferenceMaterial() {}
+ReferenceMaterial::ReferenceMaterial()
+{
+}
 
 /*
 *
 */
-ReferenceMaterial::~ReferenceMaterial() {}
+ReferenceMaterial::~ReferenceMaterial()
+{
+}

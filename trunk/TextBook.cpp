@@ -5,9 +5,13 @@
 /*
 *
 */
-TextBook::TextBook() {}
+TextBook::TextBook()
+{
+}
 
 /*
 *
 */
-TextBook::~TextBook() {}
+TextBook::~TextBook()
+{
+}

@@ -5,9 +5,13 @@
 /*
 *
 */
-Loan::Loan() {}
+Loan::Loan()
+{
+}
 
 /*
 *
 */
-Loan::~Loan() {}
+Loan::~Loan()
+{
+}

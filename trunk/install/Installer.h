@@ -4,10 +4,10 @@
 class Installer
 {
 private:
-    int state;
+	int state;
 public:
-    Installer();
-    ~Installer();
+	Installer();
+	~Installer();
 };
 #endif
 

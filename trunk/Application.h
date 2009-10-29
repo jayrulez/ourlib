@@ -6,12 +6,12 @@ class Application
 private:
 	bool state;
 public:
-    Application();
-    ~Application();
-    void setState(bool = true);
-    bool getState();
-    void process();
-    int terminate();
+	Application();
+	~Application();
+	void setState(bool = true);
+	bool getState();
+	void process();
+	int terminate();
 	int run();
 };
 #endif
