@@ -121,7 +121,7 @@
 1255803631 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\line.h
 	"console.h"
 
-1256790900 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\console.h
+1256791706 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\console.h
 	<windows.h>
 
 1255804121 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\frame.h
@@ -158,19 +158,19 @@
 1255663628 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\screen.h
 	"console.h"
 
-1256421082 source:c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\scroller.cpp
+1256793514 source:c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\scroller.cpp
 	<iostream>
 	"scroller.h"
 	"frame.h"
 
-1256420344 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\scroller.h
+1256793528 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\scroller.h
 	"frame.h"
 
 1256790352 source:c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\console.cpp
 	"console.h"
 	<windows.h>
 
-1256789213 source:c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\maindriver.cpp
+1256793349 source:c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\maindriver.cpp
 	<iostream>
 	"item.h"
 	"scroller.h"

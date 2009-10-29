@@ -22,10 +22,8 @@ int main()
     con.setCursor(false,50);
     main_menu_show(main_menu());
     menu_browser_op(main_menu(),sound);
-    //cout<<menu_y_range(main_menu(),6,_MIN)<<endl;;
     return 0;
 }
-
 item* main_menu()
 {
     static item MainItem[6];
@@ -153,8 +151,7 @@ void menu_browser_op(item *iptr,media sound)
                             sound.play("sound/button-15");
                         break;
                     }
-                    con.clrscr();
-                    main_menu_show(main_menu());
+                    scr.killScroll();
                     scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
                     scr.scroll();
                 }

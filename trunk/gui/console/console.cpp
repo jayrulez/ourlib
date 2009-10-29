@@ -30,7 +30,7 @@ void console::setColour(int c)
     colour=c;
 }
 
-void console::clrscr()
+void console::clearScreen()
 {
   DWORD n;                         /* Number of characters written */
   DWORD size;                      /* number of visible characters */

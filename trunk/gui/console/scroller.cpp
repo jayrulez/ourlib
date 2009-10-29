@@ -21,6 +21,13 @@ bool scroller::setScroller(int x,int y,int len)
 }
 void scroller::scroll()
 {
+    console_scroller.setColour(0);
+    frame_scroller.setFrame(itemX-1,itemX+lenght,itemY-1,itemY+1);
+    frame_scroller.sFraming();
+}
+void scroller::killScroll()
+{
+    console_scroller.setColour(0);
     frame_scroller.setFrame(itemX-1,itemX+lenght,itemY-1,itemY+1);
     frame_scroller.sFraming();
 }
