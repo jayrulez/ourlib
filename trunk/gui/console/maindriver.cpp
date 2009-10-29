@@ -115,6 +115,7 @@ void menu_browser_op(item *iptr,media sound)
     INPUT_RECORD InRec;
     DWORD AmtRead;
     scroller scr;
+    console con;
     hIn=GetStdHandle(STD_INPUT_HANDLE);
     scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
     scr.scroll();
@@ -152,6 +153,8 @@ void menu_browser_op(item *iptr,media sound)
                             sound.play("sound/button-15");
                         break;
                     }
+                    con.clrscr();
+                    main_menu_show(main_menu());
                     scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
                     scr.scroll();
                 }
