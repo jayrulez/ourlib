@@ -1,4 +1,5 @@
 #include "Application.h"
+//#include "install/Installer.h"
 
 /*
 * The entry point for the application.
@@ -7,6 +8,11 @@
 */
 int main()
 {
+	/*
+	Installer *ins = new Installer();
+	if(ins->checkInstall()==false)
+		ins->invoke();
+	*/
 	Application *app = new Application();
 	return app->run();
 }
