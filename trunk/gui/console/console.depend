@@ -1,0 +1,114 @@
+# depslib dependency file v1.0
+1255803896 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\line.cpp
+	<iostream>
+	"console.h"
+	"line.h"
+
+1256701005 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\console.h
+	<windows.h>
+
+1255803631 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\line.h
+	"console.h"
+
+1256767060 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\maindriver.cpp
+	<iostream>
+	"item.h"
+	"scroller.h"
+	"windows.h"
+	"console.h"
+	"media.h"
+
+1255663628 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\screen.h
+	"console.h"
+
+1255804121 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\frame.h
+	"line.h"
+	"console.h"
+
+1255663635 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\screen.cpp
+	<iostream>
+	"screen.h"
+	"console.h"
+
+1256701023 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\console.cpp
+	"console.h"
+	<windows.h>
+
+1255804468 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\frame.cpp
+	<iostream>
+	"line.h"
+	"console.h"
+	"frame.h"
+
+1256697124 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\item.cpp
+	<iostream>
+	"item.h"
+	"console.h"
+	<string>
+
+1256768209 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\item.h
+	"console.h"
+
+1255745036 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\item.h
+	"console.h"
+
+1255673467 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\line.h
+	"console.h"
+
+1255743705 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\media.cpp
+	<iostream>
+	<windows.h>
+	<mmsystem.h>
+	"media.h"
+
+1255743639 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\media.h
+
+1256388106 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\menu.cpp
+	<iostream>
+	"menu.h"
+
+1255797610 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\scoller.cpp
+
+1256421082 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\scroller.cpp
+	<iostream>
+	"scroller.h"
+	"frame.h"
+
+1256420344 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\scroller.h
+	"frame.h"
+
+1256410813 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\mainmenu.cpp
+	<iostream>
+	"mainmenu.h"
+	"menu.h"
+	"item.h"
+
+1256414634 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\mainmenu.h
+	"menu.h"
+	"item.h"
+	"add.h"
+
+1256388079 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\menu.h
+
+1256420389 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\add.cpp
+	<iostream>
+	"add.h"
+	"item.h"
+	"console.h"
+	<string>
+
+1256420396 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\add.h
+	"item.h"
+	"console.h"
+
+1256445910 source:c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\edit.cpp
+	<iostream>
+	"edit.h"
+	"item.h"
+	"console.h"
+	<string>
+
+1256447174 c:\documents and settings\_-_dj-d_-_\my documents\c++ practice\console\console\edit.h
+	"item.h"
+	"console.h"
+
