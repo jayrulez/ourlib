@@ -8,7 +8,7 @@ protected:
 	char* title;
 	char* author;
 public:
-	virtual ReferenceMaterial();
+	ReferenceMaterial();
 	~ReferenceMaterial();
 };
 #endif
