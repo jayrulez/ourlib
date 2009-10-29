@@ -12,6 +12,8 @@ Application::Application()
 {
 	if(!this->getState()==true)
 		this->setState(true);
+	if(this->reRun==true)
+		this->reRun = false;
 }
 
 /*
@@ -68,6 +70,8 @@ int Application::run()
 		this->process();
 
 		/*
+		* If @attribute Application::state is true and
+		* @attribute Application::reRun is set to false
 		* Sets @attribute Application::state to false
 		* Stops the loop from running again in order
 		* for method Application::terminate() to be returned
