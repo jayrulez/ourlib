@@ -10,10 +10,8 @@ using namespace std;
 */
 Application::Application()
 {
-	if(!this->getState()==true)
-		this->setState(true);
-	if(this->reRun==true)
-		this->reRun = false;
+	this->setState(true);
+	this->reRun = false;
 }
 
 /*
