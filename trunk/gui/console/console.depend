@@ -158,12 +158,12 @@
 1255663628 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\screen.h
 	"console.h"
 
-1256793514 source:c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\scroller.cpp
+1256795509 source:c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\scroller.cpp
 	<iostream>
 	"scroller.h"
 	"frame.h"
 
-1256793528 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\scroller.h
+1256795522 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\scroller.h
 	"frame.h"
 
 1256793568 source:c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\console.cpp

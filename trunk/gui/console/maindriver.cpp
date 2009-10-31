@@ -10,21 +10,21 @@
 
 using namespace std;
 
-item* main_menu();
-void menu_browser_op(item*,media);
-void main_menu_show(item*);
-int menu_y_range(item*,int,int);
-int menu_x_range(item*,int,int);
+item* MainMenu();
+void MenuBrowserOperator(item*,media);
+void MainMenuShow(item*);
+int MainMenuRangeY(item*,int,int);
+int MainMenuRangeX(item*,int,int);
 int main()
 {
     media sound;
     console con;
     con.setCursor(false,50);
-    main_menu_show(main_menu());
-    menu_browser_op(main_menu(),sound);
+    MainMenuShow(MainMenu());
+    MenuBrowserOperator(MainMenu(),sound);
     return 0;
 }
-item* main_menu()
+item* MainMenu()
 {
     static item MainItem[6];
     MainItem[0].setItem(36,4,ADD,"ADD");
@@ -35,7 +35,7 @@ item* main_menu()
     MainItem[5].setItem(35,19,EXIT,"EXIT");
     return &MainItem[0];
 }
-void main_menu_show(item *iptr)
+void MainMenuShow(item *iptr)
 {
     int x;
     for (x=0;x<6;x++)
@@ -44,7 +44,7 @@ void main_menu_show(item *iptr)
     }
 }
 
-int menu_y_range(item *iptr,int size,int type)
+int MainMenuRangeY(item *iptr,int size,int type)
 {
 	int max;
 	int min;
@@ -75,7 +75,7 @@ int menu_y_range(item *iptr,int size,int type)
 	cout<<"Incorrect Type recieved"<<endl;
 	return 0;
 }
-int menu_x_range(item *iptr,int size,int type)
+int MainMenuRangeX(item *iptr,int size,int type)
 {
 	int max;
 	int min;
@@ -106,7 +106,7 @@ int menu_x_range(item *iptr,int size,int type)
 	cout<<"Incorrect Type recieved"<<endl;
 	return 0;
 }
-void menu_browser_op(item *iptr,media sound)
+void MenuBrowserOperator(item *iptr,media sound)
 {
     static int pos=0;
     HANDLE hIn;

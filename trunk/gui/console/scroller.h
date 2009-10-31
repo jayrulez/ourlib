@@ -8,8 +8,8 @@ private:
     int itemX;
     int itemY;
     int lenght;
-    frame frame_scroller;
-    console console_scroller;
+    frame frameScroller;
+    console consoleScroller;
 public:
     scroller();
     ~scroller();

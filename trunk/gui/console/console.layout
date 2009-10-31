@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="console.cpp" open="1" top="0" tabpos="3">
+	<File name="console.cpp" open="0" top="0" tabpos="3">
 		<Cursor position="671" topLine="22" />
 	</File>
-	<File name="console.h" open="1" top="0" tabpos="2">
+	<File name="console.h" open="0" top="0" tabpos="2">
 		<Cursor position="334" topLine="0" />
 	</File>
-	<File name="frame.cpp" open="1" top="0" tabpos="6">
+	<File name="frame.cpp" open="0" top="0" tabpos="6">
 		<Cursor position="273" topLine="0" />
 	</File>
-	<File name="frame.h" open="1" top="0" tabpos="7">
-		<Cursor position="231" topLine="3" />
+	<File name="frame.h" open="0" top="0" tabpos="7">
+		<Cursor position="229" topLine="0" />
 	</File>
 	<File name="item.cpp" open="0" top="0" tabpos="3">
 		<Cursor position="214" topLine="0" />
@@ -25,8 +25,8 @@
 	<File name="line.h" open="0" top="0" tabpos="1">
 		<Cursor position="288" topLine="0" />
 	</File>
-	<File name="maindriver.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="3654" topLine="133" />
+	<File name="maindriver.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="3439" topLine="134" />
 	</File>
 	<File name="media.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="0" topLine="0" />
@@ -37,10 +37,10 @@
 	<File name="screen.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="256" topLine="0" />
 	</File>
-	<File name="scroller.cpp" open="1" top="1" tabpos="5">
-		<Cursor position="443" topLine="9" />
+	<File name="scroller.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="407" topLine="0" />
 	</File>
-	<File name="scroller.h" open="1" top="0" tabpos="4">
-		<Cursor position="214" topLine="0" />
+	<File name="scroller.h" open="0" top="0" tabpos="4">
+		<Cursor position="204" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
