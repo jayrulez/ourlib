@@ -1,11 +1,21 @@
 # depslib dependency file v1.0
-1256788625 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
+1257155002 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
 	<iostream>
+	"windows.h"
 	"Application.h"
+	"gui/console/console.h"
+	"gui/console/frame.h"
+	"gui/console/line.h"
+	"gui/console/item.h"
+	"gui/console/media.h"
+	"gui/console/menu.h"
+	"gui/console/scroller.h"
 
-1256802118 c:\documents and settings\carlington wilmot\my documents\ourlib\application.h
+1257156602 c:\documents and settings\carlington wilmot\my documents\ourlib\application.h
+	"gui/console/item.h"
+	"gui/console/media.h"
 
-1256788152 source:c:\documents and settings\carlington wilmot\my documents\ourlib\date.cpp
+1257137026 source:c:\documents and settings\carlington wilmot\my documents\ourlib\date.cpp
 	"Date.h"
 
 1256788133 c:\documents and settings\carlington wilmot\my documents\ourlib\date.h
@@ -61,6 +71,96 @@
 
 1256787999 c:\documents and settings\carlington wilmot\my documents\ourlib\install\installer.h
 
-1256788286 source:c:\documents and settings\carlington wilmot\my documents\ourlib\maindriver.cpp
+1257155605 source:c:\documents and settings\carlington wilmot\my documents\ourlib\maindriver.cpp
 	"Application.h"
+
+1256881126 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.h
+	<windows.h>
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\frame.h
+	"line.h"
+	"console.h"
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\line.h
+	"console.h"
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.h
+	"console.h"
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.h
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\menu.h
+
+1256984639 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\scroller.h
+	"frame.h"
+
+1256881126 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.cpp
+	"console.h"
+	<windows.h>
+
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\frame.cpp
+	<iostream>
+	"line.h"
+	"console.h"
+	"frame.h"
+
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.cpp
+	<iostream>
+	"item.h"
+	"console.h"
+	<string>
+
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\line.cpp
+	<iostream>
+	"console.h"
+	"line.h"
+
+1256984639 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\maindriver.cpp
+	<iostream>
+	"item.h"
+	"scroller.h"
+	"windows.h"
+	"console.h"
+	"media.h"
+	"menu.h"
+
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.cpp
+	<iostream>
+	<windows.h>
+	<mmsystem.h>
+	"media.h"
+
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\screen.cpp
+	<iostream>
+	"screen.h"
+	"console.h"
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\screen.h
+	"console.h"
+
+1256984639 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\scroller.cpp
+	<iostream>
+	"scroller.h"
+	"frame.h"
+
+1257137899 source:c:\documents and settings\carlington wilmot\my documents\ourlib\model\model.cpp
+	"Model.h"
+
+1257155802 c:\documents and settings\carlington wilmot\my documents\ourlib\model\model.h
+	"driver/file/File.h"
+
+1257137354 c:\documents and settings\carlington wilmot\my documents\ourlib\model\driver\file\file.h
+
+1257137096 source:c:\documents and settings\carlington wilmot\my documents\ourlib\model\driver\db\dbcommand.cpp
+	"DBCommand.h"
+
+1257137096 c:\documents and settings\carlington wilmot\my documents\ourlib\model\driver\db\dbcommand.h
+
+1257137096 source:c:\documents and settings\carlington wilmot\my documents\ourlib\model\driver\db\dbconnection.cpp
+	"DBConnection.h"
+
+1257137096 c:\documents and settings\carlington wilmot\my documents\ourlib\model\driver\db\dbconnection.h
+
+1257137383 source:c:\documents and settings\carlington wilmot\my documents\ourlib\model\driver\file\file.cpp
+	"File.h"
 
