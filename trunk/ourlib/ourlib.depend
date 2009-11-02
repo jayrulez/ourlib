@@ -1,0 +1,66 @@
+# depslib dependency file v1.0
+1256788625 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
+	<iostream>
+	"Application.h"
+
+1256802118 c:\documents and settings\carlington wilmot\my documents\ourlib\application.h
+
+1256788152 source:c:\documents and settings\carlington wilmot\my documents\ourlib\date.cpp
+	"Date.h"
+
+1256788133 c:\documents and settings\carlington wilmot\my documents\ourlib\date.h
+
+1256788061 source:c:\documents and settings\carlington wilmot\my documents\ourlib\loan.cpp
+	"Loan.h"
+
+1256788045 c:\documents and settings\carlington wilmot\my documents\ourlib\loan.h
+	"Date.h"
+
+1256788206 source:c:\documents and settings\carlington wilmot\my documents\ourlib\magazine.cpp
+	"Magazine.h"
+
+1256788231 c:\documents and settings\carlington wilmot\my documents\ourlib\magazine.h
+	"Referencematerial.h"
+	"Date.h"
+
+1256788779 c:\documents and settings\carlington wilmot\my documents\ourlib\referencematerial.h
+
+1256788298 source:c:\documents and settings\carlington wilmot\my documents\ourlib\member.cpp
+	"Member.h"
+
+1256788329 c:\documents and settings\carlington wilmot\my documents\ourlib\member.h
+
+1256788344 source:c:\documents and settings\carlington wilmot\my documents\ourlib\referencematerial.cpp
+	"ReferenceMaterial.h"
+
+1256788398 source:c:\documents and settings\carlington wilmot\my documents\ourlib\researchpaper.cpp
+	"ResearchPaper.h"
+
+1256788421 c:\documents and settings\carlington wilmot\my documents\ourlib\researchpaper.h
+	"Referencematerial.h"
+
+1256788434 source:c:\documents and settings\carlington wilmot\my documents\ourlib\textbook.cpp
+	"TextBook.h"
+
+1256788463 c:\documents and settings\carlington wilmot\my documents\ourlib\textbook.h
+	"Referencematerial.h"
+	"Date.h"
+
+1256787931 source:c:\documents and settings\carlington wilmot\my documents\ourlib\db\dbcommand.cpp
+	"DBCommand.h"
+
+1256787980 c:\documents and settings\carlington wilmot\my documents\ourlib\db\dbcommand.h
+
+1256787965 source:c:\documents and settings\carlington wilmot\my documents\ourlib\db\dbconnection.cpp
+	"DBConnection.h"
+
+1256787949 c:\documents and settings\carlington wilmot\my documents\ourlib\db\dbconnection.h
+
+1256788015 source:c:\documents and settings\carlington wilmot\my documents\ourlib\install\installer.cpp
+	"Installer.h"
+
+1256787999 c:\documents and settings\carlington wilmot\my documents\ourlib\install\installer.h
+
+1256788286 source:c:\documents and settings\carlington wilmot\my documents\ourlib\maindriver.cpp
+	"Application.h"
+

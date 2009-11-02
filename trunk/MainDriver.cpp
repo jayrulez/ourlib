@@ -1,6 +1,8 @@
 #include "Application.h"
 //#include "install/Installer.h"
 
+#deine _MODEL_DRIVER "file"
+
 /*
 * The entry point for the application.
 * Create Application Object
