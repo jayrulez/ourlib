@@ -37,12 +37,39 @@
 		<Unit filename="..\ResearchPaper.h" />
 		<Unit filename="..\TextBook.cpp" />
 		<Unit filename="..\TextBook.h" />
-		<Unit filename="..\db\DBCommand.cpp" />
-		<Unit filename="..\db\DBCommand.h" />
-		<Unit filename="..\db\DBConnection.cpp" />
-		<Unit filename="..\db\DBConnection.h" />
+		<Unit filename="..\gui\console\bin\Debug\console.exe" />
+		<Unit filename="..\gui\console\console.cpp" />
+		<Unit filename="..\gui\console\console.depend" />
+		<Unit filename="..\gui\console\console.h" />
+		<Unit filename="..\gui\console\console.layout" />
+		<Unit filename="..\gui\console\frame.cpp" />
+		<Unit filename="..\gui\console\frame.h" />
+		<Unit filename="..\gui\console\item.cpp" />
+		<Unit filename="..\gui\console\item.h" />
+		<Unit filename="..\gui\console\line.cpp" />
+		<Unit filename="..\gui\console\line.h" />
+		<Unit filename="..\gui\console\media.cpp" />
+		<Unit filename="..\gui\console\media.h" />
+		<Unit filename="..\gui\console\menu.h" />
+		<Unit filename="..\gui\console\readme.txt" />
+		<Unit filename="..\gui\console\screen.cpp" />
+		<Unit filename="..\gui\console\screen.h" />
+		<Unit filename="..\gui\console\scroller.cpp" />
+		<Unit filename="..\gui\console\scroller.h" />
+		<Unit filename="..\gui\console\sound\button-15.wav" />
+		<Unit filename="..\gui\console\sound\button-21.wav" />
+		<Unit filename="..\gui\console\sound\button-23.wav" />
+		<Unit filename="..\gui\console\sound\button-28.wav" />
 		<Unit filename="..\install\Installer.cpp" />
 		<Unit filename="..\install\Installer.h" />
+		<Unit filename="..\model\Model.cpp" />
+		<Unit filename="..\model\Model.h" />
+		<Unit filename="..\model\driver\db\DBCommand.cpp" />
+		<Unit filename="..\model\driver\db\DBCommand.h" />
+		<Unit filename="..\model\driver\db\DBConnection.cpp" />
+		<Unit filename="..\model\driver\db\DBConnection.h" />
+		<Unit filename="..\model\driver\file\File.cpp" />
+		<Unit filename="..\model\driver\file\File.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

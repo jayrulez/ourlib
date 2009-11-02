@@ -2,10 +2,10 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="..\Application.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="1320" topLine="55" />
+		<Cursor position="4031" topLine="195" />
 	</File>
 	<File name="..\Application.h" open="1" top="0" tabpos="3">
-		<Cursor position="107" topLine="0" />
+		<Cursor position="147" topLine="2" />
 	</File>
 	<File name="..\Date.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="322" topLine="0" />
@@ -26,7 +26,7 @@
 		<Cursor position="231" topLine="0" />
 	</File>
 	<File name="..\MainDriver.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="222" topLine="0" />
+		<Cursor position="103" topLine="0" />
 	</File>
 	<File name="..\Member.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="342" topLine="0" />
@@ -52,16 +52,7 @@
 	<File name="..\TextBook.h" open="0" top="0" tabpos="0">
 		<Cursor position="402" topLine="0" />
 	</File>
-	<File name="..\db\DBCommand.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="231" topLine="0" />
-	</File>
-	<File name="..\db\DBCommand.h" open="0" top="0" tabpos="0">
-		<Cursor position="231" topLine="0" />
-	</File>
-	<File name="..\db\DBConnection.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="231" topLine="0" />
-	</File>
-	<File name="..\db\DBConnection.h" open="0" top="0" tabpos="0">
-		<Cursor position="231" topLine="0" />
+	<File name="..\model\Model.h" open="1" top="0" tabpos="4">
+		<Cursor position="131" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

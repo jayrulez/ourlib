@@ -181,3 +181,72 @@
 
 1256768209 c:\documents and settings\_-_dj-d_-_\my documents\oop\gui\console\menu.h
 
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\frame.cpp
+	<iostream>
+	"line.h"
+	"console.h"
+	"frame.h"
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\line.h
+	"console.h"
+
+1256881126 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.h
+	<windows.h>
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\frame.h
+	"line.h"
+	"console.h"
+
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.cpp
+	<iostream>
+	"item.h"
+	"console.h"
+	<string>
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.h
+	"console.h"
+
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\line.cpp
+	<iostream>
+	"console.h"
+	"line.h"
+
+1256984639 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\maindriver.cpp
+	<iostream>
+	"item.h"
+	"scroller.h"
+	"windows.h"
+	"console.h"
+	"media.h"
+	"menu.h"
+
+1256984639 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\scroller.h
+	"frame.h"
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.h
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\menu.h
+
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.cpp
+	<iostream>
+	<windows.h>
+	<mmsystem.h>
+	"media.h"
+
+1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\screen.cpp
+	<iostream>
+	"screen.h"
+	"console.h"
+
+1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\screen.h
+	"console.h"
+
+1256984639 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\scroller.cpp
+	<iostream>
+	"scroller.h"
+	"frame.h"
+
+1256881126 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.cpp
+	"console.h"
+	<windows.h>
+

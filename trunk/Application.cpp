@@ -200,10 +200,10 @@ void Application::menuBrowserOperator(item *iptr,media sound)
                     switch(InRec.Event.KeyEvent.wVirtualKeyCode)
                     {
                         case VK_LEFT:
-                            sound.play("sound/button-15");
+                            sound.play("./gui/console/sound/button-15");
                         break;
                         case VK_RIGHT:
-                            sound.play("sound/button-15");
+                            sound.play("./gui/console/sound/button-15");
                         break;
                         case VK_UP:
                             pos=pos-1;
@@ -211,7 +211,7 @@ void Application::menuBrowserOperator(item *iptr,media sound)
                             {
                                 pos=MAIN_SIZ-1;
                             }
-                            sound.play("sound/button-15");
+                            sound.play("./gui/console/sound/button-15");
                         break;
                         case VK_DOWN:
                             pos=pos+1;
@@ -219,7 +219,7 @@ void Application::menuBrowserOperator(item *iptr,media sound)
                             {
                                 pos=0;
                             }
-                            sound.play("sound/button-15");
+                            sound.play("./gui/console/sound/button-15");
                         break;
                     }
                     scr.killScroll();
