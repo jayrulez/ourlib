@@ -24,6 +24,9 @@
 #ifndef SCROLLER_H
 #include "gui/console/scroller.h"
 #endif
+#ifndef _APPLICATIONEXCEPTION_H
+#include "ApplicationException.h"
+#endif
 #define _MAX 1
 #define _MIN 2
 
@@ -34,6 +37,7 @@ using namespace std;
 */
 Application::Application()
 {
+	this->error=new ApplicationException;
 	this->setState(true);
 	this->reRun = false;
 }
