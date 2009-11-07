@@ -11,5 +11,5 @@ media::~media()
 }
 void media::play(char* f)
 {
-    PlaySound(f,NULL,SND_SYNC);
+    PlaySound(f,NULL,SND_SYNC|SND_NOWAIT);
 }
