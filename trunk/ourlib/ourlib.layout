@@ -2,10 +2,10 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="..\Application.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="5178" topLine="16" />
+		<Cursor position="740" topLine="12" />
 	</File>
-	<File name="..\Application.h" open="0" top="0" tabpos="3">
-		<Cursor position="491" topLine="0" />
+	<File name="..\Application.h" open="1" top="0" tabpos="3">
+		<Cursor position="296" topLine="5" />
 	</File>
 	<File name="..\Date.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="322" topLine="0" />
@@ -25,8 +25,8 @@
 	<File name="..\Magazine.h" open="0" top="0" tabpos="0">
 		<Cursor position="231" topLine="0" />
 	</File>
-	<File name="..\MainDriver.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="103" topLine="0" />
+	<File name="..\MainDriver.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="156" topLine="0" />
 	</File>
 	<File name="..\Member.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="342" topLine="0" />
@@ -52,7 +52,7 @@
 	<File name="..\TextBook.h" open="0" top="0" tabpos="0">
 		<Cursor position="402" topLine="0" />
 	</File>
-	<File name="..\model\Model.h" open="0" top="0" tabpos="4">
-		<Cursor position="253" topLine="0" />
+	<File name="..\model\Model.h" open="1" top="0" tabpos="4">
+		<Cursor position="131" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
