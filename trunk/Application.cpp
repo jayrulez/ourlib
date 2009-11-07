@@ -217,7 +217,7 @@ void Application::menuBrowserOperator(item *iptr,media *sound)
                             scr.killScroll();
                             scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
                             scr.scroll();
-                            //sound->play("./gui/console/sound/button-15");
+                            sound->play("./gui/console/sound/button-15");
                         break;
                         case VK_DOWN:
                             pos=pos+1;
@@ -228,7 +228,7 @@ void Application::menuBrowserOperator(item *iptr,media *sound)
                             scr.killScroll();
                             scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
                             scr.scroll();
-                            //sound->play("./gui/console/sound/button-15");
+                            sound->play("./gui/console/sound/button-15");
                         break;
                     }
                 }
