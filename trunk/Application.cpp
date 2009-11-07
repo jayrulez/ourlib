@@ -37,7 +37,6 @@ using namespace std;
 */
 Application::Application()
 {
-	this->error=new ApplicationException;
 	this->setState(true);
 	this->reRun = false;
 }

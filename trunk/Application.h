@@ -15,11 +15,9 @@ class Application
 private:
 	bool state;
 	bool reRun;
-	ApplicationException *error;
 public:
 	Application();
 	~Application();
-	//ApplicationException *error;
 	void setState(bool = true);
 	bool getState();
 	void process();

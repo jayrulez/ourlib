@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1257155002 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
+1257635155 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
 	<iostream>
 	"windows.h"
 	"Application.h"
@@ -10,10 +10,12 @@
 	"gui/console/media.h"
 	"gui/console/menu.h"
 	"gui/console/scroller.h"
+	"ApplicationException.h"
 
-1257158826 c:\documents and settings\carlington wilmot\my documents\ourlib\application.h
+1257637486 c:\documents and settings\carlington wilmot\my documents\ourlib\application.h
 	"gui/console/item.h"
 	"gui/console/media.h"
+	"ApplicationException.h"
 
 1257137026 source:c:\documents and settings\carlington wilmot\my documents\ourlib\date.cpp
 	"Date.h"
@@ -124,7 +126,7 @@
 	"media.h"
 	"menu.h"
 
-1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.cpp
+1257636998 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.cpp
 	<iostream>
 	<windows.h>
 	<mmsystem.h>
@@ -163,4 +165,7 @@
 
 1257137383 source:c:\documents and settings\carlington wilmot\my documents\ourlib\model\driver\file\file.cpp
 	"File.h"
+
+1257637367 c:\documents and settings\carlington wilmot\my documents\ourlib\applicationexception.h
+	<iostream>
 
