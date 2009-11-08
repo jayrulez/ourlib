@@ -24,7 +24,7 @@ public:
 	void welcome();
 	void main();
 	item* mainMenu();
-	void menuBrowserOperator(item*,media*);
+	int menuBrowserOperator(item*,media*);
 	void mainMenuShow(item*);
 	int mainMenuRangeY(item*,int,int);
 	int mainMenuRangeX(item*,int,int);

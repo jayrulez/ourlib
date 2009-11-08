@@ -180,7 +180,7 @@ int Application::mainMenuRangeX(item *iptr,int size,int type)
 	return 0;
 }
 
-void Application::menuBrowserOperator(item *iptr,media *sound)
+int Application::menuBrowserOperator(item *iptr,media *sound)
 {
     static int pos=0;
     HANDLE hIn;
@@ -230,11 +230,15 @@ void Application::menuBrowserOperator(item *iptr,media *sound)
                             scr.scroll();
                             sound->play("sound/button-15.wav");
                         break;
+                        case VK_RETURN:
+                            return iptr->getCode();
+                        break;
                     }
                 }
             break;
         }
     }
+    return 0;
 }
 
 /*
