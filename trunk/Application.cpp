@@ -27,8 +27,8 @@
 #ifndef _APPLICATIONEXCEPTION_H
 #include "ApplicationException.h"
 #endif
-#define _MAX 1
-#define _MIN 2
+#define _MAX 2
+#define _MIN 1
 
 using namespace std;
 
