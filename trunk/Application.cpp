@@ -94,7 +94,10 @@ void Application::main()
     this->mainMenuShow(this->mainMenu());
     this->menuBrowserOperator(this->mainMenu(),sound);
 }
-
+/*
+* This function creates the items for the main menu
+* and returns the address of its 1st element;
+*/
 item* Application::mainMenu()
 {
     static item MainItem[6];
@@ -106,7 +109,9 @@ item* Application::mainMenu()
     MainItem[5].setItem(35,19,EXIT,"EXIT");
     return &MainItem[0];
 }
-
+/*
+* This functions display the contents for the main menu
+*/
 void Application::mainMenuShow(item *iptr)
 {
     int x;
@@ -115,7 +120,9 @@ void Application::mainMenuShow(item *iptr)
         (iptr+x)->born();
     }
 }
-
+/*
+* This function is used to return the vertical range of any menu
+*/
 int Application::mainMenuRangeY(item *iptr,int size,int type)
 {
 	int max;
@@ -147,7 +154,9 @@ int Application::mainMenuRangeY(item *iptr,int size,int type)
 	cout<<"Incorrect Type recieved"<<endl;
 	return 0;
 }
-
+/*
+* This function is used to return the horizontal range of any menu
+*/
 int Application::mainMenuRangeX(item *iptr,int size,int type)
 {
 	int max;
@@ -179,35 +188,79 @@ int Application::mainMenuRangeX(item *iptr,int size,int type)
 	cout<<"Incorrect Type recieved"<<endl;
 	return 0;
 }
-
+/*
+* This is the heart of the menu operations. This function controls
+* the scrolling and selection of different menu items
+*/
 int Application::menuBrowserOperator(item *iptr,media *sound)
 {
     static int pos=0;
+    /*
+    * instantiating an handle data type
+    * that will be able to store input handles
+    */
     HANDLE hIn;
+    /*
+    * structure that stores information on the various
+    * types of console inputs
+    */
     INPUT_RECORD InRec;
+    /*
+    * will be used to store the amount of event read
+    */
     DWORD AmtRead;
     scroller scr;
     console con;
+    /*
+    * gets the console input handle and stores it
+    */
     hIn=GetStdHandle(STD_INPUT_HANDLE);
-    scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
+    /*
+    * initialises the scroller's position(top of the menu)
+    */
+    scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),
+    (iptr+pos)->getItemLenght());
     scr.scroll();
     bool read=false;
     while(!read)
     {
+        /*
+        * This funtion reads the console input, both
+        * keyboard and mouse
+        */
         ReadConsoleInput(hIn,&InRec,1,&AmtRead);
+        /*
+        * case used to render the type of input,
+        * wether KEY or MOUSE
+        */
         switch(InRec.EventType)
         {
             case KEY_EVENT:
+                /*
+                * checks for a key being pressed
+                * (going down)
+                */
                 if(InRec.Event.KeyEvent.bKeyDown)
                 {
+                    /*
+                    * filters the type of key being pressed
+                    */
                     switch(InRec.Event.KeyEvent.wVirtualKeyCode)
                     {
+                        /*
+                        * Left arrow key
+                        */
                         case VK_LEFT:
-                            //sound->play("./gui/console/sound/button-15");
                         break;
+                        /*
+                        * Right arrow key
+                        */
                         case VK_RIGHT:
-                            //sound->play("./gui/console/sound/button-15");
+
                         break;
+                        /*
+                        * Up arrow key
+                        */
                         case VK_UP:
                             pos=pos-1;
                             if(pos<0)
@@ -215,10 +268,14 @@ int Application::menuBrowserOperator(item *iptr,media *sound)
                                 pos=MAIN_SIZ-1;
                             }
                             scr.killScroll();
-                            scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
+                            scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),
+                            (iptr+pos)->getItemLenght());
                             scr.scroll();
                             sound->play("sound/button-15.wav");
                         break;
+                        /*
+                        * Down arrow key
+                        */
                         case VK_DOWN:
                             pos=pos+1;
                             if(pos>MAIN_SIZ-1)
@@ -226,10 +283,14 @@ int Application::menuBrowserOperator(item *iptr,media *sound)
                                 pos=0;
                             }
                             scr.killScroll();
-                            scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),(iptr+pos)->getItemLenght());
+                            scr.setScroller((iptr+pos)->getItemX(),(iptr+pos)->getItemY(),
+                            (iptr+pos)->getItemLenght());
                             scr.scroll();
                             sound->play("sound/button-15.wav");
                         break;
+                        /*
+                        * Enter key
+                        */
                         case VK_RETURN:
                             return iptr->getCode();
                         break;
