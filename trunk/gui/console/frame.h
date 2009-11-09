@@ -37,7 +37,8 @@ private:
 	console frame_console;
 	line frame_line;
 public:
-    frame(int h1=0,int h2=0,int v1=0,int v2=0);
+    frame();
+    frame(int,int,int,int,bool);
     ~frame();
     bool setFrame(int,int,int,int,bool);
     void dFraming();

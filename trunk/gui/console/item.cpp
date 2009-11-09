@@ -3,6 +3,12 @@
 #include "console.h"
 #include <string>
 using namespace std;
+item::item()
+{
+    x=0;
+    y=0;
+    code=0;
+}
 item::item(char* nm,int x1, int y1,int c)
 {
 

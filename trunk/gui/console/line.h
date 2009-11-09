@@ -17,7 +17,8 @@ class line
         const int ySChar;
         console console_line;
     public:
-        line(int x1=0,int x2=0,int xy=0,int y1=0,int y2=0,int yx=0);
+        line();
+        line(int,int,int,int,int,int);
         ~line();
         bool setHCoord(int,int,int);
         bool setVCoord(int,int,int);

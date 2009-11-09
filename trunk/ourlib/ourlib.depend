@@ -197,7 +197,7 @@
 	"gui/console/media.h"
 	"ApplicationException.h"
 
-1257746145 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.h
+1257805861 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.h
 	"console.h"
 
 1257744275 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.h
@@ -233,26 +233,26 @@
 	"console.h"
 	<windows.h>
 
-1257743700 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\frame.cpp
+1257806017 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\frame.cpp
 	<iostream>
 	"line.h"
 	"console.h"
 	"frame.h"
 
-1257745895 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\line.h
+1257806251 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\line.h
 	"console.h"
 
-1257745668 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\frame.h
+1257804340 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\frame.h
 	"line.h"
 	"console.h"
 
-1257717014 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.cpp
+1257805965 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.cpp
 	<iostream>
 	"item.h"
 	"console.h"
 	<string>
 
-1257717014 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\line.cpp
+1257806316 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\line.cpp
 	<iostream>
 	"console.h"
 	"line.h"
@@ -305,7 +305,7 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\model\driver\file\file.cpp
 	"File.h"
 
-1257718208 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.cpp
+1257749795 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.cpp
 	<iostream>
 	"windows.h"
 	"Application.h"

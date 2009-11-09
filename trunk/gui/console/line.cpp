@@ -2,8 +2,24 @@
 #include "console.h"
 #include "line.h"
 using namespace std;
-
-line::line(int h1,int h2,int hv,int v1,int v2,int vh):xDChar(205),yDChar(186),xSChar(196),ySChar(179)
+line::line():
+    xDChar(205),
+    yDChar(186),
+    xSChar(196),
+    ySChar(179)
+{
+    x1=0;
+    x2=0;
+    xy=0;
+    y1=0;
+    y2=0;
+    yx=0;
+}
+line::line(int h1,int h2,int hv,int v1,int v2,int vh):
+    xDChar(205),
+    yDChar(186),
+    xSChar(196),
+    ySChar(179)
 {
     if(h1>=0&&h2>=0&&hv>=0&&v1>=0&&v2>=0&&vh>=0){
         x1=h1;

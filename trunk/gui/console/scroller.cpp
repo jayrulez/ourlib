@@ -4,6 +4,10 @@
 using namespace std;
 scroller::scroller()
 {
+    item_code=0;
+    itemX=0;
+    itemY=0;
+    lenght=0;
 }
 scroller::~scroller()
 {

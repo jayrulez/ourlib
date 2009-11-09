@@ -4,15 +4,38 @@
 #include "frame.h"
 
 using namespace std;
-
-frame::frame(int h1,int h2,int v1,int v2):Dx1y1Char(201),Dx1y2Char(200),Dx2y1Char(187),Dx2y2Char(188),
-Sx1y1Char(218),Sx1y2Char(192),Sx2y1Char(191),Sx2y2Char(217)
+frame::frame():
+    Sx1y1Char(218),
+    Sx2y2Char(217),
+    Sx1y2Char(192),
+    Sx2y1Char(191),
+    Dx1y1Char(201),
+    Dx2y2Char(188),
+    Dx1y2Char(200),
+    Dx2y1Char(187)
+{
+    x1=0;
+    x2=0;
+    y1=0;
+    y2=0;
+    type=true;
+}
+frame::frame(int h1,int h2,int v1,int v2,bool t):
+    Sx1y1Char(218),
+    Sx2y2Char(217),
+    Sx1y2Char(192),
+    Sx2y1Char(191),
+    Dx1y1Char(201),
+    Dx2y2Char(188),
+    Dx1y2Char(200),
+    Dx2y1Char(187)
 {
     if(h1>=0&&h2>=0&&v1>=0&&v2>=0){
         x1=h1;
         x2=h2;
         y1=v1;
         y2=v2;
+        type=t;
     }
     else{
         cout<<"frame construction failed!"<<endl;

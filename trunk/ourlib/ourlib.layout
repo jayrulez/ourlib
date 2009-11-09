@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="..\Application.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="1422" topLine="71" />
+	<File name="..\Application.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="1472" topLine="216" />
 	</File>
 	<File name="..\Application.h" open="0" top="0" tabpos="3">
 		<Cursor position="425" topLine="0" />
@@ -59,28 +59,34 @@
 		<Cursor position="217" topLine="0" />
 	</File>
 	<File name="..\gui\console\frame.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="474" topLine="33" />
+		<Cursor position="310" topLine="3" />
 	</File>
 	<File name="..\gui\console\frame.h" open="0" top="0" tabpos="0">
-		<Cursor position="151" topLine="18" />
+		<Cursor position="99" topLine="1" />
 	</File>
 	<File name="..\gui\console\item.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="0" topLine="29" />
+		<Cursor position="138" topLine="0" />
 	</File>
 	<File name="..\gui\console\item.h" open="0" top="0" tabpos="0">
-		<Cursor position="619" topLine="0" />
+		<Cursor position="435" topLine="0" />
+	</File>
+	<File name="..\gui\console\line.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="367" topLine="0" />
 	</File>
 	<File name="..\gui\console\line.h" open="0" top="0" tabpos="0">
-		<Cursor position="461" topLine="5" />
+		<Cursor position="354" topLine="5" />
 	</File>
 	<File name="..\gui\console\media.cpp" open="0" top="0" tabpos="3">
 		<Cursor position="213" topLine="0" />
 	</File>
+	<File name="..\gui\console\media.h" open="1" top="1" tabpos="1">
+		<Cursor position="0" topLine="0" />
+	</File>
 	<File name="..\gui\console\scroller.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="407" topLine="2" />
+		<Cursor position="173" topLine="0" />
 	</File>
 	<File name="..\gui\console\scroller.h" open="0" top="0" tabpos="0">
-		<Cursor position="231" topLine="0" />
+		<Cursor position="89" topLine="0" />
 	</File>
 	<File name="..\model\Model.h" open="0" top="0" tabpos="4">
 		<Cursor position="131" topLine="0" />

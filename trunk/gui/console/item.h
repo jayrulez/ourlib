@@ -14,7 +14,8 @@ class item
 	int code;
 	console console_item;
 public:
-	item(char* nm="default",int x1=0,int y1=1,int c=0);
+    item();
+	item(char*,int,int ,int);
 	~item();
 	bool setItem(int,int,int,char*);
 	int getCode();
