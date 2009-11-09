@@ -192,9 +192,10 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\maindriver.cpp
 	"Application.h"
 
-1257718133 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.h
+1257810670 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.h
 	"gui/console/item.h"
 	"gui/console/media.h"
+	"gui/console/scroller.h"
 	"ApplicationException.h"
 
 1257805861 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.h
@@ -203,7 +204,7 @@
 1257744275 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.h
 	<windows.h>
 
-1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\media.h
+1257807089 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\media.h
 
 1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\applicationexception.h
 	<iostream>
@@ -271,7 +272,7 @@
 1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\screen.h
 	"console.h"
 
-1257743830 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\scroller.cpp
+1257806823 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\scroller.cpp
 	<iostream>
 	"scroller.h"
 	"frame.h"

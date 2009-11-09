@@ -6,6 +6,9 @@
 #ifndef MEDIA_H
 #include "gui/console/media.h"
 #endif
+#ifndef SCROLLER_H
+#include "gui/console/scroller.h"
+#endif
 #ifndef _APPLICATIONEXCEPTION_H
 #include "ApplicationException.h"
 #endif
@@ -25,7 +28,7 @@ public:
 	void main();
 	item* mainMenu();
 	int menuBrowserOperator(item*);
-	int MenuProcessing(unsigned int,item*);
+	int MenuProcessing(unsigned int,item*,int*,scroller*);
 	void mainMenuShow(item*);
 	int mainMenuRangeY(item*,int,int);
 	int mainMenuRangeX(item*,int,int);

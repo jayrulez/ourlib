@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="..\Application.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="1472" topLine="216" />
+	<File name="..\Application.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="5466" topLine="246" />
 	</File>
-	<File name="..\Application.h" open="0" top="0" tabpos="3">
-		<Cursor position="425" topLine="0" />
+	<File name="..\Application.h" open="1" top="1" tabpos="2">
+		<Cursor position="210" topLine="10" />
 	</File>
 	<File name="..\Date.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="322" topLine="0" />
