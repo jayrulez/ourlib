@@ -79,7 +79,7 @@
 	<File name="..\gui\console\media.cpp" open="0" top="0" tabpos="3">
 		<Cursor position="213" topLine="0" />
 	</File>
-	<File name="..\gui\console\media.h" open="1" top="1" tabpos="1">
+	<File name="..\gui\console\media.h" open="0" top="0" tabpos="1">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="..\gui\console\scroller.cpp" open="0" top="0" tabpos="1">
