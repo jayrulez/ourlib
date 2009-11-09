@@ -7,7 +7,11 @@ class console
         unsigned int colour;
         int h_size;
         int v_size;
+        /*an output handle for manipulating
+        the console*/
         HANDLE hOut;
+        /*a structure containing the cursor's
+        position information*/
         COORD Position;
         CONSOLE_CURSOR_INFO cursor_info;
     public:

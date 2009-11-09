@@ -197,10 +197,10 @@
 	"gui/console/media.h"
 	"ApplicationException.h"
 
-1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.h
+1257746145 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.h
 	"console.h"
 
-1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.h
+1257744275 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.h
 	<windows.h>
 
 1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\media.h
@@ -233,16 +233,16 @@
 	"console.h"
 	<windows.h>
 
-1257717014 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\frame.cpp
+1257743700 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\frame.cpp
 	<iostream>
 	"line.h"
 	"console.h"
 	"frame.h"
 
-1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\line.h
+1257745895 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\line.h
 	"console.h"
 
-1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\frame.h
+1257745668 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\frame.h
 	"line.h"
 	"console.h"
 
@@ -271,12 +271,12 @@
 1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\screen.h
 	"console.h"
 
-1257717014 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\scroller.cpp
+1257743830 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\scroller.cpp
 	<iostream>
 	"scroller.h"
 	"frame.h"
 
-1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\scroller.h
+1257746577 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\scroller.h
 	"frame.h"
 
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\install\installer.cpp
@@ -305,7 +305,7 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\model\driver\file\file.cpp
 	"File.h"
 
-1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.cpp
+1257718208 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.cpp
 	<iostream>
 	"windows.h"
 	"Application.h"

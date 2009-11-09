@@ -22,12 +22,12 @@ bool scroller::setScroller(int x,int y,int len)
 void scroller::scroll()
 {
     consoleScroller.setColour(15);
-    frameScroller.setFrame(itemX-1,itemX+lenght,itemY-1,itemY+1);
+    frameScroller.setFrame(itemX-1,itemX+lenght,itemY-1,itemY+1,false);
     frameScroller.sFraming();
 }
 void scroller::killScroll()
 {
     consoleScroller.setColour(0);
-    frameScroller.setFrame(itemX-1,itemX+lenght,itemY-1,itemY+1);
+    frameScroller.setFrame(itemX-1,itemX+lenght,itemY-1,itemY+1,false);
     frameScroller.sFraming();
 }

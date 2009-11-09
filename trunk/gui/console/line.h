@@ -21,10 +21,13 @@ class line
         ~line();
         bool setHCoord(int,int,int);
         bool setVCoord(int,int,int);
+        /*will be used to draw a horizontal double line*/
         void hDLine();
+        /*will be used to draw a veritcal double line*/
         void vDLine();
+        /*will be used to draw a horizontal single line*/
         void hSLine();
+        /*will be used to draw a vertical single line*/
         void vSLine();
-
 };
 #endif // LINE_H
