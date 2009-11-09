@@ -78,6 +78,9 @@ int Application::terminate()
 void Application::process()
 {
 	this->welcome();
+	frame baseframe;   //TESTING THE FRAME TO SEE IF IT WORKS
+	baseframe.setFrame(0,79,0,24,true);
+	baseframe.dFraming();   //END TEST
 	this->main();
 }
 
