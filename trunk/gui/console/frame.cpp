@@ -18,7 +18,7 @@ frame::frame():
     x2=0;
     y1=0;
     y2=0;
-    type=true;
+    type=false;
 }
 frame::frame(int h1,int h2,int v1,int v2,bool t):
     Sx1y1Char(218),

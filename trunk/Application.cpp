@@ -80,9 +80,6 @@ int Application::terminate()
 void Application::process()
 {
 	this->welcome();
-	frame baseframe;   //TESTING THE FRAME TO SEE IF IT WORKS
-	baseframe.setFrame(0,79,0,24,true);
-	baseframe.dFraming();   //END TEST
 	this->main();
 }
 
@@ -201,7 +198,9 @@ int Application::menuBrowserOperator(item *iptr)
 
     static int position=0;
     int *posptr;
+
     posptr=&position;
+    bool read=false;
     /*
     * instantiating an handle data type
     * that will be able to store input handles
@@ -216,8 +215,9 @@ int Application::menuBrowserOperator(item *iptr)
     * will be used to store the amount of event read
     */
     DWORD AmtRead;
-    scroller *scr;
-    console con;
+    scroller scr;
+    scroller *scrptr;
+    scrptr=&scr;
     /*
     * gets the console input handle and stores it
     */
@@ -225,10 +225,10 @@ int Application::menuBrowserOperator(item *iptr)
     /*
     * initialises the scroller's position(top of the menu)
     */
-    scr->setScroller((iptr+position)->getItemX(),(iptr+position)->getItemY(),
+    scrptr->setScroller((iptr+position)->getItemX(),(iptr+position)->getItemY(),
     (iptr+position)->getItemLenght());
-    scr->scroll();
-    bool read=false;
+    scrptr->scroll();
+
     while(!read)
     {
         /*
@@ -258,31 +258,31 @@ int Application::menuBrowserOperator(item *iptr)
                         * Left arrow key
                         */
                         case VK_LEFT:
-                            MenuProcessing(VK_LEFT,iptr,posptr,scr);
+                            MenuProcessing(VK_LEFT,iptr,posptr,scrptr);
                         break;
                         /*
                         * Right arrow key
                         */
                         case VK_RIGHT:
-                            MenuProcessing(VK_RIGHT,iptr,posptr,scr);
+                            MenuProcessing(VK_RIGHT,iptr,posptr,scrptr);
                         break;
                         /*
                         * Up arrow key
                         */
                         case VK_UP:
-                            MenuProcessing(VK_UP,iptr,posptr,scr);
+                            MenuProcessing(VK_UP,iptr,posptr,scrptr);
                         break;
                         /*
                         * Down arrow key
                         */
                         case VK_DOWN:
-                            MenuProcessing(VK_DOWN,iptr,posptr,scr);
+                            MenuProcessing(VK_DOWN,iptr,posptr,scrptr);
                         break;
                         /*
                         * Enter key
                         */
                         case VK_RETURN:
-                            return MenuProcessing(VK_RETURN,iptr,posptr,scr);
+                            return MenuProcessing(VK_RETURN,iptr,posptr,scrptr);
                         break;
                     }
                 }
@@ -291,9 +291,8 @@ int Application::menuBrowserOperator(item *iptr)
     }
     return 0;
 }
-int Application::MenuProcessing(unsigned int vKeyCode,item *iptr,int *pos,scroller *scr  )
+int Application::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr  )
 {
-    media sound;
     switch(vKeyCode)
     {
         /*
@@ -311,37 +310,35 @@ int Application::MenuProcessing(unsigned int vKeyCode,item *iptr,int *pos,scroll
         * Up arrow key
         */
         case VK_UP:
-            (*pos)=(*pos)-1;
-            if((*pos)<0)
+            *pos=*pos-1;
+            if(*pos<0)
             {
-                (*pos)=MAIN_SIZ-1;
+                *pos=MAIN_SIZ-1;
             }
             scr->killScroll();
-            scr->setScroller((iptr+(*pos))->getItemX(),(iptr+(*pos))->getItemY(),
-            (iptr+(*pos))->getItemLenght());
+            scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
+            (iptr+*pos)->getItemLenght());
             scr->scroll();
-            sound.play("sound/button-15.wav");
             break;
         /*
         * Down arrow key
         */
         case VK_DOWN:
-            (*pos)=(*pos)+1;
-            if((*pos)>MAIN_SIZ-1)
+            *pos=*pos+1;
+            if(*pos>MAIN_SIZ-1)
             {
-                (*pos)=0;
+                *pos=0;
             }
             scr->killScroll();
-            scr->setScroller((iptr+(*pos))->getItemX(),(iptr+(*pos))->getItemY(),
-            (iptr+(*pos))->getItemLenght());
+            scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
+            (iptr+*pos)->getItemLenght());
             scr->scroll();
-            sound.play("sound/button-15.wav");
             break;
         /*
         * Enter key
         */
         case VK_RETURN:
-            return iptr->getCode();
+            return (iptr+*pos)->getCode();
         break;
     }
     return 0;

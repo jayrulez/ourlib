@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="..\Application.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="6983" topLine="290" />
+	<File name="..\Application.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="7199" topLine="185" />
 	</File>
-	<File name="..\Application.h" open="1" top="0" tabpos="2">
-		<Cursor position="642" topLine="10" />
+	<File name="..\Application.h" open="0" top="0" tabpos="2">
+		<Cursor position="452" topLine="10" />
 	</File>
 	<File name="..\Date.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="322" topLine="0" />
@@ -59,19 +59,19 @@
 		<Cursor position="217" topLine="0" />
 	</File>
 	<File name="..\gui\console\frame.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="310" topLine="3" />
+		<Cursor position="351" topLine="84" />
 	</File>
 	<File name="..\gui\console\frame.h" open="0" top="0" tabpos="0">
-		<Cursor position="99" topLine="1" />
+		<Cursor position="99" topLine="0" />
 	</File>
 	<File name="..\gui\console\item.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="138" topLine="0" />
+		<Cursor position="267" topLine="30" />
 	</File>
 	<File name="..\gui\console\item.h" open="0" top="0" tabpos="0">
 		<Cursor position="435" topLine="0" />
 	</File>
-	<File name="..\gui\console\line.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="367" topLine="0" />
+	<File name="..\gui\console\line.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="204" topLine="40" />
 	</File>
 	<File name="..\gui\console\line.h" open="0" top="0" tabpos="0">
 		<Cursor position="354" topLine="5" />
@@ -83,7 +83,7 @@
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="..\gui\console\scroller.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="173" topLine="0" />
+		<Cursor position="358" topLine="0" />
 	</File>
 	<File name="..\gui\console\scroller.h" open="0" top="0" tabpos="0">
 		<Cursor position="89" topLine="0" />
