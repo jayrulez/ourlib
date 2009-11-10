@@ -291,10 +291,9 @@ int Application::menuBrowserOperator(item *iptr)
     }
     return 0;
 }
-int MenuProcessing(unsigned int vKeyCode,item *iptr,int *pos,scroller *scr  )
+int Application::MenuProcessing(unsigned int vKeyCode,item *iptr,int *pos,scroller *scr  )
 {
     media sound;
-
     switch(vKeyCode)
     {
         /*
