@@ -29,8 +29,6 @@
 #endif
 #define _MAX 2
 #define _MIN 1
-#define FORM 1
-#define MENU 2
 
 using namespace std;
 
