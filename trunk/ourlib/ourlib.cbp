@@ -22,6 +22,8 @@
 		</Compiler>
 		<Unit filename="..\Application.cpp" />
 		<Unit filename="..\Application.h" />
+		<Unit filename="..\Controller.cpp" />
+		<Unit filename="..\Controller.h" />
 		<Unit filename="..\Date.cpp" />
 		<Unit filename="..\Date.h" />
 		<Unit filename="..\Loan.cpp" />
@@ -31,6 +33,8 @@
 		<Unit filename="..\MainDriver.cpp" />
 		<Unit filename="..\Member.cpp" />
 		<Unit filename="..\Member.h" />
+		<Unit filename="..\MenuBuilder.cpp" />
+		<Unit filename="..\MenuBuilder.h" />
 		<Unit filename="..\ReferenceMaterial.cpp" />
 		<Unit filename="..\ReferenceMaterial.h" />
 		<Unit filename="..\ResearchPaper.cpp" />

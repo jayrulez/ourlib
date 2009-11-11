@@ -304,7 +304,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr 
         * Enter key
         */
         case VK_RETURN:
-			//this->callMenu((iptr+*pos)->getCode());
+			//this->callMenu(this->getMenuId((iptr+*pos)->getCode()));
             return (iptr+*pos)->getCode();
         break;
     }
