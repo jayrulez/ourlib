@@ -1,13 +1,7 @@
 #ifndef _APPLICATION_H
 #define _APPLICATION_H
-#ifndef ITEM_H
-#include "gui/console/item.h"
-#endif
-#ifndef MEDIA_H
-#include "gui/console/media.h"
-#endif
-#ifndef SCROLLER_H
-#include "gui/console/scroller.h"
+#ifndef _CONTROLLER_H
+#include "Controller.h"
 #endif
 #ifndef _APPLICATIONEXCEPTION_H
 #include "ApplicationException.h"
@@ -21,17 +15,12 @@ private:
 public:
 	Application();
 	~Application();
+	Controller* controllerObj;
 	void setState(bool = true);
 	bool getState();
 	void process();
 	void welcome();
 	void main();
-	item* mainMenu();
-	int menuBrowserOperator(item*);
-	int MenuProcessing( int,item*,int*,scroller*);
-	void mainMenuShow(item*);
-	int mainMenuRangeY(item*,int,int);
-	int mainMenuRangeX(item*,int,int);
 	int terminate();
 	int run();
 };

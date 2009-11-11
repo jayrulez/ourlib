@@ -1,20 +1,14 @@
 # depslib dependency file v1.0
-1257635155 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
+1257941976 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
 	<iostream>
 	"windows.h"
 	"Application.h"
-	"gui/console/console.h"
-	"gui/console/frame.h"
-	"gui/console/line.h"
-	"gui/console/item.h"
-	"gui/console/media.h"
-	"gui/console/menu.h"
-	"gui/console/scroller.h"
+	"Controller.h"
 	"ApplicationException.h"
+	"MenuBuilder.h"
 
-1257637486 c:\documents and settings\carlington wilmot\my documents\ourlib\application.h
-	"gui/console/item.h"
-	"gui/console/media.h"
+1257942385 c:\documents and settings\carlington wilmot\my documents\ourlib\application.h
+	"Controller.h"
 	"ApplicationException.h"
 
 1257137026 source:c:\documents and settings\carlington wilmot\my documents\ourlib\date.cpp
@@ -76,43 +70,43 @@
 1257155605 source:c:\documents and settings\carlington wilmot\my documents\ourlib\maindriver.cpp
 	"Application.h"
 
-1256881126 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.h
+1257938245 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.h
 	<windows.h>
 
-1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\frame.h
+1257938245 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\frame.h
 	"line.h"
 	"console.h"
 
-1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\line.h
+1257938246 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\line.h
 	"console.h"
 
-1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.h
+1257938245 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.h
 	"console.h"
 
 1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.h
 
 1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\menu.h
 
-1256984639 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\scroller.h
+1257938246 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\scroller.h
 	"frame.h"
 
-1256881126 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.cpp
+1257938245 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.cpp
 	"console.h"
 	<windows.h>
 
-1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\frame.cpp
+1257938246 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\frame.cpp
 	<iostream>
 	"line.h"
 	"console.h"
 	"frame.h"
 
-1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.cpp
+1257938245 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.cpp
 	<iostream>
 	"item.h"
 	"console.h"
 	<string>
 
-1256789472 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\line.cpp
+1257938245 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\line.cpp
 	<iostream>
 	"console.h"
 	"line.h"
@@ -126,7 +120,7 @@
 	"media.h"
 	"menu.h"
 
-1257636998 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.cpp
+1257731640 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.cpp
 	<iostream>
 	<windows.h>
 	<mmsystem.h>
@@ -140,7 +134,7 @@
 1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\screen.h
 	"console.h"
 
-1256984639 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\scroller.cpp
+1257938245 source:c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\scroller.cpp
 	<iostream>
 	"scroller.h"
 	"frame.h"
@@ -320,4 +314,16 @@
 	"ApplicationException.h"
 
 1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\menu.h
+
+1257942369 c:\documents and settings\carlington wilmot\my documents\ourlib\controller.h
+	"MenuBuilder.h"
+
+1257941383 c:\documents and settings\carlington wilmot\my documents\ourlib\menubuilder.h
+	"gui/console/item.h"
+	"gui/console/media.h"
+	"gui/console/scroller.h"
+
+1257942037 source:c:\documents and settings\carlington wilmot\my documents\ourlib\controller.cpp
+	"Controller.h"
+	"MenuBuilder.h"
 

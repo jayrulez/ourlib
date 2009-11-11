@@ -2,11 +2,21 @@
 #include "Controller.h"
 #endif
 
+#ifndef _MENUBUILDER_H
+#include "MenuBuilder.h"
+#endif
+
 /*
 *
 */
 Controller::Controller()
 {
+}
+
+MenuBuilder* Controller::menuBuilder()
+{
+	this->menuObj = new MenuBuilder();
+	return this->menuObj;
 }
 
 /*
@@ -15,3 +25,4 @@ Controller::Controller()
 Controller::~Controller()
 {
 }
+
