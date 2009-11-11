@@ -2,6 +2,10 @@
 #include "Controller.h"
 #endif
 
+#ifndef _MODEL_H
+#include "model/Model.h"
+#endif
+
 #ifndef _MENUBUILDER_H
 #include "MenuBuilder.h"
 #endif

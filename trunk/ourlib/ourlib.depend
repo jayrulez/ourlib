@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1257941976 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
+1257944003 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
 	<iostream>
 	"windows.h"
 	"Application.h"
 	"Controller.h"
 	"ApplicationException.h"
+	"model/Model.h"
 	"MenuBuilder.h"
 
 1257942385 c:\documents and settings\carlington wilmot\my documents\ourlib\application.h
@@ -318,12 +319,24 @@
 1257942369 c:\documents and settings\carlington wilmot\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1257941383 c:\documents and settings\carlington wilmot\my documents\ourlib\menubuilder.h
+1257944388 c:\documents and settings\carlington wilmot\my documents\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
 
-1257942037 source:c:\documents and settings\carlington wilmot\my documents\ourlib\controller.cpp
+1257942872 source:c:\documents and settings\carlington wilmot\my documents\ourlib\controller.cpp
 	"Controller.h"
+	"model/Model.h"
 	"MenuBuilder.h"
+
+1257942064 source:c:\documents and settings\carlington wilmot\my documents\ourlib\menubuilder.cpp
+	<iostream>
+	"MenuBuilder.h"
+	"gui/console/console.h"
+	"gui/console/frame.h"
+	"gui/console/line.h"
+	"gui/console/item.h"
+	"gui/console/media.h"
+	"gui/console/menu.h"
+	"gui/console/scroller.h"
 

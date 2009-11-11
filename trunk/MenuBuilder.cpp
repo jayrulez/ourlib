@@ -40,12 +40,25 @@ MenuBuilder::~MenuBuilder()
 {
 }
 
-void MenuBuilder::run()
+void MenuBuilder::callMenu(int menuId)
 {
-    console con;
-    con.setCursor(false,50);
-    this->mainMenuShow(this->mainMenu());
-    this->menuBrowserOperator(this->mainMenu());
+	switch(menuId)
+	{
+		/*case _addMenu_:
+		break;
+		case _editMenu_:
+		break;
+		case _delMenu_:
+		break;
+		case _loadMenu_:
+		break;*/
+		default:
+			console con;
+			con.setCursor(false,50);
+			this->mainMenuShow(this->mainMenu());
+			this->menuBrowserOperator(this->mainMenu());
+		break;
+	}
 }
 
 /*
@@ -291,6 +304,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr 
         * Enter key
         */
         case VK_RETURN:
+			//this->callMenu((iptr+*pos)->getCode());
             return (iptr+*pos)->getCode();
         break;
     }

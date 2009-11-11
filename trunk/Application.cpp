@@ -9,6 +9,9 @@
 #ifndef _APPLICATIONEXCEPTION_H
 #include "ApplicationException.h"
 #endif
+#ifndef _MODEL_H
+#include "model/Model.h"
+#endif
 #ifndef _MENUBUILDER_H
 #include "MenuBuilder.h"
 #endif
@@ -72,7 +75,7 @@ void Application::welcome()
 void Application::main()
 {
 	this->controllerObj = new Controller();
-	this->controllerObj->menuBuilder()->run();
+	this->controllerObj->menuBuilder()->callMenu(_mainMenu_);
 }
 
 /*

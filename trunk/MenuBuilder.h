@@ -10,6 +10,13 @@
 #include "gui/console/scroller.h"
 #endif
 
+/* Menu Codes */
+#define _mainMenu_ 0
+#define _addMenu_ 1
+#define _editMenu_ 2
+#define _delMenu_ 4
+#define _loanMenu_ 8
+
 class MenuBuilder
 {
 public:
@@ -21,6 +28,6 @@ public:
 	void mainMenuShow(item*);
 	int mainMenuRangeY(item*,int,int);
 	int mainMenuRangeX(item*,int,int);
-	void run();
+	void callMenu(int);
 };
 #endif
