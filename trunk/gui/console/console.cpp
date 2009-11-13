@@ -1,11 +1,12 @@
-#include "console.h"
 /*
 * necessary for the GetConsoleWindow() function to work!
 * it basically says that you are running this
 * program on Windows 2000 or higher
 */
+#include<iostream>
 #define _WIN32_WINNT 0x0500
 #include <windows.h>
+#include "console.h"
 console::console()
 {
     colour=0;

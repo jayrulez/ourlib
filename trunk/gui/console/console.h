@@ -7,7 +7,7 @@ class console
         unsigned int colour;
         int h_size;
         int v_size;
-        int consoleX
+        int consoleX;
         int consoleY;
         /*an output handle for manipulating
         the console*/
