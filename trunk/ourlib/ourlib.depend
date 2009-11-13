@@ -223,7 +223,7 @@
 	"Referencematerial.h"
 	"Date.h"
 
-1258077957 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.cpp
+1258085724 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.cpp
 	<iostream>
 	<windows.h>
 	"console.h"
@@ -300,7 +300,7 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\model\driver\file\file.cpp
 	"File.h"
 
-1257931886 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.cpp
+1258078976 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.cpp
 	<iostream>
 	"windows.h"
 	"Application.h"
@@ -338,19 +338,20 @@
 1258078976 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1258084900 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
+1258086855 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
 	<string>
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
 
-1257931886 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.cpp
+1258087401 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.cpp
 	"Controller.h"
 	"model/Model.h"
 	"MenuBuilder.h"
 
-1257931886 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
+1258087272 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
 	<iostream>
+	<string>
 	"MenuBuilder.h"
 	"gui/console/console.h"
 	"gui/console/frame.h"

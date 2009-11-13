@@ -16,6 +16,7 @@
 #define _editMenu_ 2
 #define _delMenu_ 4
 #define _loanMenu_ 8
+using namespace std;
 
 class MenuBuilder
 {
@@ -28,7 +29,7 @@ public:
 	void mainMenuShow(item*);
 	int mainMenuRangeY(item*,int,int);
 	int mainMenuRangeX(item*,int,int);
-	void BasicRunlevel(string,int,int);
+	void BasicRunlevel(string,int=800,int=600);
 	void callMenu(int);
 };
 #endif

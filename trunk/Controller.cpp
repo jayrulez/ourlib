@@ -20,6 +20,7 @@ Controller::Controller()
 MenuBuilder* Controller::init()
 {
 	this->menuObj = new MenuBuilder();
+	this->menuObj->BasicRunlevel("SELECT USER");//added for testing
 	this->menuObj->callMenu(_mainMenu_);
 }
 

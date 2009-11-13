@@ -16,7 +16,7 @@ console::console()
 console::~console()
 {
 }
-void setConsoleSize(int x,int y)
+void console::setConsoleSize(int x,int y)
 {
     HWND console = GetConsoleWindow();
     RECT r;

@@ -69,12 +69,12 @@ void MenuBuilder::callMenu(int menuId)
 item* MenuBuilder::mainMenu()
 {
     static item MainItem[6];
-    MainItem[0].setItem(36,4,ADD,"ADD");
-    MainItem[1].setItem(35,7,EDIT,"EDIT");
-    MainItem[2].setItem(34,10,DEL,"DELETE");
-    MainItem[3].setItem(35,13,LOAN,"LOAN");
-    MainItem[4].setItem(34,16,RETURN,"RETURN");
-    MainItem[5].setItem(35,19,EXIT,"EXIT");
+    MainItem[0].setItem(36,10,ADD,"ADD");
+    MainItem[1].setItem(35,14,EDIT,"EDIT");
+    MainItem[2].setItem(34,18,DEL,"DELETE");
+    MainItem[3].setItem(35,22,LOAN,"LOAN");
+    MainItem[4].setItem(34,26,RETURN,"RETURN");
+    MainItem[5].setItem(35,30,EXIT,"EXIT");
     return &MainItem[0];
 }
 /*
@@ -312,12 +312,14 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr 
     return 0;
 }
 
-void BasicRunlevel(string MenuName,int consoleX=600, int consoleY=800)
+void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)
 {
 	frame BaseFrame;
 	console con;
 	con.clearScreen();
-	con.setConsoleSize(consoleX,ConsoleY);
-	BaseFrame.setFrame(0,0,consoleY,consoleX,true);
-	BaseFrame.framing();
+	BaseFrame.setFrame(0,79,0,63,true);
+	BaseFrame.dFraming();
+	con.setConsoleSize(consoleX,consoleY);
+	con.xyCoord(3,1);
+	cout<<MenuName;
 }
