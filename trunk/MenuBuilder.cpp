@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #ifndef _MENUBUILDER_H
 #include "MenuBuilder.h"
 #endif
@@ -311,3 +312,12 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr 
     return 0;
 }
 
+void BasicRunlevel(string MenuName,int consoleX=600, int consoleY=800)
+{
+	frame BaseFrame;
+	console con;
+	con.clearScreen();
+	con.setConsoleSize(consoleX,ConsoleY);
+	BaseFrame.setFrame(0,0,consoleY,consoleX,true);
+	BaseFrame.framing();
+}

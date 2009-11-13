@@ -1,3 +1,4 @@
+#include <string>
 #ifndef _MENUBUILDER_H
 #define _MENUBUILDER_H
 #ifndef ITEM_H
@@ -9,7 +10,6 @@
 #ifndef SCROLLER_H
 #include "gui/console/scroller.h"
 #endif
-
 /* Menu Codes */
 #define _mainMenu_ 0
 #define _addMenu_ 1
@@ -28,6 +28,7 @@ public:
 	void mainMenuShow(item*);
 	int mainMenuRangeY(item*,int,int);
 	int mainMenuRangeX(item*,int,int);
+	void BasicRunlevel(string,int,int);
 	void callMenu(int);
 };
 #endif

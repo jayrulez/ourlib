@@ -223,9 +223,10 @@
 	"Referencematerial.h"
 	"Date.h"
 
-1257744667 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.cpp
-	"console.h"
+1258077957 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.cpp
+	<iostream>
 	<windows.h>
+	"console.h"
 
 1257822660 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\frame.cpp
 	<iostream>
@@ -334,10 +335,11 @@
 	"gui/console/menu.h"
 	"gui/console/scroller.h"
 
-1257931886 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
+1258078976 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1257931886 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
+1258084900 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
+	<string>
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
