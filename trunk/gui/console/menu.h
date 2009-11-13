@@ -13,7 +13,7 @@
 /*
 * Select User Type Menu
 */
-#define ADMIN 7
-#define MEMBER 8
+#define MEMBER 7
+#define ADMIN 8
 #define USERTYPE_SIZ 2
 #endif // MENU_H

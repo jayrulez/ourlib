@@ -56,8 +56,8 @@ void MenuBuilder::callMenu(int menuId)
 		default:
 			console con;
 			con.setCursor(false,50);
-			this->MenuShow(this->MainMenu(),MAIN_SIZ);
-			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ);
+			this->MenuShow(this->UserTypeMenu(),USERTYPE_SIZ);
+			this->menuBrowserOperator(this->UserTypeMenu(),USERTYPE_SIZ);
 		break;
 	}
 }
@@ -94,8 +94,8 @@ void MenuBuilder::MenuShow(item *iptr,int size)
 item* MenuBuilder::UserTypeMenu()
 {
     static item UserTypeItem[2];
-    UserTypeItem[0].setItem(25,25,ADMIN,"ADMIN");
-    UserTypeItem[1].setItem(25,40,MEMBER,"MEMBER");
+    UserTypeItem[0].setItem(24,25,MEMBER,"MEMBER");
+    UserTypeItem[1].setItem(47,25,ADMIN,"ADMIN");
     return &UserTypeItem[0];
 }
 /*
