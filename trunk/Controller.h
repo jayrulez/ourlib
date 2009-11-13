@@ -8,7 +8,7 @@ class Controller
 {
 public:
 	MenuBuilder* menuObj;
-	MenuBuilder* menuBuilder();
+	MenuBuilder* init();
 	Controller();
 	~Controller();
 };

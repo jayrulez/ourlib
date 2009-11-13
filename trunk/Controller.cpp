@@ -17,10 +17,10 @@ Controller::Controller()
 {
 }
 
-MenuBuilder* Controller::menuBuilder()
+MenuBuilder* Controller::init()
 {
 	this->menuObj = new MenuBuilder();
-	return this->menuObj;
+	this->menuObj->callMenu(_mainMenu_);
 }
 
 /*

@@ -75,7 +75,7 @@ void Application::welcome()
 void Application::main()
 {
 	this->controllerObj = new Controller();
-	this->controllerObj->menuBuilder()->callMenu(_mainMenu_);
+	this->controllerObj->init();
 }
 
 /*
