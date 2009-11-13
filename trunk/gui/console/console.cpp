@@ -1,4 +1,10 @@
 #include "console.h"
+/*
+* necessary for the GetConsoleWindow() function to work!
+* it basically says that you are running this
+* program on Windows 2000 or higher
+*/
+#define _WIN32_WINNT 0x0500
 #include <windows.h>
 console::console()
 {
@@ -8,6 +14,14 @@ console::console()
 }
 console::~console()
 {
+}
+void setConsoleSize(int x,int y)
+{
+    HWND console = GetConsoleWindow();
+    RECT r;
+    GetWindowRect(console, &r); //stores the console's current dimensions
+    //MoveWindow(window_handle, x, y, width, height, redraw_window);
+    MoveWindow(console, r.left, r.top, y, x, TRUE);
 }
 void console::xyCoord(int x,int y)
 {
