@@ -2,13 +2,13 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="..\Application.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="1133" topLine="80" />
+		<Cursor position="1133" topLine="56" />
 	</File>
 	<File name="..\Application.h" open="0" top="0" tabpos="2">
 		<Cursor position="102" topLine="0" />
 	</File>
 	<File name="..\Controller.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="120" topLine="0" />
+		<Cursor position="330" topLine="6" />
 	</File>
 	<File name="..\Controller.h" open="0" top="0" tabpos="4">
 		<Cursor position="0" topLine="0" />
@@ -40,11 +40,11 @@
 	<File name="..\Member.h" open="0" top="0" tabpos="0">
 		<Cursor position="231" topLine="0" />
 	</File>
-	<File name="..\MenuBuilder.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="38" topLine="0" />
+	<File name="..\MenuBuilder.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="1596" topLine="59" />
 	</File>
-	<File name="..\MenuBuilder.h" open="1" top="0" tabpos="1">
-		<Cursor position="17" topLine="0" />
+	<File name="..\MenuBuilder.h" open="0" top="0" tabpos="1">
+		<Cursor position="280" topLine="8" />
 	</File>
 	<File name="..\ReferenceMaterial.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="375" topLine="0" />
@@ -65,13 +65,13 @@
 		<Cursor position="402" topLine="0" />
 	</File>
 	<File name="..\gui\console\console.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="168" topLine="0" />
+		<Cursor position="625" topLine="7" />
 	</File>
 	<File name="..\gui\console\console.h" open="0" top="0" tabpos="1">
 		<Cursor position="436" topLine="1" />
 	</File>
 	<File name="..\gui\console\frame.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="351" topLine="84" />
+		<Cursor position="351" topLine="28" />
 	</File>
 	<File name="..\gui\console\frame.h" open="0" top="0" tabpos="0">
 		<Cursor position="99" topLine="0" />

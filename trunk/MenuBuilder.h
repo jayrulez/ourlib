@@ -29,7 +29,7 @@ public:
 	void mainMenuShow(item*);
 	int mainMenuRangeY(item*,int,int);
 	int mainMenuRangeX(item*,int,int);
-	void BasicRunlevel(string,int=800,int=600);
+	void BasicRunlevel(string,int=680,int=800);
 	void callMenu(int);
 };
 #endif

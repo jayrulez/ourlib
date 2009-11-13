@@ -69,13 +69,19 @@ void MenuBuilder::callMenu(int menuId)
 item* MenuBuilder::mainMenu()
 {
     static item MainItem[6];
-    MainItem[0].setItem(36,10,ADD,"ADD");
-    MainItem[1].setItem(35,14,EDIT,"EDIT");
-    MainItem[2].setItem(34,18,DEL,"DELETE");
-    MainItem[3].setItem(35,22,LOAN,"LOAN");
-    MainItem[4].setItem(34,26,RETURN,"RETURN");
-    MainItem[5].setItem(35,30,EXIT,"EXIT");
+    MainItem[0].setItem(38,13,ADD,"ADD");
+    MainItem[1].setItem(37,17,EDIT,"EDIT");
+    MainItem[2].setItem(36,21,DEL,"DELETE");
+    MainItem[3].setItem(37,25,LOAN,"LOAN");
+    MainItem[4].setItem(36,29,RETURN,"RETURN");
+    MainItem[5].setItem(37,33,EXIT,"EXIT");
     return &MainItem[0];
+}
+item* MenuBuilder::UserType()
+{
+    static item UserTypeItem[2];
+    UserTypeItem[].setItem(25,25,ADMIN,"ADMIN");
+
 }
 /*
 * This functions display the contents for the main menu
@@ -317,9 +323,10 @@ void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)
 	frame BaseFrame;
 	console con;
 	con.clearScreen();
-	BaseFrame.setFrame(0,79,0,63,true);
-	BaseFrame.dFraming();
 	con.setConsoleSize(consoleX,consoleY);
+	BaseFrame.setFrame(0,79,0,53,true);
+	BaseFrame.dFraming();
+	con.xyCoord(0,0);
 	con.xyCoord(3,1);
 	cout<<MenuName;
 }
