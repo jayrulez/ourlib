@@ -56,8 +56,8 @@ void MenuBuilder::callMenu(int menuId)
 		default:
 			console con;
 			con.setCursor(false,50);
-			this->mainMenuShow(this->mainMenu());
-			this->menuBrowserOperator(this->mainMenu());
+			this->MenuShow(this->MainMenu(),MAIN_SIZ);
+			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ);
 		break;
 	}
 }
@@ -66,7 +66,7 @@ void MenuBuilder::callMenu(int menuId)
 * This function creates the items for the main menu
 * and returns the address of its 1st element;
 */
-item* MenuBuilder::mainMenu()
+item* MenuBuilder::MainMenu()
 {
     static item MainItem[6];
     MainItem[0].setItem(38,13,ADD,"ADD");
@@ -77,27 +77,31 @@ item* MenuBuilder::mainMenu()
     MainItem[5].setItem(37,33,EXIT,"EXIT");
     return &MainItem[0];
 }
-item* MenuBuilder::UserType()
-{
-    static item UserTypeItem[2];
-    UserTypeItem[].setItem(25,25,ADMIN,"ADMIN");
-
-}
 /*
-* This functions display the contents for the main menu
+* This function displays the contents for the menus
 */
-void MenuBuilder::mainMenuShow(item *iptr)
+void MenuBuilder::MenuShow(item *iptr,int size)
 {
     int x;
-    for (x=0;x<6;x++)
+    for (x=0;x<size;x++)
     {
         (iptr+x)->born();
     }
 }
 /*
+* This function displays the user type options
+*/
+item* MenuBuilder::UserTypeMenu()
+{
+    static item UserTypeItem[2];
+    UserTypeItem[0].setItem(25,25,ADMIN,"ADMIN");
+    UserTypeItem[1].setItem(25,40,MEMBER,"MEMBER");
+    return &UserTypeItem[0];
+}
+/*
 * This function is used to return the vertical range of any menu
 */
-int MenuBuilder::mainMenuRangeY(item *iptr,int size,int type)
+int MenuBuilder::MenuRangeY(item *iptr,int size,int type)
 {
 	int max;
 	int min;
@@ -131,7 +135,7 @@ int MenuBuilder::mainMenuRangeY(item *iptr,int size,int type)
 /*
 * This function is used to return the horizontal range of any menu
 */
-int MenuBuilder::mainMenuRangeX(item *iptr,int size,int type)
+int MenuBuilder::MenuRangeX(item *iptr,int size,int type)
 {
 	int max;
 	int min;
@@ -166,7 +170,7 @@ int MenuBuilder::mainMenuRangeX(item *iptr,int size,int type)
 * This is the heart of the menu operations. This function controls
 * the scrolling and selection of different menu items
 */
-int MenuBuilder::menuBrowserOperator(item *iptr)
+int MenuBuilder::menuBrowserOperator(item *iptr,int size)
 {
 
     static int position=0;
@@ -228,34 +232,40 @@ int MenuBuilder::menuBrowserOperator(item *iptr)
                     switch(InRec.Event.KeyEvent.wVirtualKeyCode)
                     {
                         /*
+                        * Tab key
+                        */
+                        case VK_TAB:
+                            MenuProcessing(VK_TAB,iptr,posptr,scrptr,size);
+                        break;
+                        /*
                         * Left arrow key
                         */
                         case VK_LEFT:
-                            MenuProcessing(VK_LEFT,iptr,posptr,scrptr);
+                            MenuProcessing(VK_LEFT,iptr,posptr,scrptr,size);
                         break;
                         /*
                         * Right arrow key
                         */
                         case VK_RIGHT:
-                            MenuProcessing(VK_RIGHT,iptr,posptr,scrptr);
+                            MenuProcessing(VK_RIGHT,iptr,posptr,scrptr,size);
                         break;
                         /*
                         * Up arrow key
                         */
                         case VK_UP:
-                            MenuProcessing(VK_UP,iptr,posptr,scrptr);
+                            MenuProcessing(VK_UP,iptr,posptr,scrptr,size);
                         break;
                         /*
                         * Down arrow key
                         */
                         case VK_DOWN:
-                            MenuProcessing(VK_DOWN,iptr,posptr,scrptr);
+                            MenuProcessing(VK_DOWN,iptr,posptr,scrptr,size);
                         break;
                         /*
                         * Enter key
                         */
                         case VK_RETURN:
-                            return MenuProcessing(VK_RETURN,iptr,posptr,scrptr);
+                            return MenuProcessing(VK_RETURN,iptr,posptr,scrptr,size);
                         break;
                     }
                 }
@@ -264,7 +274,7 @@ int MenuBuilder::menuBrowserOperator(item *iptr)
     }
     return 0;
 }
-int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr  )
+int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,int size)
 {
     switch(vKeyCode)
     {
@@ -272,11 +282,33 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr 
         * Left arrow key
         */
         case VK_LEFT:
+            *pos=*pos-1;
+            if(*pos<0)
+            {
+                *pos=size-1;
+            }
+            scr->killScroll();
+            scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
+            (iptr+*pos)->getItemLenght());
+            scr->scroll();
         break;
+        /*
+        * Tab Key
+        */
+        case VK_TAB:
         /*
         * Right arrow key
         */
         case VK_RIGHT:
+            *pos=*pos+1;
+            if(*pos>size-1)
+            {
+                *pos=0;
+            }
+            scr->killScroll();
+            scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
+            (iptr+*pos)->getItemLenght());
+            scr->scroll();
 
         break;
         /*
@@ -286,7 +318,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr 
             *pos=*pos-1;
             if(*pos<0)
             {
-                *pos=MAIN_SIZ-1;
+                *pos=size-1;
             }
             scr->killScroll();
             scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
@@ -298,7 +330,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr 
         */
         case VK_DOWN:
             *pos=*pos+1;
-            if(*pos>MAIN_SIZ-1)
+            if(*pos>size-1)
             {
                 *pos=0;
             }

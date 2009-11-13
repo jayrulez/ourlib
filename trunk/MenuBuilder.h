@@ -23,12 +23,13 @@ class MenuBuilder
 public:
 	MenuBuilder();
 	~MenuBuilder();
-	item* mainMenu();
-	int menuBrowserOperator(item*);
-	int MenuProcessing( int,item*,int*,scroller*);
-	void mainMenuShow(item*);
-	int mainMenuRangeY(item*,int,int);
-	int mainMenuRangeX(item*,int,int);
+	item* MainMenu();
+	item* UserTypeMenu();
+	int menuBrowserOperator(item*,int);
+	int MenuProcessing( int,item*,int*,scroller*,int);
+	void MenuShow(item*,int);
+	int MenuRangeY(item*,int,int);
+	int MenuRangeX(item*,int,int);
 	void BasicRunlevel(string,int=680,int=800);
 	void callMenu(int);
 };
