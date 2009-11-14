@@ -7,10 +7,13 @@
 #include "driver/file/File.h"
 #endif
 
+#include <string>
+using namespace std;
+
 class Model:public File
 {
 private:
-	char* driver;
+	string driver;
 public:
 	Model();
 	~Model();

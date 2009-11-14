@@ -1,15 +1,19 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 #include "console.h"
+
+#include <string>
+using namespace std;
+
 class screen
 {
 private:
-	char* name;
+	string name;
 
 public:
-	screen(char*);
+	screen(string);
 	~screen();
-	void setScreenName(char*);
-	char* getScreenName();
+	void setScreenName(string);
+	string getScreenName();
 };
 #endif

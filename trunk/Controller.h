@@ -6,10 +6,12 @@
 
 class Controller
 {
+private:
+    MenuBuilder *menuBuilderObj;
 public:
-	MenuBuilder* menuObj;
-	MenuBuilder* init();
+
 	Controller();
 	~Controller();
+	MenuBuilder* init();
 };
 #endif

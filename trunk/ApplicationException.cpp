@@ -12,6 +12,8 @@ ApplicationException::ApplicationException()
 /*
 *
 */
+/*
 ApplicationException::~ApplicationException()
 {
 }
+*/

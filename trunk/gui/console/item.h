@@ -1,11 +1,15 @@
 #ifndef ITEM_H
 #define ITEM_H
 #include "console.h"
+
+#include <string>
+using namespace std;
+
 class item
 {
     private:
     /*name for the menu item*/
-	char* name;
+	string name;
     /*x coordinate for the menu item*/
     int x;
     /*y coordinate for the menu item*/
@@ -15,9 +19,9 @@ class item
 	console console_item;
 public:
     item();
-	item(char*,int,int ,int);
+	item(string,int,int ,int);
 	~item();
-	bool setItem(int,int,int,char*);
+	bool setItem(int,int,int,string);
 	int getCode();
 	int getItemX();
 	int getItemY();

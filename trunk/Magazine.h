@@ -7,11 +7,14 @@
 #include "Date.h"
 #endif
 
+#include <string>
+using namespace std;
+
 class Magazine:public ReferenceMaterial
 {
 private:
-	char* volume;
-	char* issueTopic;
+	string volume;
+	string issueTopic;
 	Date issueDate;
 public:
 	Magazine();

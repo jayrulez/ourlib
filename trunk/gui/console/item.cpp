@@ -1,15 +1,17 @@
 #include <iostream>
 #include "item.h"
 #include "console.h"
+
 #include <string>
 using namespace std;
+
 item::item()
 {
     x=0;
     y=0;
     code=0;
 }
-item::item(char* nm,int x1, int y1,int c)
+item::item(string nm,int x1, int y1,int c)
 {
 
 	if(x1>=0 && y1>=0){
@@ -26,7 +28,7 @@ item::item(char* nm,int x1, int y1,int c)
 item::~item()
 {
 }
-bool item::setItem(int x1,int y1,int c,char* nm)
+bool item::setItem(int x1,int y1,int c,string nm)
 {
 	if(x1>=0 && y1>=0){     //check criteria
 		x=x1;

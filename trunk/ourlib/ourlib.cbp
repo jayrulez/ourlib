@@ -22,6 +22,7 @@
 		</Compiler>
 		<Unit filename="..\Application.cpp" />
 		<Unit filename="..\Application.h" />
+		<Unit filename="..\ApplicationException.cpp" />
 		<Unit filename="..\Controller.cpp" />
 		<Unit filename="..\Controller.h" />
 		<Unit filename="..\Date.cpp" />
@@ -41,6 +42,14 @@
 		<Unit filename="..\ResearchPaper.h" />
 		<Unit filename="..\TextBook.cpp" />
 		<Unit filename="..\TextBook.h" />
+		<Unit filename="..\forms\FormBuilder.cpp" />
+		<Unit filename="..\forms\FormBuilder.h" />
+		<Unit filename="..\forms\MagazineForm.cpp" />
+		<Unit filename="..\forms\MagazineForm.h" />
+		<Unit filename="..\forms\ResearchPaperForm.cpp" />
+		<Unit filename="..\forms\ResearchPaperForm.h" />
+		<Unit filename="..\forms\TextBookForm.cpp" />
+		<Unit filename="..\forms\TextBookForm.h" />
 		<Unit filename="..\gui\console\bin\Debug\console.exe" />
 		<Unit filename="..\gui\console\console.cpp" />
 		<Unit filename="..\gui\console\console.depend" />

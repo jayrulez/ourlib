@@ -1,12 +1,15 @@
 #ifndef _REFERENCEMATERIAL_H
 #define _REFERENCEMATERIAL_H
 
+#include <string>
+using namespace std;
+
 class ReferenceMaterial
 {
 protected:
-	char* referenceNumber;
-	char* title;
-	char* author;
+	string referenceNumber;
+	string title;
+	string author;
 public:
 	ReferenceMaterial();
 	~ReferenceMaterial();

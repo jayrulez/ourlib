@@ -7,12 +7,15 @@
 #include "Date.h"
 #endif
 
+#include <string>
+using namespace std;
+
 class TextBook:public ReferenceMaterial
 {
 private:
-	char* ISBN;
-	char* course;
-	char* publisher;
+	string ISBN;
+	string course;
+	string publisher;
 	Date datePublished;
 public:
 	TextBook();

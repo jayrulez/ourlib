@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "windows.h"
 #ifndef _APPLICATION_H
 #include "Application.h"
@@ -75,7 +76,7 @@ void Application::welcome()
 void Application::main()
 {
 	this->controllerObj = new Controller();
-	this->controllerObj->init();
+	this->controllerObj->init()->callMenu(MAINMENU);
 }
 
 /*

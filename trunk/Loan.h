@@ -4,13 +4,16 @@
 #include "Date.h"
 #endif
 
+#include <string>
+using namespace std;
+
 class Loan
 {
 private:
 	int memberId;
-	char* remerenceNumber;
+	string remerenceNumber;
 	Date requestDate;
-	char loanType;
+	string loanType;
 public:
 	Loan();
 	~Loan();

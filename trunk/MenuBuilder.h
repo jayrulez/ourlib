@@ -1,4 +1,3 @@
-#include <string>
 #ifndef _MENUBUILDER_H
 #define _MENUBUILDER_H
 #ifndef ITEM_H
@@ -11,11 +10,34 @@
 #include "gui/console/scroller.h"
 #endif
 /* Menu Codes */
-#define _mainMenu_ 0
-#define _addMenu_ 1
-#define _editMenu_ 2
-#define _delMenu_ 4
-#define _loanMenu_ 8
+/*
+* Main Menu
+*/
+#define MAINMENU 0
+#define ADD 1
+#define EDIT 2
+#define DEL 3
+#define LOAN 4
+#define RETURN 5
+#define EXIT 6
+#define MAIN_SIZ 6
+
+/*
+* Add Menu
+*/
+#define RESEARCHPAPER 7
+#define TEXTBOOK 8
+#define MAGAZINE 9
+#define ADDMENU_SIZ 4
+
+/*
+* Loan Menu
+*/
+#define EXISTINGMEMBER 10
+#define NEWUSER 11
+#define LOANMENU_SIZ 3
+
+#include <string>
 using namespace std;
 
 class MenuBuilder
@@ -24,7 +46,8 @@ public:
 	MenuBuilder();
 	~MenuBuilder();
 	item* MainMenu();
-	item* UserTypeMenu();
+	item* AddReferenceMaterial();
+	item* LoanMenu();
 	int menuBrowserOperator(item*,int);
 	int MenuProcessing( int,item*,int*,scroller*,int);
 	void MenuShow(item*,int);

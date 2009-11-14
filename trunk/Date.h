@@ -1,18 +1,21 @@
 #ifndef _DATETIME_H
 #define _DATETIME_H
 
+#include <string>
+using namespace std;
+
 class Date
 {
 private:
 	int day;
 	int month;
 	int year;
-	char* format;
+	string format;
 public:
 	Date();
 	void setDate(int, int, int);
-	char* getDate();
-	void printDate(char* = "normal");
+	string getDate();
+	void printDate(string = "normal");
 	~Date();
 };
 #endif

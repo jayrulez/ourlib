@@ -6,9 +6,7 @@
 #include "model/Model.h"
 #endif
 
-#ifndef _MENUBUILDER_H
-#include "MenuBuilder.h"
-#endif
+using namespace std;
 
 /*
 *
@@ -19,9 +17,8 @@ Controller::Controller()
 
 MenuBuilder* Controller::init()
 {
-	this->menuObj = new MenuBuilder();
-	this->menuObj->BasicRunlevel("MAIN MENU");//added for testing
-	this->menuObj->callMenu(_mainMenu_);
+	this->menuBuilderObj = new MenuBuilder();
+	return this->menuBuilderObj;
 }
 
 /*

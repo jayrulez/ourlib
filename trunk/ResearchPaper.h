@@ -4,12 +4,15 @@
 #include "Referencematerial.h"
 #endif
 
+#include <string>
+using namespace std;
+
 class ResearchPaper:public ReferenceMaterial
 {
 private:
-	char* researchTopic;
-	char* superVisor;
-	char* sponsor;
+	string researchTopic;
+	string superVisor;
+	string sponsor;
 public:
 	ResearchPaper();
 	~ResearchPaper();

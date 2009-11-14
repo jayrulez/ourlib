@@ -26,7 +26,10 @@
 #endif
 #define _MAX 2
 #define _MIN 1
+
+#include <string>
 using namespace std;
+
 /*
 *
 */
@@ -43,21 +46,30 @@ MenuBuilder::~MenuBuilder()
 
 void MenuBuilder::callMenu(int menuId)
 {
+    console con;
+    con.setCursor(false,50);
 	switch(menuId)
 	{
-		/*case _addMenu_:
+		case ADD:
+            this->BasicRunlevel("ADD MENU");
+            this->MenuShow(this->AddReferenceMaterial(),ADDMENU_SIZ);
+			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ);
 		break;
+		/*
 		case _editMenu_:
 		break;
 		case _delMenu_:
 		break;
-		case _loadMenu_:
-		break;*/
+		*/
+		case LOAN:
+            this->BasicRunlevel("LOAN MENU");
+			this->MenuShow(this->LoanMenu(),LOANMENU_SIZ);
+			this->menuBrowserOperator(this->LoanMenu(),LOANMENU_SIZ);
+		break;
 		default:
-			console con;
-			con.setCursor(false,50);
-			this->MenuShow(this->UserTypeMenu(),USERTYPE_SIZ);
-			this->menuBrowserOperator(this->UserTypeMenu(),USERTYPE_SIZ);
+            this->BasicRunlevel("MAIN MENU");
+			this->MenuShow(this->MainMenu(),MAIN_SIZ);
+			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ);
 		break;
 	}
 }
@@ -68,7 +80,7 @@ void MenuBuilder::callMenu(int menuId)
 */
 item* MenuBuilder::MainMenu()
 {
-    static item MainItem[6];
+    static item MainItem[MAIN_SIZ];
     MainItem[0].setItem(38,13,ADD,"ADD");
     MainItem[1].setItem(37,17,EDIT,"EDIT");
     MainItem[2].setItem(36,21,DEL,"DELETE");
@@ -76,6 +88,31 @@ item* MenuBuilder::MainMenu()
     MainItem[4].setItem(36,29,RETURN,"RETURN");
     MainItem[5].setItem(37,33,EXIT,"EXIT");
     return &MainItem[0];
+}
+/*
+* This function creates the items for the Add Menu
+* and return the address of its 1st element
+*/
+item* MenuBuilder::AddReferenceMaterial()
+{
+    static item AddReferenceItem[ADDMENU_SIZ];
+    AddReferenceItem[0].setItem(15,21,RESEARCHPAPER,"RESEARCH PAPER");
+    AddReferenceItem[1].setItem(35,21,TEXTBOOK,"TEXT BOOK");
+    AddReferenceItem[2].setItem(55,21,MAGAZINE,"MAGAZINE");
+    AddReferenceItem[3].setItem(35,25,MAINMENU,"MAIN MENU");
+    return & AddReferenceItem[0];
+}
+/*
+* This function creates the items for the Loan Menu
+* and return the address of its 1st element
+*/
+item* MenuBuilder::LoanMenu()
+{
+    static item LoanMenuItem[LOANMENU_SIZ];
+    LoanMenuItem[0].setItem(15,21,EXISTINGMEMBER,"EXISTING MEMBER");
+    LoanMenuItem[1].setItem(55,21,NEWUSER,"NEW USER");
+    LoanMenuItem[2].setItem(35,25,MAINMENU,"MAIN MENU");
+    return &LoanMenuItem[0];
 }
 /*
 * This function displays the contents for the menus
@@ -87,16 +124,6 @@ void MenuBuilder::MenuShow(item *iptr,int size)
     {
         (iptr+x)->born();
     }
-}
-/*
-* This function displays the user type options
-*/
-item* MenuBuilder::UserTypeMenu()
-{
-    static item UserTypeItem[2];
-    UserTypeItem[0].setItem(24,25,MEMBER,"MEMBER");
-    UserTypeItem[1].setItem(47,25,ADMIN,"ADMIN");
-    return &UserTypeItem[0];
 }
 /*
 * This function is used to return the vertical range of any menu
@@ -173,7 +200,7 @@ int MenuBuilder::MenuRangeX(item *iptr,int size,int type)
 int MenuBuilder::menuBrowserOperator(item *iptr,int size)
 {
 
-    static int position=0;
+    int position=0;
     int *posptr;
 
     posptr=&position;
@@ -343,8 +370,8 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
         * Enter key
         */
         case VK_RETURN:
-			//this->callMenu(this->getMenuId((iptr+*pos)->getCode()));
-            return (iptr+*pos)->getCode();
+			this->callMenu((iptr+*pos)->getCode());
+            //return (iptr+*pos)->getCode();
         break;
     }
     return 0;
@@ -356,7 +383,7 @@ void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)
 	console con;
 	con.clearScreen();
 	con.setConsoleSize(consoleX,consoleY);
-	BaseFrame.setFrame(0,79,0,53,true);
+	BaseFrame.setFrame(0,79,0,52,true);
 	BaseFrame.dFraming();
 	con.xyCoord(0,0);
 	con.xyCoord(3,1);
