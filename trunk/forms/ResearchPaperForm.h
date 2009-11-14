@@ -6,6 +6,6 @@ class ResearchpaperForm
 public:
     ResearchpaperForm();
     ~ResearchpaperForm();
-}
+};
 
 #endif

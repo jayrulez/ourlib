@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1257944003 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
+1258185708 source:c:\documents and settings\carlington wilmot\my documents\ourlib\application.cpp
 	<iostream>
+	<string>
 	"windows.h"
 	"Application.h"
 	"Controller.h"
@@ -15,27 +16,32 @@
 1257137026 source:c:\documents and settings\carlington wilmot\my documents\ourlib\date.cpp
 	"Date.h"
 
-1256788133 c:\documents and settings\carlington wilmot\my documents\ourlib\date.h
+1258185709 c:\documents and settings\carlington wilmot\my documents\ourlib\date.h
+	<string>
 
 1256788061 source:c:\documents and settings\carlington wilmot\my documents\ourlib\loan.cpp
 	"Loan.h"
 
-1256788045 c:\documents and settings\carlington wilmot\my documents\ourlib\loan.h
+1258185708 c:\documents and settings\carlington wilmot\my documents\ourlib\loan.h
 	"Date.h"
+	<string>
 
 1256788206 source:c:\documents and settings\carlington wilmot\my documents\ourlib\magazine.cpp
 	"Magazine.h"
 
-1256788231 c:\documents and settings\carlington wilmot\my documents\ourlib\magazine.h
+1258185708 c:\documents and settings\carlington wilmot\my documents\ourlib\magazine.h
 	"Referencematerial.h"
 	"Date.h"
+	<string>
 
-1256788779 c:\documents and settings\carlington wilmot\my documents\ourlib\referencematerial.h
+1258185709 c:\documents and settings\carlington wilmot\my documents\ourlib\referencematerial.h
+	<string>
 
 1256788298 source:c:\documents and settings\carlington wilmot\my documents\ourlib\member.cpp
 	"Member.h"
 
-1256788329 c:\documents and settings\carlington wilmot\my documents\ourlib\member.h
+1258185708 c:\documents and settings\carlington wilmot\my documents\ourlib\member.h
+	<string>
 
 1256788344 source:c:\documents and settings\carlington wilmot\my documents\ourlib\referencematerial.cpp
 	"ReferenceMaterial.h"
@@ -43,15 +49,17 @@
 1256788398 source:c:\documents and settings\carlington wilmot\my documents\ourlib\researchpaper.cpp
 	"ResearchPaper.h"
 
-1256788421 c:\documents and settings\carlington wilmot\my documents\ourlib\researchpaper.h
+1258185709 c:\documents and settings\carlington wilmot\my documents\ourlib\researchpaper.h
 	"Referencematerial.h"
+	<string>
 
 1256788434 source:c:\documents and settings\carlington wilmot\my documents\ourlib\textbook.cpp
 	"TextBook.h"
 
-1256788463 c:\documents and settings\carlington wilmot\my documents\ourlib\textbook.h
+1258185708 c:\documents and settings\carlington wilmot\my documents\ourlib\textbook.h
 	"Referencematerial.h"
 	"Date.h"
+	<string>
 
 1256787931 source:c:\documents and settings\carlington wilmot\my documents\ourlib\db\dbcommand.cpp
 	"DBCommand.h"
@@ -71,7 +79,7 @@
 1257155605 source:c:\documents and settings\carlington wilmot\my documents\ourlib\maindriver.cpp
 	"Application.h"
 
-1257938245 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.h
+1258092950 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\console.h
 	<windows.h>
 
 1257938245 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\frame.h
@@ -81,8 +89,9 @@
 1257938246 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\line.h
 	"console.h"
 
-1257938245 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.h
+1258185705 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\item.h
 	"console.h"
+	<string>
 
 1256789472 c:\documents and settings\carlington wilmot\my documents\ourlib\gui\console\media.h
 
@@ -143,8 +152,9 @@
 1257137899 source:c:\documents and settings\carlington wilmot\my documents\ourlib\model\model.cpp
 	"Model.h"
 
-1257155802 c:\documents and settings\carlington wilmot\my documents\ourlib\model\model.h
+1258185708 c:\documents and settings\carlington wilmot\my documents\ourlib\model\model.h
 	"driver/file/File.h"
+	<string>
 
 1257137354 c:\documents and settings\carlington wilmot\my documents\ourlib\model\driver\file\file.h
 
@@ -311,29 +321,30 @@
 
 1258092356 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\menu.h
 
-1257942369 c:\documents and settings\carlington wilmot\my documents\ourlib\controller.h
+1258185708 c:\documents and settings\carlington wilmot\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1257944388 c:\documents and settings\carlington wilmot\my documents\ourlib\menubuilder.h
+1258185709 c:\documents and settings\carlington wilmot\my documents\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
+	<string>
 
-1257942872 source:c:\documents and settings\carlington wilmot\my documents\ourlib\controller.cpp
+1258185708 source:c:\documents and settings\carlington wilmot\my documents\ourlib\controller.cpp
 	"Controller.h"
 	"model/Model.h"
-	"MenuBuilder.h"
 
-1257942064 source:c:\documents and settings\carlington wilmot\my documents\ourlib\menubuilder.cpp
+1258187853 source:c:\documents and settings\carlington wilmot\my documents\ourlib\menubuilder.cpp
 	<iostream>
+	<string>
 	"MenuBuilder.h"
 	"gui/console/console.h"
 	"gui/console/frame.h"
 	"gui/console/line.h"
 	"gui/console/item.h"
 	"gui/console/media.h"
-	"gui/console/menu.h"
 	"gui/console/scroller.h"
+	<string>
 
 1258078976 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
 	"MenuBuilder.h"
@@ -547,5 +558,8 @@
 	"File.h"
 
 1258149010 source:d:\documents and settings\dd\desktop\project\applicationexception.cpp
+	"ApplicationException.h"
+
+1258185709 source:c:\documents and settings\carlington wilmot\my documents\ourlib\applicationexception.cpp
 	"ApplicationException.h"
 

@@ -6,6 +6,6 @@ class MagazineForm
 public:
     MagazineForm();
     ~MagazineForm();
-}
+};
 
 #endif

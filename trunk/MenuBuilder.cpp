@@ -18,9 +18,6 @@
 #ifndef MEDIA_H
 #include "gui/console/media.h"
 #endif
-#ifndef MENU_H
-#include "gui/console/menu.h"
-#endif
 #ifndef SCROLLER_H
 #include "gui/console/scroller.h"
 #endif

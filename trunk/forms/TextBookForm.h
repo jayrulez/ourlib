@@ -6,6 +6,6 @@ class TextBookForm
 public:
     TextBookForm();
     ~TextBookForm();
-}
+};
 
 #endif

@@ -6,6 +6,6 @@ class FormBuilder
 public:
     FormBuilder();
     ~FormBuilder();
-}
+};
 
 #endif
