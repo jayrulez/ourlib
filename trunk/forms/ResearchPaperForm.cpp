@@ -17,5 +17,11 @@ ResearchPaperForm::~ResearchPaperForm()
 
 void ResearchPaperForm::show(ResearchPaper * researchPaperObj)
 {
-
+	string referenceNumber = researchPaperObj->getReferenceNumber();
+	if(referenceNumber.empty())
+	{
+		//NEW RECORD
+	}else{
+		//record from file
+	}
 }

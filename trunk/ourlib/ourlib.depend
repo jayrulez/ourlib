@@ -34,7 +34,7 @@
 	"Date.h"
 	<string>
 
-1258188758 c:\documents and settings\carlington wilmot\my documents\ourlib\referencematerial.h
+1258265921 c:\documents and settings\carlington wilmot\my documents\ourlib\referencematerial.h
 	<string>
 
 1258188758 source:c:\documents and settings\carlington wilmot\my documents\ourlib\member.cpp
@@ -43,7 +43,7 @@
 1258188758 c:\documents and settings\carlington wilmot\my documents\ourlib\member.h
 	<string>
 
-1258188758 source:c:\documents and settings\carlington wilmot\my documents\ourlib\referencematerial.cpp
+1258265970 source:c:\documents and settings\carlington wilmot\my documents\ourlib\referencematerial.cpp
 	"ReferenceMaterial.h"
 
 1258188758 source:c:\documents and settings\carlington wilmot\my documents\ourlib\researchpaper.cpp
@@ -579,7 +579,7 @@
 1258265304 c:\documents and settings\carlington wilmot\my documents\ourlib\forms\researchpaperform.h
 	"../ResearchPaper.h"
 
-1258264703 source:c:\documents and settings\carlington wilmot\my documents\ourlib\forms\magazineform.cpp
+1258266337 source:c:\documents and settings\carlington wilmot\my documents\ourlib\forms\magazineform.cpp
 	"MagazineForm.h"
 	"../Magazine.h"
 

@@ -17,5 +17,11 @@ MagazineForm::~MagazineForm()
 
 void MagazineForm::show(Magazine * magazineObj)
 {
-
+	string referenceNumber = magazineObj->getReferenceNumber();
+	if(referenceNumber.empty())
+	{
+		//NEW RECORD
+	}else{
+		//record from file
+	}
 }

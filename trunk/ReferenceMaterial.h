@@ -13,5 +13,6 @@ protected:
 public:
 	ReferenceMaterial();
 	~ReferenceMaterial();
+	string getReferenceNumber();
 };
 #endif

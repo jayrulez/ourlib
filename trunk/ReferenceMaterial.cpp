@@ -15,3 +15,8 @@ ReferenceMaterial::ReferenceMaterial()
 ReferenceMaterial::~ReferenceMaterial()
 {
 }
+
+string ReferenceMaterial::getReferenceNumber()
+{
+	return this->referenceNumber;
+}

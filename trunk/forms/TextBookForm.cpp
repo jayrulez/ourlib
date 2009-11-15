@@ -17,5 +17,11 @@ TextBookForm::~TextBookForm()
 
 void TextBookForm::show(TextBook * textBookObj)
 {
-
+	string referenceNumber = textBookObj->getReferenceNumber();
+	if(referenceNumber.empty())
+	{
+		//NEW RECORD
+	}else{
+		//record from file
+	}
 }
