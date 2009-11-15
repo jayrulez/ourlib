@@ -43,8 +43,8 @@
 	<File name="..\Member.h" open="0" top="0" tabpos="7">
 		<Cursor position="79" topLine="0" />
 	</File>
-	<File name="..\MenuBuilder.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="8131" topLine="154" />
+	<File name="..\MenuBuilder.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="8131" topLine="42" />
 	</File>
 	<File name="..\MenuBuilder.h" open="0" top="0" tabpos="3">
 		<Cursor position="590" topLine="21" />
