@@ -93,3 +93,9 @@ string FormBuilder::FormInput (int type,string input,int length)
 		}
 	}
 }
+
+
+void FormBuilder::show()
+{
+
+}

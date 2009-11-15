@@ -1,11 +1,17 @@
 #ifndef _RESEARCHPAPERFORM_H
 #define _RESEARCHPAPERFORM_H
 
-class ResearchpaperForm
+#ifndef _RESEARCHPAPER_H
+#include "../ResearchPaper.h"
+#endif
+
+
+class ResearchPaperForm
 {
 public:
-    ResearchpaperForm();
-    ~ResearchpaperForm();
+    ResearchPaperForm();
+    ~ResearchPaperForm();
+	void show(ResearchPaper*);
 };
 
 #endif

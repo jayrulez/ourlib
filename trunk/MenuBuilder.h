@@ -55,5 +55,6 @@ public:
 	int MenuRangeX(item*,int,int);
 	void BasicRunlevel(string,int=680,int=800);
 	void callMenu(int);
+	void showReferenceMaterialForm(int);
 };
 #endif

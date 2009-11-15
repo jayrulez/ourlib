@@ -10,8 +10,9 @@ class FormBuilder
 {
 public:
     FormBuilder();
-    ~FormBuilder();
+    virtual ~FormBuilder();
     string FormInput(int,string,int);
+	virtual void show();
 };
 
 #endif

@@ -25,6 +25,27 @@
 #define _MIN 1
 
 #include <string>
+
+#ifndef _TEXTBOOK_H
+#include "TextBook.h"
+#endif
+#ifndef _TEXTBOOKFORM_H
+#include "forms/TextBookForm.h"
+#endif
+
+#ifndef _MAGAZINE_H
+#include "Magazine.h"
+#endif
+#ifndef _MAGAZINEFORM_H
+#include "forms/MagazineForm.h"
+#endif
+
+#ifndef _RESEARCHPAPER_H
+#include "ResearchPaper.h"
+#endif
+#ifndef _RESEARCHPAPERFORM_H
+#include "forms/ResearchPaperForm.h"
+#endif
 using namespace std;
 
 /*
@@ -41,6 +62,32 @@ MenuBuilder::~MenuBuilder()
 {
 }
 
+void MenuBuilder::showReferenceMaterialForm(int referenceMaterialType)
+{
+	switch(referenceMaterialType)
+	{
+		case TEXTBOOK:
+			TextBook *textBookObj = new TextBook();
+			TextBookForm *textBookForm = new TextBookForm();
+			textBookForm->show(textBookObj);
+		break;
+		case RESEARCHPAPER:
+			ResearchPaper *researchPaperObj = new ResearchPaper();
+			ResearchPaperForm *researchPaperForm = new ResearchPaperForm();
+			researchPaperForm->show(researchPaperObj);
+		break;
+		case MAGAZINE:
+			Magazine *magazineObj = new Magazine();
+			MagazineForm *magazineForm = new MagazineForm();
+			magazineForm->show(magazineObj);
+		break;
+	}
+	/*
+	if(form->validate())
+		form->save();
+	*/
+}
+
 void MenuBuilder::callMenu(int menuId)
 {
     console con;
@@ -51,6 +98,18 @@ void MenuBuilder::callMenu(int menuId)
             this->BasicRunlevel("ADD MENU");
             this->MenuShow(this->AddReferenceMaterial(),ADDMENU_SIZ);
 			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ);
+		break;
+		case RESEARCHPAPER:
+			this->BasicRunlevel("ADD RESEARCH PAPER");
+			this->showReferenceMaterialForm(RESEARCHPAPER);
+		break;
+		case TEXTBOOK:
+			this->BasicRunlevel("ADD TEXTBOOK");
+			this->showReferenceMaterialForm(TEXTBOOK);
+		break;
+		case MAGAZINE:
+			this->BasicRunlevel("ADD MAGAZINE");
+			this->showReferenceMaterialForm(MAGAZINE);
 		break;
 		/*
 		case _editMenu_:

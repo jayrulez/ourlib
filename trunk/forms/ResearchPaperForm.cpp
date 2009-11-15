@@ -1,13 +1,21 @@
 #ifndef _RESEARCHPAPERFORM_H
 #include "ResearchpaperForm.h"
 #endif
+#ifndef _RESEARCHPAPER_H
+#include "../ResearchPaper.h"
+#endif
 
-ResearchpaperForm::ResearchpaperForm()
+ResearchPaperForm::ResearchPaperForm()
 {
 
 }
 
-ResearchpaperForm::~ResearchpaperForm()
+ResearchPaperForm::~ResearchPaperForm()
+{
+
+}
+
+void ResearchPaperForm::show(ResearchPaper * researchPaperObj)
 {
 
 }
