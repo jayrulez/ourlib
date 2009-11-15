@@ -29,12 +29,17 @@
 #define TEXTBOOK 8
 #define MAGAZINE 9
 #define ADDMENU_SIZ 4
-
+/*
+* Add Research Paper
+*/
+#define ADDRESEARCHPAPER 10
+#define CLEAR FIELD 11
+#define RESEARCHPAPERMENU_SIZ 4
 /*
 * Loan Menu
 */
-#define EXISTINGMEMBER 10
-#define NEWUSER 11
+#define EXISTINGMEMBER 12
+#define NEWUSER 13
 #define LOANMENU_SIZ 3
 
 #include <string>
