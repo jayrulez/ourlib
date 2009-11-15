@@ -230,7 +230,7 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.cpp
 	"ResearchPaper.h"
 
-1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.h
+1258267423 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.h
 	"Referencematerial.h"
 	<string>
 
@@ -620,15 +620,17 @@
 1258166912 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\applicationexception.cpp
 	"ApplicationException.h"
 
-1258252194 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.h
+1258266552 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.h
 	"../TextBook.h"
+	"../gui/console/console.h"
 
 1258264837 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
 	"../Magazine.h"
 	"../gui/console/console.h"
 
-1258252194 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\researchpaperform.h
+1258267539 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\researchpaperform.h
 	"../ResearchPaper.h"
+	"../gui/console/console.h"
 
 1258264873 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\formbuilder.cpp
 	"FormBuilder.h"
@@ -645,7 +647,14 @@
 	"ResearchpaperForm.h"
 	"../ResearchPaper.h"
 
-1258252194 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
+1258266534 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
+	<iostream>
+
+1258265158 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
+	"MagazineForm.h"
+	"../Magazine.h"
+	<iostream>
+	<string>
 

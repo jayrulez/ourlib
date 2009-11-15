@@ -5,9 +5,17 @@
 #include "../ResearchPaper.h"
 #endif
 
+#ifndef CONSOLE_H
+#include "../gui/console/console.h"
+#endif
 
 class ResearchPaperForm
 {
+private:
+    int xyResearchTopic[3];
+	int xySupervisor[3];
+	int xySponsor[3];
+	console consoleObj;
 public:
     ResearchPaperForm();
     ~ResearchPaperForm();

@@ -11,7 +11,7 @@ class ResearchPaper:public ReferenceMaterial
 {
 private:
 	string researchTopic;
-	string superVisor;
+	string supervisor;
 	string sponsor;
 public:
 	ResearchPaper();
