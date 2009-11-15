@@ -102,14 +102,17 @@ void MenuBuilder::callMenu(int menuId)
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
+			this->MenuShow(this->AddReferenceFormMenu(),ADDREFERENCFORMEMENU_SIZ);
 		break;
 		case TEXTBOOK:
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
+			this->MenuShow(this->AddReferenceFormMenu(),ADDREFERENCFORMEMENU_SIZ);
 		break;
 		case MAGAZINE:
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
+			this->MenuShow(this->AddReferenceFormMenu(),ADDREFERENCFORMEMENU_SIZ);
 		break;
 		/*
 		case _editMenu_:
@@ -157,6 +160,15 @@ item* MenuBuilder::AddReferenceMaterial()
     AddReferenceItem[2].setItem(55,21,MAGAZINE,"MAGAZINE");
     AddReferenceItem[3].setItem(35,25,MAINMENU,"MAIN MENU");
     return & AddReferenceItem[0];
+}
+item* MenuBuilder::AddReferenceFormMenu()
+{
+    static item AddReferenceFormItem[ADDREFERENCFORMEMENU_SIZ];
+    AddReferenceFormItem[0].setItem(15,35,SUBMIT,"SUBMIT");
+    AddReferenceFormItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELD");
+    AddReferenceFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
+    AddReferenceFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return & AddReferenceFormItem[0];
 }
 /*
 * This function creates the items for the Loan Menu
