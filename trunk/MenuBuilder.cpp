@@ -161,6 +161,9 @@ item* MenuBuilder::AddReferenceMaterial()
     AddReferenceItem[3].setItem(35,25,MAINMENU,"MAIN MENU");
     return & AddReferenceItem[0];
 }
+/*
+* This functions creates menus for the Add Reference Material Forms
+*/
 item* MenuBuilder::AddReferenceFormMenu()
 {
     static item AddReferenceFormItem[ADDREFERENCFORMEMENU_SIZ];
