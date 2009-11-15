@@ -11,16 +11,16 @@ using namespace std;
 TextBookForm::TextBookForm()
 {
     xyISBN[0]=25;
-    xyISBN[1]=15;
+    xyISBN[1]=18;
     xyISBN[2]=6;
     xyCourse[0]=25;
-    xyCourse[1]=18;
+    xyCourse[1]=21;
     xyCourse[2]=8;
     xyPublisher[0]=25;
-    xyPublisher[1]=21;
+    xyPublisher[1]=24;
     xyPublisher[2]=11;
     xyDatePublished[0]=25;
-    xyDatePublished[1]=24;
+    xyDatePublished[1]=27;
     xyDatePublished[2]=16;
 }
 

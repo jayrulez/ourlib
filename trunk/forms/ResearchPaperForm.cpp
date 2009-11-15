@@ -11,13 +11,13 @@ using namespace std;
 ResearchPaperForm::ResearchPaperForm()
 {
     xyResearchTopic[0]=25;
-    xyResearchTopic[1]=15;
+    xyResearchTopic[1]=18;
     xyResearchTopic[2]=6;
     xySupervisor[0]=25;
-    xySupervisor[1]=18;
+    xySupervisor[1]=21;
     xySupervisor[2]=8;
     xySponsor[0]=25;
-    xySponsor[1]=21;
+    xySponsor[1]=24;
     xySponsor[2]=11;
 
 }

@@ -11,13 +11,13 @@ using namespace std;
 MagazineForm::MagazineForm()
 {
     xyVolume[0]=25;
-    xyVolume[1]=15;
+    xyVolume[1]=17;
     xyVolume[2]=8;
     xyIssueTopic[0]=25;
-    xyIssueTopic[1]=18;
+    xyIssueTopic[1]=20;
     xyIssueTopic[2]=13;
     xyIssueDate[0]=25;
-    xyIssueDate[1]=21;
+    xyIssueDate[1]=23;
     xyIssueDate[2]=12;
 }
 
