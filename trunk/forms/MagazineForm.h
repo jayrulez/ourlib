@@ -2,7 +2,7 @@
 #define _MAGAZINEFORM_H
 #ifndef _MAGAZINE_H
 #include "../Magazine.h"
-#include "../gui/console/consol.h"
+#include "../gui/console/console.h"
 #endif
 
 class MagazineForm

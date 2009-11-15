@@ -4,16 +4,16 @@
 #ifndef _MAGAZINE_H
 #include "../Magazine.h"
 #endif
-
+#include <iostream>
 #include <string>
 using namespace std;
 
 MagazineForm::MagazineForm()
 {
-    xyVolume[0]=35;
+    xyVolume[0]=25;
     xyVolume[1]=15;
     xyVolume[2]=8;
-    xyIssueTopic[0]=35
+    xyIssueTopic[0]=25;
     xyIssueTopic[1]=18;
     xyIssueTopic[2]=13;
     xyIssueDate[0]=25;

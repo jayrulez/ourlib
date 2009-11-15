@@ -38,7 +38,7 @@ string FormBuilder::FormInput (int type,string input,int length)
 			case KEY_EVENT:
 				if(InputRec.Event.KeyEvent.bKeyDown)
 				{
-				    if(input.length()<length)
+				    if(input.length()<(unsigned)length)
 				    {
                         switch(type)
                         {
@@ -92,6 +92,7 @@ string FormBuilder::FormInput (int type,string input,int length)
 			break;
 		}
 	}
+	return input;
 }
 
 

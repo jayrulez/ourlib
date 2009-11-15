@@ -178,22 +178,26 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\date.cpp
 	"Date.h"
 
-1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\date.h
+1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\date.h
+	<string>
 
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\loan.cpp
 	"Loan.h"
 
-1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\loan.h
+1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\loan.h
 	"Date.h"
+	<string>
 
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\magazine.cpp
 	"Magazine.h"
 
-1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\magazine.h
+1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\magazine.h
 	"Referencematerial.h"
 	"Date.h"
+	<string>
 
-1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.h
+1258252197 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.h
+	<string>
 
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\maindriver.cpp
 	"Application.h"
@@ -202,8 +206,9 @@
 	"Controller.h"
 	"ApplicationException.h"
 
-1257805861 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.h
+1258166907 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.h
 	"console.h"
+	<string>
 
 1258077725 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.h
 	<windows.h>
@@ -216,23 +221,26 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\member.cpp
 	"Member.h"
 
-1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\member.h
+1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\member.h
+	<string>
 
-1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.cpp
+1258252197 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.cpp
 	"ReferenceMaterial.h"
 
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.cpp
 	"ResearchPaper.h"
 
-1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.h
+1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.h
 	"Referencematerial.h"
+	<string>
 
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.cpp
 	"TextBook.h"
 
-1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
+1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
 	"Referencematerial.h"
 	"Date.h"
+	<string>
 
 1258085724 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.cpp
 	<iostream>
@@ -252,7 +260,7 @@
 	"line.h"
 	"console.h"
 
-1257805965 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.cpp
+1258166907 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\item.cpp
 	<iostream>
 	"item.h"
 	"console.h"
@@ -293,8 +301,9 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\model\model.cpp
 	"Model.h"
 
-1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\model\model.h
+1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\model\model.h
 	"driver/file/File.h"
+	<string>
 
 1257717020 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\model\driver\file\file.h
 
@@ -311,8 +320,9 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\model\driver\file\file.cpp
 	"File.h"
 
-1258078976 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.cpp
+1258166912 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\application.cpp
 	<iostream>
+	<string>
 	"windows.h"
 	"Application.h"
 	"Controller.h"
@@ -353,21 +363,20 @@
 	"ResearchPaper.h"
 	"forms/ResearchPaperForm.h"
 
-1258078976 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
+1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1258093948 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
-	<string>
+1258252197 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
+	<string>
 
-1258089293 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.cpp
+1258166912 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.cpp
 	"Controller.h"
 	"model/Model.h"
-	"MenuBuilder.h"
 
-1258096050 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
+1258252197 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
 	<iostream>
 	<string>
 	"MenuBuilder.h"
@@ -376,8 +385,14 @@
 	"gui/console/line.h"
 	"gui/console/item.h"
 	"gui/console/media.h"
-	"gui/console/menu.h"
 	"gui/console/scroller.h"
+	<string>
+	"TextBook.h"
+	"forms/TextBookForm.h"
+	"Magazine.h"
+	"forms/MagazineForm.h"
+	"ResearchPaper.h"
+	"forms/ResearchPaperForm.h"
 
 1258154319 source:d:\documents and settings\dd\desktop\project\application.cpp
 	<iostream>
@@ -599,6 +614,38 @@
 	"../ResearchPaper.h"
 
 1258264722 source:c:\documents and settings\carlington wilmot\my documents\ourlib\forms\textbookform.cpp
+	"TextBookForm.h"
+	"../TextBook.h"
+
+1258166912 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\applicationexception.cpp
+	"ApplicationException.h"
+
+1258252194 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.h
+	"../TextBook.h"
+
+1258264837 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
+	"../Magazine.h"
+	"../gui/console/console.h"
+
+1258252194 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\researchpaperform.h
+	"../ResearchPaper.h"
+
+1258264873 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\formbuilder.cpp
+	"FormBuilder.h"
+	"windows.h"
+	<iostream>
+	<cctype>
+	<string>
+
+1258252193 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\formbuilder.h
+	<iostream>
+	<string>
+
+1258252194 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\researchpaperform.cpp
+	"ResearchpaperForm.h"
+	"../ResearchPaper.h"
+
+1258252194 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
 
