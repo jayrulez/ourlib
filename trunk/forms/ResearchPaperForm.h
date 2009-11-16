@@ -12,6 +12,8 @@
 class ResearchPaperForm
 {
 private:
+    int xyReferenceNumber[3];
+    int xyAuthor[3];
     int xyResearchTopic[3];
 	int xySupervisor[3];
 	int xySponsor[3];

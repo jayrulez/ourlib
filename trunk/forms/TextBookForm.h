@@ -11,6 +11,8 @@
 class TextBookForm
 {
 private:
+    int xyReferenceNumber[3];
+    int xyAuthor[3];
     int xyISBN[3];
     int xyCourse[3];
     int xyPublisher[3];

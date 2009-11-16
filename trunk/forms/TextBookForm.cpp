@@ -10,6 +10,12 @@ using namespace std;
 
 TextBookForm::TextBookForm()
 {
+    xyReferenceNumber[0]=25;
+    xyReferenceNumber[1]=12;
+    xyReferenceNumber[2]=18;
+    xyAuthor[0]=25;
+    xyAuthor[1]=15;
+    xyAuthor[2]=8;
     xyISBN[0]=25;
     xyISBN[1]=18;
     xyISBN[2]=6;
@@ -38,6 +44,10 @@ void TextBookForm::show(TextBook * textBookObj)
 	}else{
 		//record from file
 	}
+    consoleObj.xyCoord(xyReferenceNumber[0],xyReferenceNumber[1]);
+	cout<<"Reference Number: ";
+	consoleObj.xyCoord(xyAuthor[0],xyAuthor[1]);
+	cout<<"Author: ";
     consoleObj.xyCoord(xyISBN[0],xyISBN[1]);
 	cout<<"ISBN: ";
 	consoleObj.xyCoord(xyCourse[0],xyCourse[1]);

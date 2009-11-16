@@ -10,6 +10,12 @@ using namespace std;
 
 MagazineForm::MagazineForm()
 {
+    xyReferenceNumber[0]=25;
+    xyReferenceNumber[1]=11;
+    xyReferenceNumber[2]=18;
+    xyAuthor[0]=25;
+    xyAuthor[1]=14;
+    xyAuthor[2]=8;
     xyVolume[0]=25;
     xyVolume[1]=17;
     xyVolume[2]=8;
@@ -35,6 +41,10 @@ void MagazineForm::show(Magazine * magazineObj)
 	}else{
 		//record from file
 	}
+	consoleObj.xyCoord(xyReferenceNumber[0],xyReferenceNumber[1]);
+	cout<<"Reference Number: ";
+	consoleObj.xyCoord(xyAuthor[0],xyAuthor[1]);
+	cout<<"Author: ";
 	consoleObj.xyCoord(xyVolume[0],xyVolume[1]);
 	cout<<"Volume: ";
 	consoleObj.xyCoord(xyIssueDate[0],xyIssueDate[1]);
