@@ -32,7 +32,7 @@ void MemberForm::show()
 	cout<<"Id Number: ";
 	consoleObj.xyCoord(xyFirstName[0],xyFirstName[1]);
 	cout<<"First Name: ";
-    consoleObj.xyCoord(xyLastName[[0],xyLastName[[1]);
+    consoleObj.xyCoord(xyLastName[0],xyLastName[1]);
 	cout<<"Last Name: ";
 	consoleObj.xyCoord(xyAddress[0],xyAddress[1]);
 	cout<<"Address: ";

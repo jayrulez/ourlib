@@ -62,5 +62,6 @@ public:
 	void BasicRunlevel(string,int=680,int=800);
 	void callMenu(int);
 	void showReferenceMaterialForm(int);
+	void showLoanForm(int);
 };
 #endif

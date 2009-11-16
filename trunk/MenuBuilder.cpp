@@ -46,6 +46,11 @@
 #ifndef _RESEARCHPAPERFORM_H
 #include "forms/ResearchPaperForm.h"
 #endif
+
+#ifndef MEMBERFORM_H
+#include "forms/MemberForm.h"
+#endif
+
 using namespace std;
 
 /*
@@ -87,6 +92,19 @@ void MenuBuilder::showReferenceMaterialForm(int referenceMaterialType)
 		form->save();
 	*/
 }
+void MenuBuilder::showLoanForm(int LoanFormType)
+{
+    switch(LoanFormType)
+    {
+        case EXISTINGMEMBER:
+
+		break;
+        case NEWUSER:
+            MemberForm *memberForm = new MemberForm();
+            memberForm->show();
+        break;
+    }
+}
 
 void MenuBuilder::callMenu(int menuId)
 {
@@ -114,17 +132,18 @@ void MenuBuilder::callMenu(int menuId)
 			this->showReferenceMaterialForm(MAGAZINE);
 			this->MenuShow(this->AddReferenceFormMenu(),ADDREFERENCFORMEMENU_SIZ);
 		break;
-		/*
-		case _editMenu_:
-		break;
-		case _delMenu_:
-		break;
-		*/
+
 		case LOAN:
             this->BasicRunlevel("LOAN MENU");
 			this->MenuShow(this->LoanMenu(),LOANMENU_SIZ);
 			this->menuBrowserOperator(this->LoanMenu(),LOANMENU_SIZ);
 		break;
+		case EXISTINGMEMBER:
+		break;
+        case NEWUSER:
+            this->BasicRunlevel("NEW USER REGISTRATION");
+            this->showLoanForm(NEWUSER);
+        break;
 		default:
             this->BasicRunlevel("MAIN MENU");
 			this->MenuShow(this->MainMenu(),MAIN_SIZ);

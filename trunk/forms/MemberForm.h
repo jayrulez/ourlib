@@ -1,6 +1,8 @@
 #ifndef MEMBERFORM_H
 #define MEMBERFORM_H
 
+#include "../gui/console/console.h"
+
 class MemberForm
 {
 private:
