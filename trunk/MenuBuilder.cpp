@@ -120,7 +120,7 @@ void MenuBuilder::callMenu(int menuId)
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
-			this->MenuShow(this->AddReferenceFormMenu(),ADDREFERENCFORMEMENU_SIZ);
+			this->MenuShow(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMEMENU_SIZ);
 		break;
 		case TEXTBOOK:
 			this->BasicRunlevel("ADD TEXTBOOK");
@@ -181,16 +181,26 @@ item* MenuBuilder::AddReferenceMaterial()
     return & AddReferenceItem[0];
 }
 /*
-*   This functions creates menus for the Add Reference Material Forms
+*   This function creates menus for the Add Research Paper Forms
 */
-item* MenuBuilder::AddReferenceFormMenu()
+item* MenuBuilder::AddResearchPaperFormMenu()
 {
-    static item AddReferenceFormItem[ADDREFERENCFORMEMENU_SIZ];
-    AddReferenceFormItem[0].setItem(15,35,SUBMIT,"SUBMIT");
-    AddReferenceFormItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELD");
+    static item AddReferenceFormItem[ADDRESAERCHPAPERFORMEMENU_SIZ];
+    AddReferenceFormItem[0].setItem(15,35,RESEARCHSUBMIT,"SUBMIT");
+    AddReferenceFormItem[1].setItem(35,35,RESEARCHCLEARFIELD,"CLEAR FIELD");
     AddReferenceFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
     AddReferenceFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
-    return & AddReferenceFormItem[0];
+    return &AddReferenceFormItem[0];
+}
+item* AddMagazineFormMenu()
+{
+    static item AddMagzineFormItem[ADDMAGAZINEFORMMENU_SIZ];
+
+    return &AddMagzineFormItem[0];
+
+}
+item* AddTextBookFormMenu()
+{
 }
 /*
 * This function creates the items for the Loan Menu

@@ -32,9 +32,9 @@
 /*
 * Add Research Paper
 */
-#define SUBMIT 10
-#define CLEARFIELD 11
-#define ADDREFERENCFORMEMENU_SIZ 4
+#define RESEARCHSUBMIT 10
+#define RESEARCHCLEARFIELD 11
+#define ADDRESAERCHPAPERFORMEMENU_SIZ 4
 /*
 * Loan Menu
 */
@@ -53,7 +53,9 @@ public:
 	item* MainMenu();
 	item* AddReferenceMaterial();
 	item* LoanMenu();
-	item* AddReferenceFormMenu();
+	item* AddResearchPaperFormMenu();
+	item* AddMagazineFormMenu();
+	item* AddTextBookFormMenu();
 	int menuBrowserOperator(item*,int);
 	int MenuProcessing( int,item*,int*,scroller*,int);
 	void MenuShow(item*,int);
