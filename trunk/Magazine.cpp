@@ -8,7 +8,6 @@
 Magazine::Magazine()
 {
 }
-
 /*
 *
 */
