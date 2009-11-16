@@ -46,6 +46,8 @@
 		<Unit filename="..\forms\FormBuilder.h" />
 		<Unit filename="..\forms\MagazineForm.cpp" />
 		<Unit filename="..\forms\MagazineForm.h" />
+		<Unit filename="..\forms\MemberForm.cpp" />
+		<Unit filename="..\forms\MemberForm.h" />
 		<Unit filename="..\forms\ResearchPaperForm.cpp" />
 		<Unit filename="..\forms\ResearchPaperForm.h" />
 		<Unit filename="..\forms\TextBookForm.cpp" />
@@ -63,10 +65,7 @@
 		<Unit filename="..\gui\console\line.h" />
 		<Unit filename="..\gui\console\media.cpp" />
 		<Unit filename="..\gui\console\media.h" />
-		<Unit filename="..\gui\console\menu.h" />
 		<Unit filename="..\gui\console\readme.txt" />
-		<Unit filename="..\gui\console\screen.cpp" />
-		<Unit filename="..\gui\console\screen.h" />
 		<Unit filename="..\gui\console\scroller.cpp" />
 		<Unit filename="..\gui\console\scroller.h" />
 		<Unit filename="..\gui\console\sound\button-15.wav" />
