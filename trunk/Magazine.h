@@ -19,5 +19,12 @@ private:
 public:
 	Magazine();
 	~Magazine();
+	Magazine(string,string,string,string);
+	void setVolume(string);
+	void setIssueTopic(string);
+	void setIssueDate(string);
+	string getVolume() const;
+	string getIssueTopic() const;
+	void showReferenceMaterial(int,int);
 };
 #endif

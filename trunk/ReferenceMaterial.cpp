@@ -1,7 +1,10 @@
 #ifndef _REFERENCEMATERIAL_H
 #include "ReferenceMaterial.h"
 #endif
+#include <iostream>
+#include <string>
 
+using namespace std;
 /*
 *
 */
@@ -20,3 +23,22 @@ string ReferenceMaterial::getReferenceNumber()
 {
 	return this->referenceNumber;
 }
+ReferenceMaterial::ReferenceMaterial(string,string,string)
+{
+}
+string ReferenceMaterial::getReferenceNumber() const
+{
+}
+string ReferenceMaterial::getTitle() const
+{
+}
+string ReferenceMaterial::getAuthor() const
+{
+}
+void ReferenceMaterial::setTitle() const
+{
+}
+void ReferenceMaterial::getAuthor() const
+{
+}
+

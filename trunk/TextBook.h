@@ -19,6 +19,15 @@ private:
 	Date datePublished;
 public:
 	TextBook();
+	TextBook(string,string,string,string,string);
 	~TextBook();
+	void setISBN(string);
+	void setCourse(string);
+	void setPublisher(string);
+	void setDatePublished(string);
+	string getISBN() const;
+    string setCourse() const;
+	string setPublisher() const;
+	void showReferenceMaterial(int,int);
 };
 #endif

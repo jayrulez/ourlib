@@ -150,6 +150,7 @@ void MenuBuilder::callMenu(int menuId)
 			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ);
 		break;
 	}
+	system("pause");
 }
 
 /*

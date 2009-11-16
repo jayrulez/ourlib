@@ -2,7 +2,7 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="..\Application.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="360" topLine="58" />
+		<Cursor position="725" topLine="22" />
 	</File>
 	<File name="..\Application.h" open="0" top="0" tabpos="6">
 		<Cursor position="178" topLine="2" />
@@ -23,49 +23,49 @@
 		<Cursor position="182" topLine="0" />
 	</File>
 	<File name="..\Loan.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="336" topLine="0" />
+		<Cursor position="106" topLine="0" />
 	</File>
 	<File name="..\Loan.h" open="0" top="0" tabpos="5">
-		<Cursor position="227" topLine="0" />
+		<Cursor position="257" topLine="3" />
 	</File>
 	<File name="..\Magazine.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="131" topLine="0" />
+		<Cursor position="125" topLine="0" />
 	</File>
 	<File name="..\Magazine.h" open="0" top="0" tabpos="6">
-		<Cursor position="197" topLine="0" />
+		<Cursor position="349" topLine="0" />
 	</File>
 	<File name="..\MainDriver.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="156" topLine="0" />
 	</File>
 	<File name="..\Member.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="342" topLine="0" />
+		<Cursor position="655" topLine="17" />
 	</File>
 	<File name="..\Member.h" open="0" top="0" tabpos="7">
-		<Cursor position="79" topLine="0" />
+		<Cursor position="235" topLine="3" />
 	</File>
 	<File name="..\MenuBuilder.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="3156" topLine="108" />
+		<Cursor position="3503" topLine="0" />
 	</File>
 	<File name="..\MenuBuilder.h" open="0" top="0" tabpos="2">
 		<Cursor position="868" topLine="12" />
 	</File>
 	<File name="..\ReferenceMaterial.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="375" topLine="0" />
+		<Cursor position="638" topLine="0" />
 	</File>
 	<File name="..\ReferenceMaterial.h" open="0" top="0" tabpos="8">
-		<Cursor position="101" topLine="0" />
+		<Cursor position="260" topLine="0" />
 	</File>
 	<File name="..\ResearchPaper.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="165" topLine="0" />
+		<Cursor position="124" topLine="0" />
 	</File>
 	<File name="..\ResearchPaper.h" open="0" top="0" tabpos="9">
-		<Cursor position="264" topLine="0" />
+		<Cursor position="122" topLine="0" />
 	</File>
 	<File name="..\TextBook.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="348" topLine="0" />
+		<Cursor position="114" topLine="0" />
 	</File>
 	<File name="..\TextBook.h" open="0" top="0" tabpos="10">
-		<Cursor position="158" topLine="0" />
+		<Cursor position="352" topLine="0" />
 	</File>
 	<File name="..\forms\FormBuilder.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="729" topLine="27" />

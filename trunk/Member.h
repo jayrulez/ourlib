@@ -15,5 +15,17 @@ private:
 public:
 	Member();
 	~Member();
+	Member(int,string,string,string,string);
+	void setId(int);
+	void setFirstName(string);
+	void setLastName(string);
+	void setAddress(string);
+	void setContactNumber(string);
+	int getId() const;
+	string getFirstName() const;
+	string getLastName() const;
+	string getAddress() const;
+	string getContactNumber() const;
+	void showMember(int,int);
 };
 #endif
