@@ -192,6 +192,9 @@ item* MenuBuilder::AddResearchPaperFormMenu()
     AddReferenceFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &AddReferenceFormItem[0];
 }
+/*
+*   This function creates menus for the Add Magazine Forms
+*/
 item* AddMagazineFormMenu()
 {
     static item AddMagzineFormItem[ADDMAGAZINEFORMMENU_SIZ];
@@ -199,6 +202,9 @@ item* AddMagazineFormMenu()
     return &AddMagzineFormItem[0];
 
 }
+/*
+*   This function creates menus for the Add TextBook Forms
+*/
 item* AddTextBookFormMenu()
 {
     static item AddTextBookFormMenu();
