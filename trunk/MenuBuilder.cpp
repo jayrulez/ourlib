@@ -201,6 +201,9 @@ item* AddMagazineFormMenu()
 }
 item* AddTextBookFormMenu()
 {
+    static item AddTextBookFormMenu();
+
+    return &AddTextBookFormMenu[0];
 }
 /*
 * This function creates the items for the Loan Menu
