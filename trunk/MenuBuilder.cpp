@@ -185,12 +185,12 @@ item* MenuBuilder::AddReferenceMaterial()
 */
 item* MenuBuilder::AddResearchPaperFormMenu()
 {
-    static item AddReferenceFormItem[ADDRESAERCHPAPERFORMEMENU_SIZ];
-    AddReferenceFormItem[0].setItem(15,35,RESEARCHSUBMIT,"SUBMIT");
-    AddReferenceFormItem[1].setItem(35,35,RESEARCHCLEARFIELD,"CLEAR FIELD");
-    AddReferenceFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
-    AddReferenceFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
-    return &AddReferenceFormItem[0];
+    static item AddResearchPaperFormItem[ADDRESAERCHPAPERFORMMENU_SIZ];
+    AddResearchPaperFormItem[0].setItem(15,35,RESEARCHSUBMIT,"SUBMIT");
+    AddResearchPaperFormItem[1].setItem(35,35,RESEARCHCLEARFIELD,"CLEAR FIELD");
+    AddResearchPaperFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
+    AddResearchPaperFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return &AddResearchPaperFormItem[0];
 }
 /*
 *   This function creates menus for the Add Magazine Forms
@@ -198,18 +198,23 @@ item* MenuBuilder::AddResearchPaperFormMenu()
 item* AddMagazineFormMenu()
 {
     static item AddMagzineFormItem[ADDMAGAZINEFORMMENU_SIZ];
-
-    return &AddMagzineFormItem[0];
-
+    AddMagazineFormItem[0].setItem(15,35,MAGAZINESUBMIT,"SUBMIT");
+    AddMagazineFormItem[1].setItem(35,35,MAGAZINECLEARFIELD,"CLEAR FIELD");
+    AddMagazineFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
+    AddMagazineFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return & AddMagazineFormItem[0];
 }
 /*
 *   This function creates menus for the Add TextBook Forms
 */
 item* AddTextBookFormMenu()
 {
-    static item AddTextBookFormMenu();
-
-    return &AddTextBookFormMenu[0];
+    static item AddTextBookFormMenuItem[ADDTEXTBOOKFORMMENU_SIZ];
+    AddTextBookFormItem[0].setItem(15,35,MAGAZINESUBMIT,"SUBMIT");
+    AddTextBookFormItem[1].setItem(35,35,MAGAZINECLEARFIELD,"CLEAR FIELD");
+    AddTextBookFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
+    AddTextBookFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return &AddTextBookFormMenuItem[0];
 }
 /*
 * This function creates the items for the Loan Menu
