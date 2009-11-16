@@ -120,17 +120,17 @@ void MenuBuilder::callMenu(int menuId)
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
-			this->MenuShow(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMEMENU_SIZ);
+			this->MenuShow(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ);
 		break;
 		case TEXTBOOK:
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
-			this->MenuShow(this->AddReferenceFormMenu(),ADDREFERENCFORMEMENU_SIZ);
+			this->MenuShow(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
 		break;
 		case MAGAZINE:
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
-			this->MenuShow(this->AddReferenceFormMenu(),ADDREFERENCFORMEMENU_SIZ);
+			this->MenuShow(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
 		break;
 
 		case LOAN:
@@ -187,7 +187,7 @@ item* MenuBuilder::AddResearchPaperFormMenu()
 {
     static item AddResearchPaperFormItem[ADDRESAERCHPAPERFORMMENU_SIZ];
     AddResearchPaperFormItem[0].setItem(15,35,RESEARCHSUBMIT,"SUBMIT");
-    AddResearchPaperFormItem[1].setItem(35,35,RESEARCHCLEARFIELD,"CLEAR FIELD");
+    AddResearchPaperFormItem[1].setItem(35,35,RESEARCHCLEARFIELD,"CLEAR FIELDS");
     AddResearchPaperFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
     AddResearchPaperFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &AddResearchPaperFormItem[0];
@@ -195,25 +195,25 @@ item* MenuBuilder::AddResearchPaperFormMenu()
 /*
 *   This function creates menus for the Add Magazine Forms
 */
-item* AddMagazineFormMenu()
+item* MenuBuilder::AddMagazineFormMenu()
 {
-    static item AddMagzineFormItem[ADDMAGAZINEFORMMENU_SIZ];
-    AddMagazineFormItem[0].setItem(15,35,MAGAZINESUBMIT,"SUBMIT");
-    AddMagazineFormItem[1].setItem(35,35,MAGAZINECLEARFIELD,"CLEAR FIELD");
-    AddMagazineFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
-    AddMagazineFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
-    return & AddMagazineFormItem[0];
+    static item AddMagazineFormMenuItem[ADDMAGAZINEFORMMENU_SIZ];
+    AddMagazineFormMenuItem[0].setItem(15,35,MAGAZINESUBMIT,"SUBMIT");
+    AddMagazineFormMenuItem[1].setItem(35,35,MAGAZINECLEARFIELD,"CLEAR FIELDS");
+    AddMagazineFormMenuItem[2].setItem(55,35,ADD,"<-- ADD MENU");
+    AddMagazineFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return & AddMagazineFormMenuItem[0];
 }
 /*
 *   This function creates menus for the Add TextBook Forms
 */
-item* AddTextBookFormMenu()
+item* MenuBuilder::AddTextBookFormMenu()
 {
     static item AddTextBookFormMenuItem[ADDTEXTBOOKFORMMENU_SIZ];
-    AddTextBookFormItem[0].setItem(15,35,MAGAZINESUBMIT,"SUBMIT");
-    AddTextBookFormItem[1].setItem(35,35,MAGAZINECLEARFIELD,"CLEAR FIELD");
-    AddTextBookFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
-    AddTextBookFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    AddTextBookFormMenuItem[0].setItem(15,35,MAGAZINESUBMIT,"SUBMIT");
+    AddTextBookFormMenuItem[1].setItem(35,35,MAGAZINECLEARFIELD,"CLEAR FIELDS");
+    AddTextBookFormMenuItem[2].setItem(55,35,ADD,"<-- ADD MENU");
+    AddTextBookFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &AddTextBookFormMenuItem[0];
 }
 /*
