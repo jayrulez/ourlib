@@ -28,14 +28,14 @@ MemberForm::~MemberForm()
 }
 void MemberForm::show()
 {
-    consoleObj.xyCoord(xyReferenceNumber[0],xyReferenceNumber[1]);
+    consoleObj.xyCoord(xyIdNumber[0],xyIdNumber[1]);
 	cout<<"Id Number: ";
-	consoleObj.xyCoord(xyAuthor[0],xyAuthor[1]);
+	consoleObj.xyCoord(xyFirstName[0],xyFirstName[1]);
 	cout<<"First Name: ";
-    consoleObj.xyCoord(xyISBN[0],xyISBN[1]);
+    consoleObj.xyCoord(xyLastName[[0],xyLastName[[1]);
 	cout<<"Last Name: ";
-	consoleObj.xyCoord(xyCourse[0],xyCourse[1]);
+	consoleObj.xyCoord(xyAddress[0],xyAddress[1]);
 	cout<<"Address: ";
-	consoleObj.xyCoord(xyPublisher[0],xyPublisher[1]);
+	consoleObj.xyCoord(xyContactNumber[0],xyContactNumber[1]);
 	cout<<"Contact Number: ";
 }
