@@ -1,19 +1,18 @@
-#ifndef MEMBERFORM_H_
-#define MEMBERFORM_H_
+#ifndef MEMBERFORM_H
+#define MEMBERFORM_H
 
 class MemberForm
 {
 private:
-    int xyReferenceNumber[3];
-    int xyAuthor[3];
-    int xyISBN[3];
-    int xyCourse[3];
-    int xyPublisher[3];
-    int xyDatePublished[3];
+    int xyIdNumber[3];
+    int xyFirstName[3];
+    int xyLastName[3];
+    int xyAddress[3];
+    int xyContactNumber[3];
     console consoleObj;
 public:
     MemberForm();
     ~MemberForm();
-	void show(MemberForm*);
+	void show();
 };
 #endif // MEMBERFORM_H_
