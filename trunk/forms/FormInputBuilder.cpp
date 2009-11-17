@@ -55,6 +55,12 @@ string FormInputBuilder::FormInput (int type,string input,int length)
 				    }
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
+                        case VK_RETURN:
+                        case VK_DOWN:
+                        case VK_UP:
+                        case VK_TAB:
+                            return input;
+                        break;
                         case VK_RIGHT:
                         break;
                         case VK_LEFT:
