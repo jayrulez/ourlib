@@ -19,7 +19,7 @@ TextBook::~TextBook()
 {
 
 }
-TextBook(string referenceNumber,string author,string ISBN,string course,string publisher)
+TextBook::TextBook(string referenceNumber,string author,string ISBN,string course,string publisher)
 {
 	this->referenceNumber = referenceNumber;
 	this->author = author;

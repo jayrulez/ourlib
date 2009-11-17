@@ -19,7 +19,7 @@ public:
 	string getAuthor() const;
 	void setReferenceNumber(string);
 	void setTitle(string);
-	void getAuthor(string);
+	void setAuthor(string);
 	virtual void showReferenceMaterial(int,int)=0;
 };
 #endif
