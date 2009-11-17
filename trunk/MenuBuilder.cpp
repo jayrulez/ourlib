@@ -1,26 +1,38 @@
 #include <iostream>
 #include <string>
+
 #ifndef _MENUBUILDER_H
 #include "MenuBuilder.h"
 #endif
+
 #ifndef CONSOLE_H
 #include "gui/console/console.h"
 #endif
+
 #ifndef FRAME_H
 #include "gui/console/frame.h"
 #endif
+
 #ifndef LINE_H
 #include "gui/console/line.h"
 #endif
+
 #ifndef ITEM_H
 #include "gui/console/item.h"
 #endif
+
 #ifndef MEDIA_H
 #include "gui/console/media.h"
 #endif
+
 #ifndef SCROLLER_H
 #include "gui/console/scroller.h"
 #endif
+
+#ifndef MAGAZINEFORM_H
+#include "forms/MagazineForm.h"
+#endif
+
 #define _MAX 2
 #define _MIN 1
 
@@ -109,6 +121,7 @@ void MenuBuilder::showLoanForm(int LoanFormType)
 void MenuBuilder::callMenu(int menuId)
 {
     console con;
+    MagazineForm *MagazinePtr=new MagazineForm();
     con.setCursor(false,50);
 	switch(menuId)
 	{
@@ -130,6 +143,7 @@ void MenuBuilder::callMenu(int menuId)
 		case MAGAZINE:
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
+			MagazinePtr->BrowseMagazineForm();
 			this->MenuShow(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
 		break;
 
