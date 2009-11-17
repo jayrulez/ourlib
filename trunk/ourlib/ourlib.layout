@@ -20,19 +20,19 @@
 		<Cursor position="322" topLine="0" />
 	</File>
 	<File name="..\Date.h" open="0" top="0" tabpos="4">
-		<Cursor position="182" topLine="0" />
+		<Cursor position="99" topLine="0" />
 	</File>
 	<File name="..\Loan.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="106" topLine="0" />
+		<Cursor position="453" topLine="6" />
 	</File>
 	<File name="..\Loan.h" open="0" top="0" tabpos="5">
 		<Cursor position="257" topLine="3" />
 	</File>
 	<File name="..\Magazine.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="125" topLine="0" />
+		<Cursor position="801" topLine="6" />
 	</File>
 	<File name="..\Magazine.h" open="0" top="0" tabpos="6">
-		<Cursor position="349" topLine="0" />
+		<Cursor position="300" topLine="0" />
 	</File>
 	<File name="..\MainDriver.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="156" topLine="0" />
@@ -44,16 +44,16 @@
 		<Cursor position="235" topLine="3" />
 	</File>
 	<File name="..\MenuBuilder.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="3503" topLine="0" />
+		<Cursor position="3739" topLine="126" />
 	</File>
 	<File name="..\MenuBuilder.h" open="0" top="0" tabpos="2">
-		<Cursor position="868" topLine="12" />
+		<Cursor position="994" topLine="45" />
 	</File>
 	<File name="..\ReferenceMaterial.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="638" topLine="0" />
+		<Cursor position="670" topLine="2" />
 	</File>
 	<File name="..\ReferenceMaterial.h" open="0" top="0" tabpos="8">
-		<Cursor position="260" topLine="0" />
+		<Cursor position="487" topLine="0" />
 	</File>
 	<File name="..\ResearchPaper.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="124" topLine="0" />
@@ -62,28 +62,31 @@
 		<Cursor position="122" topLine="0" />
 	</File>
 	<File name="..\TextBook.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="114" topLine="0" />
+		<Cursor position="729" topLine="17" />
 	</File>
 	<File name="..\TextBook.h" open="0" top="0" tabpos="10">
-		<Cursor position="352" topLine="0" />
+		<Cursor position="314" topLine="0" />
 	</File>
-	<File name="..\forms\FormBuilder.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="729" topLine="27" />
+	<File name="..\forms\FormInputBuilder.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1245" topLine="22" />
+	</File>
+	<File name="..\forms\FormInputBuilder.h" open="0" top="0" tabpos="0">
+		<Cursor position="292" topLine="0" />
 	</File>
 	<File name="..\forms\MagazineForm.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="818" topLine="7" />
+		<Cursor position="2556" topLine="0" />
 	</File>
 	<File name="..\forms\MagazineForm.h" open="0" top="0" tabpos="0">
-		<Cursor position="177" topLine="0" />
+		<Cursor position="50" topLine="0" />
 	</File>
-	<File name="..\forms\MemberForm.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="741" topLine="0" />
+	<File name="..\forms\MemberForm.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="629" topLine="0" />
 	</File>
-	<File name="..\forms\MemberForm.h" open="0" top="0" tabpos="0">
-		<Cursor position="83" topLine="0" />
+	<File name="..\forms\MemberForm.h" open="1" top="0" tabpos="2">
+		<Cursor position="9" topLine="0" />
 	</File>
-	<File name="..\forms\ResearchPaperForm.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="1037" topLine="6" />
+	<File name="..\forms\ResearchPaperForm.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="654" topLine="3" />
 	</File>
 	<File name="..\forms\ResearchPaperForm.h" open="0" top="0" tabpos="0">
 		<Cursor position="237" topLine="0" />
@@ -95,7 +98,7 @@
 		<Cursor position="380" topLine="0" />
 	</File>
 	<File name="..\gui\console\console.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="2079" topLine="53" />
+		<Cursor position="1355" topLine="17" />
 	</File>
 	<File name="..\gui\console\console.h" open="0" top="0" tabpos="1">
 		<Cursor position="436" topLine="1" />
