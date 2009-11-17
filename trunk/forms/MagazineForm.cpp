@@ -43,7 +43,7 @@ void MagazineForm::BrowseMagazineForm()
 	int FieldPosition=0;
 	bool read=false;
 	int KeyType;
-	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2],MagazineCoord[FieldPosition][1]);
+	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+InputPtr->length(),MagazineCoord[FieldPosition][1]);
 	while(!read)
 	{
 	    switch(FieldPosition)
