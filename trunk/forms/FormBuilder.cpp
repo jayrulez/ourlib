@@ -63,8 +63,6 @@ string FormBuilder::FormInput (int type,string input,int length)
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
                         case VK_UP:
-                            return input;
-                        break;
                         case VK_RETURN:
                         case VK_TAB:
                         case VK_DOWN:
@@ -96,7 +94,4 @@ string FormBuilder::FormInput (int type,string input,int length)
 }
 
 
-void FormBuilder::show()
-{
 
-}

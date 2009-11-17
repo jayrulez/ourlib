@@ -12,7 +12,6 @@ public:
     FormBuilder();
     virtual ~FormBuilder();
     string FormInput(int,string,int);
-	virtual void show();
 };
 
 #endif
