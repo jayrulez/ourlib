@@ -90,7 +90,7 @@ void MagazineForm::BrowseMagazineForm()
             read=true;
             break;
         }
-        consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2],MagazineCoord[FieldPosition][1]);
+        consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+InputPtr->length(),MagazineCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
 }
