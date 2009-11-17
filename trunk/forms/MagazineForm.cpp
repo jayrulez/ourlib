@@ -38,7 +38,7 @@ void MagazineForm::BrowseMagazineForm()
 {
     HANDLE hIn;
 	DWORD AmtRead;
-	consoleObj.setCursor(true,0);
+	consoleObj.setCursor(true,3);
 	INPUT_RECORD InputRec;
 	int FieldPosition=0;
 	bool read=false;
