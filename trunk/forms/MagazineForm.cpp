@@ -38,7 +38,7 @@ void MagazineForm::BrowseMagazineForm(int field)
     HANDLE hIn;
 	DWORD AmtRead;
 	INPUT_RECORD InputRec;
-	int FieldPosition;
+	int FieldPosition=0;
 	bool read=false;
 	hIn = GetStdHandle(STD_INPUT_HANDLE);
 	while(!read)
@@ -52,12 +52,26 @@ void MagazineForm::BrowseMagazineForm(int field)
 				    switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
                         case VK_UP:
+                            if(FieldPosition<0)
+                            {
+                                FieldPosition=0;
+                                break;
+                            }
+                            FieldPosition-=1;
                         break;
                         case VK_RETURN:
+                            FieldPosition+=1;
                         break;
                         case VK_TAB:
+                            FieldPosition+=1;
                         break;
                         case VK_DOWN:
+                            if(FieldPosition>4)
+                            {
+                                read=true;
+                                break;
+                            }
+                            FieldPosition-=1;
                         break;
                     }
 				}
