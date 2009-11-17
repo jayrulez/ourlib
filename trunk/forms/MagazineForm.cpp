@@ -102,6 +102,7 @@ void MagazineForm::BrowseMagazineForm()
 			}
 		}
 	}
+	consoleObj.setCursor(false,3);
 }
 
 void MagazineForm::show(Magazine * magazineObj)
