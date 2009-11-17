@@ -16,7 +16,7 @@ private:
 	string ISBN;
 	string course;
 	string publisher;
-	Date datePublished;
+	string datePublished;
 public:
 	TextBook();
 	TextBook(string,string,string,string,string);

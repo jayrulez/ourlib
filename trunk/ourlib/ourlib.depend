@@ -230,11 +230,15 @@
 1258427024 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\member.h
 	<string>
 
-1258252197 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.cpp
+1258436350 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.cpp
 	"ReferenceMaterial.h"
+	<iostream>
+	<string>
 
-1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.cpp
+1258427024 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.cpp
 	"ResearchPaper.h"
+	<iostream>
+	<string>
 
 1258427024 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.h
 	"Referencematerial.h"
@@ -244,7 +248,7 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.cpp
 	"TextBook.h"
 
-1258427024 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
+1258436539 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
 	"Referencematerial.h"
 	"Date.h"
 	<string>
