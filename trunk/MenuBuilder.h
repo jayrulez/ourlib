@@ -48,6 +48,12 @@
 #define TEXTBOOKCLEARFIELD 15
 #define ADDTEXTBOOKFORMMENU_SIZ 4
 /*
+* Add Member
+*/
+#define MEMBERSUBMIT 14
+#define MEMBERCLEARFIELD 15
+#define ADDMEMBERFORMMENU_SIZ 4
+/*
 * Loan Menu
 */
 #define EXISTINGMEMBER 12
@@ -68,6 +74,7 @@ public:
 	item* AddResearchPaperFormMenu();
 	item* AddMagazineFormMenu();
 	item* AddTextBookFormMenu();
+	item* AddMemberFormMenu();
 	int menuBrowserOperator(item*,int);
 	int MenuProcessing( int,item*,int*,scroller*,int);
 	void MenuShow(item*,int);

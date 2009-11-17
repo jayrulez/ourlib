@@ -158,8 +158,9 @@ void MenuBuilder::callMenu(int menuId)
         case NEWUSER:
             this->BasicRunlevel("NEW USER REGISTRATION");
             this->showLoanForm(NEWUSER);
+            this->MenuShow(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ);
             MemberPtr->BrowseMemberForm();
-			//this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
+            this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ);
         break;
 		default:
             this->BasicRunlevel("MAIN MENU");
@@ -199,7 +200,7 @@ item* MenuBuilder::AddReferenceMaterial()
     return & AddReferenceItem[0];
 }
 /*
-*   This function creates menus for the Add Research Paper Forms
+*   This function creates menus for the Add Research Paper Form
 */
 item* MenuBuilder::AddResearchPaperFormMenu()
 {
@@ -211,7 +212,7 @@ item* MenuBuilder::AddResearchPaperFormMenu()
     return &AddResearchPaperFormItem[0];
 }
 /*
-*   This function creates menus for the Add Magazine Forms
+*   This function creates menus for the Add Magazine Form
 */
 item* MenuBuilder::AddMagazineFormMenu()
 {
@@ -223,16 +224,28 @@ item* MenuBuilder::AddMagazineFormMenu()
     return & AddMagazineFormMenuItem[0];
 }
 /*
-*   This function creates menus for the Add TextBook Forms
+*   This function creates menus for the Add TextBook Form
 */
 item* MenuBuilder::AddTextBookFormMenu()
 {
     static item AddTextBookFormMenuItem[ADDTEXTBOOKFORMMENU_SIZ];
-    AddTextBookFormMenuItem[0].setItem(15,35,MAGAZINESUBMIT,"SUBMIT");
-    AddTextBookFormMenuItem[1].setItem(35,35,MAGAZINECLEARFIELD,"CLEAR FIELDS");
+    AddTextBookFormMenuItem[0].setItem(15,35,TEXTBOOKSUBMIT,"SUBMIT");
+    AddTextBookFormMenuItem[1].setItem(35,35,TEXTBOOKCLEARFIELD,"CLEAR FIELDS");
     AddTextBookFormMenuItem[2].setItem(55,35,ADD,"<-- ADD MENU");
     AddTextBookFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &AddTextBookFormMenuItem[0];
+}
+/*
+*   This function creates menus for the Add Member Form
+*/
+item* MenuBuilder::AddMemberFormMenu()
+{
+    static item AddMemberFormMenuItem[ADDMEMBERFORMMENU_SIZ];
+    AddMemberFormMenuItem[0].setItem(15,35,MEMBERSUBMIT,"SUBMIT");
+    AddMemberFormMenuItem[1].setItem(35,35,MEMBERCLEARFIELD,"CLEAR FIELDS");
+    AddMemberFormMenuItem[2].setItem(55,35,ADD,"<-- LOAN MENU");
+    AddMemberFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return &AddMemberFormMenuItem[0];
 }
 /*
 * This function creates the items for the Loan Menu

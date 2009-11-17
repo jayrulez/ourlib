@@ -379,7 +379,7 @@
 1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1258337440 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
+1258447881 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
@@ -677,13 +677,14 @@
 	<windows.h>
 	"../gui/console/console.h"
 
-1258446271 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.h
+1258446586 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.h
 	"../Member.h"
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
 
-1258334990 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.cpp
+1258446617 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.cpp
 	"MemberForm.h"
+	<string>
 	<iostream>
 
 1258298261 source:d:\documents and settings\dd\desktop\project\forms\formbuilder.cpp
