@@ -143,8 +143,9 @@ void MenuBuilder::callMenu(int menuId)
 		case MAGAZINE:
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
-			MagazinePtr->BrowseMagazineForm();
 			this->MenuShow(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
+			MagazinePtr->BrowseMagazineForm();
+			this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
 		break;
 
 		case LOAN:
