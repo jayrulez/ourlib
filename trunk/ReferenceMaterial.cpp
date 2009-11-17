@@ -19,15 +19,12 @@ ReferenceMaterial::~ReferenceMaterial()
 {
 }
 
-string ReferenceMaterial::getReferenceNumber()
-{
-	return this->referenceNumber;
-}
 ReferenceMaterial::ReferenceMaterial(string,string,string)
 {
 }
 string ReferenceMaterial::getReferenceNumber() const
 {
+    return this->referenceNumber;
 }
 string ReferenceMaterial::getTitle() const
 {
