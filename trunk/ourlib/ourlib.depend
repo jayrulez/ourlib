@@ -639,7 +639,7 @@
 	"../TextBook.h"
 	"../gui/console/console.h"
 
-1258440364 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
+1258445987 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
 	"../Magazine.h"
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
@@ -669,7 +669,7 @@
 	"../TextBook.h"
 	<iostream>
 
-1258444156 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
+1258444967 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
 	"MagazineForm.h"
 	"../Magazine.h"
 	<iostream>
@@ -677,8 +677,10 @@
 	<windows.h>
 	"../gui/console/console.h"
 
-1258334967 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.h
+1258446271 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.h
+	"../Member.h"
 	"../gui/console/console.h"
+	"FormInputBuilder.h"
 
 1258334990 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.cpp
 	"MemberForm.h"
