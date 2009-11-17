@@ -9,18 +9,18 @@
 #include "../gui/console/console.h"
 #endif
 
+#include "FormInputBuilder.h"
+
 class ResearchPaperForm
 {
 private:
-    int xyReferenceNumber[3];
-    int xyAuthor[3];
-    int xyResearchTopic[3];
-	int xySupervisor[3];
-	int xySponsor[3];
+    int ResearchPaperCoord[5][3];
 	console consoleObj;
+	FormInputBuilder FormInputBuilderObj;
 public:
     ResearchPaperForm();
     ~ResearchPaperForm();
+    void BrowseResearchPaperForm();
 	void show(ResearchPaper*);
 };
 

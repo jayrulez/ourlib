@@ -8,19 +8,18 @@
 #include "../gui/console/console.h"
 #endif
 
+#include "FormInputBuilder.h"
+
 class TextBookForm
 {
 private:
-    int xyReferenceNumber[3];
-    int xyAuthor[3];
-    int xyISBN[3];
-    int xyCourse[3];
-    int xyPublisher[3];
-    int xyDatePublished[3];
+    int TextBookCoord[6][3];
     console consoleObj;
+    FormInputBuilder FormInputBuilderObj;
 public:
     TextBookForm();
     ~TextBookForm();
+    void BrowseTextBookForm();
 	void show(TextBook*);
 };
 

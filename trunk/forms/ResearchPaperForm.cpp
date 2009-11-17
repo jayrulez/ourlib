@@ -10,21 +10,21 @@ using namespace std;
 
 ResearchPaperForm::ResearchPaperForm()
 {
-    xyReferenceNumber[0]=25;
-    xyReferenceNumber[1]=12;
-    xyReferenceNumber[2]=18;
-    xyAuthor[0]=25;
-    xyAuthor[1]=15;
-    xyAuthor[2]=8;
-    xyResearchTopic[0]=25;
-    xyResearchTopic[1]=18;
-    xyResearchTopic[2]=6;
-    xySupervisor[0]=25;
-    xySupervisor[1]=21;
-    xySupervisor[2]=8;
-    xySponsor[0]=25;
-    xySponsor[1]=24;
-    xySponsor[2]=11;
+    ResearchPaperCoord[0][0]=25;
+    ResearchPaperCoord[0][1]=12;
+    ResearchPaperCoord[0][2]=18;
+    ResearchPaperCoord[1][0]=25;
+    ResearchPaperCoord[1][1]=15;
+    ResearchPaperCoord[1][2]=8;
+    ResearchPaperCoord[2][0]=25;
+    ResearchPaperCoord[2][1]=18;
+    ResearchPaperCoord[2][2]=16;
+    ResearchPaperCoord[3][0]=25;
+    ResearchPaperCoord[3][1]=21;
+    ResearchPaperCoord[3][2]=12;
+    ResearchPaperCoord[4][0]=25;
+    ResearchPaperCoord[4][1]=24;
+    ResearchPaperCoord[4][2]=9;
 
 }
 
@@ -32,7 +32,66 @@ ResearchPaperForm::~ResearchPaperForm()
 {
 
 }
+void ResearchPaperForm::BrowseResearchPaperForm()
+{
+    consoleObj.setCursor(true,3);
+	static string input;
+	string *InputPtr;
+	InputPtr=&input;
+	int FieldPosition=0;
+	bool read=false;
+	int KeyType;
+	consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+InputPtr->length(),ResearchPaperCoord[FieldPosition][1]);
+	while(!read)
+	{
+	    switch(FieldPosition)
+	    {
+            case 0:
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
+                break;
+            case 1:
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,SPACING,InputPtr,10);
+                break;
+            case 2:
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
+                break;
 
+            case 3:
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,SPACING,InputPtr,10);
+                break;
+            case 4:
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,SPACING,InputPtr,10);
+                break;
+	    }
+        switch(KeyType)
+        {
+            case VK_UP:
+                if(FieldPosition<0)
+                {
+                    FieldPosition=0;
+                    break;
+                }
+                FieldPosition-=1;
+            break;
+            case VK_RETURN:
+                FieldPosition+=1;
+            break;
+            case VK_TAB:
+                FieldPosition+=1;
+            break;
+            case VK_DOWN:
+                FieldPosition+=1;
+            break;
+        }
+        if(FieldPosition>4)
+        {
+            read=true;
+            break;
+        }
+        consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+InputPtr->length(),ResearchPaperCoord[FieldPosition][1]);
+    }
+	consoleObj.setCursor(false,3);
+}
 void ResearchPaperForm::show(ResearchPaper * researchPaperObj)
 {
 	string referenceNumber = researchPaperObj->getReferenceNumber();
@@ -42,14 +101,14 @@ void ResearchPaperForm::show(ResearchPaper * researchPaperObj)
 	}else{
 		//record from file
 	}
-	consoleObj.xyCoord(xyReferenceNumber[0],xyReferenceNumber[1]);
+	consoleObj.xyCoord(ResearchPaperCoord[0][0],ResearchPaperCoord[0][1]);
 	cout<<"Reference Number: ";
-	consoleObj.xyCoord(xyAuthor[0],xyAuthor[1]);
+	consoleObj.xyCoord(ResearchPaperCoord[1][0],ResearchPaperCoord[1][1]);
 	cout<<"Author: ";
-    consoleObj.xyCoord(xyResearchTopic[0],xyResearchTopic[1]);
+    consoleObj.xyCoord(ResearchPaperCoord[2][0],ResearchPaperCoord[2][1]);
 	cout<<"Research Topic: ";
-	consoleObj.xyCoord(xySupervisor[0],xySupervisor[1]);
+	consoleObj.xyCoord(ResearchPaperCoord[3][0],ResearchPaperCoord[3][1]);
 	cout<<"Supervisor: ";
-	consoleObj.xyCoord(xySponsor[0],xySponsor[1]);
+	consoleObj.xyCoord(ResearchPaperCoord[4][0],ResearchPaperCoord[4][1]);
 	cout<<"Sponsor: ";
 }

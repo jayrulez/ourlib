@@ -14,7 +14,7 @@ FormInputBuilder::~FormInputBuilder()
 {
 }
 
-int FormInputBuilder::FormInput (int type,string *input,int length)
+int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length)
 {
 	HANDLE hIn;
 	DWORD AmtRead;
@@ -50,6 +50,14 @@ int FormInputBuilder::FormInput (int type,string *input,int length)
                                     position+=1;
                                 }
                             break;
+                            case ALPHANUMERIC:
+                                if(isalnum(InputRec.Event.KeyEvent.uChar.AsciiChar))
+                                {
+                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    position+=1;
+                                }
+                            break;
                         }
 				    }
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
@@ -75,6 +83,18 @@ int FormInputBuilder::FormInput (int type,string *input,int length)
                                 cout<<"\b \b";
                                 input->erase(position);
                                 position-=1;
+                            }
+                        break;
+                        case VK_SPACE:
+                            switch(SpaceType)
+                            {
+                                case SPACING:
+                                    (*input)+=" ";
+                                    position+=1;
+                                    cout<<" ";
+                                break;
+                                case NOSPACING:
+                                break;
                             }
                         break;
                     }

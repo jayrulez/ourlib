@@ -83,25 +83,21 @@ void MenuBuilder::showReferenceMaterialForm(int referenceMaterialType)
 	switch(referenceMaterialType)
 	{
 		case TEXTBOOK:
-			TextBook *textBookObj = new TextBook();
-			TextBookForm *textBookForm = new TextBookForm();
-			textBookForm->show(textBookObj);
+			TextBook *TextBookPtr = new TextBook;
+			TextBookForm *TextBookFormPtr = new TextBookForm;
+			TextBookFormPtr->show(TextBookPtr);
 		break;
 		case RESEARCHPAPER:
-			ResearchPaper *researchPaperObj = new ResearchPaper();
-			ResearchPaperForm *researchPaperForm = new ResearchPaperForm();
-			researchPaperForm->show(researchPaperObj);
+			ResearchPaper *ResearchPaperPtr = new ResearchPaper;
+			ResearchPaperForm *ResearchPaperFormPtr = new ResearchPaperForm;
+			ResearchPaperFormPtr->show(ResearchPaperPtr);
 		break;
 		case MAGAZINE:
-			Magazine *magazineObj = new Magazine();
-			MagazineForm *magazineForm = new MagazineForm();
-			magazineForm->show(magazineObj);
+			Magazine *MagazinePtr = new Magazine;
+			MagazineForm *MagazineFormPtr = new MagazineForm;
+			MagazineFormPtr->show(MagazinePtr);
 		break;
 	}
-	/*
-	if(form->validate())
-		form->save();
-	*/
 }
 void MenuBuilder::showLoanForm(int LoanFormType)
 {
@@ -122,7 +118,10 @@ void MenuBuilder::callMenu(int menuId)
     console con;
     MagazineForm *MagazinePtr=new MagazineForm;
     MemberForm *MemberPtr=new MemberForm;
+    TextBookForm *TextBookPtr=new TextBookForm;
+    ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
     con.setCursor(false,50);
+
 	switch(menuId)
 	{
 		case ADD:
@@ -134,11 +133,15 @@ void MenuBuilder::callMenu(int menuId)
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
 			this->MenuShow(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ);
+			ResearchPaperPtr->BrowseResearchPaperForm();
+			this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ);
 		break;
 		case TEXTBOOK:
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
 			this->MenuShow(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
+			TextBookPtr->BrowseTextBookForm();
+			this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
 		break;
 		case MAGAZINE:
 			this->BasicRunlevel("ADD MAGAZINE");
@@ -168,7 +171,6 @@ void MenuBuilder::callMenu(int menuId)
 			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ);
 		break;
 	}
-	system("pause");
 }
 
 /*

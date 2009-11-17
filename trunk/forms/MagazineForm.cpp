@@ -49,20 +49,20 @@ void MagazineForm::BrowseMagazineForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
                 break;
             case 1:
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,SPACING,InputPtr,10);
                 break;
             case 2:
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,SPACING,InputPtr,10);
                 break;
 
             case 3:
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
                 break;
             case 4:
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,SPACING,InputPtr,10);
                 break;
 	    }
         switch(KeyType)

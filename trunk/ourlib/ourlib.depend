@@ -425,7 +425,7 @@
 1258154778 d:\documents and settings\dd\desktop\project\controller.h
 	"MenuBuilder.h"
 
-1258342228 d:\documents and settings\dd\desktop\project\menubuilder.h
+1258448844 d:\documents and settings\dd\desktop\project\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
@@ -469,34 +469,40 @@
 1258146854 d:\documents and settings\dd\desktop\project\date.h
 	<string>
 
-1256775753 source:d:\documents and settings\dd\desktop\project\loan.cpp
+1258436011 source:d:\documents and settings\dd\desktop\project\loan.cpp
 	"Loan.h"
+	<iostream>
+	<string>
 
-1258146886 d:\documents and settings\dd\desktop\project\loan.h
+1258403468 d:\documents and settings\dd\desktop\project\loan.h
 	"Date.h"
 	<string>
 
-1258351645 source:d:\documents and settings\dd\desktop\project\magazine.cpp
+1258406752 source:d:\documents and settings\dd\desktop\project\magazine.cpp
 	"Magazine.h"
+	<iostream>
+	<string>
 
-1258146128 d:\documents and settings\dd\desktop\project\magazine.h
+1258436011 d:\documents and settings\dd\desktop\project\magazine.h
 	"Referencematerial.h"
 	"Date.h"
 	<string>
 
-1258298264 d:\documents and settings\dd\desktop\project\referencematerial.h
+1258444287 d:\documents and settings\dd\desktop\project\referencematerial.h
 	<string>
 
 1257169576 source:d:\documents and settings\dd\desktop\project\maindriver.cpp
 	"Application.h"
 
-1256775753 source:d:\documents and settings\dd\desktop\project\member.cpp
+1258406115 source:d:\documents and settings\dd\desktop\project\member.cpp
 	"Member.h"
-
-1258146118 d:\documents and settings\dd\desktop\project\member.h
+	<iostream>
 	<string>
 
-1258155666 source:d:\documents and settings\dd\desktop\project\menubuilder.cpp
+1258402666 d:\documents and settings\dd\desktop\project\member.h
+	<string>
+
+1258491785 source:d:\documents and settings\dd\desktop\project\menubuilder.cpp
 	<iostream>
 	<string>
 	"MenuBuilder.h"
@@ -505,26 +511,39 @@
 	"gui/console/line.h"
 	"gui/console/item.h"
 	"gui/console/media.h"
-	"gui/console/menu.h"
 	"gui/console/scroller.h"
 	<string>
+	"TextBook.h"
+	"forms/TextBookForm.h"
+	"Magazine.h"
+	"forms/MagazineForm.h"
+	"ResearchPaper.h"
+	"forms/ResearchPaperForm.h"
+	"forms/MemberForm.h"
 
 1258117493 d:\documents and settings\dd\desktop\project\gui\console\menu.h
 
-1258298264 source:d:\documents and settings\dd\desktop\project\referencematerial.cpp
+1258444287 source:d:\documents and settings\dd\desktop\project\referencematerial.cpp
 	"ReferenceMaterial.h"
-
-1256775753 source:d:\documents and settings\dd\desktop\project\researchpaper.cpp
-	"ResearchPaper.h"
-
-1258298264 d:\documents and settings\dd\desktop\project\researchpaper.h
-	"Referencematerial.h"
+	<iostream>
 	<string>
 
-1256775753 source:d:\documents and settings\dd\desktop\project\textbook.cpp
-	"TextBook.h"
+1258405258 source:d:\documents and settings\dd\desktop\project\researchpaper.cpp
+	"ResearchPaper.h"
+	<iostream>
+	<string>
 
-1258146094 d:\documents and settings\dd\desktop\project\textbook.h
+1258405205 d:\documents and settings\dd\desktop\project\researchpaper.h
+	"Referencematerial.h"
+	<iostream>
+	<string>
+
+1258444287 source:d:\documents and settings\dd\desktop\project\textbook.cpp
+	"TextBook.h"
+	<iostream>
+	<string>
+
+1258444287 d:\documents and settings\dd\desktop\project\textbook.h
 	"Referencematerial.h"
 	"Date.h"
 	<string>
@@ -697,40 +716,48 @@
 	<iostream>
 	<string>
 
-1258342226 source:d:\documents and settings\dd\desktop\project\forms\magazineform.cpp
+1258495130 source:d:\documents and settings\dd\desktop\project\forms\magazineform.cpp
 	"MagazineForm.h"
 	"../Magazine.h"
 	<iostream>
 	<string>
+	<windows.h>
+	"../gui/console/console.h"
 
-1258342226 d:\documents and settings\dd\desktop\project\forms\magazineform.h
+1258448844 d:\documents and settings\dd\desktop\project\forms\magazineform.h
 	"../Magazine.h"
 	"../gui/console/console.h"
+	"FormInputBuilder.h"
 
-1258342226 source:d:\documents and settings\dd\desktop\project\forms\memberform.cpp
+1258495017 source:d:\documents and settings\dd\desktop\project\forms\memberform.cpp
 	"MemberForm.h"
+	<string>
 	<iostream>
 
-1258342226 d:\documents and settings\dd\desktop\project\forms\memberform.h
+1258448844 d:\documents and settings\dd\desktop\project\forms\memberform.h
+	"../Member.h"
 	"../gui/console/console.h"
+	"FormInputBuilder.h"
 
-1258342226 source:d:\documents and settings\dd\desktop\project\forms\researchpaperform.cpp
+1258494737 source:d:\documents and settings\dd\desktop\project\forms\researchpaperform.cpp
 	"ResearchpaperForm.h"
 	"../ResearchPaper.h"
 	<iostream>
 
-1258342226 d:\documents and settings\dd\desktop\project\forms\researchpaperform.h
+1258487620 d:\documents and settings\dd\desktop\project\forms\researchpaperform.h
 	"../ResearchPaper.h"
 	"../gui/console/console.h"
+	"FormInputBuilder.h"
 
-1258342226 source:d:\documents and settings\dd\desktop\project\forms\textbookform.cpp
+1258490242 source:d:\documents and settings\dd\desktop\project\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
 	<iostream>
 
-1258342226 d:\documents and settings\dd\desktop\project\forms\textbookform.h
+1258490282 d:\documents and settings\dd\desktop\project\forms\textbookform.h
 	"../TextBook.h"
 	"../gui/console/console.h"
+	"FormInputBuilder.h"
 
 1258444449 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.cpp
 	"windows.h"
@@ -741,4 +768,14 @@
 
 1258444325 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.h
 	<string>
+
+1258493860 d:\documents and settings\dd\desktop\project\forms\forminputbuilder.h
+	<string>
+
+1258495160 source:d:\documents and settings\dd\desktop\project\forms\forminputbuilder.cpp
+	"windows.h"
+	<iostream>
+	<cctype>
+	<string>
+	"FormInputBuilder.h"
 
