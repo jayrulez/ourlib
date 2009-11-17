@@ -9,7 +9,6 @@ public:
     FormInputBuilder();
     ~FormInputBuilder();
     string FormInput(int,string,int);
-
 };
 
 #endif // FORMINPUTBUILDER_H

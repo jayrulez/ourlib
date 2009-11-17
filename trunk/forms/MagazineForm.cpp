@@ -31,7 +31,9 @@ MagazineForm::~MagazineForm()
 {
 
 }
-void MagazineForm::BrowseMagazineForm(int)
+void MagazineForm::BrowseMagazineForm(int field)
+{
+}
 
 void MagazineForm::show(Magazine * magazineObj)
 {
