@@ -38,6 +38,7 @@ void MagazineForm::BrowseMagazineForm(int field)
     HANDLE hIn;
 	DWORD AmtRead;
 	INPUT_RECORD InputRec;
+	int FieldPosition;
 	bool read=false;
 	hIn = GetStdHandle(STD_INPUT_HANDLE);
 	while(!read)
