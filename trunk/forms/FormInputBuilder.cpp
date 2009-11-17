@@ -13,10 +13,6 @@ FormInputBuilder::FormInputBuilder()
 FormInputBuilder::~FormInputBuilder()
 {
 }
-int FormInputBuilder::InputInterface(int KeyType)
-{
-    return KeyType;
-}
 
 int FormInputBuilder::FormInput (int type,string *input,int length)
 {
@@ -41,7 +37,7 @@ int FormInputBuilder::FormInput (int type,string *input,int length)
                             case NUMERIC:
                                 if(isdigit(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
-                                    input+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
@@ -49,7 +45,7 @@ int FormInputBuilder::FormInput (int type,string *input,int length)
                             case ALPHABETICAL:
                                 if(isalpha(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
-                                    input+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
