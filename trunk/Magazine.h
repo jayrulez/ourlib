@@ -15,7 +15,7 @@ class Magazine:public ReferenceMaterial
 private:
 	string volume;
 	string issueTopic;
-	Date issueDate;
+	string issueDate;
 public:
 	Magazine();
 	~Magazine();
