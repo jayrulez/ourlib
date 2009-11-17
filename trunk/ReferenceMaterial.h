@@ -12,14 +12,14 @@ protected:
 	string author;
 public:
 	ReferenceMaterial();
-	~ReferenceMaterial();
+	virtual ~ReferenceMaterial();
 	ReferenceMaterial(string,string,string);
 	string getReferenceNumber() const;
 	string getTitle() const;
 	string getAuthor() const;
 	void setReferenceNumber(string);
 	void setTitle() const;
-	void getAuthor() const;
+	string getAuthor() const;
 	virtual void showReferenceMaterial(int,int)=0;
 };
 #endif

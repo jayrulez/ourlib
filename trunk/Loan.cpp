@@ -41,7 +41,7 @@ int Loan::getMemberId() const
 string Loan::getReferenceNumber() const
 {
 }
-string getLoanType() const
+string Loan::getLoanType() const
 {
 }
 void Loan::showLoan(int,int)

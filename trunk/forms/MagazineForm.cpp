@@ -6,6 +6,8 @@
 #endif
 #include <iostream>
 #include <string>
+#include <windows.h>
+#include "../gui/console/console.h"
 using namespace std;
 
 MagazineForm::MagazineForm()
@@ -33,6 +35,36 @@ MagazineForm::~MagazineForm()
 }
 void MagazineForm::BrowseMagazineForm(int field)
 {
+    int coord[5][3];
+    coord[0]=xyReferenceNumber;
+    HANDLE hIn;
+	DWORD AmtRead;
+	INPUT_RECORD InputRec;
+	bool read=false;
+	hIn = GetStdHandle(STD_INPUT_HANDLE);
+	while(!read)
+	{
+		ReadConsoleInput(hIn,&InputRec,1,&AmtRead);
+		switch(InputRec.EventType)
+		{
+			case KEY_EVENT:
+				if(InputRec.Event.KeyEvent.bKeyDown)
+				{
+				    switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
+                    {
+                        case VK_UP:
+                        break;
+                        case VK_RETURN:
+                        break;
+                        case VK_TAB:
+                        break;
+                        case VK_DOWN:
+                        break;
+                    }
+				}
+            break;
+		}
+	}
 }
 
 void MagazineForm::show(Magazine * magazineObj)

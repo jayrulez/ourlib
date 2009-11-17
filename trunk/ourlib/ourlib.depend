@@ -181,10 +181,12 @@
 1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\date.h
 	<string>
 
-1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\loan.cpp
+1258435184 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\loan.cpp
 	"Loan.h"
+	<iostream>
+	<string>
 
-1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\loan.h
+1258427024 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\loan.h
 	"Date.h"
 	<string>
 
@@ -196,7 +198,7 @@
 	"Date.h"
 	<string>
 
-1258252197 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.h
+1258435258 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.h
 	<string>
 
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\maindriver.cpp
@@ -230,14 +232,15 @@
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.cpp
 	"ResearchPaper.h"
 
-1258267423 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.h
+1258427024 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.h
 	"Referencematerial.h"
+	<iostream>
 	<string>
 
 1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.cpp
 	"TextBook.h"
 
-1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
+1258427024 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
 	"Referencematerial.h"
 	"Date.h"
 	<string>

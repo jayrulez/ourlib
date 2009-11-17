@@ -38,7 +38,7 @@ string ReferenceMaterial::getAuthor() const
 void ReferenceMaterial::setTitle() const
 {
 }
-void ReferenceMaterial::getAuthor() const
+string ReferenceMaterial::getAuthor() const
 {
 }
 
