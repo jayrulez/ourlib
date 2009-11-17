@@ -20,6 +20,5 @@ public:
 	void setReferenceNumber(string);
 	void setTitle(string);
 	void setAuthor(string);
-	virtual void showReferenceMaterial(int,int)=0;
 };
 #endif
