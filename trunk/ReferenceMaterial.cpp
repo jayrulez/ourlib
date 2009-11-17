@@ -29,16 +29,17 @@ string ReferenceMaterial::getReferenceNumber() const
 string ReferenceMaterial::getTitle() const
 {
 }
-void ReferenceMaterial::setReferenceNumber(string)
-{
-}
-void ReferenceMaterial::getAuthor() const
-{
-}
-void ReferenceMaterial::setTitle()
-{
-}
 string ReferenceMaterial::getAuthor() const
 {
 }
+void ReferenceMaterial::setReferenceNumber(string)
+{
+}
+void ReferenceMaterial::setTitle(string)
+{
+}
+void ReferenceMaterial::setAuthor(string)
+{
+}
+
 
