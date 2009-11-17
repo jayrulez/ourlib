@@ -29,9 +29,6 @@
 #include "gui/console/scroller.h"
 #endif
 
-#ifndef MAGAZINEFORM_H
-#include "forms/MagazineForm.h"
-#endif
 
 #define _MAX 2
 #define _MIN 1
@@ -48,6 +45,7 @@
 #ifndef _MAGAZINE_H
 #include "Magazine.h"
 #endif
+
 #ifndef _MAGAZINEFORM_H
 #include "forms/MagazineForm.h"
 #endif
@@ -59,9 +57,10 @@
 #include "forms/ResearchPaperForm.h"
 #endif
 
-#ifndef MEMBERFORM_H
+#ifndef _MEMBERFORM_H
 #include "forms/MemberForm.h"
 #endif
+
 
 using namespace std;
 
@@ -121,7 +120,8 @@ void MenuBuilder::showLoanForm(int LoanFormType)
 void MenuBuilder::callMenu(int menuId)
 {
     console con;
-    MagazineForm *MagazinePtr=new MagazineForm();
+    MagazineForm *MagazinePtr=new MagazineForm;
+    MemberForm *MemberPtr=new MemberForm;
     con.setCursor(false,50);
 	switch(menuId)
 	{
@@ -158,6 +158,8 @@ void MenuBuilder::callMenu(int menuId)
         case NEWUSER:
             this->BasicRunlevel("NEW USER REGISTRATION");
             this->showLoanForm(NEWUSER);
+            MemberPtr->BrowseMemberForm();
+			//this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
         break;
 		default:
             this->BasicRunlevel("MAIN MENU");

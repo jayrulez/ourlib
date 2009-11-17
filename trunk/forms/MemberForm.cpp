@@ -1,4 +1,4 @@
-#ifndef MEMBERFORM_H
+#ifndef _MEMBERFORM_H
 #include "MemberForm.h"
 #endif
 

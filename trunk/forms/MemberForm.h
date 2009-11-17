@@ -1,5 +1,5 @@
-#ifndef MEMBERFORM_H
-#define MEMBERFORM_H
+#ifndef _MEMBERFORM_H
+#define _MEMBERFORM_H
 
 #ifndef _MEMBER_H
 #include "../Member.h"
