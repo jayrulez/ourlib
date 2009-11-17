@@ -3,14 +3,21 @@
 #include <iostream>
 #include <cctype>
 #include <string>
-
+#include "FormInputBuilder.h"
 #define NUMERIC 1
 #define ALPHABETICAL 2
 #define ALPHANUMERIC 3
 
+using namespace std;
 
+FormInputBuilder::FormInputBuilder()
+{
+}
+FormInputBuilder::~FormInputBuilder()
+{
+}
 
-string FormBuilder::FormInput (int type,string input,int length)
+string FormInputBuilder::FormInput (int type,string input,int length)
 {
 	HANDLE hIn;
 	DWORD AmtRead;
