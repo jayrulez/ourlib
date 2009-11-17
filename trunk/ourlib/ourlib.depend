@@ -379,7 +379,7 @@
 1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1258447881 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
+1258448232 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
@@ -389,7 +389,7 @@
 	"Controller.h"
 	"model/Model.h"
 
-1258439945 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
+1258448075 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
 	<iostream>
 	<string>
 	"MenuBuilder.h"
@@ -399,7 +399,6 @@
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
-	"forms/MagazineForm.h"
 	<string>
 	"TextBook.h"
 	"forms/TextBookForm.h"

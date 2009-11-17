@@ -50,14 +50,14 @@
 /*
 * Add Member
 */
-#define MEMBERSUBMIT 14
-#define MEMBERCLEARFIELD 15
+#define MEMBERSUBMIT 16
+#define MEMBERCLEARFIELD 17
 #define ADDMEMBERFORMMENU_SIZ 4
 /*
 * Loan Menu
 */
-#define EXISTINGMEMBER 12
-#define NEWUSER 13
+#define EXISTINGMEMBER 18
+#define NEWUSER 19
 #define LOANMENU_SIZ 3
 
 #include <string>
