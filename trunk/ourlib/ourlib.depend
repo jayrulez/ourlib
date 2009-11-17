@@ -230,7 +230,7 @@
 1258427024 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\member.h
 	<string>
 
-1258436350 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.cpp
+1258437590 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.cpp
 	"ReferenceMaterial.h"
 	<iostream>
 	<string>
@@ -638,7 +638,7 @@
 	"../TextBook.h"
 	"../gui/console/console.h"
 
-1258437114 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
+1258438584 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
 	"../Magazine.h"
 	"../gui/console/console.h"
 

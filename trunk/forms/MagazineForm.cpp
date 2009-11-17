@@ -33,7 +33,7 @@ MagazineForm::~MagazineForm()
 {
 
 }
-void MagazineForm::BrowseMagazineForm(int field)
+void MagazineForm::BrowseMagazineForm()
 {
     HANDLE hIn;
 	DWORD AmtRead;
@@ -41,6 +41,7 @@ void MagazineForm::BrowseMagazineForm(int field)
 	int FieldPosition=0;
 	bool read=false;
 	hIn = GetStdHandle(STD_INPUT_HANDLE);
+	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2],MagazineCoord[FieldPosition][1]);
 	while(!read)
 	{
 		ReadConsoleInput(hIn,&InputRec,1,&AmtRead);
@@ -70,14 +71,15 @@ void MagazineForm::BrowseMagazineForm(int field)
                             FieldPosition+=1;
                         break;
                     }
+                    if(FieldPosition>4)
+                    {
+                        read=true;
+                        break;
+                    }
+                    consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2],MagazineCoord[FieldPosition][1]);
 				}
             break;
 		}
-        if(FieldPosition>4)
-        {
-            read=true;
-            break;
-        }
 	}
 }
 
