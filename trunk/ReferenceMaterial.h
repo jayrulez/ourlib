@@ -18,8 +18,8 @@ public:
 	string getTitle() const;
 	string getAuthor() const;
 	void setReferenceNumber(string);
-	void setTitle() const;
-	string getAuthor() const;
+	void setTitle(string);
+	void getAuthor(string);
 	virtual void showReferenceMaterial(int,int)=0;
 };
 #endif
