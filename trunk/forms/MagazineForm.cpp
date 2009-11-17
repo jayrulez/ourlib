@@ -12,21 +12,21 @@ using namespace std;
 
 MagazineForm::MagazineForm()
 {
-    xyReferenceNumber[0]=25;
-    xyReferenceNumber[1]=11;
-    xyReferenceNumber[2]=18;
-    xyAuthor[0]=25;
-    xyAuthor[1]=14;
-    xyAuthor[2]=8;
-    xyVolume[0]=25;
-    xyVolume[1]=17;
-    xyVolume[2]=8;
-    xyIssueTopic[0]=25;
-    xyIssueTopic[1]=20;
-    xyIssueTopic[2]=13;
-    xyIssueDate[0]=25;
-    xyIssueDate[1]=23;
-    xyIssueDate[2]=12;
+    MagazineCoord[0][0]=25;
+    MagazineCoord[0][1]=11;
+    MagazineCoord[0][2]=18;
+    MagazineCoord[1][0]=25;
+    MagazineCoord[1][1]=14;
+    MagazineCoord[1][2]=8;
+    MagazineCoord[2][0]=25;
+    MagazineCoord[2][1]=17;
+    MagazineCoord[2][2]=8;
+    MagazineCoord[3][0]=25;
+    MagazineCoord[3][1]=20;
+    MagazineCoord[3][2]=13;
+    MagazineCoord[4][0]=25;
+    MagazineCoord[4][1]=23;
+    MagazineCoord[4][2]=12;
 }
 
 MagazineForm::~MagazineForm()
@@ -35,8 +35,6 @@ MagazineForm::~MagazineForm()
 }
 void MagazineForm::BrowseMagazineForm(int field)
 {
-    int coord[5][3];
-    coord[0]=xyReferenceNumber;
     HANDLE hIn;
 	DWORD AmtRead;
 	INPUT_RECORD InputRec;
