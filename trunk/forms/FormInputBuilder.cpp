@@ -13,8 +13,12 @@ FormInputBuilder::FormInputBuilder()
 FormInputBuilder::~FormInputBuilder()
 {
 }
+int FormInputBuilder::InputInterface(int KeyType)
+{
+    return KeyType;
+}
 
-string FormInputBuilder::FormInput (int type,string input,int length)
+int FormInputBuilder::FormInput (int type,string *input,int length)
 {
 	HANDLE hIn;
 	DWORD AmtRead;
@@ -59,7 +63,7 @@ string FormInputBuilder::FormInput (int type,string input,int length)
                         case VK_DOWN:
                         case VK_UP:
                         case VK_TAB:
-                            return input;
+                            return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:
                         break;
@@ -83,7 +87,7 @@ string FormInputBuilder::FormInput (int type,string input,int length)
 			break;
 		}
 	}
-	return input;
+	return InputRec.Event.KeyEvent.wVirtualKeyCode;
 }
 
 

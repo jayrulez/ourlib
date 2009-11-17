@@ -62,6 +62,7 @@ void MagazineForm::BrowseMagazineForm()
                 FormInputBuilderObj.FormInput(NUMERIC,"",10);
                 break;
             case 4:
+                FormInputBuilderObj.FormInput(NUMERIC,"",10);
                 break;
 	    }
 		ReadConsoleInput(hIn,&InputRec,1,&AmtRead);
