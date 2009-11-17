@@ -79,6 +79,7 @@ void MagazineForm::BrowseMagazineForm()
                     consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2],MagazineCoord[FieldPosition][1]);
 				}
             break;
+			}
 		}
 	}
 }
