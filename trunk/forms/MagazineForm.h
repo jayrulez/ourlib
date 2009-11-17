@@ -17,6 +17,7 @@ private:
 public:
     MagazineForm();
     ~MagazineForm();
+    void BrowseMagazineForm(int);
 	void show(Magazine*);
 };
 

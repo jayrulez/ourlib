@@ -1,6 +1,3 @@
-#ifndef _FORMBUILDER_H
-#include "FormBuilder.h"
-#endif
 
 #include "windows.h"
 #include <iostream>
@@ -11,15 +8,7 @@
 #define ALPHABETICAL 2
 #define ALPHANUMERIC 3
 
-FormBuilder::FormBuilder()
-{
 
-}
-
-FormBuilder::~FormBuilder()
-{
-
-}
 
 string FormBuilder::FormInput (int type,string input,int length)
 {
