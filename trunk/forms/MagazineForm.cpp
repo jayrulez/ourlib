@@ -74,14 +74,14 @@ void MagazineForm::show(Magazine * magazineObj)
 	}else{
 		//record from file
 	}
-	consoleObj.xyCoord(xyReferenceNumber[0],xyReferenceNumber[1]);
+	consoleObj.xyCoord(MagazineCoord[0][0],MagazineCoord[0][1]);
 	cout<<"Reference Number: ";
-	consoleObj.xyCoord(xyAuthor[0],xyAuthor[1]);
+	consoleObj.xyCoord(MagazineCoord[1][0],MagazineCoord[1][1]);
 	cout<<"Author: ";
-	consoleObj.xyCoord(xyVolume[0],xyVolume[1]);
+	consoleObj.xyCoord(MagazineCoord[2][0],MagazineCoord[2][1]);
 	cout<<"Volume: ";
-	consoleObj.xyCoord(xyIssueDate[0],xyIssueDate[1]);
+	consoleObj.xyCoord(MagazineCoord[3][0],MagazineCoord[3][1]);
 	cout<<"Issue Date: ";
-	consoleObj.xyCoord(xyIssueTopic[0],xyIssueTopic[1]);
+	consoleObj.xyCoord(MagazineCoord[4][0],MagazineCoord[4][1]);
 	cout<<"Issue Topic: ";
 }

@@ -9,7 +9,7 @@
 class MagazineForm
 {
 private:
-    MagazineCoord[5][3];
+    int MagazineCoord[5][3];
     console consoleObj;
 public:
     MagazineForm();

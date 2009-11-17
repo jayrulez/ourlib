@@ -245,8 +245,10 @@
 	<iostream>
 	<string>
 
-1257717020 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.cpp
+1258436485 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.cpp
 	"TextBook.h"
+	<iostream>
+	<string>
 
 1258436539 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
 	"Referencematerial.h"
@@ -636,7 +638,7 @@
 	"../TextBook.h"
 	"../gui/console/console.h"
 
-1258433015 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
+1258437114 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
 	"../Magazine.h"
 	"../gui/console/console.h"
 
@@ -665,11 +667,13 @@
 	"../TextBook.h"
 	<iostream>
 
-1258330481 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
+1258437097 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
 	"MagazineForm.h"
 	"../Magazine.h"
 	<iostream>
 	<string>
+	<windows.h>
+	"../gui/console/console.h"
 
 1258334967 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.h
 	"../gui/console/console.h"
@@ -723,4 +727,14 @@
 1258342226 d:\documents and settings\dd\desktop\project\forms\textbookform.h
 	"../TextBook.h"
 	"../gui/console/console.h"
+
+1258434627 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.cpp
+	"windows.h"
+	<iostream>
+	<cctype>
+	<string>
+	"FormInputBuilder.h"
+
+1258434099 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.h
+	<string>
 
