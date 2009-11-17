@@ -42,8 +42,6 @@
 		<Unit filename="..\ResearchPaper.h" />
 		<Unit filename="..\TextBook.cpp" />
 		<Unit filename="..\TextBook.h" />
-		<Unit filename="..\forms\FormBuilder.cpp" />
-		<Unit filename="..\forms\FormBuilder.h" />
 		<Unit filename="..\forms\MagazineForm.cpp" />
 		<Unit filename="..\forms\MagazineForm.h" />
 		<Unit filename="..\forms\MemberForm.cpp" />
