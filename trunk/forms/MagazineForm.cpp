@@ -47,6 +47,7 @@ void MagazineForm::BrowseMagazineForm(int field)
 		switch(InputRec.EventType)
 		{
 			case KEY_EVENT:
+			{
 				if(InputRec.Event.KeyEvent.bKeyDown)
 				{
 				    switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
@@ -66,17 +67,17 @@ void MagazineForm::BrowseMagazineForm(int field)
                             FieldPosition+=1;
                         break;
                         case VK_DOWN:
-                            if(FieldPosition>4)
-                            {
-                                read=true;
-                                break;
-                            }
-                            FieldPosition-=1;
+                            FieldPosition+=1;
                         break;
                     }
 				}
             break;
 		}
+        if(FieldPosition>4)
+        {
+            read=true;
+            break;
+        }
 	}
 }
 
