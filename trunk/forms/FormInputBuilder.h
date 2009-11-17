@@ -13,7 +13,7 @@ class FormInputBuilder
 public:
     FormInputBuilder();
     ~FormInputBuilder();
-    int FormInput(int,string,int);
+    int FormInput(int,string*,int);
     int InputInterface(int);
 };
 

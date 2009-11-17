@@ -36,73 +36,62 @@ MagazineForm::~MagazineForm()
 }
 void MagazineForm::BrowseMagazineForm()
 {
-    HANDLE hIn;
-	DWORD AmtRead;
 	consoleObj.setCursor(true,3);
-	INPUT_RECORD InputRec;
+	static string input;
+	string *InputPtr;
+	InputPtr=&input;
 	int FieldPosition=0;
 	bool read=false;
-	hIn = GetStdHandle(STD_INPUT_HANDLE);
+	int KeyType;
 	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2],MagazineCoord[FieldPosition][1]);
 	while(!read)
 	{
 	    switch(FieldPosition)
 	    {
             case 0:
-                FormInputBuilderObj.FormInput(NUMERIC,"",10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
                 break;
             case 1:
-                FormInputBuilderObj.FormInput(NUMERIC,"",10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
                 break;
             case 2:
-                FormInputBuilderObj.FormInput(NUMERIC,"",10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
                 break;
 
             case 3:
-                FormInputBuilderObj.FormInput(NUMERIC,"",10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
                 break;
             case 4:
-                FormInputBuilderObj.FormInput(NUMERIC,"",10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,InputPtr,10);
                 break;
 	    }
-		ReadConsoleInput(hIn,&InputRec,1,&AmtRead);
-		switch(InputRec.EventType)
-		{
-			case KEY_EVENT:
-			{
-				if(InputRec.Event.KeyEvent.bKeyDown)
-				{
-				    switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
-                    {
-                        case VK_UP:
-                            if(FieldPosition<0)
-                            {
-                                FieldPosition=0;
-                                break;
-                            }
-                            FieldPosition-=1;
-                        break;
-                        case VK_RETURN:
-                            FieldPosition+=1;
-                        break;
-                        case VK_TAB:
-                            FieldPosition+=1;
-                        break;
-                        case VK_DOWN:
-                            FieldPosition+=1;
-                        break;
-                    }
-                    if(FieldPosition>4)
-                    {
-                        read=true;
-                        break;
-                    }
-                    consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2],MagazineCoord[FieldPosition][1]);
-				}
+        switch(KeyType)
+        {
+            case VK_UP:
+                if(FieldPosition<0)
+                {
+                    FieldPosition=0;
+                    break;
+                }
+                FieldPosition-=1;
             break;
-			}
-		}
-	}
+            case VK_RETURN:
+                FieldPosition+=1;
+            break;
+            case VK_TAB:
+                FieldPosition+=1;
+            break;
+            case VK_DOWN:
+                FieldPosition+=1;
+            break;
+        }
+        if(FieldPosition>4)
+        {
+            read=true;
+            break;
+        }
+        consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2],MagazineCoord[FieldPosition][1]);
+    }
 	consoleObj.setCursor(false,3);
 }
 

@@ -23,8 +23,7 @@ int FormInputBuilder::FormInput (int type,string *input,int length)
 	HANDLE hIn;
 	DWORD AmtRead;
 	INPUT_RECORD InputRec;
-	 //string input;
-	int position=input.length();
+	int position=input->length();
 	bool read=false;
 	hIn = GetStdHandle(STD_INPUT_HANDLE);
 	while(!read)
@@ -35,7 +34,7 @@ int FormInputBuilder::FormInput (int type,string *input,int length)
 			case KEY_EVENT:
 				if(InputRec.Event.KeyEvent.bKeyDown)
 				{
-				    if(input.length()<(unsigned)length)
+				    if(input->length()<(unsigned)length)
 				    {
                         switch(type)
                         {
@@ -75,10 +74,10 @@ int FormInputBuilder::FormInput (int type,string *input,int length)
                             }
                         break;
                         case VK_BACK:
-                            if(input.length()>0)
+                            if(input->length()>0)
                             {
                                 cout<<"\b \b";
-                                input.erase(position);
+                                input->erase(position);
                                 position-=1;
                             }
                         break;
