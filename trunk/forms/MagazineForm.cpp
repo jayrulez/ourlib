@@ -8,6 +8,7 @@
 #include <string>
 #include <windows.h>
 #include "../gui/console/console.h"
+
 using namespace std;
 
 MagazineForm::MagazineForm()
@@ -44,6 +45,24 @@ void MagazineForm::BrowseMagazineForm()
 	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2],MagazineCoord[FieldPosition][1]);
 	while(!read)
 	{
+	    switch(FieldPosition)
+	    {
+            case 0:
+                FormInputBuilderObj.FormInput(NUMERIC,"",10);
+                break;
+            case 1:
+                FormInputBuilderObj.FormInput(NUMERIC,"",10);
+                break;
+            case 2:
+                FormInputBuilderObj.FormInput(NUMERIC,"",10);
+                break;
+
+            case 3:
+                FormInputBuilderObj.FormInput(NUMERIC,"",10);
+                break;
+            case 4:
+                break;
+	    }
 		ReadConsoleInput(hIn,&InputRec,1,&AmtRead);
 		switch(InputRec.EventType)
 		{

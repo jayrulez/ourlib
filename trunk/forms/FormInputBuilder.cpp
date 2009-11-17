@@ -4,9 +4,6 @@
 #include <cctype>
 #include <string>
 #include "FormInputBuilder.h"
-#define NUMERIC 1
-#define ALPHABETICAL 2
-#define ALPHANUMERIC 3
 
 using namespace std;
 

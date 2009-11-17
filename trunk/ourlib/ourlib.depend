@@ -389,7 +389,7 @@
 	"Controller.h"
 	"model/Model.h"
 
-1258427024 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
+1258439945 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
 	<iostream>
 	<string>
 	"MenuBuilder.h"
@@ -399,6 +399,7 @@
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
+	"forms/MagazineForm.h"
 	<string>
 	"TextBook.h"
 	"forms/TextBookForm.h"
@@ -638,9 +639,10 @@
 	"../TextBook.h"
 	"../gui/console/console.h"
 
-1258438584 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
+1258440364 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.h
 	"../Magazine.h"
 	"../gui/console/console.h"
+	"FormInputBuilder.h"
 
 1258329192 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\researchpaperform.h
 	"../ResearchPaper.h"
@@ -735,6 +737,6 @@
 	<string>
 	"FormInputBuilder.h"
 
-1258434099 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.h
+1258441308 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.h
 	<string>
 
