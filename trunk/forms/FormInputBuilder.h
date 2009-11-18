@@ -5,7 +5,7 @@
 #define ALPHABETICAL 2
 #define ALPHANUMERIC 3
 #define PUNCTUATION 4
-#define HIPHEN 5
+#define HYPHEN 5
 #define DATESLASH 6
 #define SPACING 1
 #define NOSPACING 2
