@@ -55,7 +55,7 @@ void MemberForm::BrowseMemberForm()
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
                 break;
             case 4:
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC|DATESLASH,NOSPACING,InputPtr,10);
                 break;
 	    }
         switch(KeyType)
