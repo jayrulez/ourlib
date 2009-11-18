@@ -58,32 +58,35 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                     position+=1;
                                 }
                             break;
-                            case PUNCTUATION:
-                                if(ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
-                                {
-                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
-                                    cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
-                                    position+=1;
-                                }
-                            break;
-                            case HIPHEN:
-                                if(InputRec.Event.KeyEvent.uChar.AsciiChar=='-')
-                                {
-                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
-                                    cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
-                                    position+=1;
-                                }
-                            break;
-                            case DATESLASH:
-                            if(InputRec.Event.KeyEvent.uChar.AsciiChar=='/')
+                        }
+				    }
+                    if(type==PUNCTUATION)
+                    {
+                        if(ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
                             {
                                 (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                 cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                 position+=1;
                             }
-                            break;
+                    }
+                    if(type==HIPHEN)
+                    {
+                        if(InputRec.Event.KeyEvent.uChar.AsciiChar=='-')
+                        {
+                            (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                            cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
+                            position+=1;
                         }
-				    }
+                    }
+                    if(type==DATESLASH)
+                    {
+                        if(InputRec.Event.KeyEvent.uChar.AsciiChar=='/')
+                        {
+                            (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                            cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
+                            position+=1;
+                        }
+                    }
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
                         case VK_RETURN:
