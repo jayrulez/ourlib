@@ -47,7 +47,7 @@ void ResearchPaperForm::BrowseResearchPaperForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC|HIPHEN,NOSPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC&HIPHEN,NOSPACING,InputPtr,10);
                 break;
             case 1:
                 KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10);

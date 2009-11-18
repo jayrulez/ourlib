@@ -41,7 +41,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
-                            break;
+                             break;
                             case ALPHABETICAL:
                                 if(isalpha(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
