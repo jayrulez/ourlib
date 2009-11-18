@@ -19,7 +19,7 @@ private:
 	string datePublished;
 public:
 	TextBook();
-	TextBook(string,string,string,string,string);
+	TextBook(string,string,string,string,string,string);
 	~TextBook();
 	void setISBN(string);
 	void setCourse(string);

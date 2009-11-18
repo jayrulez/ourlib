@@ -16,13 +16,13 @@ private:
 public:
 	ResearchPaper();
 	~ResearchPaper();
-	ResearchPaper(string,string,string);
+	ResearchPaper(string,string,string,string,string,string);
 	void setResearchTopic(string);
 	void setSupervisor(string);
 	void setSponsor(string);
-	int getResearchTopic() const;
-	int getSupervisor() const;
-	int getSponsor() const;
+	string getResearchTopic() const;
+	string getSupervisor() const;
+	string getSponsor() const;
 	void showReferenceMaterial(int,int);
 };
 #endif

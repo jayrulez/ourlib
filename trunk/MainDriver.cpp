@@ -1,7 +1,4 @@
 #include "Application.h"
-//#include "install/Installer.h"
-
-#define _MODEL_DRIVER "file"
 
 /*
 * The entry point for the application.

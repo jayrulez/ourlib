@@ -18,32 +18,54 @@ Loan::Loan()
 Loan::~Loan()
 {
 }
-Loan::Loan(int,string,string)
+
+Loan::Loan(int memberId,string referenceNumber,string loanType)
 {
+    this->memberId = memberId;
+    this->referenceNumber = referenceNumber;
+    this->loanType = loanType;
 }
 
-void Loan::setMemberId(int)
+void Loan::setMemberId(int memberId)
 {
+    this->memberId = memberId;
+}
 
-}
-void setReferenceNumber(string)
+void Loan::setReferenceNumber(string referenceNumber)
 {
+    this->referenceNumber = referenceNumber;
 }
-void Loan::setLoanType(string)
+
+void Loan::setLoanType(string loanType)
 {
+    this->loanType = loanType;
 }
-void Loan::setRequestDate(int,int,int)
+
+void Loan::setRequestDate(string requestDate)
 {
+    this->requestDate = requestDate;
 }
+
 int Loan::getMemberId() const
 {
+    return this->memberId;
 }
+
 string Loan::getReferenceNumber() const
 {
+    return this->referenceNumber;
 }
+
 string Loan::getLoanType() const
 {
+    return this->loanType;
 }
-void Loan::showLoan(int,int)
+
+string Loan::getRequestDate() const
+{
+    return this->requestDate;
+}
+
+void Loan::showLoan(int xCoord,int yCoord)
 {
 }

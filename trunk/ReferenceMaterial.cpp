@@ -19,8 +19,11 @@ ReferenceMaterial::~ReferenceMaterial()
 {
 }
 
-ReferenceMaterial::ReferenceMaterial(string,string,string)
+ReferenceMaterial::ReferenceMaterial(string referenceNumber,string title,string author)
 {
+    this->referenceNumber = referenceNumber;
+    this->title = title;
+    this->author = author;
 }
 string ReferenceMaterial::getReferenceNumber() const
 {
@@ -28,18 +31,23 @@ string ReferenceMaterial::getReferenceNumber() const
 }
 string ReferenceMaterial::getTitle() const
 {
+    return this->title;
 }
 string ReferenceMaterial::getAuthor() const
 {
+    return this->author;
 }
-void ReferenceMaterial::setReferenceNumber(string)
+void ReferenceMaterial::setReferenceNumber(string referenceNumber)
 {
+    this->referenceNumber = referenceNumber;
 }
-void ReferenceMaterial::setTitle(string)
+void ReferenceMaterial::setTitle(string title)
 {
+    this->title = title;
 }
-void ReferenceMaterial::setAuthor(string)
+void ReferenceMaterial::setAuthor(string author)
 {
+    this->author = author;
 }
 
 

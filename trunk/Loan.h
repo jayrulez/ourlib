@@ -12,7 +12,7 @@ class Loan
 private:
 	int memberId;
 	string referenceNumber;
-	Date requestDate;
+	string requestDate;
 	string loanType;
 public:
 	Loan();
@@ -21,10 +21,11 @@ public:
 	void setMemberId(int);
 	void setReferenceNumber(string);
 	void setLoanType(string);
-	void setRequestDate(int,int,int);
+	void setRequestDate(string);
 	int getMemberId() const;
 	string getReferenceNumber() const;
 	string getLoanType() const;
+	string getRequestDate() const;
 	void showLoan(int,int);
 };
 #endif
