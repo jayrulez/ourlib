@@ -36,6 +36,7 @@ MagazineForm::~MagazineForm()
 }
 void MagazineForm::BrowseMagazineForm()
 {
+	// 5 pointers needed for 5 inputs
 	consoleObj.setCursor(true,3);
 	static string input;
 	string *InputPtr;
