@@ -67,32 +67,32 @@
 	<File name="..\TextBook.h" open="0" top="0" tabpos="10">
 		<Cursor position="314" topLine="0" />
 	</File>
-	<File name="..\forms\FormInputBuilder.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="3650" topLine="31" />
+	<File name="..\forms\FormInputBuilder.cpp" open="1" top="1" tabpos="5">
+		<Cursor position="2059" topLine="0" />
 	</File>
 	<File name="..\forms\FormInputBuilder.h" open="0" top="0" tabpos="0">
-		<Cursor position="163" topLine="0" />
+		<Cursor position="158" topLine="0" />
 	</File>
 	<File name="..\forms\MagazineForm.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="1755" topLine="49" />
+		<Cursor position="1812" topLine="39" />
 	</File>
 	<File name="..\forms\MagazineForm.h" open="0" top="0" tabpos="0">
 		<Cursor position="50" topLine="0" />
 	</File>
 	<File name="..\forms\MemberForm.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="1590" topLine="36" />
+		<Cursor position="1594" topLine="36" />
 	</File>
 	<File name="..\forms\MemberForm.h" open="0" top="0" tabpos="2">
 		<Cursor position="350" topLine="0" />
 	</File>
 	<File name="..\forms\ResearchPaperForm.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="1822" topLine="37" />
+		<Cursor position="1564" topLine="29" />
 	</File>
 	<File name="..\forms\ResearchPaperForm.h" open="0" top="0" tabpos="0">
 		<Cursor position="324" topLine="1" />
 	</File>
-	<File name="..\forms\TextBookForm.cpp" open="1" top="1" tabpos="4">
-		<Cursor position="1556" topLine="87" />
+	<File name="..\forms\TextBookForm.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="1912" topLine="40" />
 	</File>
 	<File name="..\forms\TextBookForm.h" open="0" top="0" tabpos="0">
 		<Cursor position="412" topLine="0" />
