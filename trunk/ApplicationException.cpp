@@ -2,18 +2,9 @@
 #include "ApplicationException.h"
 #endif
 
-/*
-*
-*/
-ApplicationException::ApplicationException()
+void ApplicationException::toString()
 {
+
 }
 
-/*
-*
-*/
-/*
-ApplicationException::~ApplicationException()
-{
-}
-*/
+ApplicationException::~ApplicationException() throw() {}

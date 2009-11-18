@@ -74,14 +74,8 @@
 		<Unit filename="..\gui\console\sound\button-28.wav" />
 		<Unit filename="..\install\Installer.cpp" />
 		<Unit filename="..\install\Installer.h" />
-		<Unit filename="..\model\Model.cpp" />
-		<Unit filename="..\model\Model.h" />
-		<Unit filename="..\model\driver\db\DBCommand.cpp" />
-		<Unit filename="..\model\driver\db\DBCommand.h" />
-		<Unit filename="..\model\driver\db\DBConnection.cpp" />
-		<Unit filename="..\model\driver\db\DBConnection.h" />
-		<Unit filename="..\model\driver\file\File.cpp" />
-		<Unit filename="..\model\driver\file\File.h" />
+		<Unit filename="..\model\File.cpp" />
+		<Unit filename="..\model\File.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
