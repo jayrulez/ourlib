@@ -52,10 +52,10 @@ void MemberForm::BrowseMemberForm()
                 break;
 
             case 3:
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC|PUNCTUATION,SPACING,InputPtr,10);
                 break;
             case 4:
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC|DATESLASH,NOSPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC|HIPHEN,NOSPACING,InputPtr,10);
                 break;
 	    }
         switch(KeyType)
