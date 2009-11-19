@@ -25,6 +25,7 @@ public:
 	void setIssueDate(string);
 	string getVolume() const;
 	string getIssueTopic() const;
+	string getIssueDate() const;
 	void showReferenceMaterial(int,int);
 };
 #endif

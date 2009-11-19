@@ -51,6 +51,11 @@ string Magazine::getIssueTopic() const
 	return this->issueTopic;
 }
 
+string Magazine::getIssueDate() const
+{
+	return this->issueDate;
+}
+
 void Magazine::showReferenceMaterial(int xCoord,int yCoord)
 {
 }

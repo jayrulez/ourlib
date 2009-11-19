@@ -35,8 +35,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                         switch(type)
                         {
                             case NUMERIC:
-                                if(isdigit(InputRec.Event.KeyEvent.uChar.AsciiChar)||
-                                ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
+                                if(isdigit(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
                                     (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
@@ -45,7 +44,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                              break;
                             case ALPHABETICAL:
                                 if(isalpha(InputRec.Event.KeyEvent.uChar.AsciiChar)||
-                                ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
+                                    ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
                                     (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
@@ -54,7 +53,17 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             break;
                             case ALPHANUMERIC:
                                 if(isalnum(InputRec.Event.KeyEvent.uChar.AsciiChar)||
-                                ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
+                                    ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
+                                {
+                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    position+=1;
+                                }
+                            break;
+                            case DATE:
+                                if(isdigit(InputRec.Event.KeyEvent.uChar.AsciiChar)||
+                                    InputRec.Event.KeyEvent.uChar.AsciiChar=='-'||
+                                    InputRec.Event.KeyEvent.uChar.AsciiChar=='/')
                                 {
                                     (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
@@ -69,6 +78,10 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                         case VK_DOWN:
                         case VK_UP:
                         case VK_TAB:
+                            /*if(input[position]==" ")
+                            {
+                                input->erase(position-1);
+                            }*/
                             return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:
@@ -84,8 +97,8 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             if(input->length()>0)
                             {
                                 cout<<"\b \b";
-                                input->erase(position);
                                 position-=1;
+                                input->erase(position);
                             }
                         break;
                         case VK_SPACE:

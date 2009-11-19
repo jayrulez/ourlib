@@ -116,7 +116,7 @@ void MenuBuilder::showLoanForm(int LoanFormType)
 void MenuBuilder::callMenu(int menuId)
 {
     console con;
-    MagazineForm *MagazinePtr=new MagazineForm;
+    static MagazineForm *MagazineFormPtr=new MagazineForm;
     MemberForm *MemberPtr=new MemberForm;
     TextBookForm *TextBookPtr=new TextBookForm;
     ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
@@ -147,10 +147,13 @@ void MenuBuilder::callMenu(int menuId)
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
 			this->MenuShow(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
-			MagazinePtr->BrowseMagazineForm();
+			MagazineFormPtr->BrowseMagazineForm();
 			this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
 		break;
-
+        case MAGAZINESUBMIT:
+			this->BasicRunlevel("Show Data");
+            MagazineFormPtr->showTest();
+        break;
 		case LOAN:
             this->BasicRunlevel("LOAN MENU");
 			this->MenuShow(this->LoanMenu(),LOANMENU_SIZ);
