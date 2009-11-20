@@ -82,7 +82,7 @@ void TextBookForm::BrowseTextBookForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 5:
-                *InputPtr = this->textBookPtr->setDatePublished();
+                *InputPtr = this->textBookPtr->getDatePublished();
                 KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,10);
                 this->textBookPtr->setDatePublished(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;

@@ -57,6 +57,10 @@ string TextBook::getPublisher() const
 {
 	return this->publisher;
 }
+string TextBook::getDatePublished() const
+{
+    return this->datePublished;
+}
 void TextBook::showReferenceMaterial(int xCoord,int yCoord)
 {
 }

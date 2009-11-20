@@ -28,6 +28,7 @@ public:
 	string getISBN() const;
     string getCourse() const;
 	string getPublisher() const;
+	string getDatePublished() const;
 	void showReferenceMaterial(int,int);
 };
 #endif
