@@ -35,6 +35,7 @@
 
 #include <string>
 
+
 #ifndef _TEXTBOOK_H
 #include "TextBook.h"
 #endif
@@ -61,6 +62,9 @@
 #include "forms/MemberForm.h"
 #endif
 
+#ifndef FORMINPUTBUILDER_H
+#include "forms/FormInputBuilder.h"
+#endif
 
 using namespace std;
 
@@ -532,9 +536,13 @@ int MenuBuilder::EditMenuDriver()
     return 0;
 }
 
-string MenuBuilder::EditInput()
+int MenuBuilder::EditInput(string *ReferenceNumberPtr)
 {
-    return "";
+    FormInputBuilder EditEntry;
+    console consoleObj;
+    consoleObj.xyCoord(35,20);
+    cout<<"Reference Number: ";
+    return EditEntry.FormInput(ALPHANUMERIC,NOSPACING,ReferenceNumberPtr,7,true);;
 }
 
 void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)
