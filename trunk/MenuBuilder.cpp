@@ -510,7 +510,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             if(*pos>size-1)
             {
                 *pos=0;
-            }int MenuBuilder::EditMenuDriver()
+            }
             scr->killScroll();
             scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
             (iptr+*pos)->getItemLenght());
