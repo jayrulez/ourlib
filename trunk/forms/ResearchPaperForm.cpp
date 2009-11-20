@@ -10,7 +10,7 @@ using namespace std;
 
 ResearchPaperForm::ResearchPaperForm()
 {
-    researchPaperPtr = new ResearchPaper;
+    this->researchPaperPtr = new ResearchPaper;
     ResearchPaperCoord[0][0]=25;
     ResearchPaperCoord[0][1]=12;
     ResearchPaperCoord[0][2]=18;

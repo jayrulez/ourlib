@@ -17,6 +17,7 @@ private:
     int ResearchPaperCoord[5][3];
 	console consoleObj;
 	FormInputBuilder FormInputBuilderObj;
+	ResearchPaper *researchPaperPtr;
 public:
     ResearchPaperForm();
     ~ResearchPaperForm();
