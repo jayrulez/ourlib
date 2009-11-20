@@ -138,6 +138,8 @@ void MagazineForm::show(Magazine * magazineObj)
 	cout<<"Author: ";
 	consoleObj.xyCoord(MagazineCoord[2][0],MagazineCoord[2][1]);
 	cout<<"Volume: ";
+    consoleObj.xyCoord(13,20);
+	cout<<"<dd/mm/yy>";
 	consoleObj.xyCoord(MagazineCoord[3][0],MagazineCoord[3][1]);
 	cout<<"Issue Date: ";
 	consoleObj.xyCoord(MagazineCoord[4][0],MagazineCoord[4][1]);
