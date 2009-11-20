@@ -33,6 +33,7 @@ void MemberForm::BrowseMemberForm()
 	static string input;
 	string AllInput[5];
 	string *InputPtr;
+	char* tempId;
 	int FieldPosition=0;
 	bool read=false;
 	int KeyType;
@@ -44,9 +45,9 @@ void MemberForm::BrowseMemberForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-                *InputPtr = this->memberPtr->getId();
+                itoa(this->memberPtr->getId(),*InputPtr,10);
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
-                this->memberPtr->setId(*InputPtr);
+                this->memberPtr->setId(atoi(*InputPtr));
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
@@ -61,7 +62,6 @@ void MemberForm::BrowseMemberForm()
                 this->memberPtr->setLastName(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
-
             case 3:
                 *InputPtr = this->memberPtr->getAddress();
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
