@@ -44,9 +44,9 @@ void MemberForm::BrowseMemberForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-                *InputPtr = this->memberPtr->getReferenceNumber();
+                *InputPtr = this->memberPtr->getId();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
-                this->memberPtr->setReferenceNumber(*InputPtr);
+                this->memberPtr->setId(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
@@ -63,15 +63,15 @@ void MemberForm::BrowseMemberForm()
                 break;
 
             case 3:
-                *InputPtr = this->memberPtr->getReferenceNumber();
+                *InputPtr = this->memberPtr->getAddress();
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
-                this->memberPtr->setReferenceNumber(*InputPtr);
+                this->memberPtr->setAddress(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 4:
-                *InputPtr = this->memberPtr->getReferenceNumber();
+                *InputPtr = this->memberPtr->getContactNumber();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
-                this->memberPtr->setReferenceNumber(*InputPtr);
+                this->memberPtr->setContactNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 	    }
