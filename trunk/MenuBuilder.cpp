@@ -133,6 +133,10 @@ void MenuBuilder::callMenu(int menuId)
             this->MenuShow(this->AddReferenceMaterial(),ADDMENU_SIZ);
 			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ);
 		break;
+		case EDIT:
+            this->BasicRunlevel("EDIT MENU");
+            this->EditMenuDriver();
+            break;
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
