@@ -16,6 +16,7 @@ private:
     int TextBookCoord[6][3];
     console consoleObj;
     FormInputBuilder FormInputBuilderObj;
+    TextBook *textBookPtr;
 public:
     TextBookForm();
     ~TextBookForm();
