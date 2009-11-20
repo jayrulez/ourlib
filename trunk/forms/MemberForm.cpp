@@ -45,9 +45,9 @@ void MemberForm::BrowseMemberForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-                itoa(this->memberPtr->getId(),*InputPtr,10);
+                *InputPtr = itoa(this->memberPtr->getId(),tempId,10);
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
-                this->memberPtr->setId(atoi(*InputPtr));
+                this->memberPtr->setId(atoi(tempId));
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
