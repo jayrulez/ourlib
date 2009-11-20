@@ -26,8 +26,8 @@ public:
 	void setPublisher(string);
 	void setDatePublished(string);
 	string getISBN() const;
-    string setCourse() const;
-	string setPublisher() const;
+    string getCourse() const;
+	string getPublisher() const;
 	void showReferenceMaterial(int,int);
 };
 #endif

@@ -49,11 +49,11 @@ string TextBook::getISBN() const
 {
 	return this->ISBN;
 }
-string TextBook::setCourse() const
+string TextBook::getCourse() const
 {
 	return this->course;
 }
-string TextBook::setPublisher() const
+string TextBook::getPublisher() const
 {
 	return this->publisher;
 }
