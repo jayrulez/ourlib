@@ -14,6 +14,7 @@ private:
     int MemberCoord[5][3];
     console consoleObj;
     FormInputBuilder FormInputBuilderObj;
+    Member *memberPtr;
 public:
     MemberForm();
     ~MemberForm();

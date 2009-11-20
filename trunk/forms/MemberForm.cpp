@@ -8,6 +8,7 @@ using namespace std;
 
 MemberForm::MemberForm()
 {
+    memberPtr = new Member;
     MemberCoord[0][0]=20;
     MemberCoord[0][1]=14;
     MemberCoord[0][2]=11;
@@ -29,33 +30,49 @@ MemberForm::~MemberForm()
 }
 void MemberForm::BrowseMemberForm()
 {
-	consoleObj.setCursor(true,3);
 	static string input;
+	string AllInput[5];
 	string *InputPtr;
-	InputPtr=&input;
 	int FieldPosition=0;
 	bool read=false;
 	int KeyType;
-	consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+InputPtr->length(),MemberCoord[FieldPosition][1]);
+	InputPtr=&input;
+	consoleObj.setCursor(true,3);
+	consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MemberCoord[FieldPosition][1]);
 	while(!read)
 	{
 	    switch(FieldPosition)
 	    {
             case 0:
+                *InputPtr = this->memberPtr->getReferenceNumber();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
+                this->memberPtr->setReferenceNumber(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
+                *InputPtr = this->memberPtr->getFirstName();
                 KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,NOSPACING,InputPtr,10);
+                this->memberPtr->setFirstName(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
+                *InputPtr = this->memberPtr->getLastName();
                 KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,NOSPACING,InputPtr,10);
+                this->memberPtr->setLastName(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
 
             case 3:
+                *InputPtr = this->memberPtr->getReferenceNumber();
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
+                this->memberPtr->setReferenceNumber(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
             case 4:
+                *InputPtr = this->memberPtr->getReferenceNumber();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
+                this->memberPtr->setReferenceNumber(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
 	    }
         switch(KeyType)
@@ -65,8 +82,9 @@ void MemberForm::BrowseMemberForm()
                 {
                     FieldPosition=0;
                     break;
+                }else{
+                    FieldPosition-=1;
                 }
-                FieldPosition-=1;
             break;
             case VK_RETURN:
                 FieldPosition+=1;
@@ -83,7 +101,7 @@ void MemberForm::BrowseMemberForm()
             read=true;
             break;
         }
-        consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+InputPtr->length(),MemberCoord[FieldPosition][1]);
+        consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MemberCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
 }
