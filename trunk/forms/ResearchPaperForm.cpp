@@ -10,6 +10,7 @@ using namespace std;
 
 ResearchPaperForm::ResearchPaperForm()
 {
+    researchPaperPtr = new ResearchPaper;
     ResearchPaperCoord[0][0]=25;
     ResearchPaperCoord[0][1]=12;
     ResearchPaperCoord[0][2]=18;
@@ -34,33 +35,49 @@ ResearchPaperForm::~ResearchPaperForm()
 }
 void ResearchPaperForm::BrowseResearchPaperForm()
 {
-    consoleObj.setCursor(true,3);
 	static string input;
+	string AllInput[5];
 	string *InputPtr;
-	InputPtr=&input;
 	int FieldPosition=0;
 	bool read=false;
 	int KeyType;
-	consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+InputPtr->length(),ResearchPaperCoord[FieldPosition][1]);
+	InputPtr=&input;
+	consoleObj.setCursor(true,3);
+	consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+AllInput[FieldPosition].length(),ResearchPaperCoord[FieldPosition][1]);
 	while(!read)
 	{
 	    switch(FieldPosition)
 	    {
             case 0:
+                *InputPtr = this->researchPaperPtr->getReferenceNumber();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
+                this->researchPaperPtr->setReferenceNumber(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
+                *InputPtr = this->researchPaperPtr->getAuthor();
                 KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10);
+                this->researchPaperPtr->setAuthor(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
+                *InputPtr = this->researchPaperPtr->getResearchTopic();
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
+                this->researchPaperPtr->setResearchTopic(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
 
             case 3:
+                *InputPtr = this->researchPaperPtr->getSupervisor();
                 KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10);
+                this->researchPaperPtr->setSupervisor(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
             case 4:
+                *InputPtr = this->researchPaperPtr->getSponsor();
                 KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10);
+                this->researchPaperPtr->setSponsor(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
 	    }
         switch(KeyType)
@@ -70,8 +87,9 @@ void ResearchPaperForm::BrowseResearchPaperForm()
                 {
                     FieldPosition=0;
                     break;
+                }else{
+                    FieldPosition-=1;
                 }
-                FieldPosition-=1;
             break;
             case VK_RETURN:
                 FieldPosition+=1;
@@ -88,7 +106,7 @@ void ResearchPaperForm::BrowseResearchPaperForm()
             read=true;
             break;
         }
-        consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+InputPtr->length(),ResearchPaperCoord[FieldPosition][1]);
+        consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+AllInput[FieldPosition].length(),ResearchPaperCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
 }

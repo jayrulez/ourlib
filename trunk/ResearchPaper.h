@@ -13,6 +13,7 @@ private:
 	string researchTopic;
 	string supervisor;
 	string sponsor;
+	ResearchPaper *researchPaperPtr;
 public:
 	ResearchPaper();
 	~ResearchPaper();
