@@ -548,7 +548,7 @@ int MenuBuilder::EditInput(string *ReferenceNumberPtr)
 {
     FormInputBuilder EditEntry;
     console consoleObj;
-    consoleObj.xyCoord(35,20);
+    consoleObj.xyCoord(20,20);
     cout<<"Reference Number: ";
     return EditEntry.FormInput(ALPHANUMERIC,NOSPACING,ReferenceNumberPtr,7,true);
 }
