@@ -532,6 +532,11 @@ int MenuBuilder::EditMenuDriver()
     return 0;
 }
 
+string MenuBuilder::EditInput()
+{
+    return "";
+}
+
 void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)
 {
 	frame BaseFrame;
