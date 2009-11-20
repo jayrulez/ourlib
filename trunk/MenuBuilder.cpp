@@ -533,6 +533,10 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
 
 int MenuBuilder::EditMenuDriver()
 {
+    string ReferenceNumber;
+    string *ReferenceNumberPtr;
+    ReferenceNumberPtr = &ReferenceNumber;
+    EditInput(ReferenceNumberPtr);
     return 0;
 }
 
