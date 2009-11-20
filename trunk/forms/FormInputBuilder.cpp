@@ -14,7 +14,7 @@ FormInputBuilder::~FormInputBuilder()
 {
 }
 
-int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length)
+int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length,bool SingleInput)
 {
 	HANDLE hIn;
 	DWORD AmtRead;
@@ -75,13 +75,13 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
                         case VK_RETURN:
+                            if(SingleInput)
+                            {
+                                return InputRec.Event.KeyEvent.wVirtualKeyCode;
+                            }
                         case VK_DOWN:
                         case VK_UP:
                         case VK_TAB:
-                            /*if(input[position]==" ")
-                            {
-                                input->erase(position-1);
-                            }*/
                             return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:

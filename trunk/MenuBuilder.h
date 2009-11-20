@@ -75,6 +75,7 @@ public:
 	item* AddMagazineFormMenu();
 	item* AddTextBookFormMenu();
 	item* AddMemberFormMenu();
+	int EditMenuDriver();
 	int menuBrowserOperator(item*,int);
 	int MenuProcessing( int,item*,int*,scroller*,int);
 	void MenuShow(item*,int);

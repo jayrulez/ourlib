@@ -53,32 +53,32 @@ void MagazineForm::BrowseMagazineForm()
 	    {
             case 0:
                 *InputPtr = this->magazinePtr->getReferenceNumber();
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,false);
                 this->magazinePtr->setReferenceNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
                 *InputPtr = this->magazinePtr->getAuthor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,false);
                 this->magazinePtr->setAuthor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
                 *InputPtr = this->magazinePtr->getTitle();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,false);
                 this->magazinePtr->setTitle(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 
             case 3:
                 *InputPtr = this->magazinePtr->getIssueTopic();
-                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,10,false);
                 this->magazinePtr->setIssueTopic(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 4:
                 *InputPtr = this->magazinePtr->getIssueDate();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,false);
                 this->magazinePtr->setIssueDate(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;

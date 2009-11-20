@@ -2,9 +2,6 @@
 #include "Controller.h"
 #endif
 
-#ifndef _MODEL_H
-#include "model/Model.h"
-#endif
 
 using namespace std;
 

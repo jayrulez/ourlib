@@ -52,38 +52,38 @@ void TextBookForm::BrowseTextBookForm()
 	    {
             case 0:
                 *InputPtr = this->textBookPtr->getReferenceNumber();
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,false);
                 this->textBookPtr->setReferenceNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
                 *InputPtr = this->textBookPtr->getAuthor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,false);
                 this->textBookPtr->setAuthor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
                 *InputPtr = this->textBookPtr->getISBN();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,NOSPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,NOSPACING,InputPtr,10,false);
                 this->textBookPtr->setISBN(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 
             case 3:
                 *InputPtr = this->textBookPtr->getCourse();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,false);
                 this->textBookPtr->setCourse(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 4:
                 *InputPtr = this->textBookPtr->getPublisher();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,false);
                 this->textBookPtr->setPublisher(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 5:
                 *InputPtr = this->textBookPtr->getDatePublished();
-                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,10);
+                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,10,false);
                 this->textBookPtr->setDatePublished(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;

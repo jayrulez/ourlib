@@ -17,7 +17,7 @@ class FormInputBuilder
 public:
     FormInputBuilder();
     ~FormInputBuilder();
-    int FormInput(int,int,string*,int);
+    int FormInput(int,int,string*,int,bool);
 };
 
 #endif // FORMINPUTBUILDER_H
