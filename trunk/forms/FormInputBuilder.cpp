@@ -41,7 +41,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             case NUMERIC:
                                 if(isdigit(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
-                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    tempInput[position]=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
@@ -50,7 +50,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                 if(isalpha(InputRec.Event.KeyEvent.uChar.AsciiChar)||
                                     ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
-                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    tempInput[position]=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
@@ -59,7 +59,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                 if(isalnum(InputRec.Event.KeyEvent.uChar.AsciiChar)||
                                     ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
-                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    tempInput[position]=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
@@ -69,12 +69,13 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                     InputRec.Event.KeyEvent.uChar.AsciiChar=='-'||
                                     InputRec.Event.KeyEvent.uChar.AsciiChar=='/')
                                 {
-                                    (*input)+=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    tempInput[position]=InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
                             break;
                         }
+                        *input=tempInput;
 				    }
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
