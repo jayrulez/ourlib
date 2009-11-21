@@ -32,7 +32,7 @@ MemberForm::~MemberForm()
 }
 void MemberForm::BrowseMemberForm()
 {
-	char* tempId;
+    char* tempId;
 	bool read=false;
 	int KeyType;
 	consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MemberCoord[FieldPosition][1]);
@@ -97,7 +97,6 @@ void MemberForm::BrowseMemberForm()
         {
             FieldPosition=4;
             read=true;
-            break;
         }
         consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MemberCoord[FieldPosition][1]);
     }

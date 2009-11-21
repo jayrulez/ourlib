@@ -104,7 +104,6 @@ void MagazineForm::BrowseMagazineForm()
         {
             FieldPosition=4;
             read=true;
-            break;
         }
         //*InputPtr = "";
         consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);

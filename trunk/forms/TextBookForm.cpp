@@ -109,10 +109,10 @@ void TextBookForm::BrowseTextBookForm()
         {
             FieldPosition=5;
             read=true;
-            break;
         }
         consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
     }
+    system("pause");
 	consoleObj.setCursor(false,3);
 }
 
