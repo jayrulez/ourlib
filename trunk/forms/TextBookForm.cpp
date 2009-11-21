@@ -156,7 +156,7 @@ void TextBookForm::show(TextBook * textBookObj)
 	cout<<"Course: ";
 	consoleObj.xyCoord(TextBookCoord[5][0],TextBookCoord[5][1]);
 	cout<<"Publisher: ";
-    consoleObj.xyCoord(13,27);
+    consoleObj.xyCoord(13,30);
 	cout<<"<dd/mm/yy>";
 	consoleObj.xyCoord(TextBookCoord[6][0],TextBookCoord[6][1]);
 	cout<<"Date Published: ";
