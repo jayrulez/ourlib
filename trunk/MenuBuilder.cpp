@@ -143,6 +143,19 @@ void MenuBuilder::callMenu(int menuId)
                 TypeCheck=this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
             break;
+        case EDITSUBMIT:
+            this->BasicRunlevel("EDIT MENU");
+            this->MenuShow(this->EditConfirmMenu(),EDITCONFIRMMENU_SIZ);
+            this->menuBrowserOperator(this->EditConfirmMenu(),EDITCONFIRMMENU_SIZ,NORMALMENU);
+        break;
+        case EDITCLEARFIELD:
+        break;
+        case EDITSAVE:
+        break;
+        case EDITCANCEL:
+            this->BasicRunlevel("EDIT MENU");
+
+        break;
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
@@ -300,6 +313,13 @@ item* MenuBuilder::EditFormMenu()
     EditFormMenuItem[2].setItem(55,35,EDIT,"<-- EDIT MENU");
     EditFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &EditFormMenuItem[0];
+}
+item* MenuBuilder::EditConfirmMenu()
+{
+    static item EditConfirmMenuItem[EDITCONFIRMMENU_SIZ];
+    EditConfirmMenuItem[0].setItem(20,35,EDITSAVE,"SAVE CHANGES");
+    EditConfirmMenuItem[1].setItem(40,35,EDITCANCEL,"CANCEL");
+    return &EditConfirmMenuItem[0];
 }
 /*
 * This function creates the items for the Loan Menu

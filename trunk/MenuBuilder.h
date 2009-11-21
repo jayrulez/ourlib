@@ -71,10 +71,16 @@
 #define EDITCLEARFIELD 19
 #define EDITFORMMENU_SIZ 4
 /*
+* Edit Confirmation Menu
+*/
+#define EDITSAVE 20
+#define EDITCANCEL 21
+#define EDITCONFIRMMENU_SIZ 2
+/*
 * Loan Menu
 */
-#define EXISTINGMEMBER 20
-#define NEWUSER 21
+#define EXISTINGMEMBER 22
+#define NEWUSER 23
 #define LOANMENU_SIZ 3
 
 #include <string>
@@ -94,6 +100,7 @@ public:
 	item* AddMemberFormMenu();
 	item* EditMenu();
 	item* EditFormMenu();
+	item* EditConfirmMenu();
 	int EditMenuDriver();
 	int EditInput(string *);
 	int menuBrowserOperator(item*,int,int);
