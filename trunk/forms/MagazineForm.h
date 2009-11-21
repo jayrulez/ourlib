@@ -21,7 +21,10 @@ private:
     FormInputBuilder FormInputBuilderObj;
     console consoleObj;
     Magazine *magazinePtr;
-
+    int FieldPosition;
+    string input;
+    string AllInput[5];
+    string *InputPtr;
 public:
     MagazineForm();
     ~MagazineForm();

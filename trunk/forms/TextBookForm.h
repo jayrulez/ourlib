@@ -17,6 +17,10 @@ private:
     console consoleObj;
     FormInputBuilder FormInputBuilderObj;
     TextBook *textBookPtr;
+    int FieldPosition;
+    string input;
+    string AllInput[5];
+    string *InputPtr;
 public:
     TextBookForm();
     ~TextBookForm();

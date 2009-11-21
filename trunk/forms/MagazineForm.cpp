@@ -14,6 +14,8 @@ using namespace std;
 MagazineForm::MagazineForm()
 {
     this->magazinePtr = new Magazine;
+    FieldPosition=0;
+    InputPtr=&input;
     MagazineCoord[0][0]=25;
     MagazineCoord[0][1]=11;
     MagazineCoord[0][2]=18;
@@ -38,13 +40,8 @@ MagazineForm::~MagazineForm()
 void MagazineForm::BrowseMagazineForm()
 {
 	// 5 pointers needed for 5 inputs
-	static string input;
-	string *InputPtr;
-	string AllInput[5];
-	int FieldPosition=0;
 	bool read=false;
 	int KeyType;
-	InputPtr=&input;
 	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
 	while(!read)
 	{

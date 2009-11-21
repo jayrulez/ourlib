@@ -11,6 +11,8 @@ using namespace std;
 TextBookForm::TextBookForm()
 {
     this->textBookPtr = new TextBook;
+    FieldPosition=0;
+    InputPtr=&input;
     TextBookCoord[0][0]=25;
     TextBookCoord[0][1]=12;
     TextBookCoord[0][2]=18;
@@ -37,10 +39,6 @@ TextBookForm::~TextBookForm()
 }
 void TextBookForm::BrowseTextBookForm()
 {
-	static string input;
-	string *InputPtr;
-	string AllInput[6];
-	int FieldPosition=0;
 	bool read=false;
 	int KeyType;
     InputPtr=&input;

@@ -418,7 +418,6 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
     scroller scr;
     scroller *scrptr;
     scrptr=&scr;
-    console c;
     /*
     * gets the console input handle and stores it
     */
