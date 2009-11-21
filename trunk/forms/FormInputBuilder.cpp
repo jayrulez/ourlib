@@ -92,14 +92,16 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             {
 
                                 position+=1;
-                                consoleObj.xyCoord(coord[FieldPosition][0]+coord[FieldPosition][2]+position,coord[FieldPosition][2]);
+                                consoleObj.xyCoord(coord[FieldPosition][0]+
+                                coord[FieldPosition][2]+position,coord[FieldPosition][1]);
                             }
                         break;
                         case VK_LEFT:
                             if(position>0)
                             {
-                                cout<<"\b\b";
                                 position-=1;
+                                consoleObj.xyCoord(coord[FieldPosition][0]+
+                                coord[FieldPosition][2]+position,coord[FieldPosition][1]);
                             }
                         break;
                         case VK_BACK:
