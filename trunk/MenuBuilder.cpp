@@ -162,6 +162,10 @@ void MenuBuilder::callMenu(int menuId)
                 TextBookPtr->BrowseTextBookForm();
                 TypeCheck=this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
+		case TEXTBOOKSUBMIT:
+			this->BasicRunlevel("Show Data");
+            TextBookFormPtr->save();
+		break;
 		break;
 		case MAGAZINE:
 			this->BasicRunlevel("ADD MAGAZINE");
