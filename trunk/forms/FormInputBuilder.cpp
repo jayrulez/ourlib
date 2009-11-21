@@ -19,13 +19,11 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
 	HANDLE hIn;
 	DWORD AmtRead;
 	INPUT_RECORD InputRec;
-	char tempInput[length];
+	string temp;
 	int position=input->length();
 	bool read=false;
 	hIn = GetStdHandle(STD_INPUT_HANDLE);
 	consoleObj.setCursor(true,3);
-	strcpy(tempInput,input->c_str());
-	//tempInput = input->c_str();
 	while(!read)
 	{
 		ReadConsoleInput(hIn,&InputRec,1,&AmtRead);
@@ -41,7 +39,8 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             case NUMERIC:
                                 if(isdigit(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
-                                    tempInput[position]=InputRec.Event.KeyEvent.uChar.AsciiChar;
+
+                                    *(input+position)=*(input+position)+InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
@@ -50,7 +49,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                 if(isalpha(InputRec.Event.KeyEvent.uChar.AsciiChar)||
                                     ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
-                                    tempInput[position]=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    *(input+position)=*(input+position)+InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
@@ -59,7 +58,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                 if(isalnum(InputRec.Event.KeyEvent.uChar.AsciiChar)||
                                     ispunct(InputRec.Event.KeyEvent.uChar.AsciiChar))
                                 {
-                                    tempInput[position]=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    *(input+position)=*(input+position)+InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
@@ -69,13 +68,13 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                     InputRec.Event.KeyEvent.uChar.AsciiChar=='-'||
                                     InputRec.Event.KeyEvent.uChar.AsciiChar=='/')
                                 {
-                                    tempInput[position]=InputRec.Event.KeyEvent.uChar.AsciiChar;
+                                    *(input+position)=*(input+position)+InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     cout<<InputRec.Event.KeyEvent.uChar.AsciiChar;
                                     position+=1;
                                 }
                             break;
                         }
-                        *input=tempInput;
+                        temp=*input;
 				    }
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
@@ -92,9 +91,8 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:
-                            if(position<length&&tempInput[position]!=NULL)
+                            if(position<length && temp[position]!=NULL)
                             {
-
                                 position+=1;
                                 consoleObj.xyCoord(coord[FieldPosition][0]+
                                 coord[FieldPosition][2]+position,coord[FieldPosition][1]);
@@ -114,7 +112,6 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                 cout<<"\b \b";
                                 position-=1;
                                 input->erase(position);
-                                strcpy(tempInput,input->c_str());
                             }
                         break;
                         case VK_SPACE:
@@ -130,7 +127,6 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             }
                         break;
                     }
-                    *input=tempInput;
                 }
 			break;
 		}
