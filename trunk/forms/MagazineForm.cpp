@@ -106,6 +106,8 @@ void MagazineForm::BrowseMagazineForm()
             read=true;
         }
         //*InputPtr = "";
+        consoleObj.xyCoord(60,3);
+        cout<< FieldPosition;
         consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);

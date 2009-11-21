@@ -689,12 +689,12 @@
 	"../ResearchPaper.h"
 	<iostream>
 
-1258816434 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
+1258817823 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
 	<iostream>
 
-1258816385 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
+1258817642 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
 	"MagazineForm.h"
 	"../Magazine.h"
 	<iostream>

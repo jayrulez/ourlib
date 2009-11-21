@@ -110,6 +110,8 @@ void TextBookForm::BrowseTextBookForm()
             FieldPosition=5;
             read=true;
         }
+        consoleObj.xyCoord(60,3);
+        cout<< FieldPosition;
         consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
