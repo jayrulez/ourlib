@@ -19,7 +19,7 @@ private:
     TextBook *textBookPtr;
     int FieldPosition;
     string input;
-    string AllInput[5];
+    string AllInput[6];
     string *InputPtr;
 public:
     TextBookForm();
