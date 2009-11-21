@@ -96,8 +96,8 @@ public:
 	item* EditFormMenu();
 	int EditMenuDriver();
 	int EditInput(string *);
-	int menuBrowserOperator(item*,int);
-	int MenuProcessing( int,item*,int*,scroller*,int);
+	int menuBrowserOperator(item*,int,int);
+	int MenuProcessing( int,item*,int*,scroller*,int,int);
 	void MenuShow(item*,int);
 	int MenuRangeY(item*,int,int);
 	int MenuRangeX(item*,int,int);

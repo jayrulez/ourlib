@@ -131,34 +131,36 @@ void MenuBuilder::callMenu(int menuId)
 		case ADD:
             this->BasicRunlevel("ADD MENU");
             this->MenuShow(this->AddReferenceMaterial(),ADDMENU_SIZ);
-			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ);
+			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ,NORMALMENU);
 		break;
 		case EDIT:
             this->BasicRunlevel("EDIT MENU");
             this->MenuShow(EditMenu(),EDITMENU_SIZ);
             this->EditMenuDriver();
-            this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ);
+            this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ,FORMMENU);
             break;
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
 			this->MenuShow(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ);
 			ResearchPaperPtr->BrowseResearchPaperForm();
-			this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ);
+			this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ,FORMMENU);
 		break;
 		case TEXTBOOK:
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
 			this->MenuShow(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
 			TextBookPtr->BrowseTextBookForm();
-			this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
+			this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ,FORMMENU);
 		break;
 		case MAGAZINE:
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
 			this->MenuShow(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
-			MagazineFormPtr->BrowseMagazineForm();
-			this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
+			do
+			{
+                MagazineFormPtr->BrowseMagazineForm();
+			}while(this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ,FORMMENU)!=0);
 		break;
         case MAGAZINESUBMIT:
 			this->BasicRunlevel("Show Data");
@@ -167,7 +169,7 @@ void MenuBuilder::callMenu(int menuId)
 		case LOAN:
             this->BasicRunlevel("LOAN MENU");
 			this->MenuShow(this->LoanMenu(),LOANMENU_SIZ);
-			this->menuBrowserOperator(this->LoanMenu(),LOANMENU_SIZ);
+			this->menuBrowserOperator(this->LoanMenu(),LOANMENU_SIZ,NORMALMENU);
 		break;
 		case EXISTINGMEMBER:
 		break;
@@ -176,12 +178,12 @@ void MenuBuilder::callMenu(int menuId)
             this->showLoanForm(NEWUSER);
             this->MenuShow(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ);
             MemberPtr->BrowseMemberForm();
-            this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ);
+            this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
         break;
 		default:
             this->BasicRunlevel("MAIN MENU");
 			this->MenuShow(this->MainMenu(),MAIN_SIZ);
-			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ);
+			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ,NORMALMENU);
 		break;
 	}
 }
@@ -269,7 +271,7 @@ item* MenuBuilder::AddMemberFormMenu()
 item* MenuBuilder::EditMenu()
 {
     static item EditMenuItem[EDITMENU_SIZ];
-    EditMenuItem[0].setItem(35,35,MAINMENU,"MAINMENU");
+    EditMenuItem[0].setItem(35,32,MAINMENU,"MAINMENU");
     return &EditMenuItem[0];
 }
 item* MenuBuilder::EditFormMenu()
@@ -376,7 +378,7 @@ int MenuBuilder::MenuRangeX(item *iptr,int size,int type)
 * This is the heart of the menu operations. This function controls
 * the scrolling and selection of different menu items
 */
-int MenuBuilder::menuBrowserOperator(item *iptr,int size)
+int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
 {
 
     int position=0;
@@ -441,37 +443,37 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size)
                         * Tab key
                         */
                         case VK_TAB:
-                            MenuProcessing(VK_TAB,iptr,posptr,scrptr,size);
+                            MenuProcessing(VK_TAB,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Left arrow key
                         */
                         case VK_LEFT:
-                            MenuProcessing(VK_LEFT,iptr,posptr,scrptr,size);
+                            MenuProcessing(VK_LEFT,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Right arrow key
                         */
                         case VK_RIGHT:
-                            MenuProcessing(VK_RIGHT,iptr,posptr,scrptr,size);
+                            MenuProcessing(VK_RIGHT,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Up arrow key
                         */
                         case VK_UP:
-                            MenuProcessing(VK_UP,iptr,posptr,scrptr,size);
+                            MenuProcessing(VK_UP,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Down arrow key
                         */
                         case VK_DOWN:
-                            MenuProcessing(VK_DOWN,iptr,posptr,scrptr,size);
+                            MenuProcessing(VK_DOWN,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Enter key
                         */
                         case VK_RETURN:
-                            return MenuProcessing(VK_RETURN,iptr,posptr,scrptr,size);
+                            return MenuProcessing(VK_RETURN,iptr,posptr,scrptr,size,MenuType);
                         break;
                     }
                 }
@@ -480,7 +482,7 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size)
     }
     return 0;
 }
-int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,int size)
+int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,int size,int MenuType)
 {
     switch(vKeyCode)
     {
@@ -491,6 +493,10 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             *pos=*pos-1;
             if(*pos<0)
             {
+                if(MenuType==FORMMENU)
+                {
+                    return 0;
+                }
                 *pos=size-1;
             }
             scr->killScroll();
@@ -509,13 +515,16 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             *pos=*pos+1;
             if(*pos>size-1)
             {
+                if(MenuType==FORMMENU)
+                {
+                    return 0;
+                }
                 *pos=0;
             }
             scr->killScroll();
             scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
             (iptr+*pos)->getItemLenght());
             scr->scroll();
-
         break;
         /*
         * Up arrow key
@@ -524,6 +533,10 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             *pos=*pos-1;
             if(*pos<0)
             {
+                if(MenuType==FORMMENU)
+                {
+                    return 0;
+                }
                 *pos=size-1;
             }
             scr->killScroll();
@@ -538,6 +551,10 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             *pos=*pos+1;
             if(*pos>size-1)
             {
+                if(MenuType==FORMMENU)
+                {
+                    return 0;
+                }
                 *pos=0;
             }
             scr->killScroll();
