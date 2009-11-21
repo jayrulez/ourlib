@@ -14,7 +14,7 @@ FormInputBuilder::~FormInputBuilder()
 {
 }
 
-int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length,bool SingleInput)
+int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length,int coord[][3],int FieldPosition,bool SingleInput)
 {
 	HANDLE hIn;
 	DWORD AmtRead;
@@ -88,6 +88,12 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:
+                            if(position>length)
+                            {
+
+                                position+=1;
+                                consoleObj.xyCoord(coord[FieldPosition][1]+coord[FieldPosition][2]+position,coord[FieldPosition][2]);
+                            }
                         break;
                         case VK_LEFT:
                             if(position>0)

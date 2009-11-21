@@ -23,7 +23,7 @@ private:
 public:
     FormInputBuilder();
     ~FormInputBuilder();
-    int FormInput(int,int,string*,int,bool);
+    int FormInput(int,int,string*,int,int[][3],int,bool);
 };
 
 #endif // FORMINPUTBUILDER_H

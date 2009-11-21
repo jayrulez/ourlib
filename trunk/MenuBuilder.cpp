@@ -610,11 +610,16 @@ int MenuBuilder::EditMenuDriver()
 
 int MenuBuilder::EditInput(string *ReferenceNumberPtr)
 {
+    int EditCoord[][3];
+    int position=0;
+    EditCoord[0][0]=20;
+    EditCoord[0][1]=20;
+    EditCoord[0][2]=17;
     FormInputBuilder EditEntry;
     console consoleObj;
-    consoleObj.xyCoord(20,20);
+    consoleObj.xyCoord(EditCoord[position][0],EditCoord[position][1]);
     cout<<"Reference Number: ";
-    return EditEntry.FormInput(ALPHANUMERIC,NOSPACING,ReferenceNumberPtr,7,true);
+    return EditEntry.FormInput(ALPHANUMERIC,NOSPACING,ReferenceNumberPtr,EditCoord,position,true);
 }
 
 void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)

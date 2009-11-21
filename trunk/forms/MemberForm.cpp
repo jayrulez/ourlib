@@ -42,32 +42,32 @@ void MemberForm::BrowseMemberForm()
 	    {
             case 0:
                 *InputPtr = itoa(this->memberPtr->getId(),tempId,10);
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,MemberCoord,FieldPosition,false);
                 this->memberPtr->setId(atoi(InputPtr->c_str()));
                 *InputPtr=tempId;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
                 *InputPtr = this->memberPtr->getFirstName();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,NOSPACING,InputPtr,10,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,NOSPACING,InputPtr,10,MemberCoord,FieldPosition,false);
                 this->memberPtr->setFirstName(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
                 *InputPtr = this->memberPtr->getLastName();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,NOSPACING,InputPtr,10,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,NOSPACING,InputPtr,10,MemberCoord,FieldPosition,false);
                 this->memberPtr->setLastName(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 3:
                 *InputPtr = this->memberPtr->getAddress();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,MemberCoord,FieldPosition,false);
                 this->memberPtr->setAddress(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 4:
                 *InputPtr = this->memberPtr->getContactNumber();
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,MemberCoord,FieldPosition,false);
                 this->memberPtr->setContactNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
