@@ -610,7 +610,7 @@ int MenuBuilder::EditMenuDriver()
 
 int MenuBuilder::EditInput(string *ReferenceNumberPtr)
 {
-    int EditCoord[][3];
+    int EditCoord[1][3];
     int position=0;
     EditCoord[0][0]=20;
     EditCoord[0][1]=20;
