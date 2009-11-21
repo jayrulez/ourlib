@@ -121,7 +121,7 @@ void MenuBuilder::callMenu(int menuId)
 {
     console con;
     int TypeCheck;
-    MagazineForm *MagazineFormPtr=new MagazineForm;
+    static MagazineForm *MagazineFormPtr=new MagazineForm;
     MemberForm *MemberPtr=new MemberForm;
     TextBookForm *TextBookPtr=new TextBookForm;
     ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
