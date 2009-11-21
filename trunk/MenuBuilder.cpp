@@ -383,9 +383,10 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
 
     int position=0;
     int *posptr;
-
+    int check;
     posptr=&position;
     bool read=false;
+
     /*
     * instantiating an handle data type
     * that will be able to store input handles
@@ -414,7 +415,7 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
     (iptr+position)->getItemLenght());
     scrptr->scroll();
 
-    while(!read)
+    while(!read && check!=0)
     {
         /*
         * This funtion reads the console input, both
@@ -443,31 +444,31 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
                         * Tab key
                         */
                         case VK_TAB:
-                            MenuProcessing(VK_TAB,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_TAB,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Left arrow key
                         */
                         case VK_LEFT:
-                            MenuProcessing(VK_LEFT,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_LEFT,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Right arrow key
                         */
                         case VK_RIGHT:
-                            MenuProcessing(VK_RIGHT,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_RIGHT,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Up arrow key
                         */
                         case VK_UP:
-                            MenuProcessing(VK_UP,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_UP,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Down arrow key
                         */
                         case VK_DOWN:
-                            MenuProcessing(VK_DOWN,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_DOWN,iptr,posptr,scrptr,size,MenuType);
                         break;
                         /*
                         * Enter key
