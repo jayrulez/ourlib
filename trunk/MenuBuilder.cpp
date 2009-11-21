@@ -120,6 +120,7 @@ void MenuBuilder::showLoanForm(int LoanFormType)
 void MenuBuilder::callMenu(int menuId)
 {
     console con;
+    int TypeCheck;
     static MagazineForm *MagazineFormPtr=new MagazineForm;
     MemberForm *MemberPtr=new MemberForm;
     TextBookForm *TextBookPtr=new TextBookForm;
@@ -143,15 +144,21 @@ void MenuBuilder::callMenu(int menuId)
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
 			this->MenuShow(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ);
-			ResearchPaperPtr->BrowseResearchPaperForm();
-			this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ,FORMMENU);
+			do
+			{
+                ResearchPaperPtr->BrowseResearchPaperForm();
+                this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ,FORMMENU);
+            }while(TypeCheck==0);
 		break;
 		case TEXTBOOK:
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
 			this->MenuShow(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
-			TextBookPtr->BrowseTextBookForm();
-			this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ,FORMMENU);
+			do
+			{
+                TextBookPtr->BrowseTextBookForm();
+                TypeCheck=this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ,FORMMENU);
+			}while(TypeCheck==0);
 		break;
 		case MAGAZINE:
 			this->BasicRunlevel("ADD MAGAZINE");
@@ -160,7 +167,8 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 MagazineFormPtr->BrowseMagazineForm();
-			}while(this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ,FORMMENU)==0);
+                TypeCheck=this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ,FORMMENU);
+			}while(TypeCheck==0);
 		break;
         case MAGAZINESUBMIT:
 			this->BasicRunlevel("Show Data");
@@ -177,8 +185,11 @@ void MenuBuilder::callMenu(int menuId)
             this->BasicRunlevel("NEW USER REGISTRATION");
             this->showLoanForm(NEWUSER);
             this->MenuShow(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ);
-            MemberPtr->BrowseMemberForm();
-            this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
+			do
+			{
+                MemberPtr->BrowseMemberForm();
+                this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
+			}while(TypeCheck==0);
         break;
 		default:
             this->BasicRunlevel("MAIN MENU");
@@ -383,7 +394,7 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
 
     int position=0;
     int *posptr;
-    int check;
+    int check=1;
     posptr=&position;
     bool read=false;
 
@@ -538,6 +549,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             {
                 if(MenuType==FORMMENU)
                 {
+                    scr->killScroll();
                     return 0;
                 }
                 *pos=size-1;
