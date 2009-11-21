@@ -112,7 +112,6 @@ void TextBookForm::BrowseTextBookForm()
         }
         consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
     }
-    system("pause");
 	consoleObj.setCursor(false,3);
 }
 
