@@ -248,14 +248,15 @@
 	<iostream>
 	<string>
 
-1258825259 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.cpp
+1258837804 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.cpp
 	"TextBook.h"
 	<iostream>
 	<string>
 
-1258825259 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
+1258837804 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
 	"Referencematerial.h"
 	"Date.h"
+	"Serializer.hpp"
 	<string>
 
 1258085724 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.cpp
@@ -381,7 +382,7 @@
 1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1258767582 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
+1258840193 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
@@ -390,7 +391,7 @@
 1258752377 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.cpp
 	"Controller.h"
 
-1258833471 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
+1258840622 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
 	<iostream>
 	<string>
 	"MenuBuilder.h"
@@ -689,9 +690,10 @@
 	"../ResearchPaper.h"
 	<iostream>
 
-1258825254 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
+1258838764 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
+	"Serializer.hpp"
 	<iostream>
 
 1258833294 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
@@ -767,7 +769,7 @@
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
 
-1258834541 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.cpp
+1258838696 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.cpp
 	"windows.h"
 	<iostream>
 	<cctype>
@@ -1534,4 +1536,10 @@
 	"../TextBook.h"
 	"Serializer.hpp"
 	<iostream>
+
+1258837804 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\serializer.hpp
+	<iostream>
+	<string>
+	<algorithm>
+	<fstream>
 
