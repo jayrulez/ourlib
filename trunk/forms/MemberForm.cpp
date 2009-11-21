@@ -95,6 +95,7 @@ void MemberForm::BrowseMemberForm()
         }
         if(FieldPosition>4)
         {
+            FieldPosition=4;
             read=true;
             break;
         }

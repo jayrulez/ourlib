@@ -107,6 +107,7 @@ void TextBookForm::BrowseTextBookForm()
         }
         if(FieldPosition>5)
         {
+            FieldPosition=5;
             read=true;
             break;
         }
