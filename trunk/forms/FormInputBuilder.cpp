@@ -78,11 +78,13 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                         case VK_RETURN:
                             if(SingleInput)
                             {
+                                consoleObj.setCursor(false,3);
                                 return InputRec.Event.KeyEvent.wVirtualKeyCode;
                             }
                         case VK_DOWN:
                         case VK_UP:
                         case VK_TAB:
+                            consoleObj.setCursor(false,3);
                             return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:
