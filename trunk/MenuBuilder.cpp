@@ -619,7 +619,7 @@ int MenuBuilder::EditInput(string *ReferenceNumberPtr)
     console consoleObj;
     consoleObj.xyCoord(EditCoord[position][0],EditCoord[position][1]);
     cout<<"Reference Number: ";
-    return EditEntry.FormInput(ALPHANUMERIC,NOSPACING,EditCoord,ReferenceNumberPtr,6,EditCoord,position,true);
+    return EditEntry.FormInput(ALPHANUMERIC,NOSPACING,ReferenceNumberPtr,6,EditCoord,position,true);
 }
 
 void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)
