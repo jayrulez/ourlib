@@ -4,6 +4,9 @@
 #ifndef _TEXTBOOK_H
 #include "../TextBook.h"
 #endif
+#ifndef _SERIALIZER_HPP
+#include "Serializer.hpp"
+#endif
 
 #include <iostream>
 using namespace std;
@@ -144,5 +147,41 @@ void TextBookForm::show(TextBook * textBookObj)
 
 int TextBookForm::save()
 {
+    const unsigned int max_buffer_size = 65536 * 10;
+    char* buffer = new char[max_buffer_size];
+    Serializer s(buffer,max_buffer_size);
+    s.clear();
+    TextBook textBookObj;
 
+    ifstream fileReadObj (this->textBookPtr->getDataFileName(),ios::in | ios::binary);
+    if(fileReadObj.is_open())
+    {
+        cout << "I am open" << endl;
+        while(!fileReadObj.eof())
+        {
+            cout << "I am being searched" << endl;
+            textBookObj.read(s);
+            cout << "I am ref No. " << textBookObj.getReferenceNumber() << endl;
+            break;
+            if(textBookObj.getReferenceNumber()==this->textBookPtr->getReferenceNumber())
+            {
+                cout << "Error, Record with id exists: " << textBookObj.getReferenceNumber() << endl;
+            }
+        }
+    }
+
+
+    this->textBookPtr->write(s);
+    ofstream fileObj;
+    fileObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
+    try
+    {
+        fileObj.open(this->textBookPtr->getDataFileName(),ios::out | ios::binary);
+        s.write_to_stream(fileObj);
+    }catch(ofstream::failure e)
+    {
+        cout << "Error!" << endl;
+    }
+    fileObj.close();
+    return 0;
 }
