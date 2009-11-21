@@ -322,6 +322,13 @@ item* MenuBuilder::EditConfirmMenu()
     EditConfirmMenuItem[1].setItem(40,50,EDITCANCEL,"CANCEL");
     return &EditConfirmMenuItem[0];
 }
+item* MenuBuilder::SaveConfirmMenu()
+{
+    static item AddConfirmMenuItem[ADDCONFIRMMENU_SIZ];
+    AddConfirmMenuItem[0].setItem(20,50,ADDSAVE,"SAVE CHANGES");
+    AddConfirmMenuItem[1].setItem(40,50,ADDCANCEL,"CANCEL");
+    return &AddConfirmMenuItem[0];
+}
 /*
 * This function creates the items for the Loan Menu
 * and return the address of its 1st element

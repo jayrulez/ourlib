@@ -77,10 +77,16 @@
 #define EDITCANCEL 21
 #define EDITCONFIRMMENU_SIZ 2
 /*
+* Add Confirmation Menu
+*/
+#define ADDSAVE 22
+#define ADDCANCEL 23
+#define ADDCONFIRMMENU_SIZ 2
+/*
 * Loan Menu
 */
-#define EXISTINGMEMBER 22
-#define NEWUSER 23
+#define EXISTINGMEMBER 24
+#define NEWUSER 25
 #define LOANMENU_SIZ 3
 
 #include <string>
@@ -101,6 +107,7 @@ public:
 	item* EditMenu();
 	item* EditFormMenu();
 	item* EditConfirmMenu();
+	item* AddConfirmMenu();
 	int EditMenuDriver();
 	int EditInput(string *);
 	int menuBrowserOperator(item*,int,int);
