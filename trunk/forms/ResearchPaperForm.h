@@ -18,6 +18,10 @@ private:
 	console consoleObj;
 	FormInputBuilder FormInputBuilderObj;
 	ResearchPaper *researchPaperPtr;
+    int FieldPosition;
+    string input;
+    string AllInput[5];
+    string *InputPtr;
 public:
     ResearchPaperForm();
     ~ResearchPaperForm();

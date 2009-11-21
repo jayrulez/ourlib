@@ -121,7 +121,7 @@ void MenuBuilder::callMenu(int menuId)
 {
     console con;
     int TypeCheck;
-    static MagazineForm *MagazineFormPtr=new MagazineForm;
+    MagazineForm *MagazineFormPtr=new MagazineForm;
     MemberForm *MemberPtr=new MemberForm;
     TextBookForm *TextBookPtr=new TextBookForm;
     ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
@@ -418,6 +418,7 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
     scroller scr;
     scroller *scrptr;
     scrptr=&scr;
+    console c;
     /*
     * gets the console input handle and stores it
     */

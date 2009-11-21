@@ -9,6 +9,8 @@ using namespace std;
 MemberForm::MemberForm()
 {
     memberPtr = new Member;
+    FieldPosition=0;
+    InputPtr=&input;
     MemberCoord[0][0]=20;
     MemberCoord[0][1]=14;
     MemberCoord[0][2]=11;
@@ -30,15 +32,9 @@ MemberForm::~MemberForm()
 }
 void MemberForm::BrowseMemberForm()
 {
-	static string input;
-	string AllInput[5];
-	string *InputPtr;
 	char* tempId;
-	int FieldPosition=0;
 	bool read=false;
 	int KeyType;
-	InputPtr=&input;
-
 	consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MemberCoord[FieldPosition][1]);
 	while(!read)
 	{
@@ -46,7 +42,6 @@ void MemberForm::BrowseMemberForm()
 	    {
             case 0:
                 *InputPtr = itoa(this->memberPtr->getId(),tempId,10);
-                system("pause");
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,false);
                 this->memberPtr->setId(atoi(InputPtr->c_str()));
                 *InputPtr=tempId;

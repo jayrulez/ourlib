@@ -11,6 +11,8 @@ using namespace std;
 ResearchPaperForm::ResearchPaperForm()
 {
     this->researchPaperPtr = new ResearchPaper;
+    FieldPosition=0;
+    InputPtr=&input;
     ResearchPaperCoord[0][0]=25;
     ResearchPaperCoord[0][1]=12;
     ResearchPaperCoord[0][2]=18;
@@ -35,13 +37,8 @@ ResearchPaperForm::~ResearchPaperForm()
 }
 void ResearchPaperForm::BrowseResearchPaperForm()
 {
-	static string input;
-	string AllInput[5];
-	string *InputPtr;
-	int FieldPosition=0;
 	bool read=false;
 	int KeyType;
-	InputPtr=&input;
 	consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+AllInput[FieldPosition].length(),ResearchPaperCoord[FieldPosition][1]);
 	while(!read)
 	{

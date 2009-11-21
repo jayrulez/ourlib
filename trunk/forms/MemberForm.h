@@ -15,6 +15,10 @@ private:
     console consoleObj;
     FormInputBuilder FormInputBuilderObj;
     Member *memberPtr;
+    int FieldPosition;
+    string input;
+    string AllInput[5];
+    string *InputPtr;
 public:
     MemberForm();
     ~MemberForm();
