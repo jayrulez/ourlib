@@ -135,9 +135,9 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 		case EDIT:
             this->BasicRunlevel("EDIT MENU");
-            this->MenuShow(EditMenu(),EDITFORMMENU_SIZ);
+            this->MenuShow(EditMenu(),EDITMENU_SIZ);
             this->EditMenuDriver();
-            this->menuBrowserOperator(this->EditMenu(),EDITFORMMENU_SIZ);
+            this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ);
             break;
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
@@ -269,7 +269,7 @@ item* MenuBuilder::AddMemberFormMenu()
 item* MenuBuilder::EditMenu()
 {
     static item EditMenuItem[EDITMENU_SIZ];
-    EditMenuItem[0].setItem(35,25,MAINMENU,"MAINMENU");
+    EditMenuItem[0].setItem(35,35,MAINMENU,"MAINMENU");
     return &EditMenuItem[0];
 }
 item* MenuBuilder::EditFormMenu()
