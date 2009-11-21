@@ -10,6 +10,7 @@ using namespace std;
 */
 TextBook::TextBook()
 {
+        this->dataFileName = "textbooks.txt";
 }
 
 /*
@@ -63,4 +64,9 @@ string TextBook::getDatePublished() const
 }
 void TextBook::showReferenceMaterial(int xCoord,int yCoord)
 {
+}
+
+string TextBook::getDataFileName()
+{
+    return this->dataFileName;
 }

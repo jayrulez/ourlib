@@ -141,3 +141,8 @@ void TextBookForm::show(TextBook * textBookObj)
 	consoleObj.xyCoord(TextBookCoord[5][0],TextBookCoord[5][1]);
 	cout<<"Date Published: ";
 }
+
+int TextBookForm::save()
+{
+
+}

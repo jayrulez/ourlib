@@ -26,6 +26,7 @@ public:
     ~TextBookForm();
     void BrowseTextBookForm();
 	void show(TextBook*);
+	int save();
 };
 
 #endif

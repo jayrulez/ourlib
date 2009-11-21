@@ -17,6 +17,7 @@ private:
 	string course;
 	string publisher;
 	string datePublished;
+	string dataFileName;
 public:
 	TextBook();
 	TextBook(string,string,string,string,string,string);
@@ -30,5 +31,6 @@ public:
 	string getPublisher() const;
 	string getDatePublished() const;
 	void showReferenceMaterial(int,int);
+	string getDataFileName();
 };
 #endif
