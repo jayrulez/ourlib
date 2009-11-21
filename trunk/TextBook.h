@@ -10,6 +10,9 @@
 #include "Serializer.hpp"
 #endif
 
+#include "gui\console\console.h"
+#include "gui\console\frame.h"
+
 #include <string>
 using namespace std;
 
@@ -21,6 +24,8 @@ private:
 	string publisher;
 	string datePublished;
 	char* dataFileName;
+	console consoleObj;
+	frame frameObj;
 public:
 	TextBook();
 	TextBook(string,string,string,string,string,string);

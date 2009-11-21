@@ -7,6 +7,8 @@
 #include "Date.h"
 #endif
 
+#include "gui\console\console.h"
+#include "gui\console\frame.h"
 #include <string>
 using namespace std;
 
@@ -16,6 +18,9 @@ private:
 	string volume;
 	string issueTopic;
 	string issueDate;
+	console consoleObj;
+	frame frameObj;
+
 public:
 	Magazine();
 	~Magazine();

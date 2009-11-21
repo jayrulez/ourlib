@@ -1,6 +1,9 @@
 #ifndef _MEMBER_H
 #define _MEMBER_H
 
+#include "gui\console\console.h"
+#include "gui\console\frame.h"
+
 #include <string>
 using namespace std;
 
@@ -12,6 +15,8 @@ private:
 	string lastName;
 	string address;
 	string contactNumber;
+	console consoleObj;
+	frame frameObj;
 public:
 	Member();
 	~Member();

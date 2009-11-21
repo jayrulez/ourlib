@@ -64,9 +64,30 @@ string TextBook::getDatePublished() const
 }
 void TextBook::showReferenceMaterial(int xCoord,int yCoord)
 {
+    frameObj.setFrame(xCoord,20,yCoord,8,false);
+    frameObj.sFraming();
+
+    consoleObj.xyCoord(xCoord+2,yCoord+2);
+    cout<<referenceNumber;
+    consoleObj.xyCoord(xCoord+2,yCoord+4);
+    cout<<author;
+    consoleObj.xyCoord(xCoord+2,yCoord+6);
+    cout<<title;
+
+    consoleObj.xyCoord(xCoord+2,yCoord+8);
+    cout<<ISBN;
+    consoleObj.xyCoord(xCoord+2,yCoord+10);
+    cout<<course;
+    consoleObj.xyCoord(xCoord+2,yCoord+12);
+    cout<<publisher;
+    consoleObj.xyCoord(xCoord+2,yCoord+14);
+    cout<<datePublished;
+
 }
 
 char* TextBook::getDataFileName()
 {
     return this->dataFileName;
 }
+
+

@@ -3,6 +3,10 @@
 #ifndef _REFERENCEMATERIAL_H
 #include "Referencematerial.h"
 #endif
+
+#include "gui\console\console.h"
+#include "gui\console\frame.h"
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -13,6 +17,8 @@ private:
 	string researchTopic;
 	string supervisor;
 	string sponsor;
+	console consoleObj;
+	frame frameObj;
 public:
 	ResearchPaper();
 	~ResearchPaper();

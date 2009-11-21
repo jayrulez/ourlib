@@ -192,14 +192,16 @@
 	"Date.h"
 	<string>
 
-1258614367 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\magazine.cpp
+1258844427 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\magazine.cpp
 	"Magazine.h"
 	<iostream>
 	<string>
 
-1258614367 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\magazine.h
+1258844406 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\magazine.h
 	"Referencematerial.h"
 	"Date.h"
+	"gui\console\console.h"
+	"gui\console\frame.h"
 	<string>
 
 1258437591 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.h
@@ -230,7 +232,9 @@
 	<iostream>
 	<string>
 
-1258427024 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\member.h
+1258844452 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\member.h
+	"gui\console\console.h"
+	"gui\console\frame.h"
 	<string>
 
 1258551053 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.cpp
@@ -243,8 +247,10 @@
 	<iostream>
 	<string>
 
-1258692136 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.h
+1258844486 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\researchpaper.h
 	"Referencematerial.h"
+	"gui\console\console.h"
+	"gui\console\frame.h"
 	<iostream>
 	<string>
 
@@ -253,10 +259,12 @@
 	<iostream>
 	<string>
 
-1258837804 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
+1258844467 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
 	"Referencematerial.h"
 	"Date.h"
 	"Serializer.hpp"
+	"gui\console\console.h"
+	"gui\console\frame.h"
 	<string>
 
 1258085724 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\console.cpp
