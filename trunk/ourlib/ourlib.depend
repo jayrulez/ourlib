@@ -301,7 +301,7 @@
 1257717014 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\screen.h
 	"console.h"
 
-1257806823 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\scroller.cpp
+1258770823 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\gui\console\scroller.cpp
 	<iostream>
 	"scroller.h"
 	"frame.h"
@@ -694,7 +694,7 @@
 	"../TextBook.h"
 	<iostream>
 
-1258758450 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
+1258778849 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
 	"MagazineForm.h"
 	"../Magazine.h"
 	<iostream>
