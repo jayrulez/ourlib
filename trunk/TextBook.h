@@ -6,6 +6,9 @@
 #ifndef _DATE_H
 #include "Date.h"
 #endif
+#ifndef _SERIALIZER_HPP
+#include "Serializer.hpp"
+#endif
 
 #include <string>
 using namespace std;
@@ -17,7 +20,7 @@ private:
 	string course;
 	string publisher;
 	string datePublished;
-	string dataFileName;
+	char* dataFileName;
 public:
 	TextBook();
 	TextBook(string,string,string,string,string,string);
@@ -31,6 +34,26 @@ public:
 	string getPublisher() const;
 	string getDatePublished() const;
 	void showReferenceMaterial(int,int);
-	string getDataFileName();
+	char* getDataFileName();
+	void write(Serializer& s)
+	{
+	    s << referenceNumber;
+	    s << title;
+	    s << author;
+	    s << ISBN;
+	    s << course;
+	    s << publisher;
+	    s << datePublished;
+	}
+	void read(Serializer& s)
+	{
+	    s >> referenceNumber;
+	    s >> title;
+	    s >> author;
+	    s >> ISBN;
+	    s >> course;
+	    s >> publisher;
+	    s >> datePublished;
+	}
 };
 #endif
