@@ -153,6 +153,8 @@ int TextBookForm::save()
     s.clear();
     TextBook textBookObj;
 
+    cout << this->textBookPtr->getReferenceNumber() << endl;
+
     ifstream fileReadObj (this->textBookPtr->getDataFileName(),ios::in | ios::binary);
     if(fileReadObj.is_open())
     {
@@ -165,7 +167,7 @@ int TextBookForm::save()
             break;
             if(textBookObj.getReferenceNumber()==this->textBookPtr->getReferenceNumber())
             {
-                cout << "Error, Record with id exists: " << textBookObj.getReferenceNumber() << endl;
+                cout << "Error, Record with id exists: " << textBookObj.getReferenceNumber() << ":" << this->textBookPtr->getReferenceNumber() << endl;
             }
         }
     }

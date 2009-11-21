@@ -122,9 +122,9 @@ void MenuBuilder::callMenu(int menuId)
     console con;
     int TypeCheck;
     static MagazineForm *MagazineFormPtr=new MagazineForm;
-    MemberForm *MemberPtr=new MemberForm;
-    TextBookForm *TextBookFormPtr=new TextBookForm;
-    ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
+    static MemberForm *MemberPtr=new MemberForm;
+    static TextBookForm *TextBookFormPtr=new TextBookForm;
+    static ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
     con.setCursor(false,50);
 
 	switch(menuId)
