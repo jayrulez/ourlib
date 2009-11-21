@@ -38,6 +38,7 @@ void MemberForm::BrowseMemberForm()
 	bool read=false;
 	int KeyType;
 	InputPtr=&input;
+
 	consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MemberCoord[FieldPosition][1]);
 	while(!read)
 	{
@@ -45,6 +46,7 @@ void MemberForm::BrowseMemberForm()
 	    {
             case 0:
                 *InputPtr = itoa(this->memberPtr->getId(),tempId,10);
+                system("pause");
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,false);
                 this->memberPtr->setId(atoi(InputPtr->c_str()));
                 *InputPtr=tempId;
