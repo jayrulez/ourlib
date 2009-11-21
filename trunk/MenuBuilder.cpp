@@ -147,7 +147,7 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 ResearchPaperPtr->BrowseResearchPaperForm();
-                this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ,FORMMENU);
+                TypeCheck=this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ,FORMMENU);
             }while(TypeCheck==0);
 		break;
 		case TEXTBOOK:
@@ -188,7 +188,7 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 MemberPtr->BrowseMemberForm();
-                this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
+                TypeCheck=this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
 		default:
