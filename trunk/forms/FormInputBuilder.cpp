@@ -74,7 +74,6 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                 }
                             break;
                         }
-                        temp=*input;
 				    }
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
@@ -91,7 +90,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:
-                            if(position<length && temp[position]!=NULL)
+                            if(position<input->length())
                             {
                                 position+=1;
                                 consoleObj.xyCoord(coord[FieldPosition][0]+
