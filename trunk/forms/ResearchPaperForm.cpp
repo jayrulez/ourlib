@@ -42,7 +42,6 @@ void ResearchPaperForm::BrowseResearchPaperForm()
 	bool read=false;
 	int KeyType;
 	InputPtr=&input;
-	consoleObj.setCursor(true,3);
 	consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+AllInput[FieldPosition].length(),ResearchPaperCoord[FieldPosition][1]);
 	while(!read)
 	{

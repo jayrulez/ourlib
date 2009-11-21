@@ -45,7 +45,6 @@ void MagazineForm::BrowseMagazineForm()
 	bool read=false;
 	int KeyType;
 	InputPtr=&input;
-	consoleObj.setCursor(true,3);
 	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
 	while(!read)
 	{

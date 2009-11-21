@@ -1,6 +1,10 @@
 #ifndef FORMINPUTBUILDER_H
 #define FORMINPUTBUILDER_H
 
+#ifndef CONSOLE_H
+#include "..\gui\console\console.h"
+#endif
+
 #define NUMERIC 1
 #define ALPHABETICAL 2
 #define ALPHANUMERIC 3
@@ -14,6 +18,8 @@ using namespace std;
 
 class FormInputBuilder
 {
+private:
+        console consoleObj;
 public:
     FormInputBuilder();
     ~FormInputBuilder();

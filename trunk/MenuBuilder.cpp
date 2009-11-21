@@ -135,7 +135,9 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 		case EDIT:
             this->BasicRunlevel("EDIT MENU");
+            this->MenuShow(EditFormMenu(),EDITFORMMENU_SIZ);
             this->EditMenuDriver();
+            this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ);
             break;
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
@@ -213,7 +215,7 @@ item* MenuBuilder::AddReferenceMaterial()
     return & AddReferenceItem[0];
 }
 /*
-*   This function creates menus for the Add Research Paper Form
+*   This function creates menu items for the Add Research Paper Form
 */
 item* MenuBuilder::AddResearchPaperFormMenu()
 {
@@ -225,7 +227,7 @@ item* MenuBuilder::AddResearchPaperFormMenu()
     return &AddResearchPaperFormItem[0];
 }
 /*
-*   This function creates menus for the Add Magazine Form
+*   This function creates menu items for the Add Magazine Form
 */
 item* MenuBuilder::AddMagazineFormMenu()
 {
@@ -237,7 +239,7 @@ item* MenuBuilder::AddMagazineFormMenu()
     return & AddMagazineFormMenuItem[0];
 }
 /*
-*   This function creates menus for the Add TextBook Form
+*   This function creates menu items for the Add TextBook Form
 */
 item* MenuBuilder::AddTextBookFormMenu()
 {
@@ -248,8 +250,9 @@ item* MenuBuilder::AddTextBookFormMenu()
     AddTextBookFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &AddTextBookFormMenuItem[0];
 }
+
 /*
-*   This function creates menus for the Add Member Form
+*   This function creates menu items for the Add Member Form
 */
 item* MenuBuilder::AddMemberFormMenu()
 {
@@ -259,6 +262,24 @@ item* MenuBuilder::AddMemberFormMenu()
     AddMemberFormMenuItem[2].setItem(55,35,ADD,"<-- LOAN MENU");
     AddMemberFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &AddMemberFormMenuItem[0];
+}
+/*
+*   This function creates menu items for the Edit Menu
+*/
+item* MenuBuilder::EditMenu()
+{
+    static item EditMenuItem[EDITMENU_SIZ];
+    EditMenuItem[0].setItem(35,25,MAINMENU,"MAINMENU");
+    return &EditMenuItem[0];
+}
+item* MenuBuilder::EditFormMenu()
+{
+    static item EditFormMenuItem[EDITFORMMENU_SIZ];
+    EditFormMenuItem[0].setItem(15,35,EDITSUBMIT,"SUBMIT");
+    EditFormMenuItem[1].setItem(35,35,EDITCLEARFIELD,"CLEAR FIELDS");
+    EditFormMenuItem[2].setItem(55,35,EDIT,"<-- EDIT MENU");
+    EditFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return &EditFormMenuItem[0];
 }
 /*
 * This function creates the items for the Loan Menu
@@ -537,10 +558,17 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
 
 int MenuBuilder::EditMenuDriver()
 {
+    int result;
     string ReferenceNumber;
     string *ReferenceNumberPtr;
     ReferenceNumberPtr = &ReferenceNumber;
-    EditInput(ReferenceNumberPtr);
+    result = this->EditInput(ReferenceNumberPtr);
+    switch(result)
+    {
+        case VK_RETURN:
+            return 0;
+        break;
+    }
     return 0;
 }
 

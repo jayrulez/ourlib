@@ -38,7 +38,6 @@ void MemberForm::BrowseMemberForm()
 	bool read=false;
 	int KeyType;
 	InputPtr=&input;
-	consoleObj.setCursor(true,3);
 	consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MemberCoord[FieldPosition][1]);
 	while(!read)
 	{

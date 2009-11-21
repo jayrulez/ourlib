@@ -381,7 +381,7 @@
 1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1258754539 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
+1258765792 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
@@ -390,7 +390,7 @@
 1258752377 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.cpp
 	"Controller.h"
 
-1258614367 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
+1258759493 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
 	<iostream>
 	<string>
 	"MenuBuilder.h"
@@ -408,6 +408,7 @@
 	"ResearchPaper.h"
 	"forms/ResearchPaperForm.h"
 	"forms/MemberForm.h"
+	"forms/FormInputBuilder.h"
 
 1258543718 source:d:\documents and settings\dd\desktop\project\application.cpp
 	<iostream>
@@ -683,17 +684,17 @@
 	<iostream>
 	<string>
 
-1258752109 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\researchpaperform.cpp
+1258758466 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\researchpaperform.cpp
 	"ResearchpaperForm.h"
 	"../ResearchPaper.h"
 	<iostream>
 
-1258752014 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
+1258758497 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
 	<iostream>
 
-1258752165 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
+1258758450 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
 	"MagazineForm.h"
 	"../Magazine.h"
 	<iostream>
@@ -706,7 +707,7 @@
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
 
-1258752141 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.cpp
+1258758458 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\memberform.cpp
 	"MemberForm.h"
 	<string>
 	<iostream>
@@ -766,14 +767,15 @@
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
 
-1258751805 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.cpp
+1258758551 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.cpp
 	"windows.h"
 	<iostream>
 	<cctype>
 	<string>
 	"FormInputBuilder.h"
 
-1258751183 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.h
+1258758719 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\forminputbuilder.h
+	"..\gui\console\console.h"
 	<string>
 
 1258574522 d:\documents and settings\dd\desktop\project\forms\forminputbuilder.h

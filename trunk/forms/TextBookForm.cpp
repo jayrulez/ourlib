@@ -44,7 +44,6 @@ void TextBookForm::BrowseTextBookForm()
 	bool read=false;
 	int KeyType;
     InputPtr=&input;
-    consoleObj.setCursor(true,3);
 	consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
 	while(!read)
 	{

@@ -22,6 +22,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
 	int position=input->length();
 	bool read=false;
 	hIn = GetStdHandle(STD_INPUT_HANDLE);
+	consoleObj.setCursor(true,3);
 	while(!read)
 	{
 		ReadConsoleInput(hIn,&InputRec,1,&AmtRead);

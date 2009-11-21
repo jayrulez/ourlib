@@ -9,6 +9,13 @@
 #ifndef SCROLLER_H
 #include "gui/console/scroller.h"
 #endif
+
+/*
+* Menu Type
+*/
+#define NORMALMENU 100
+#define FORMMENU 101
+
 /* Menu Codes */
 /*
 * Main Menu
@@ -54,10 +61,20 @@
 #define MEMBERCLEARFIELD 17
 #define ADDMEMBERFORMMENU_SIZ 4
 /*
+* Edit Menu
+*/
+#define EDITMENU_SIZ 1
+/*
+* Edit Form Menu
+*/
+#define EDITSUBMIT 18
+#define EDITCLEARFIELD 19
+#define EDITFORMMENU_SIZ 4
+/*
 * Loan Menu
 */
-#define EXISTINGMEMBER 18
-#define NEWUSER 19
+#define EXISTINGMEMBER 20
+#define NEWUSER 21
 #define LOANMENU_SIZ 3
 
 #include <string>
@@ -75,6 +92,8 @@ public:
 	item* AddMagazineFormMenu();
 	item* AddTextBookFormMenu();
 	item* AddMemberFormMenu();
+	item* EditMenu();
+	item* EditFormMenu();
 	int EditMenuDriver();
 	int EditInput(string *);
 	int menuBrowserOperator(item*,int);
