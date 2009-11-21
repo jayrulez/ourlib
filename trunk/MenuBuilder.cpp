@@ -123,7 +123,7 @@ void MenuBuilder::callMenu(int menuId)
     int TypeCheck;
     static MagazineForm *MagazineFormPtr=new MagazineForm;
     MemberForm *MemberPtr=new MemberForm;
-    TextBookForm *TextBookPtr=new TextBookForm;
+    TextBookForm *TextBookFormPtr=new TextBookForm;
     ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
     con.setCursor(false,50);
 
@@ -159,7 +159,7 @@ void MenuBuilder::callMenu(int menuId)
 			this->MenuShow(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
 			do
 			{
-                TextBookPtr->BrowseTextBookForm();
+                TextBookFormPtr->BrowseTextBookForm();
                 TypeCheck=this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
 		case TEXTBOOKSUBMIT:
