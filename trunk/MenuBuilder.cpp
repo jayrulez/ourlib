@@ -175,6 +175,7 @@ void MenuBuilder::callMenu(int menuId)
                 TextBookFormPtr->BrowseTextBookForm();
                 TypeCheck=this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
+
 		case TEXTBOOKSUBMIT:
 			this->BasicRunlevel("Show Data");
             TextBookFormPtr->save();
@@ -317,8 +318,8 @@ item* MenuBuilder::EditFormMenu()
 item* MenuBuilder::EditConfirmMenu()
 {
     static item EditConfirmMenuItem[EDITCONFIRMMENU_SIZ];
-    EditConfirmMenuItem[0].setItem(20,35,EDITSAVE,"SAVE CHANGES");
-    EditConfirmMenuItem[1].setItem(40,35,EDITCANCEL,"CANCEL");
+    EditConfirmMenuItem[0].setItem(20,50,EDITSAVE,"SAVE CHANGES");
+    EditConfirmMenuItem[1].setItem(40,50,EDITCANCEL,"CANCEL");
     return &EditConfirmMenuItem[0];
 }
 /*
