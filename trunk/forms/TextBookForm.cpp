@@ -19,21 +19,30 @@ TextBookForm::TextBookForm()
     TextBookCoord[0][0]=25;
     TextBookCoord[0][1]=12;
     TextBookCoord[0][2]=18;
+
     TextBookCoord[1][0]=25;
     TextBookCoord[1][1]=15;
-    TextBookCoord[1][2]=8;
+    TextBookCoord[1][2]=7;
+
     TextBookCoord[2][0]=25;
     TextBookCoord[2][1]=18;
-    TextBookCoord[2][2]=6;
+    TextBookCoord[2][2]=8;
+
     TextBookCoord[3][0]=25;
     TextBookCoord[3][1]=21;
-    TextBookCoord[3][2]=8;
+    TextBookCoord[3][2]=6;
+
     TextBookCoord[4][0]=25;
     TextBookCoord[4][1]=24;
-    TextBookCoord[4][2]=11;
+    TextBookCoord[4][2]=8;
+
     TextBookCoord[5][0]=25;
     TextBookCoord[5][1]=27;
-    TextBookCoord[5][2]=16;
+    TextBookCoord[5][2]=11;
+
+    TextBookCoord[6][0]=25;
+    TextBookCoord[6][1]=30;
+    TextBookCoord[6][2]=16;
 }
 
 TextBookForm::~TextBookForm()
@@ -56,31 +65,37 @@ void TextBookForm::BrowseTextBookForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
+                *InputPtr = this->textBookPtr->getTitle();
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
+                this->textBookPtr->setTitle(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 2:
                 *InputPtr = this->textBookPtr->getAuthor();
                 KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
                 this->textBookPtr->setAuthor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
-            case 2:
+            case 3:
                 *InputPtr = this->textBookPtr->getISBN();
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,NOSPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
                 this->textBookPtr->setISBN(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 
-            case 3:
+            case 4:
                 *InputPtr = this->textBookPtr->getCourse();
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
                 this->textBookPtr->setCourse(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
-            case 4:
+            case 5:
                 *InputPtr = this->textBookPtr->getPublisher();
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
                 this->textBookPtr->setPublisher(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
-            case 5:
+            case 6:
                 *InputPtr = this->textBookPtr->getDatePublished();
                 KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
                 this->textBookPtr->setDatePublished(*InputPtr);
@@ -132,16 +147,18 @@ void TextBookForm::show(TextBook * textBookObj)
     consoleObj.xyCoord(TextBookCoord[0][0],TextBookCoord[0][1]);
 	cout<<"Reference Number: ";
 	consoleObj.xyCoord(TextBookCoord[1][0],TextBookCoord[1][1]);
+	cout<<"Title: ";
+	consoleObj.xyCoord(TextBookCoord[2][0],TextBookCoord[2][1]);
 	cout<<"Author: ";
-    consoleObj.xyCoord(TextBookCoord[2][0],TextBookCoord[2][1]);
+    consoleObj.xyCoord(TextBookCoord[3][0],TextBookCoord[3][1]);
 	cout<<"ISBN: ";
-	consoleObj.xyCoord(TextBookCoord[3][0],TextBookCoord[3][1]);
-	cout<<"Course: ";
 	consoleObj.xyCoord(TextBookCoord[4][0],TextBookCoord[4][1]);
+	cout<<"Course: ";
+	consoleObj.xyCoord(TextBookCoord[5][0],TextBookCoord[5][1]);
 	cout<<"Publisher: ";
     consoleObj.xyCoord(13,27);
 	cout<<"<dd/mm/yy>";
-	consoleObj.xyCoord(TextBookCoord[5][0],TextBookCoord[5][1]);
+	consoleObj.xyCoord(TextBookCoord[6][0],TextBookCoord[6][1]);
 	cout<<"Date Published: ";
 }
 

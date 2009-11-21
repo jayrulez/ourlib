@@ -13,13 +13,13 @@
 class TextBookForm
 {
 private:
-    int TextBookCoord[6][3];
+    int TextBookCoord[7][3];
     console consoleObj;
     FormInputBuilder FormInputBuilderObj;
     TextBook *textBookPtr;
     int FieldPosition;
     string input;
-    string AllInput[6];
+    string AllInput[7];
     string *InputPtr;
 public:
     TextBookForm();
