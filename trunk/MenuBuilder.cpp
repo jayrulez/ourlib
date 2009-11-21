@@ -160,7 +160,7 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 MagazineFormPtr->BrowseMagazineForm();
-			}while(this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ,FORMMENU)!=0);
+			}while(this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ,FORMMENU)==0);
 		break;
         case MAGAZINESUBMIT:
 			this->BasicRunlevel("Show Data");
@@ -496,6 +496,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             {
                 if(MenuType==FORMMENU)
                 {
+                    scr->killScroll();
                     return 0;
                 }
                 *pos=size-1;
@@ -518,6 +519,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             {
                 if(MenuType==FORMMENU)
                 {
+                    scr->killScroll();
                     return 0;
                 }
                 *pos=0;
@@ -554,6 +556,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             {
                 if(MenuType==FORMMENU)
                 {
+                    scr->killScroll();
                     return 0;
                 }
                 *pos=0;
@@ -571,7 +574,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             //return (iptr+*pos)->getCode();
         break;
     }
-    return 0;
+    return 1;
 }
 
 int MenuBuilder::EditMenuDriver()
