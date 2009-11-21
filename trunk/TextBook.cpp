@@ -66,7 +66,7 @@ void TextBook::showReferenceMaterial(int xCoord,int yCoord)
 {
 }
 
-string TextBook::getDataFileName()
+char* TextBook::getDataFileName()
 {
     return this->dataFileName;
 }
