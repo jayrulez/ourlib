@@ -17,13 +17,13 @@
 class MagazineForm
 {
 private:
-    int MagazineCoord[5][3];
+    int MagazineCoord[6][3];
     FormInputBuilder FormInputBuilderObj;
     console consoleObj;
     Magazine *magazinePtr;
     int FieldPosition;
     string input;
-    string AllInput[5];
+    string AllInput[6];
     string *InputPtr;
 public:
     MagazineForm();

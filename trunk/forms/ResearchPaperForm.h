@@ -14,7 +14,7 @@
 class ResearchPaperForm
 {
 private:
-    int ResearchPaperCoord[5][3];
+    int ResearchPaperCoord[6][3];
 	console consoleObj;
 	FormInputBuilder FormInputBuilderObj;
 	ResearchPaper *researchPaperPtr;
