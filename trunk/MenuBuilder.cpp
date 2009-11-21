@@ -137,8 +137,11 @@ void MenuBuilder::callMenu(int menuId)
 		case EDIT:
             this->BasicRunlevel("EDIT MENU");
             this->MenuShow(EditMenu(),EDITMENU_SIZ);
-            this->EditMenuDriver();
-            this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ,FORMMENU);
+			do
+			{
+                this->EditMenuDriver();
+                TypeCheck=this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ,FORMMENU);
+			}while(TypeCheck==0);
             break;
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
