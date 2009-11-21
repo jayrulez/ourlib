@@ -114,6 +114,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                                 cout<<"\b \b";
                                 position-=1;
                                 input->erase(position);
+                                strcpy(tempInput,input->c_str());
                             }
                         break;
                         case VK_SPACE:
@@ -129,6 +130,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             }
                         break;
                     }
+                    *input=tempInput;
                 }
 			break;
 		}
