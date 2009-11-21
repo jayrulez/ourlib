@@ -111,9 +111,9 @@ void ResearchPaperForm::BrowseResearchPaperForm()
                 FieldPosition+=1;
             break;
         }
-        if(FieldPosition>4)
+        if(FieldPosition>5)
         {
-            FieldPosition=4;
+            FieldPosition=5;
             read=true;
         }
         consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+AllInput[FieldPosition].length(),ResearchPaperCoord[FieldPosition][1]);

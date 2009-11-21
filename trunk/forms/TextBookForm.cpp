@@ -123,9 +123,9 @@ void TextBookForm::BrowseTextBookForm()
                 FieldPosition+=1;
             break;
         }
-        if(FieldPosition>5)
+        if(FieldPosition>6)
         {
-            FieldPosition=5;
+            FieldPosition=6;
             read=true;
         }
         consoleObj.xyCoord(60,3);

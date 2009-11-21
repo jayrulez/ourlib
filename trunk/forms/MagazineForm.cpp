@@ -114,9 +114,9 @@ void MagazineForm::BrowseMagazineForm()
                 FieldPosition+=1;
             break;
         }
-        if(FieldPosition>4)
+        if(FieldPosition>5)
         {
-            FieldPosition=4;
+            FieldPosition=5;
             read=true;
         }
         //*InputPtr = "";
