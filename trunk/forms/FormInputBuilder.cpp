@@ -19,10 +19,13 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
 	HANDLE hIn;
 	DWORD AmtRead;
 	INPUT_RECORD InputRec;
+	char tempInput[length];
 	int position=input->length();
 	bool read=false;
 	hIn = GetStdHandle(STD_INPUT_HANDLE);
 	consoleObj.setCursor(true,3);
+	strcpy(tempInput,input->c_str());
+	//tempInput = input->c_str();
 	while(!read)
 	{
 		ReadConsoleInput(hIn,&InputRec,1,&AmtRead);
