@@ -700,9 +700,10 @@
 	"../ResearchPaper.h"
 	<iostream>
 
-1258867131 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
+1258868055 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
+	"./Validator.h"
 	<iostream>
 
 1258862557 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
@@ -1583,7 +1584,7 @@
 	<string>
 	<iostream>
 
-1258867131 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\validator.cpp
+1258868055 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\validator.cpp
 	"./Validator.h"
 	"../ReferenceMaterial.h"
 	"../TextBook.h"
@@ -1591,7 +1592,7 @@
 	"../ResearchPaper.h"
 	<fstream>
 
-1258867131 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\validator.h
+1258868055 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\validator.h
 	<string>
 
 1258868971 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\loanreturnform.h
