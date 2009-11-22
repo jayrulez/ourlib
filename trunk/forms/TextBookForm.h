@@ -9,8 +9,9 @@
 #endif
 
 #include "FormInputBuilder.h"
+#include "Form.h"
 
-class TextBookForm
+class TextBookForm: public Form
 {
 private:
     int TextBookCoord[7][3];

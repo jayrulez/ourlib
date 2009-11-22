@@ -10,8 +10,9 @@
 #endif
 
 #include "FormInputBuilder.h"
+#include "Form.h"
 
-class ResearchPaperForm
+class ResearchPaperForm: public Form
 {
 private:
     int ResearchPaperCoord[6][3];

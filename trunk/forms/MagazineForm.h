@@ -12,9 +12,9 @@
 #include "../gui/console/console.h"
 #include "FormInputBuilder.h"
 
+#include "Form.h"
 
-
-class MagazineForm
+class MagazineForm: public Form
 {
 private:
     int MagazineCoord[6][3];
