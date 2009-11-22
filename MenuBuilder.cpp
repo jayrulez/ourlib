@@ -138,12 +138,14 @@ void MenuBuilder::callMenu(int menuId)
 	switch(menuId)
 	{
 		case ADD:
+            MenuType=ADDTYPE;
             this->BasicRunlevel("ADD MENU");
             this->MenuShow(this->AddReferenceMaterial(),ADDMENU_SIZ);
 			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ,NORMALMENU);
 		break;
 
 		case EDIT:
+            MenuType=EDITTYPE;
             this->BasicRunlevel("EDIT MENU");
             this->MenuShow(EditMenu(),EDITMENU_SIZ);
 			do
@@ -368,13 +370,13 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
 		case LOAN:
-            MenuType=LOANTYPE;
             this->BasicRunlevel("LOAN MENU");
 			this->MenuShow(this->LoanMenu(),LOANMENU_SIZ);
 			this->menuBrowserOperator(this->LoanMenu(),LOANMENU_SIZ,NORMALMENU);
 		break;
 
 		case EXISTINGMEMBER:
+           MenuType=LOANTYPE;
             this->BasicRunlevel("LOAN MENU");
             LoanReturnFormPtr->show();
             this->MenuShow(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ);
@@ -389,15 +391,16 @@ void MenuBuilder::callMenu(int menuId)
             MenuType=MEMBERTYPE;
             this->BasicRunlevel("NEW USER REGISTRATION");
             this->showLoanForm(NEWUSER);
-            this->MenuShow(this->AddFormMenu(),ADDFORMMENU_SIZ);
+            this->MenuShow(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ);
 			do
 			{
                 MemberPtr->BrowseMemberForm();
-                TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
+                TypeCheck=this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
 
         case RETURN:
+           MenuType=RETURNTYPE;
             this->BasicRunlevel("RETURN MENU");
             ReturnFormPtr->show();
             this->MenuShow(this->ReturnFormMenu(),RETURNMENU_SIZ);
