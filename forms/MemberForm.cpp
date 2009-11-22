@@ -30,7 +30,7 @@ MemberForm::MemberForm()
 MemberForm::~MemberForm()
 {
 }
-void MemberForm::BrowseMemberForm()
+void MemberForm::browseForm()
 {
     char* tempId;
 	bool read=false;
@@ -115,4 +115,7 @@ void MemberForm::show()
 	cout<<"Address: ";
 	consoleObj.xyCoord(MemberCoord[4][0],MemberCoord[4][1]);
 	cout<<"Contact Number: ";
+}
+void MemberForm::save()
+{
 }

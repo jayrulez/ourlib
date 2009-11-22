@@ -27,8 +27,9 @@ private:
 public:
     ResearchPaperForm();
     ~ResearchPaperForm();
-    void BrowseResearchPaperForm();
-	void show(ResearchPaper*);
+    void browseForm();
+	void show();
+    void save();
 };
 
 #endif

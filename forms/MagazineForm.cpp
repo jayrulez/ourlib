@@ -45,7 +45,7 @@ MagazineForm::~MagazineForm()
 {
 
 }
-void MagazineForm::BrowseMagazineForm()
+void MagazineForm::browseForm()
 {
 	// 5 pointers needed for 5 inputs
 	bool read=false;
@@ -137,15 +137,8 @@ void MagazineForm::showTest()
     fgetc(stdin);
 }
 
-void MagazineForm::show(Magazine * magazineObj)
+void MagazineForm::show()
 {
-	string referenceNumber = magazineObj->getReferenceNumber();
-	if(referenceNumber.empty())
-	{
-		//NEW RECORD
-	}else{
-		//record from file
-	}
 	consoleObj.xyCoord(MagazineCoord[0][0],MagazineCoord[0][1]);
 	cout<<"Reference Number: ";
 	consoleObj.xyCoord(MagazineCoord[1][0],MagazineCoord[1][1]);
@@ -160,4 +153,7 @@ void MagazineForm::show(Magazine * magazineObj)
 	cout<<"Issue Date: ";
 	consoleObj.xyCoord(MagazineCoord[5][0],MagazineCoord[5][1]);
 	cout<<"Issue Topic: ";
+}
+void MagazineForm::save()
+{
 }

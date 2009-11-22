@@ -43,7 +43,7 @@ ResearchPaperForm::~ResearchPaperForm()
 {
 
 }
-void ResearchPaperForm::BrowseResearchPaperForm()
+void ResearchPaperForm::browseForm()
 {
 	bool read=false;
 	int KeyType;
@@ -122,15 +122,8 @@ void ResearchPaperForm::BrowseResearchPaperForm()
     }
 	consoleObj.setCursor(false,3);
 }
-void ResearchPaperForm::show(ResearchPaper * researchPaperObj)
+void ResearchPaperForm::show()
 {
-	string referenceNumber = researchPaperObj->getReferenceNumber();
-	if(referenceNumber.empty())
-	{
-		//NEW RECORD
-	}else{
-		//record from file
-	}
 	consoleObj.xyCoord(ResearchPaperCoord[0][0],ResearchPaperCoord[0][1]);
 	cout<<"Reference Number: ";
 	consoleObj.xyCoord(ResearchPaperCoord[1][0],ResearchPaperCoord[1][1]);
@@ -143,4 +136,7 @@ void ResearchPaperForm::show(ResearchPaper * researchPaperObj)
 	cout<<"Supervisor: ";
 	consoleObj.xyCoord(ResearchPaperCoord[5][0],ResearchPaperCoord[5][1]);
 	cout<<"Sponsor: ";
+}
+void ResearchPaperForm::save()
+{
 }

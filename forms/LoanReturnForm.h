@@ -25,8 +25,9 @@ private:
 public:
     LoanReturnForm();
     ~LoanReturnForm();
-    void BrowseLoanReturnForm();
+    void browseForm();
 	void show();
+    void save();
 };
 
 #endif // LOANFORM_H
