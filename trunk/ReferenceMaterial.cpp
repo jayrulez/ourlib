@@ -121,11 +121,8 @@ ReferenceMaterial* ReferenceMaterial::getRecordFromFile(string referenceNumber)
         break;
         case TYPE_RESEARCHPAPER:
         break;
-        case TYPE_NONEXISTENT:
-        default:
-            return referenceMaterialObj;
-        break;
     }
+    return referenceMaterialObj;
 }
 
 
