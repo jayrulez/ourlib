@@ -224,14 +224,34 @@ void MenuBuilder::callMenu(int menuId)
             switch(MenuType)
             {
 
-                case TEXTBOOKTYPE:
-                    cout<<"           Submitting edit textbook";
+                case ADDTYPE:
+                    switch(ReferenceType)
+                    {
+                        case TEXTBOOKTYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                        case RESEARCHPAPERTYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                        case MAGAZINETYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                    }
                     break;
-                case RESEARCHPAPERTYPE:
-                    cout<<"           Submitting edit textbook";
+                case EDITTYPE:
+                    switch(ReferenceType)
+                    {
+                        case TEXTBOOKTYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                        case RESEARCHPAPERTYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                        case MAGAZINETYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                    }
                     break;
-                case MAGAZINETYPE:
-                    cout<<"           Submitting edit textbook";
                     break;
                 case MEMBERTYPE:
                     cout<<"           Submitting edit textbook";
@@ -249,16 +269,35 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
         case CANCEL:
-            switch(ReferenceType)
+            switch(MenuType)
             {
-                case TEXTBOOKTYPE:
-                    cout<<"           Submitting edit textbook";
+                case ADDTYPE:
+                    switch(ReferenceType)
+                    {
+                        case TEXTBOOKTYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                        case RESEARCHPAPERTYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                        case MAGAZINETYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                    }
                     break;
-                case RESEARCHPAPERTYPE:
-                    cout<<"           Submitting edit textbook";
-                    break;
-                case MAGAZINETYPE:
-                    cout<<"           Submitting edit textbook";
+                case EDITTYPE:
+                    switch(ReferenceType)
+                    {
+                        case TEXTBOOKTYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                        case RESEARCHPAPERTYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                        case MAGAZINETYPE:
+                            cout<<"           Submitting edit textbook";
+                            break;
+                    }
                     break;
                 case MEMBERTYPE:
                     cout<<"           Submitting edit textbook";
