@@ -166,6 +166,8 @@ int TextBookForm::save()
 {
     TextBook textBookObj;
 
+    cout << "ID: " << this->textBookPtr->getIdFromReferenceNumber("TX-1001");
+
     ifstream fileReadObj (this->textBookPtr->getDataFileName(),ios::in | ios::binary);
     if(fileReadObj.is_open())
     {
