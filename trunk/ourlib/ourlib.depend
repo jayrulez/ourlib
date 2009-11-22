@@ -204,7 +204,7 @@
 	"gui\console\frame.h"
 	<string>
 
-1258854546 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.h
+1258867132 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.h
 	<string>
 
 1258551053 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\maindriver.cpp
@@ -237,7 +237,7 @@
 	"gui\console\frame.h"
 	<string>
 
-1258857817 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.cpp
+1258867132 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\referencematerial.cpp
 	"ReferenceMaterial.h"
 	<iostream>
 	<string>
@@ -255,12 +255,12 @@
 	<iostream>
 	<string>
 
-1258858440 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.cpp
+1258867132 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.cpp
 	"TextBook.h"
 	<iostream>
 	<string>
 
-1258844467 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
+1258867132 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\textbook.h
 	"Referencematerial.h"
 	"Date.h"
 	"Serializer.hpp"
@@ -391,7 +391,7 @@
 1258166912 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.h
 	"MenuBuilder.h"
 
-1258854433 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
+1258867004 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
@@ -400,7 +400,7 @@
 1258752377 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\controller.cpp
 	"Controller.h"
 
-1258857817 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
+1258867106 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\menubuilder.cpp
 	<iostream>
 	<string>
 	"MenuBuilder.h"
@@ -418,6 +418,7 @@
 	"ResearchPaper.h"
 	"forms/ResearchPaperForm.h"
 	"forms/MemberForm.h"
+	"forms/LoanReturnForm.h"
 	"forms/FormInputBuilder.h"
 
 1258543718 source:d:\documents and settings\dd\desktop\project\application.cpp
@@ -699,10 +700,9 @@
 	"../ResearchPaper.h"
 	<iostream>
 
-1258857812 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
+1258867131 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
-	"Serializer.hpp"
 	<iostream>
 
 1258862557 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
@@ -1570,4 +1570,25 @@
 	"../Magazine.h"
 	"../ResearchPaper.h"
 	<fstream>
+
+1258863585 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\loanreturnform.h
+	"../gui/console/console.h"
+	"FormInputBuilder.h"
+	<string>
+
+1258864403 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\loanreturnform.cpp
+	"LoanReturnForm.h"
+	<string>
+	<iostream>
+
+1258867131 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\validator.cpp
+	"./Validator.h"
+	"../ReferenceMaterial.h"
+	"../TextBook.h"
+	"../Magazine.h"
+	"../ResearchPaper.h"
+	<fstream>
+
+1258867131 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\validator.h
+	<string>
 
