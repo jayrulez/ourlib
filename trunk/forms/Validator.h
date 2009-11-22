@@ -1,4 +1,4 @@
-/*#ifndef _VALIDATOR_H
+#ifndef _VALIDATOR_H
 #define _VALIDATOR_H
 #include <string>
 using namespace std;
@@ -10,4 +10,4 @@ public:
     bool recordExists(string);
 };
 
-#endif*/
+#endif

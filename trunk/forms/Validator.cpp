@@ -1,4 +1,4 @@
-/*#ifndef _VALIDATOR_H
+#ifndef _VALIDATOR_H
 #include "./Validator.h"
 #endif
 #ifndef _REFERENCEMATERIAL_H
@@ -38,13 +38,11 @@ bool Validator::recordExists(string referenceNumber)
                     return true;
                 fileObj.close();
             }
-            return false;
         break;
-        case TYPE_MAGAZINE:
+        /*case TYPE_MAGAZINE:
         break;
         case TYPE_RESEARCHPAPER:
-        break;
+        break;*/
     }
     return false;
 }
-*/
