@@ -108,4 +108,24 @@ char* ReferenceMaterial::getDataFileName() const
     return this->dataFileName;
 }
 
+ReferenceMaterial* ReferenceMaterial::getRecordFromFile(string referenceNumber)
+{
+    ReferenceMaterial * referenceMaterialObj;
+    switch(this->getMaterialTypeFromReferenceNumber(referenceNumber))
+    {
+        case TYPE_TEXTBOOK:
+            //TextBook textBookObj;
+            //referenceMaterialObj = &textBookObj;
+        break;
+        case TYPE_MAGAZINE:
+        break;
+        case TYPE_RESEARCHPAPER:
+        break;
+        case TYPE_NONEXISTENT:
+        default:
+            return referenceMaterialObj;
+        break;
+    }
+}
+
 
