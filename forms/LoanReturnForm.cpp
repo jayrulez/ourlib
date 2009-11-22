@@ -20,7 +20,7 @@ LoanReturnForm::LoanReturnForm()
 
     LoanReturnCoord[2][0]=25;
     LoanReturnCoord[2][1]=19;
-    LoanReturnCoord[2][2]=7;
+    LoanReturnCoord[2][2]=6;
 }
 LoanReturnForm::~LoanReturnForm()
 {
@@ -42,10 +42,8 @@ void LoanReturnForm::BrowseLoanReturnForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
-                consoleObj.xyCoord(60,3);
-                cout<<"Crash Point: ";
-                system("pause");
-                *InputPtr = itoa(IdNumber,tempId,10);
+                //itoa(this->IdNumber,tempId,10);
+                *InputPtr=tempId;
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,7,LoanReturnCoord,FieldPosition,false);
                 IdNumber = atoi(InputPtr->c_str());
                 AllInput[FieldPosition] = *InputPtr;
