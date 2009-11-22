@@ -40,6 +40,11 @@ string ReferenceMaterial::getAuthor() const
 }
 void ReferenceMaterial::setReferenceNumber(string referenceNumber)
 {
+    this->referenceNumber = referenceNumber;
+}
+
+void ReferenceMaterial::insertReferenceNumberPrefix(string referenceNumber)
+{
     if(referenceNumber.length()==2)
     {
         referenceNumber = (string) "0" + referenceNumber;
@@ -48,8 +53,9 @@ void ReferenceMaterial::setReferenceNumber(string referenceNumber)
     {
         referenceNumber = (string) "00" + referenceNumber;
     }
-    this->referenceNumber = this->getReferenceNumberPrefix().append(referenceNumber);
+    this->referenceNumber = (this->getReferenceNumberPrefix()).append(referenceNumber);
 }
+
 void ReferenceMaterial::setTitle(string title)
 {
     this->title = title;
