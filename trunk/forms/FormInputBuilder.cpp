@@ -90,7 +90,7 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:
-                            if(position<input->length())
+                            if((unsigned)position<input->length())
                             {
                                 position+=1;
                                 consoleObj.xyCoord(coord[FieldPosition][0]+
