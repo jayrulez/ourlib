@@ -164,43 +164,25 @@ void TextBookForm::show(TextBook * textBookObj)
 
 int TextBookForm::save()
 {
-    const unsigned int max_buffer_size = 65536 * 10;
-    char* buffer = new char[max_buffer_size];
-    Serializer s(buffer,max_buffer_size);
-    s.clear();
     TextBook textBookObj;
-
-    cout << this->textBookPtr->getReferenceNumber() << endl;
 
     ifstream fileReadObj (this->textBookPtr->getDataFileName(),ios::in | ios::binary);
     if(fileReadObj.is_open())
     {
-        cout << "I am open" << endl;
+        fileReadObj.seekg(0);
+        fileReadObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
         while(!fileReadObj.eof())
         {
-            cout << "I am being searched" << endl;
-            textBookObj.read(s);
-            cout << "I am ref No. " << textBookObj.getReferenceNumber() << endl;
-            break;
-            if(textBookObj.getReferenceNumber()==this->textBookPtr->getReferenceNumber())
-            {
-                cout << "Error, Record with id exists: " << textBookObj.getReferenceNumber() << ":" << this->textBookPtr->getReferenceNumber() << endl;
-            }
+            fileReadObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
+            cout << "\n\nRef. No: " << textBookObj.getReferenceNumber() << "\nISBN: " << textBookObj.getISBN() << endl;
         }
+        fileReadObj.close();
     }
 
+    ofstream fileWriteObj (this->textBookPtr->getDataFileName(),ios::out | ios::app | ios::binary);
+    fileWriteObj.write(reinterpret_cast < char * > (&(*this->textBookPtr)),sizeof(TextBook));
+//    fileWriteObj.tellp(0);
+    fileWriteObj.close();
 
-    this->textBookPtr->write(s);
-    ofstream fileObj;
-    fileObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
-    try
-    {
-        fileObj.open(this->textBookPtr->getDataFileName(),ios::out | ios::binary);
-        s.write_to_stream(fileObj);
-    }catch(ofstream::failure e)
-    {
-        cout << "Error!" << endl;
-    }
-    fileObj.close();
     return 0;
 }

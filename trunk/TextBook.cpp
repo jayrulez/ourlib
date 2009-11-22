@@ -10,7 +10,7 @@ using namespace std;
 */
 TextBook::TextBook()
 {
-        this->dataFileName = "textbooks.txt";
+        this->dataFileName = "textbooks.bin";
 }
 
 /*
