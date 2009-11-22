@@ -160,10 +160,13 @@ void MenuBuilder::callMenu(int menuId)
             switch(ReferenceType)
             {
                 case TEXTBOOKTYPE:
+                    cout<<"           saving textbook";
                     break;
                 case RESEARCHPAPERTYPE:
+                    cout<<"           saving research paper";
                     break;
                 case MAGAZINETYPE:
+                    cout<<"           saving magazine";
                     break;
             }
         break;
@@ -173,10 +176,13 @@ void MenuBuilder::callMenu(int menuId)
             switch(ReferenceType)
             {
                 case TEXTBOOKTYPE:
+                    cout<<"           cancelling edit textbook";
                     break;
                 case RESEARCHPAPERTYPE:
+                    cout<<"           cancelling edit textbook";
                     break;
                 case MAGAZINETYPE:
+                    cout<<"           cancelling edit textbook";
                     break;
             }
         break;
@@ -202,10 +208,13 @@ void MenuBuilder::callMenu(int menuId)
             switch(ReferenceType)
             {
                 case TEXTBOOKTYPE:
+                    cout<<"           cancelling add textbook";
                     break;
                 case RESEARCHPAPERTYPE:
+                    cout<<"           cancelling add textbook";
                     break;
                 case MAGAZINETYPE:
+                    cout<<"           cancelling add textbook";
                     break;
             }
         break;
