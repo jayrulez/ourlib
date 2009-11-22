@@ -190,7 +190,8 @@ int TextBookForm::save()
             fileWriteObj.write(reinterpret_cast < char * > (&(*this->textBookPtr)),sizeof(TextBook));
         }catch(ofstream::failure e)
         {
-            cout << e.what() << endl;
+            //cout << e.what() << endl;
+            cout << "Error, could not write to file" << endl;
         }
         fileWriteObj.close();
     }
