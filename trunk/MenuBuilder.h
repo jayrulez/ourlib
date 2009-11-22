@@ -123,11 +123,17 @@
 #define SUBMIT 14
 #define CLEARFIELD 15
 
+#ifndef FORM_H
+#include "./forms/Form.h"
+#endif
+
 #include <string>
 using namespace std;
 
 class MenuBuilder
 {
+private:
+	Form* formPtr;
 public:
 	MenuBuilder();
 	~MenuBuilder();

@@ -26,7 +26,7 @@
 #endif
 
 #ifndef SCROLLER_H
-#include "gui/console/scroller.h"
+#include "./gui/console/scroller.h"
 #endif
 
 
@@ -35,25 +35,27 @@
 
 #include <string>
 
-#include "forms/Form.h"
+#ifndef FORM_H
+#include "./forms/Form.h"
+#endif
 
 #ifndef _TEXTBOOK_H
-#include "TextBook.h"
+#include "./TextBook.h"
 #endif
 #ifndef _TEXTBOOKFORM_H
 #include "forms/TextBookForm.h"
 #endif
 
 #ifndef _MAGAZINE_H
-#include "Magazine.h"
+#include "./Magazine.h"
 #endif
 
 #ifndef _MAGAZINEFORM_H
-#include "forms/MagazineForm.h"
+#include "./forms/MagazineForm.h"
 #endif
 
 #ifndef _RESEARCHPAPER_H
-#include "ResearchPaper.h"
+#include "./ResearchPaper.h"
 #endif
 #ifndef _RESEARCHPAPERFORM_H
 #include "forms/ResearchPaperForm.h"
@@ -78,6 +80,7 @@ using namespace std;
 */
 MenuBuilder::MenuBuilder()
 {
+	this->formPtr = new Form();
 }
 
 /*
@@ -89,20 +92,19 @@ MenuBuilder::~MenuBuilder()
 
 void MenuBuilder::showReferenceMaterialForm(int referenceMaterialType)
 {
-    Form *FormPtr;
 	switch(referenceMaterialType)
 	{
 		case TEXTBOOK:
-            FormPtr = new TextBookForm;
-			FormPtr->show();
+            this->formPtr = new TextBookForm;
+			this->formPtr->show();
 		break;
 		case RESEARCHPAPER:
-            FormPtr = new ResearchPaperForm;
-			FormPtr->show();
+            this->formPtr = new ResearchPaperForm;
+			this->formPtr->show();
 		break;
 		case MAGAZINE:
-            FormPtr = new MagazineForm;
-			FormPtr->show();
+            this->formPtr = new MagazineForm;
+			this->formPtr->show();
 		break;
 	}
 }
@@ -119,7 +121,6 @@ void MenuBuilder::callMenu(int menuId)
     LoanReturnForm *LoanReturnFormPtr=new LoanReturnForm;
     LoanReturnForm *ReturnFormPtr=new LoanReturnForm;
 */
-    Form *FormPtr;
 
     static int ReferenceType;
     static int MenuType;
@@ -323,9 +324,8 @@ void MenuBuilder::callMenu(int menuId)
                             this->BasicRunlevel("ADD RESEARCH PAPER");
                             break;
                         case TEXTBOOKTYPE:
-                            //StaticFormPtr = new
                             this->BasicRunlevel("ADD TEXTBOOK");
-                            //FormPtr->save();
+                            this->formPtr->save();
                             break;
                     }
                 break;
@@ -359,40 +359,40 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
 		case RESEARCHPAPER:
-            FormPtr = new ResearchPaperForm;
+            this->formPtr = new ResearchPaperForm;
             ReferenceType=RESEARCHPAPERTYPE;
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
 			this->MenuShow(this->AddFormMenu(),ADDFORMMENU_SIZ);
 			do
 			{
-                FormPtr->browseForm();
+                this->formPtr->browseForm();
                 TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
             }while(TypeCheck==0);
 		break;
 
 		case TEXTBOOK:
-            FormPtr = new TextBookForm;
+            this->formPtr = new TextBookForm;
             ReferenceType=TEXTBOOKTYPE;
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
 			this->MenuShow(this->AddFormMenu(),ADDFORMMENU_SIZ);
 			do
 			{
-                FormPtr->browseForm();
+                this->formPtr->browseForm();
                 TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
 
 		case MAGAZINE:
-            FormPtr = new MagazineForm;
+            this->formPtr = new MagazineForm;
             ReferenceType=MAGAZINETYPE;
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
 			this->MenuShow(this->AddFormMenu(),ADDFORMMENU_SIZ);
 			do
 			{
-                FormPtr->browseForm();
+                this->formPtr->browseForm();
                 TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
 		break;
@@ -412,40 +412,40 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 
 		case EXISTINGMEMBER:
-            FormPtr = new LoanReturnForm;
+            this->formPtr = new LoanReturnForm;
             MenuType=LOANTYPE;
             this->BasicRunlevel("LOAN MENU");
-            FormPtr->show();
+            this->formPtr->show();
             this->MenuShow(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ);
 			do
 			{
-                FormPtr->browseForm();
+                this->formPtr->browseForm();
                 TypeCheck=this->menuBrowserOperator(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
 		break;
 
         case NEWUSER:
-            FormPtr = new MemberForm;
+            this->formPtr = new MemberForm;
             MenuType=MEMBERTYPE;
             this->BasicRunlevel("NEW USER REGISTRATION");
-            FormPtr->show();
+            this->formPtr->show();
             this->MenuShow(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ);
 			do
 			{
-                FormPtr->browseForm();
+                this->formPtr->browseForm();
                 TypeCheck=this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
 
         case RETURN:
-            FormPtr = new LoanReturnForm;
+            this->formPtr = new LoanReturnForm;
             MenuType=RETURNTYPE;
             this->BasicRunlevel("RETURN MENU");
-            FormPtr->show();
+            this->formPtr->show();
             this->MenuShow(this->ReturnFormMenu(),RETURNMENU_SIZ);
 			do
 			{
-                FormPtr->browseForm();
+                this->formPtr->browseForm();
                 TypeCheck=this->menuBrowserOperator(this->ReturnFormMenu(),RETURNMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
