@@ -91,7 +91,7 @@ bool Validator::recordExists(string referenceNumber)
                     fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
                 }*/
                 cout << "Debug recordId: " << recordId <<endl;
-                fileObj.seekg((recordId) * sizeof(TextBook), ios::beg);
+                fileObj.seekg(recordId * sizeof(TextBook), ios::beg);
                 cout << "Debug tellg: " << fileObj.tellg() <<endl;
                 fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
                 cout << "Debug: Did i get here?" << endl;
