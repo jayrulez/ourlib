@@ -185,13 +185,14 @@ int TextBookForm::save()
 
         cout << "Debug position: " << position <<endl;
 
-        ofstream fileWriteObj (this->textBookPtr->getDataFileName(), ios::out | ios::app | ios::binary);
-        fileWriteObj.seekp(position * sizeof(TextBook), ios::beg);
+        ofstream fileWriteObj (this->textBookPtr->getDataFileName(),ios::out | ios::binary);
+        fileWriteObj.seekp(position * sizeof(TextBook));
 
         cout << "Debug tellp: " << fileWriteObj.tellp() << endl;
 
         fileWriteObj.write(reinterpret_cast < char * > (&(*this->textBookPtr)),sizeof(TextBook));
         fileWriteObj.close();
     }
+    fgetc(stdin);
     return 0;
 }
