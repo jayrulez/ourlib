@@ -40,7 +40,6 @@ string ReferenceMaterial::getAuthor() const
 }
 void ReferenceMaterial::setReferenceNumber(string referenceNumber)
 {
-    cout << "ref no length:" << referenceNumber.length() << endl;
     if(referenceNumber.length()==2)
     {
         referenceNumber = (string) "0" + referenceNumber;
