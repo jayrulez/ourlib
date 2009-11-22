@@ -272,7 +272,12 @@ void MenuBuilder::callMenu(int menuId)
             this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
             this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
         break;
-
+        case DEL:
+            this->BasicRunlevel("DELETE MENU");
+            this->MenuShow(DeleteMenu(),DELETEMENU_SIZ);
+            this->DeleteMenuDriver();
+            this->menuBrowserOperator(DeleteMenu(),DELETEMENU_SIZ,FORMMENU);
+        break;
 		case LOAN:
             this->BasicRunlevel("LOAN MENU");
 			this->MenuShow(this->LoanMenu(),LOANMENU_SIZ);
@@ -423,11 +428,14 @@ item* MenuBuilder::LoanMenu()
     return &LoanMenuItem[0];
 }
 /*
-int MenuBuilder::ReferenceTypeParser(int MaterialType)
-{
-    return MatrerialType;
-}
+*   This function creates menu items for the Delete Menu
 */
+item* MenuBuilder::DeleteMenu()
+{
+    static item DeleteMenuItem[DELETEMENU_SIZ];
+    DeleteMenuItem[0].setItem(35,32,MAINMENU,"MAINMENU");
+    return &DeleteMenuItem[0];
+}
 /*
 * This function displays the contents for the menus
 */
@@ -739,6 +747,35 @@ int MenuBuilder::EditInput(string *ReferenceNumberPtr)
     consoleObj.xyCoord(EditCoord[position][0],EditCoord[position][1]);
     cout<<"Reference Number: ";
     return EditEntry.FormInput(ALPHANUMERIC,NOSPACING,ReferenceNumberPtr,6,EditCoord,position,true);
+}
+int MenuBuilder::DeleteMenuDriver()
+{
+    int result;
+    string ReferenceNumber;
+    string *ReferenceNumberPtr;
+    ReferenceNumberPtr = &ReferenceNumber;
+    result = this->DeleteInput(ReferenceNumberPtr);
+    switch(result)
+    {
+        case VK_RETURN:
+            return 0;
+        break;
+    }
+    return 0;
+}
+
+int MenuBuilder::DeleteInput(string *ReferenceNumberPtr)
+{
+    int DeleteCoord[1][3];
+    int position=0;
+    DeleteCoord[0][0]=20;
+    DeleteCoord[0][1]=20;
+    DeleteCoord[0][2]=17;
+    FormInputBuilder DeleteEntry;
+    console consoleObj;
+    consoleObj.xyCoord(DeleteCoord[position][0],DeleteCoord[position][1]);
+    cout<<"Reference Number: ";
+    return DeleteEntry.FormInput(ALPHANUMERIC,NOSPACING,ReferenceNumberPtr,6,DeleteCoord,position,true);
 }
 
 void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)

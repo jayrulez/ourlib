@@ -89,6 +89,10 @@
 #define ADDCANCEL 23
 #define ADDCONFIRMMENU_SIZ 2
 /*
+* Delete Menu
+*/
+#define DELETEMENU_SIZ 1
+/*
 * Loan Menu
 */
 #define EXISTINGMEMBER 24
@@ -105,7 +109,6 @@ public:
 	~MenuBuilder();
 	item* MainMenu();
 	item* AddReferenceMaterial();
-	item* LoanMenu();
 	item* AddResearchPaperFormMenu();
 	item* AddMagazineFormMenu();
 	item* AddTextBookFormMenu();
@@ -114,8 +117,12 @@ public:
 	item* EditFormMenu();
 	item* EditConfirmMenu();
 	item* AddConfirmMenu();
+	item* DeleteMenu();
+	item* LoanMenu();
 	int EditMenuDriver();
 	int EditInput(string *);
+	int DeleteMenuDriver();
+	int DeleteInput(string *);
 	int menuBrowserOperator(item*,int,int);
 	int MenuProcessing( int,item*,int*,scroller*,int,int);
 	void MenuShow(item*,int);
