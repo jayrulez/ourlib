@@ -152,6 +152,7 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
         case EDITSAVE:
+            this->BasicRunlevel("EDIT MENU");
             switch(ReferenceType)
             {
                 case TEXTBOOK:
@@ -369,7 +370,7 @@ item* MenuBuilder::EditConfirmMenu()
 item* MenuBuilder::SaveConfirmMenu()
 {
     static item AddConfirmMenuItem[ADDCONFIRMMENU_SIZ];
-    AddConfirmMenuItem[0].setItem(20,50,ADDSAVE,"SAVE CHANGES");
+    AddConfirmMenuItem[0].setItem(20,50,ADDSAVE,"SAVE MATERIAL");
     AddConfirmMenuItem[1].setItem(40,50,ADDCANCEL,"CANCEL");
     return &AddConfirmMenuItem[0];
 }
