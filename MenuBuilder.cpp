@@ -35,6 +35,7 @@
 
 #include <string>
 
+#include "forms/Form.h"
 
 #ifndef _TEXTBOOK_H
 #include "TextBook.h"
@@ -228,7 +229,6 @@ void MenuBuilder::callMenu(int menuId)
                 LoanReturnFormPtr=new LoanReturnForm;
                 ReturnFormPtr=new LoanReturnForm;
                 */
-
                 case ADDTYPE:
                     switch(ReferenceType)
                     {
@@ -278,6 +278,7 @@ void MenuBuilder::callMenu(int menuId)
                 case ADDTYPE:
                     switch(ReferenceType)
                     {
+
                         case TEXTBOOKTYPE:
                             cout<<"           Submitting edit textbook";
                             break;

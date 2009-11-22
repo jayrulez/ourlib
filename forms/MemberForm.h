@@ -8,7 +8,9 @@
 #include "../gui/console/console.h"
 #include "FormInputBuilder.h"
 
-class MemberForm
+#include "Form.h"
+
+class MemberForm: public Form
 {
 private:
     int MemberCoord[5][3];

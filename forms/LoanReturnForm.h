@@ -5,9 +5,11 @@
 #include "FormInputBuilder.h"
 #include <string>
 
+#include "Form.h"
+
 using namespace std;
 
-class LoanReturnForm
+class LoanReturnForm: public Form
 {
 private:
     int LoanReturnCoord[3][3];
