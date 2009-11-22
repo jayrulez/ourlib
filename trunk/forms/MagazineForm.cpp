@@ -16,7 +16,6 @@ MagazineForm::MagazineForm()
     this->magazinePtr = new Magazine;
     FieldPosition=0;
     InputPtr=&input;
-    tag="MG-";
     MagazineCoord[0][0]=25;
     MagazineCoord[0][1]=11;
     MagazineCoord[0][2]=21;
@@ -52,7 +51,7 @@ void MagazineForm::BrowseMagazineForm()
 	bool read=false;
 	int KeyType;
 	consoleObj.xyCoord(MagazineCoord[0][0]+18,MagazineCoord[0][1]);
-	cout<<tag;
+	cout<<this->magazinePtr->getReferenceNumberPrefix();
 	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
 	while(!read)
 	{
