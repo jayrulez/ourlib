@@ -4,6 +4,10 @@
 #include "../ReferenceMaterial.h"
 #endif
 #include <string>
+#define INVALID_DAY
+#define INVALID_MONTH
+#define INVALID_YEAR
+
 using namespace std;
 class Validator
 {
@@ -15,6 +19,7 @@ public:
     Validator();
     ~Validator();
     bool recordExists(string);
+    int checkDate(string);
     void formValidate(int *);
 };
 
