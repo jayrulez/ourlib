@@ -101,7 +101,7 @@
 /*
 * Existing User Return Menu
 */
-#define RETURNMENU_SIZ 4
+#define RETURNMENU_SIZ 3
 /*
 * Return User Loan Confirmation menu
 */

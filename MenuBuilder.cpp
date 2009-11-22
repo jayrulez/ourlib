@@ -546,8 +546,7 @@ item* MenuBuilder::ReturnFormMenu()
     static item ReturnFormMenuItem[RETURNMENU_SIZ];
     ReturnFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
     ReturnFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
-    ReturnFormMenuItem[2].setItem(55,35,RETURN,"<-- RETURN MENU");
-    ReturnFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    ReturnFormMenuItem[2].setItem(55,35,MAINMENU,"MAIN MENU");
     return &ReturnFormMenuItem[0];
 }
 /*
