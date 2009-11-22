@@ -5,7 +5,7 @@
 #include "../TextBook.h"
 #endif
 #ifndef _VALIDATOR_H
-#include "./Validator.h"
+//#include "./Validator.h"
 #endif
 #include <iostream>
 using namespace std;
@@ -163,9 +163,10 @@ void TextBookForm::show(TextBook * textBookObj)
 
 int TextBookForm::save()
 {
-    TextBook textBookObj;
+/* textBookObj;
     this->textBookPtr->setReferenceNumber((*this->textBookPtr).getReferenceNumberPrefix().append(this->textBookPtr->getReferenceNumber()));
     cout << "get:::" << this->textBookPtr->getReferenceNumber();
+    system("pause");
     int position;
     position = atoi((*this->textBookPtr).getReferenceNumber().c_str());
     if(position>0) position -=1;
@@ -177,6 +178,6 @@ int TextBookForm::save()
     }else{
 
     }
-
+*/
     return 0;
 }
