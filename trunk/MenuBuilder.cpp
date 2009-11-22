@@ -203,6 +203,7 @@ void MenuBuilder::callMenu(int menuId)
             }
         break;
 		case RESEARCHPAPER:
+            ReferenceType=RESEARCHPAPERTYPE;
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
 			this->MenuShow(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ);
@@ -213,6 +214,7 @@ void MenuBuilder::callMenu(int menuId)
             }while(TypeCheck==0);
 		break;
 		case TEXTBOOK:
+            ReferenceType=TEXTBOOKTYPE;
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
 			this->MenuShow(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
@@ -228,6 +230,7 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 		break;
 		case MAGAZINE:
+            ReferenceType=MAGAZINETYPE;
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
 			this->MenuShow(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
