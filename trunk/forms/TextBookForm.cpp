@@ -182,15 +182,16 @@ int TextBookForm::save()
     {
         cout << "Error: " << validator->getError() << endl;
     }else{
-
-        cout << "Debug position: " << position <<endl;
-
         ofstream fileWriteObj (this->textBookPtr->getDataFileName(),ios::out | ios::binary);
+        fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
         fileWriteObj.seekp(position * sizeof(TextBook));
-
-        cout << "Debug tellp: " << fileWriteObj.tellp() << endl;
-
-        fileWriteObj.write(reinterpret_cast < char * > (&(*this->textBookPtr)),sizeof(TextBook));
+        try
+        {
+            fileWriteObj.write(reinterpret_cast < char * > (&(*this->textBookPtr)),sizeof(TextBook));
+        }catch(ofstream::failure e)
+        {
+            cout << e.what() << endl;
+        }
         fileWriteObj.close();
     }
     fgetc(stdin);
