@@ -1317,7 +1317,7 @@
 1258779767 c:\documents and settings\michael\desktop\utech\oop\ourlib\controller.h
 	"MenuBuilder.h"
 
-1258779767 c:\documents and settings\michael\desktop\utech\oop\ourlib\menubuilder.h
+1258859988 c:\documents and settings\michael\desktop\utech\oop\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
@@ -1369,17 +1369,19 @@
 	"Date.h"
 	<string>
 
-1258779767 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\magazine.cpp
+1258853686 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\magazine.cpp
 	"Magazine.h"
 	<iostream>
 	<string>
 
-1258779767 c:\documents and settings\michael\desktop\utech\oop\ourlib\magazine.h
+1258853686 c:\documents and settings\michael\desktop\utech\oop\ourlib\magazine.h
 	"Referencematerial.h"
 	"Date.h"
+	"gui\console\console.h"
+	"gui\console\frame.h"
 	<string>
 
-1258779767 c:\documents and settings\michael\desktop\utech\oop\ourlib\referencematerial.h
+1258856990 c:\documents and settings\michael\desktop\utech\oop\ourlib\referencematerial.h
 	<string>
 
 1258779767 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\maindriver.cpp
@@ -1390,10 +1392,12 @@
 	<iostream>
 	<string>
 
-1258779767 c:\documents and settings\michael\desktop\utech\oop\ourlib\member.h
+1258853686 c:\documents and settings\michael\desktop\utech\oop\ourlib\member.h
+	"gui\console\console.h"
+	"gui\console\frame.h"
 	<string>
 
-1258841762 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\menubuilder.cpp
+1258860016 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\menubuilder.cpp
 	<iostream>
 	<string>
 	"MenuBuilder.h"
@@ -1413,13 +1417,15 @@
 	"forms/MemberForm.h"
 	"forms/FormInputBuilder.h"
 
-1258838670 c:\documents and settings\michael\desktop\utech\oop\ourlib\textbook.h
+1258853686 c:\documents and settings\michael\desktop\utech\oop\ourlib\textbook.h
 	"Referencematerial.h"
 	"Date.h"
 	"Serializer.hpp"
+	"gui\console\console.h"
+	"gui\console\frame.h"
 	<string>
 
-1258834530 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\textbookform.h
+1258853684 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\textbookform.h
 	"../TextBook.h"
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
@@ -1428,18 +1434,20 @@
 	"..\gui\console\console.h"
 	<string>
 
-1258820543 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\magazineform.h
+1258853684 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\magazineform.h
 	"../Magazine.h"
 	"ReferenceMaterial.h"
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
 
-1258779767 c:\documents and settings\michael\desktop\utech\oop\ourlib\researchpaper.h
+1258853686 c:\documents and settings\michael\desktop\utech\oop\ourlib\researchpaper.h
 	"Referencematerial.h"
+	"gui\console\console.h"
+	"gui\console\frame.h"
 	<iostream>
 	<string>
 
-1258820543 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\researchpaperform.h
+1258853684 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\researchpaperform.h
 	"../ResearchPaper.h"
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
@@ -1449,24 +1457,25 @@
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
 
-1258779767 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\referencematerial.cpp
+1258859780 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\referencematerial.cpp
 	"ReferenceMaterial.h"
 	<iostream>
 	<string>
+	<stdlib.h>
 
-1258779767 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\researchpaper.cpp
+1258853686 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\researchpaper.cpp
 	"ResearchPaper.h"
 	<iostream>
 	<string>
 
-1258841143 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\forminputbuilder.cpp
+1258842508 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\forminputbuilder.cpp
 	"windows.h"
 	<iostream>
 	<cctype>
 	<string>
 	"FormInputBuilder.h"
 
-1258841143 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\magazineform.cpp
+1258853684 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\magazineform.cpp
 	"MagazineForm.h"
 	"../Magazine.h"
 	<iostream>
@@ -1479,7 +1488,7 @@
 	<string>
 	<iostream>
 
-1258841143 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\researchpaperform.cpp
+1258853684 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\researchpaperform.cpp
 	"ResearchpaperForm.h"
 	"../ResearchPaper.h"
 	<iostream>
@@ -1534,12 +1543,12 @@
 	<algorithm>
 	<fstream>
 
-1258837252 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\textbook.cpp
+1258853760 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\textbook.cpp
 	"TextBook.h"
 	<iostream>
 	<string>
 
-1258841904 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\textbookform.cpp
+1258857438 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
 	"Serializer.hpp"
