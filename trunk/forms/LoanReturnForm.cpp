@@ -43,13 +43,13 @@ void LoanReturnForm::BrowseLoanReturnForm()
                 break;
             case 1:
                 *InputPtr = itoa(IdNumber,tempId,10);
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMBERIC,NOSPACING,InputPtr,7,LoanReturnCoord,FieldPosition,false);
                 IdNumber = atoi(InputPtr->c_str());
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
                 *InputPtr = LoanReturnDate;
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
                 LoanReturnDate = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
