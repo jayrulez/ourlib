@@ -71,9 +71,9 @@ int Application::terminate()
 
 void Application::process()
 {
-    TextBook text;
-    text.showReferenceMaterial(10,5);
-    system("pause");
+    //TextBook text;
+    //text.showReferenceMaterial(10,5);
+    //system("pause");
 	this->welcome();
 	this->main();
 }
