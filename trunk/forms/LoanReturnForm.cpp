@@ -10,6 +10,8 @@ LoanReturnForm::LoanReturnForm()
 {
     FieldPosition=0;
     InputPtr=&input;
+    choises[0]="IN"
+    choices[1]="OUT";
     LoanReturnCoord[0][0]=25;
     LoanReturnCoord[0][1]=13;
     LoanReturnCoord[0][2]=18;
@@ -59,10 +61,7 @@ void LoanReturnForm::browseForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 3:
-                *InputPtr = LoanReturnDate;
-                KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
-                LoanReturnDate = *InputPtr;
-                AllInput[FieldPosition] = *InputPtr;
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETIC,SPACING,InputPtr,0,LoanReturnCoord,FieldPosition,false);
                 break;
 	    }
         switch(KeyType)
