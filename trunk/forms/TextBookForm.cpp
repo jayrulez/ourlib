@@ -164,14 +164,12 @@ void TextBookForm::show(TextBook * textBookObj)
 int TextBookForm::save()
 {
     TextBook textBookObj;
-    this->textBookPtr->setReferenceNumber((*this->textBookPtr).getReferenceNumberPrefix().append(this->textBookPtr->getReferenceNumber()));
-    system("pause");
+    //this->textBookPtr->setReferenceNumber((*this->textBookPtr).getReferenceNumberPrefix().append(this->textBookPtr->getReferenceNumber()));
     int position;
     cout << "Debug this->textBookPtr->getReferenceNumber: " << (*this->textBookPtr).getReferenceNumber() <<endl;
     position = this->textBookPtr->getIdFromReferenceNumber(this->textBookPtr->getReferenceNumber());
 
-    cout << "Debug position: " << position <<endl;
-    if(position>0) position -=1;
+    //if(position>0) position -=1;
     Validator validator;
 
     if(validator.recordExists(this->textBookPtr->getReferenceNumber()))
@@ -181,8 +179,10 @@ int TextBookForm::save()
 
         cout << "Debug position: " << position <<endl;
         ofstream fileWriteObj (this->textBookPtr->getDataFileName(), ios::out | ios::app | ios::binary);
-        fileWriteObj.seekp(position * sizeof(TextBook));
+        fileWriteObj.seekp((position-1) * sizeof(TextBook), ios::beg);
+        cout << "Debug tellp: " << fileWriteObj.tellp() << endl;
         fileWriteObj.write(reinterpret_cast < char * > (&(*this->textBookPtr)),sizeof(TextBook));
+        cout << "Debug tellp: " << fileWriteObj.tellp() << endl;
         fileWriteObj.close();
     }
     return 0;
