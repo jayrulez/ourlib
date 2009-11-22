@@ -42,8 +42,11 @@ void LoanReturnForm::BrowseLoanReturnForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
+                consoleObj.xyCoord(60,3);
+                cout<<"Crash Point: ";
+                system("pause");
                 *InputPtr = itoa(IdNumber,tempId,10);
-                KeyType=FormInputBuilderObj.FormInput(NUMBERIC,NOSPACING,InputPtr,7,LoanReturnCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,7,LoanReturnCoord,FieldPosition,false);
                 IdNumber = atoi(InputPtr->c_str());
                 AllInput[FieldPosition] = *InputPtr;
                 break;
