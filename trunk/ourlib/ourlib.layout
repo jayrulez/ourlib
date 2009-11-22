@@ -97,9 +97,6 @@
 	<File name="..\forms\TextBookForm.h" open="0" top="0" tabpos="1">
 		<Cursor position="262" topLine="0" />
 	</File>
-	<File name="..\forms\Validator.cpp" open="0" top="0" tabpos="5">
-		<Cursor position="912" topLine="5" />
-	</File>
 	<File name="..\gui\console\console.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="1355" topLine="17" />
 	</File>

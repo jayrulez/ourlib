@@ -700,10 +700,9 @@
 	"../ResearchPaper.h"
 	<iostream>
 
-1258868055 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
+1258868936 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
-	"./Validator.h"
 	<iostream>
 
 1258862557 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
