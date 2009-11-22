@@ -699,13 +699,13 @@
 	"../ResearchPaper.h"
 	<iostream>
 
-1258850297 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
+1258857812 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
 	"Serializer.hpp"
 	<iostream>
 
-1258846144 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
+1258862557 source:c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\magazineform.cpp
 	"MagazineForm.h"
 	"../Magazine.h"
 	<iostream>

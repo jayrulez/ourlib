@@ -3,7 +3,7 @@
 #endif
 
 #include <string>
-#include <iostream.h>
+#include <iostream>
 using namespace std;
 
 LoanReturnForm::LoanReturnForm()
@@ -27,6 +27,7 @@ LoanReturnForm::~LoanReturnForm()
 }
 void LoanReturnForm::BrowseLoanReturnForm()
 {
+    char* tempId;
 	bool read=false;
 	int KeyType;
 	consoleObj.xyCoord(LoanReturnCoord[FieldPosition][0]+LoanReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),LoanReturnCoord[FieldPosition][1]);
@@ -35,15 +36,15 @@ void LoanReturnForm::BrowseLoanReturnForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-                *InputPtr = ReferenceNumber;
+                *InputPtr =  ReferenceNumber;
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
-                ReferenceNumber =*InputPtr;
+                ReferenceNumber = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
-                *InputPtr = IdNumber;
+                *InputPtr = itoa(IdNumber,tempId,10);
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
-                IdNumber=*InputPtr;
+                IdNumber = atoi(InputPtr->c_str());
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
