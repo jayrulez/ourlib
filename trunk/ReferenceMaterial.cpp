@@ -3,6 +3,7 @@
 #endif
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 /*
@@ -52,15 +53,19 @@ void ReferenceMaterial::setAuthor(string author)
 
 int ReferenceMaterial::getIdFromReferenceNumber(string referenceNumber)
 {
-	int length = referenceNumber.length();
-	char idAsChar[length-3];
-	const char* asCharStr = referenceNumber.c_str();
-	for(int i=2; i < length; i++)
+    int refNoLength = referenceNumber.length();
+    const char* refNoAsCharStr = referenceNumber.c_str();
+	int idLength = refNoLength - 3;
+	int i = 3;
+	int c;
+	char idAsString[idLength];
+
+	for(c=0; c < idLength; i++, c++)
 	{
-		idAsChar[i] = asCharStr[i];
+		idAsString[c] = refNoAsCharStr[i];
 	}
 
-	int id = atoi(idAsChar);
+	int id = atoi(idAsString);
 	return id;
 }
 
