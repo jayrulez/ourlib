@@ -13,6 +13,9 @@
 #ifndef _RESEARCHPAPER_H
 #include "../ResearchPaper.h"
 #endif
+#ifndef _FILEMODEL_H
+#include "../FileModel.h"
+#endif
 
 #include <fstream>
 
@@ -84,45 +87,9 @@ void Validator::formValidate(int *referenceObj)
 
 bool Validator::recordExists(string referenceNumber)
 {
-    ReferenceMaterial referenceMaterial;
-    int recordId = referenceMaterial.getIdFromReferenceNumber(referenceNumber);
-    if(recordId > 0) recordId -= 1;
-    //cout << "Debug recordId: " << recordId <<endl;
-    int referenceType = referenceMaterial.getMaterialTypeFromReferenceNumber(referenceNumber);
-    ifstream fileObj;
-    bool exists = false;
-
-    switch(referenceType)
-    {
-        case TYPE_TEXTBOOK:
-            TextBook textBookObj;
-            fileObj.open(textBookObj.getDataFileName(),ios::in | ios::binary);
-
-            if(fileObj.is_open())
-            {
-                //fileObj.seekg(0,ios::end);
-                //int pos = fileObj.tellg();
-                //int siz = pos/sizeof(TextBook);
-                //cout << "Records: " << siz << endl;
-/*start*/
-
-                fileObj.seekg((recordId) * sizeof(TextBook));
-                //cout << "Debug tellg: " << fileObj.tellg() <<endl;
-                fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
-                //cout << "Debug textBookObj.getReferenceNumber(): " << textBookObj.getReferenceNumber() << endl;
-/*end*/
-                if(textBookObj.getReferenceNumber().compare(referenceNumber)==0)
-                {
-                    exists = true;
-                    cout << "Error, exists" << endl;
-                }
-                fileObj.close();
-            }
-        break;
-        /*case TYPE_MAGAZINE:
-        break;
-        case TYPE_RESEARCHPAPER:
-        break;*/
-    }
-    return exists;
+    FileModel * fileModelObj = new FileModel();
+    if(fileModelObj->getReferenceMaterialRecordFromFile(referenceNumber)->getReferenceNumber()==referenceNumber)
+        return true;
+    else
+        return false;
 }
