@@ -1318,7 +1318,7 @@
 1258779767 c:\documents and settings\michael\desktop\utech\oop\ourlib\controller.h
 	"MenuBuilder.h"
 
-1258859988 c:\documents and settings\michael\desktop\utech\oop\ourlib\menubuilder.h
+1258871387 c:\documents and settings\michael\desktop\utech\oop\ourlib\menubuilder.h
 	"gui/console/item.h"
 	"gui/console/media.h"
 	"gui/console/scroller.h"
@@ -1398,7 +1398,7 @@
 	"gui\console\frame.h"
 	<string>
 
-1258860016 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\menubuilder.cpp
+1258871387 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\menubuilder.cpp
 	<iostream>
 	<string>
 	"MenuBuilder.h"
@@ -1416,6 +1416,7 @@
 	"ResearchPaper.h"
 	"forms/ResearchPaperForm.h"
 	"forms/MemberForm.h"
+	"forms/LoanReturnForm.h"
 	"forms/FormInputBuilder.h"
 
 1258869556 c:\documents and settings\michael\desktop\utech\oop\ourlib\textbook.h
@@ -1458,7 +1459,7 @@
 	"../gui/console/console.h"
 	"FormInputBuilder.h"
 
-1258869679 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\referencematerial.cpp
+1258870865 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\referencematerial.cpp
 	"ReferenceMaterial.h"
 	<iostream>
 	<string>
@@ -1549,9 +1550,10 @@
 	<iostream>
 	<string>
 
-1258869812 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\textbookform.cpp
+1258871176 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\textbookform.cpp
 	"TextBookForm.h"
 	"../TextBook.h"
+	"./Validator.h"
 	<iostream>
 
 1258837804 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\serializer.hpp
@@ -1560,10 +1562,10 @@
 	<algorithm>
 	<fstream>
 
-1258870192 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\validator.h
+1258870996 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\validator.h
 	<string>
 
-1258870153 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\validator.cpp
+1258871260 source:c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\validator.cpp
 	"./Validator.h"
 	"../ReferenceMaterial.h"
 	"../TextBook.h"
@@ -1590,5 +1592,10 @@
 	<fstream>
 
 1258867131 c:\documents and settings\_-_dj-d_-_\my documents\ourlib\forms\validator.h
+	<string>
+
+1258868971 c:\documents and settings\michael\desktop\utech\oop\ourlib\forms\loanreturnform.h
+	"../gui/console/console.h"
+	"FormInputBuilder.h"
 	<string>
 

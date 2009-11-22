@@ -45,8 +45,6 @@
 		<Unit filename="..\TextBook.h" />
 		<Unit filename="..\forms\FormInputBuilder.cpp" />
 		<Unit filename="..\forms\FormInputBuilder.h" />
-		<Unit filename="..\forms\LoanReturnForm.cpp" />
-		<Unit filename="..\forms\LoanReturnForm.h" />
 		<Unit filename="..\forms\MagazineForm.cpp" />
 		<Unit filename="..\forms\MagazineForm.h" />
 		<Unit filename="..\forms\MemberForm.cpp" />
@@ -56,6 +54,7 @@
 		<Unit filename="..\forms\TextBookForm.cpp" />
 		<Unit filename="..\forms\TextBookForm.h" />
 		<Unit filename="..\forms\Validator.cpp" />
+		<Unit filename="..\forms\Validator.h" />
 		<Unit filename="..\gui\console\bin\Debug\console.exe" />
 		<Unit filename="..\gui\console\console.cpp" />
 		<Unit filename="..\gui\console\console.depend" />
