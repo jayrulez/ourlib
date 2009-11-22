@@ -125,12 +125,12 @@ void MenuBuilder::callMenu(int menuId)
 {
     console con;
     int TypeCheck;
-    static MagazineForm *MagazineFormPtr=new MagazineForm;
-    static MemberForm *MemberPtr=new MemberForm;
-    static TextBookForm *TextBookFormPtr=new TextBookForm;
-    static ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
-    static LoanReturnForm *LoanReturnFormPtr=new LoanReturnForm;
-    static LoanReturnForm *ReturnFormPtr=new LoanReturnForm;
+    MagazineForm *MagazineFormPtr=new MagazineForm;
+    MemberForm *MemberPtr=new MemberForm;
+    TextBookForm *TextBookFormPtr=new TextBookForm;
+    ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
+    LoanReturnForm *LoanReturnFormPtr=new LoanReturnForm;
+    LoanReturnForm *ReturnFormPtr=new LoanReturnForm;
     static int ReferenceType;
     static int MenuType;
     con.setCursor(false,50);
@@ -220,18 +220,26 @@ void MenuBuilder::callMenu(int menuId)
         case CLEARFIELD:
             switch(MenuType)
             {
+                /*
+                MagazineFormPtr=new MagazineForm;
+                MemberPtr=new MemberForm;
+                TextBookFormPtr=new TextBookForm;
+                ResearchPaperPtr=new ResearchPaperForm;
+                LoanReturnFormPtr=new LoanReturnForm;
+                ReturnFormPtr=new LoanReturnForm;
+                */
 
                 case ADDTYPE:
                     switch(ReferenceType)
                     {
                         case TEXTBOOKTYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(TEXTBOOK);
                             break;
                         case RESEARCHPAPERTYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(RESEARCHPAPER);
                             break;
                         case MAGAZINETYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(MAGAZINE);
                             break;
                     }
                     break;
@@ -239,24 +247,24 @@ void MenuBuilder::callMenu(int menuId)
                     switch(ReferenceType)
                     {
                         case TEXTBOOKTYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(TEXTBOOK);
                             break;
                         case RESEARCHPAPERTYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(RESEARCHPAPER);
                             break;
                         case MAGAZINETYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(MAGAZINE);
                             break;
                     }
                     break;
                 case MEMBERTYPE:
-                    cout<<"           Submitting edit textbook";
+                    callMenu(NEWUSER);
                     break;
                 case LOANTYPE:
-                    cout<<"           Submitting edit textbook";
+                    callMenu(EXISTINGMEMBER);
                     break;
                 case RETURNTYPE:
-                    cout<<"           Submitting edit textbook";
+                    callMenu(RETURN);
                     break;
                 case DELETETYPE:
                     cout<<"           Submitting edit textbook";
