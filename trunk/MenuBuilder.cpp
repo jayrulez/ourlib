@@ -218,7 +218,10 @@ void MenuBuilder::callMenu(int menuId)
             }while(TypeCheck==0);
 		break;
         case RESEARCHSUBMIT:
-           ReferenceType=RESEARCHPAPERTYPE;
+            this->BasicRunlevel("ADD RESEARCH PAPER");
+            ReferenceType=RESEARCHPAPERTYPE;
+            this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
+            this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
         break;
 		case TEXTBOOK:
 			this->BasicRunlevel("ADD TEXTBOOK");
@@ -234,6 +237,8 @@ void MenuBuilder::callMenu(int menuId)
 		case TEXTBOOKSUBMIT:
             this->BasicRunlevel("ADD TEXTBOOK");
             ReferenceType=TEXTBOOKTYPE;
+            this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
+            this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
 		break;
 
 		case MAGAZINE:
@@ -250,6 +255,8 @@ void MenuBuilder::callMenu(int menuId)
         case MAGAZINESUBMIT:
             ReferenceType=MAGAZINETYPE;
 			this->BasicRunlevel("ADD MAGAZINE");
+            this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
+            this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
         break;
 
 		case LOAN:
