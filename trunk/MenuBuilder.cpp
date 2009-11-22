@@ -132,6 +132,7 @@ void MenuBuilder::callMenu(int menuId)
     static LoanReturnForm *LoanReturnFormPtr=new LoanReturnForm;
     static LoanReturnForm *ReturnFormPtr=new LoanReturnForm;
     static int ReferenceType;
+    static int MenuType;
     con.setCursor(false,50);
 
 	switch(menuId)
@@ -150,142 +151,224 @@ void MenuBuilder::callMenu(int menuId)
                 this->EditMenuDriver();
                 TypeCheck=this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
-            break;
+        break;
 
-        case EDITSUBMIT:
+        case SUBMIT:
+            switch(MenuType)
+            {
+                 case ADDTYPE:
+                    switch(ReferenceType)
+                    {
+                        case MAGAZINETYPE:
+                            this->BasicRunlevel("ADD MAGAZINE");
+                            break;
+                        case RESEARCHPAPERTYPE:
+                            this->BasicRunlevel("ADD RESEARCH PAPER");
+                            break;
+                        case TEXTBOOKTYPE:
+                            this->BasicRunlevel("ADD TEXTBOOK");
+                            break;
+                    }
+                    this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
+                    this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
+                    break;
+
+                case EDITTYPE:
+                    switch(ReferenceType)
+                    {
+                        case MAGAZINETYPE:
+                            this->BasicRunlevel("EDIT MAGAZINE");
+                            break;
+                        case RESEARCHPAPERTYPE:
+                            this->BasicRunlevel("EDIT RESEARCH PAPER");
+                            break;
+                        case TEXTBOOKTYPE:
+                            this->BasicRunlevel("EDIT TEXTBOOK");
+                            break;
+                    }
+                    this->MenuShow(AddConfirmMenu(),EDITCONFIRMMENU_SIZ);
+                    this->menuBrowserOperator(EditConfirmMenu(),EDITCONFIRMMENU_SIZ,NORMALMENU);
+                    break;
+
+                case MEMBERTYPE:
+                    this->BasicRunlevel("NEW USER CONFIRMATION");
+                    this->MenuShow(MemberConfirmMenu(),ADDCONFIRMMENU_SIZ);
+                    this->menuBrowserOperator(MemberConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
+                    break;
+                case LOANTYPE:
+                    this->BasicRunlevel("LOAN CONFIRMATION");
+                    this->MenuShow(LoanConfirmMenu(),LOANCONFIRMMENU_SIZ);
+                    this->menuBrowserOperator(LoanConfirmMenu(),LOANCONFIRMMENU_SIZ,NORMALMENU);
+                    break;
+                    break;
+                case RETURNTYPE:
+                    this->BasicRunlevel("RETURN CONFIRMATION");
+                    this->MenuShow(MemberConfirmMenu(),RETURNCONFIRMMENU_SIZ);
+                    this->menuBrowserOperator(MemberConfirmMenu(),RETURNCONFIRMMENU_SIZ,NORMALMENU);
+                    break;
+                    break;
+                case DELETETYPE:
+                    this->BasicRunlevel("DELETE CONFIRMATION");
+                    this->MenuShow(DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
+                    this->menuBrowserOperator(DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,NORMALMENU);
+                    break;
+            }
             this->BasicRunlevel("EDIT MENU");
             this->MenuShow(this->EditConfirmMenu(),EDITCONFIRMMENU_SIZ);
             this->menuBrowserOperator(this->EditConfirmMenu(),EDITCONFIRMMENU_SIZ,NORMALMENU);
         break;
 
-        case EDITCLEARFIELD:
-        break;
-
-        case EDITSAVE:
-            this->BasicRunlevel("EDIT MENU");
+        case CLEARFIELD:
             switch(ReferenceType)
             {
                 case TEXTBOOKTYPE:
-                    cout<<"           saving textbook";
+                    cout<<"           Submitting edit textbook";
                     break;
                 case RESEARCHPAPERTYPE:
-                    cout<<"           saving research paper";
+                    cout<<"           Submitting edit textbook";
                     break;
                 case MAGAZINETYPE:
-                    cout<<"           saving magazine";
+                    cout<<"           Submitting edit textbook";
+                    break;
+                case MEMBERTYPE:
+                    cout<<"           Submitting edit textbook";
+                    break;
+                case LOANTYPE:
+                    cout<<"           Submitting edit textbook";
+                    break;
+                case RETURNTYPE:
+                    cout<<"           Submitting edit textbook";
+                    break;
+                case DELETETYPE:
+                    cout<<"           Submitting edit textbook";
                     break;
             }
         break;
 
-        case EDITCANCEL:
-            this->BasicRunlevel("EDIT MENU");
+        case CANCEL:
             switch(ReferenceType)
             {
                 case TEXTBOOKTYPE:
-                    cout<<"           cancelling edit textbook";
+                    cout<<"           Submitting edit textbook";
                     break;
                 case RESEARCHPAPERTYPE:
-                    cout<<"           cancelling edit textbook";
+                    cout<<"           Submitting edit textbook";
                     break;
                 case MAGAZINETYPE:
-                    cout<<"           cancelling edit textbook";
+                    cout<<"           Submitting edit textbook";
+                    break;
+                case MEMBERTYPE:
+                    cout<<"           Submitting edit textbook";
+                    break;
+                case LOANTYPE:
+                    cout<<"           Submitting edit textbook";
+                    break;
+                case RETURNTYPE:
+                    cout<<"           Submitting edit textbook";
+                    break;
+                case DELETETYPE:
+                    cout<<"           Submitting edit textbook";
                     break;
             }
         break;
 
-        case ADDSAVE:
+        case SAVE:
             this->BasicRunlevel("ADD MENU");
-            switch(ReferenceType)
+            switch(MenuType)
             {
-                case TEXTBOOKTYPE:
-                    //cout<<"           saving textbook";";
-                    TextBookFormPtr->save();
+                case ADDTYPE:
+                    ReferenceType=RESEARCHPAPERTYPE;
+                    switch(ReferenceType)
+                    {
+                        case MAGAZINETYPE:
+                            this->BasicRunlevel("ADD MAGAZINE");
+                            TextBookFormPtr->save();
+                            break;
+                        case RESEARCHPAPERTYPE:
+                            this->BasicRunlevel("ADD RESEARCH PAPER");
+                            break;
+                        case TEXTBOOKTYPE:
+                            this->BasicRunlevel("ADD TEXTBOOK");
+                            break;
+                    }
+                    this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
+                    this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
                     break;
-                case RESEARCHPAPERTYPE:
-                    cout<<"           saving research paper";
+                case EDITTYPE:
+                    ReferenceType=RESEARCHPAPERTYPE;
+                    switch(ReferenceType)
+                    {
+                        case MAGAZINETYPE:
+                            this->BasicRunlevel("EDIT MAGAZINE");
+                            break;
+                        case RESEARCHPAPERTYPE:
+                            this->BasicRunlevel("EDIT RESEARCH PAPER");
+                            break;
+                        case TEXTBOOKTYPE:
+                            this->BasicRunlevel("EDIT TEXTBOOK");
+                            break;
+                    }
+                case MEMBERTYPE:
+                    cout<<"           Submitting edit textbook";
                     break;
-                case MAGAZINETYPE:
-                    cout<<"           saving magazine";
+                case LOANTYPE:
+                    cout<<"           Submitting edit textbook";
                     break;
-            }
-        break;
-
-        case ADDCANCEL:
-            this->BasicRunlevel("ADD MENU");
-            switch(ReferenceType)
-            {
-                case TEXTBOOKTYPE:
-                    cout<<"           cancelling add textbook";
+                case RETURNTYPE:
+                    cout<<"           Submitting edit textbook";
                     break;
-                case RESEARCHPAPERTYPE:
-                    cout<<"           cancelling add textbook";
-                    break;
-                case MAGAZINETYPE:
-                    cout<<"           cancelling add textbook";
+                case DELETETYPE:
+                    cout<<"           Submitting edit textbook";
                     break;
             }
         break;
 
 		case RESEARCHPAPER:
+            ReferenceType=RESEARCHPAPERTYPE;
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
-			this->MenuShow(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ);
+			this->MenuShow(this->AddFormMenu(),ADDFORMMENU_SIZ);
 			do
 			{
                 ResearchPaperPtr->BrowseResearchPaperForm();
-                TypeCheck=this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ,FORMMENU);
+                TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
             }while(TypeCheck==0);
 		break;
 
-        case RESEARCHSUBMIT:
-            this->BasicRunlevel("ADD RESEARCH PAPER");
-            ReferenceType=RESEARCHPAPERTYPE;
-            this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
-            this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
-        break;
-
 		case TEXTBOOK:
+            ReferenceType=TEXTBOOKTYPE;
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
-			this->MenuShow(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
+			this->MenuShow(this->AddFormMenu(),ADDFORMMENU_SIZ);
 			do
 			{
                 TextBookFormPtr->BrowseTextBookForm();
-                TypeCheck=this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ,FORMMENU);
+                TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
 
-		case TEXTBOOKSUBMIT:
-            this->BasicRunlevel("ADD TEXTBOOK");
-            ReferenceType=TEXTBOOKTYPE;
-            this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
-            this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
-		break;
-
 		case MAGAZINE:
+            ReferenceType=MAGAZINETYPE;
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
-			this->MenuShow(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
+			this->MenuShow(this->AddFormMenu(),ADDFORMMENU_SIZ);
 			do
 			{
                 MagazineFormPtr->BrowseMagazineForm();
-                TypeCheck=this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ,FORMMENU);
+                TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
 		break;
 
-        case MAGAZINESUBMIT:
-            ReferenceType=MAGAZINETYPE;
-			this->BasicRunlevel("ADD MAGAZINE");
-            this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
-            this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
-        break;
         case DEL:
+            MenuType=DELETETYPE;
             this->BasicRunlevel("DELETE MENU");
             this->MenuShow(DeleteMenu(),DELETEMENU_SIZ);
             this->DeleteMenuDriver();
             this->menuBrowserOperator(DeleteMenu(),DELETEMENU_SIZ,FORMMENU);
         break;
+
 		case LOAN:
+            MenuType=LOANTYPE;
             this->BasicRunlevel("LOAN MENU");
 			this->MenuShow(this->LoanMenu(),LOANMENU_SIZ);
 			this->menuBrowserOperator(this->LoanMenu(),LOANMENU_SIZ,NORMALMENU);
@@ -303,13 +386,14 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 
         case NEWUSER:
+            MenuType=MEMBERTYPE;
             this->BasicRunlevel("NEW USER REGISTRATION");
             this->showLoanForm(NEWUSER);
-            this->MenuShow(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ);
+            this->MenuShow(this->AddFormMenu(),ADDFORMMENU_SIZ);
 			do
 			{
                 MemberPtr->BrowseMemberForm();
-                TypeCheck=this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
+                TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
 
@@ -331,7 +415,6 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 	}
 }
-
 /*
 * This function creates the items for the main menu
 * and returns the address of its 1st element;
@@ -363,38 +446,14 @@ item* MenuBuilder::AddReferenceMaterial()
 /*
 *   This function creates menu items for the Add Research Paper Form
 */
-item* MenuBuilder::AddResearchPaperFormMenu()
+item* MenuBuilder::AddFormMenu()
 {
-    static item AddResearchPaperFormItem[ADDRESAERCHPAPERFORMMENU_SIZ];
-    AddResearchPaperFormItem[0].setItem(15,35,RESEARCHSUBMIT,"SUBMIT");
-    AddResearchPaperFormItem[1].setItem(35,35,RESEARCHCLEARFIELD,"CLEAR FIELDS");
-    AddResearchPaperFormItem[2].setItem(55,35,ADD,"<-- ADD MENU");
-    AddResearchPaperFormItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
-    return &AddResearchPaperFormItem[0];
-}
-/*
-*   This function creates menu items for the Add Magazine Form
-*/
-item* MenuBuilder::AddMagazineFormMenu()
-{
-    static item AddMagazineFormMenuItem[ADDMAGAZINEFORMMENU_SIZ];
-    AddMagazineFormMenuItem[0].setItem(15,35,MAGAZINESUBMIT,"SUBMIT");
-    AddMagazineFormMenuItem[1].setItem(35,35,MAGAZINECLEARFIELD,"CLEAR FIELDS");
-    AddMagazineFormMenuItem[2].setItem(55,35,ADD,"<-- ADD MENU");
-    AddMagazineFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
-    return & AddMagazineFormMenuItem[0];
-}
-/*
-*   This function creates menu items for the Add TextBook Form
-*/
-item* MenuBuilder::AddTextBookFormMenu()
-{
-    static item AddTextBookFormMenuItem[ADDTEXTBOOKFORMMENU_SIZ];
-    AddTextBookFormMenuItem[0].setItem(15,35,TEXTBOOKSUBMIT,"SUBMIT");
-    AddTextBookFormMenuItem[1].setItem(35,35,TEXTBOOKCLEARFIELD,"CLEAR FIELDS");
-    AddTextBookFormMenuItem[2].setItem(55,35,ADD,"<-- ADD MENU");
-    AddTextBookFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
-    return &AddTextBookFormMenuItem[0];
+    static item AddFormMenuItem[ADDFORMMENU_SIZ];
+    AddFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
+    AddFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
+    AddFormMenuItem[2].setItem(55,35,ADD,"<-- ADD MENU");
+    AddFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return &AddFormMenuItem[0];
 }
 
 /*
@@ -403,8 +462,8 @@ item* MenuBuilder::AddTextBookFormMenu()
 item* MenuBuilder::AddMemberFormMenu()
 {
     static item AddMemberFormMenuItem[ADDMEMBERFORMMENU_SIZ];
-    AddMemberFormMenuItem[0].setItem(15,35,MEMBERSUBMIT,"SUBMIT");
-    AddMemberFormMenuItem[1].setItem(35,35,MEMBERCLEARFIELD,"CLEAR FIELDS");
+    AddMemberFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
+    AddMemberFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
     AddMemberFormMenuItem[2].setItem(55,35,ADD,"<-- LOAN MENU");
     AddMemberFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &AddMemberFormMenuItem[0];
@@ -421,8 +480,8 @@ item* MenuBuilder::EditMenu()
 item* MenuBuilder::EditFormMenu()
 {
     static item EditFormMenuItem[EDITFORMMENU_SIZ];
-    EditFormMenuItem[0].setItem(15,35,EDITSUBMIT,"SUBMIT");
-    EditFormMenuItem[1].setItem(35,35,EDITCLEARFIELD,"CLEAR FIELDS");
+    EditFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
+    EditFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
     EditFormMenuItem[2].setItem(55,35,EDIT,"<-- EDIT MENU");
     EditFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &EditFormMenuItem[0];
@@ -430,15 +489,15 @@ item* MenuBuilder::EditFormMenu()
 item* MenuBuilder::EditConfirmMenu()
 {
     static item EditConfirmMenuItem[EDITCONFIRMMENU_SIZ];
-    EditConfirmMenuItem[0].setItem(20,50,EDITSAVE,"SAVE CHANGES");
-    EditConfirmMenuItem[1].setItem(40,50,EDITCANCEL,"CANCEL");
+    EditConfirmMenuItem[0].setItem(20,50,SAVE,"SAVE CHANGES");
+    EditConfirmMenuItem[1].setItem(40,50,CANCEL,"CANCEL");
     return &EditConfirmMenuItem[0];
 }
 item* MenuBuilder::AddConfirmMenu()
 {
     static item AddConfirmMenuItem[ADDCONFIRMMENU_SIZ];
-    AddConfirmMenuItem[0].setItem(20,20,ADDSAVE,"SAVE MATERIAL");
-    AddConfirmMenuItem[1].setItem(50,20,ADDCANCEL,"CANCEL");
+    AddConfirmMenuItem[0].setItem(20,20,SAVE,"SAVE MATERIAL");
+    AddConfirmMenuItem[1].setItem(50,20,CANCEL,"CANCEL");
     return &AddConfirmMenuItem[0];
 }
 /*
@@ -460,8 +519,8 @@ item* MenuBuilder::LoanMenu()
 item* MenuBuilder::LoanFormMenu()
 {
     static item LoanFormMenuItem[EXISTINGUSERMENU_SIZ];
-    LoanFormMenuItem[0].setItem(15,35,LOANSUBMIT,"SUBMIT");
-    LoanFormMenuItem[1].setItem(35,35,LOANCLEARFIELD,"CLEAR FIELDS");
+    LoanFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
+    LoanFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
     LoanFormMenuItem[2].setItem(55,35,LOAN,"<-- LOAN MENU");
     LoanFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &LoanFormMenuItem[0];
@@ -471,6 +530,10 @@ item* MenuBuilder::LoanFormMenu()
 */
 item* MenuBuilder::LoanConfirmMenu()
 {
+    static item LoanConfirmMenuItem[LOANCONFIRMMENU_SIZ];
+    LoanConfirmMenuItem[0].setItem(20,20,SAVE,"SAVE LOAN DATA");
+    LoanConfirmMenuItem[1].setItem(50,20,CANCEL,"CANCEL");
+    return &LoanConfirmMenuItem[0];
 }
 /*
 *   This function creates menu items for the Return Form
@@ -478,8 +541,8 @@ item* MenuBuilder::LoanConfirmMenu()
 item* MenuBuilder::ReturnFormMenu()
 {
     static item ReturnFormMenuItem[RETURNMENU_SIZ];
-    ReturnFormMenuItem[0].setItem(15,35,RETURNSUBMIT,"SUBMIT");
-    ReturnFormMenuItem[1].setItem(35,35,RETURNCLEARFIELD,"CLEAR FIELDS");
+    ReturnFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
+    ReturnFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
     ReturnFormMenuItem[2].setItem(55,35,RETURN,"<-- RETURN MENU");
     ReturnFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &ReturnFormMenuItem[0];
@@ -489,6 +552,17 @@ item* MenuBuilder::ReturnFormMenu()
 */
 item* MenuBuilder::ReturnConfirmMenu()
 {
+    static item ReturnConfirmMenuItem[RETURNCONFIRMMENU_SIZ];
+    ReturnConfirmMenuItem[0].setItem(20,20,SAVE,"SAVE RETURN DATA");
+    ReturnConfirmMenuItem[1].setItem(50,20,CANCEL,"CANCEL");
+    return &ReturnConfirmMenuItem[0];
+}
+item* MenuBuilder::MemberConfirmMenu()
+{
+    static item MemberConfirmMenuItem[MEMBERCONFIRMMENU_SIZ];
+    MemberConfirmMenuItem[0].setItem(20,20,SAVE,"SAVE MEMBER DATA");
+    MemberConfirmMenuItem[1].setItem(50,20,CANCEL,"CANCEL");
+    return &MemberConfirmMenuItem[0];
 }
 /*
 *   This function creates menu items for the Delete Menu
@@ -498,6 +572,16 @@ item* MenuBuilder::DeleteMenu()
     static item DeleteMenuItem[DELETEMENU_SIZ];
     DeleteMenuItem[0].setItem(35,32,MAINMENU,"MAINMENU");
     return &DeleteMenuItem[0];
+}
+/*
+*   This function creates menu items for the Delete Menu
+*/
+item* MenuBuilder::DeleteConfirmMenu()
+{
+    static item DeleteConfirmMenuItem[DELETECONFIRMMENU_SIZ];
+    DeleteConfirmMenuItem[0].setItem(20,20,SAVE,"DELETE MATERIAL");
+    DeleteConfirmMenuItem[1].setItem(50,20,CANCEL,"CANCEL");
+    return &DeleteConfirmMenuItem[0];
 }
 /*
 * This function displays the contents for the menus
