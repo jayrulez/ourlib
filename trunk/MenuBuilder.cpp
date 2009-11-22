@@ -221,8 +221,9 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
         case CLEARFIELD:
-            switch(ReferenceType)
+            switch(MenuType)
             {
+
                 case TEXTBOOKTYPE:
                     cout<<"           Submitting edit textbook";
                     break;
@@ -284,13 +285,13 @@ void MenuBuilder::callMenu(int menuId)
                     {
                         case MAGAZINETYPE:
                             this->BasicRunlevel("ADD MAGAZINE");
-                            TextBookFormPtr->save();
                             break;
                         case RESEARCHPAPERTYPE:
                             this->BasicRunlevel("ADD RESEARCH PAPER");
                             break;
                         case TEXTBOOKTYPE:
                             this->BasicRunlevel("ADD TEXTBOOK");
+                            TextBookFormPtr->save();
                             break;
                     }
                     this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
