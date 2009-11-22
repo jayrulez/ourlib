@@ -50,4 +50,18 @@ void ReferenceMaterial::setAuthor(string author)
     this->author = author;
 }
 
+int ReferenceMaterial::getIdFromReferenceNumber(string referenceNumber)
+{
+	int length = referenceNumber.length();
+	char idAsChar[length-3];
+	const char* asCharStr = referenceNumber.c_str();
+	for(int i=2; i < length; i++)
+	{
+		idAsChar[i] = asCharStr[i];
+	}
+
+	int id = atoi(idAsChar);
+	return id;
+}
+
 

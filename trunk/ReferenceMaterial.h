@@ -20,5 +20,6 @@ public:
 	void setReferenceNumber(string);
 	void setTitle(string);
 	void setAuthor(string);
+	int getIdFromReferenceNumber(string);
 };
 #endif
