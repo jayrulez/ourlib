@@ -192,7 +192,8 @@ void MenuBuilder::callMenu(int menuId)
             switch(ReferenceType)
             {
                 case TEXTBOOKTYPE:
-                    cout<<"           saving textbook";
+                    //cout<<"           saving textbook";";
+                    TextBookFormPtr->save();
                     break;
                 case RESEARCHPAPERTYPE:
                     cout<<"           saving research paper";
