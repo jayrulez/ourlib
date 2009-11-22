@@ -13,9 +13,9 @@
 /*
 * Referce Material Types
 */
-#define TEXTBOOK 1000
-#define RESEARCHPAPER 1001
-#define MAGAZINE 1002
+#define TEXTBOOKTYPE 1000
+#define RESEARCHPAPERTYPE 1001
+#define MAGAZINETYPE 1002
 /*
 * Menu Type
 */

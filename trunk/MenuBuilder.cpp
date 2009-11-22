@@ -125,6 +125,7 @@ void MenuBuilder::callMenu(int menuId)
     static MemberForm *MemberPtr=new MemberForm;
     static TextBookForm *TextBookFormPtr=new TextBookForm;
     static ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
+    static int ReferenceType;
     con.setCursor(false,50);
 
 	switch(menuId)
@@ -155,11 +156,11 @@ void MenuBuilder::callMenu(int menuId)
             this->BasicRunlevel("EDIT MENU");
             switch(ReferenceType)
             {
-                case TEXTBOOK:
+                case TEXTBOOKTYPE:
                     break;
-                case RESEARCHPAPER:
+                case RESEARCHPAPERTYPE:
                     break;
-                case MAGAZINE:
+                case MAGAZINETYPE:
                     break;
             }
         break;
@@ -167,11 +168,11 @@ void MenuBuilder::callMenu(int menuId)
             this->BasicRunlevel("EDIT MENU");
             switch(ReferenceType)
             {
-                case TEXTBOOK:
+                case TEXTBOOKTYPE:
                     break;
-                case RESEARCHPAPER:
+                case RESEARCHPAPERTYPE:
                     break;
-                case MAGAZINE:
+                case MAGAZINETYPE:
                     break;
             }
         break;
@@ -180,11 +181,11 @@ void MenuBuilder::callMenu(int menuId)
             this->BasicRunlevel("EDIT MENU");
             switch(ReferenceType)
             {
-                case TEXTBOOK:
+                case TEXTBOOKTYPE:
                     break;
-                case RESEARCHPAPER:
+                case RESEARCHPAPERTYPE:
                     break;
-                case MAGAZINE:
+                case MAGAZINETYPE:
                     break;
             }
         break;
@@ -193,11 +194,11 @@ void MenuBuilder::callMenu(int menuId)
             this->BasicRunlevel("ADD MENU");
             switch(ReferenceType)
             {
-                case TEXTBOOK:
+                case TEXTBOOKTYPE:
                     break;
-                case RESEARCHPAPER:
+                case RESEARCHPAPERTYPE:
                     break;
-                case MAGAZINE:
+                case MAGAZINETYPE:
                     break;
             }
         break;
@@ -367,7 +368,7 @@ item* MenuBuilder::EditConfirmMenu()
     EditConfirmMenuItem[1].setItem(40,50,EDITCANCEL,"CANCEL");
     return &EditConfirmMenuItem[0];
 }
-item* MenuBuilder::SaveConfirmMenu()
+item* MenuBuilder::AddConfirmMenu()
 {
     static item AddConfirmMenuItem[ADDCONFIRMMENU_SIZ];
     AddConfirmMenuItem[0].setItem(20,50,ADDSAVE,"SAVE MATERIAL");
@@ -386,6 +387,12 @@ item* MenuBuilder::LoanMenu()
     LoanMenuItem[2].setItem(35,25,MAINMENU,"MAIN MENU");
     return &LoanMenuItem[0];
 }
+/*
+int MenuBuilder::ReferenceTypeParser(int MaterialType)
+{
+    return MatrerialType;
+}
+*/
 /*
 * This function displays the contents for the menus
 */
@@ -711,3 +718,4 @@ void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)
 	con.xyCoord(3,1);
 	cout<<MenuName;
 }
+
