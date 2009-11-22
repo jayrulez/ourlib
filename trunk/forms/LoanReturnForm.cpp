@@ -11,15 +11,15 @@ LoanReturnForm::LoanReturnForm()
     FieldPosition=0;
     InputPtr=&input;
     LoanReturnCoord[0][0]=25;
-    LoanReturnCoord[0][1]=13;
+    LoanReturnCoord[0][1]=15;
     LoanReturnCoord[0][2]=18;
 
     LoanReturnCoord[1][0]=25;
-    LoanReturnCoord[1][1]=16;
+    LoanReturnCoord[1][1]=18;
     LoanReturnCoord[1][2]=11;
 
     LoanReturnCoord[2][0]=25;
-    LoanReturnCoord[2][1]=19;
+    LoanReturnCoord[2][1]=21;
     LoanReturnCoord[2][2]=7;
 }
 LoanReturnForm::~LoanReturnForm()
