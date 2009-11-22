@@ -6,7 +6,7 @@
 #include <iostream.h>
 using namespace std;
 
-LoanForm::LoanReturnForm()
+LoanReturnForm::LoanReturnForm()
 {
     FieldPosition=0;
     InputPtr=&input;
@@ -22,10 +22,10 @@ LoanForm::LoanReturnForm()
     LoanReturnCoord[2][1]=26;
     LoanReturnCoord[2][2]=7;
 }
-LoanForm::~LoanReturnForm()
+LoanReturnForm::~LoanReturnForm()
 {
 }
-void LoanForm::BrowseLoanReturnForm()
+void LoanReturnForm::BrowseLoanReturnForm()
 {
 	bool read=false;
 	int KeyType;
@@ -47,9 +47,9 @@ void LoanForm::BrowseLoanReturnForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
-                *InputPtr = this->magazinePtr->getAuthor();
+                *InputPtr = LoanReturnDate;
                 KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
-
+                LoanReturnDate = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 	    }
@@ -86,8 +86,8 @@ void LoanForm::BrowseLoanReturnForm()
     }
 	consoleObj.setCursor(false,3);
 }
-}
-void LoanForm::show()
+
+void LoanReturnForm::show()
 {
     consoleObj.xyCoord(LoanReturnCoord[0][0],LoanReturnCoord[0][1]);
 	cout<<"Reference Number: ";
