@@ -135,6 +135,7 @@ void MenuBuilder::callMenu(int menuId)
             this->MenuShow(this->AddReferenceMaterial(),ADDMENU_SIZ);
 			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ,NORMALMENU);
 		break;
+
 		case EDIT:
             this->BasicRunlevel("EDIT MENU");
             this->MenuShow(EditMenu(),EDITMENU_SIZ);
@@ -144,11 +145,13 @@ void MenuBuilder::callMenu(int menuId)
                 TypeCheck=this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
             break;
+
         case EDITSUBMIT:
             this->BasicRunlevel("EDIT MENU");
             this->MenuShow(this->EditConfirmMenu(),EDITCONFIRMMENU_SIZ);
             this->menuBrowserOperator(this->EditConfirmMenu(),EDITCONFIRMMENU_SIZ,NORMALMENU);
         break;
+
         case EDITCLEARFIELD:
         break;
 
@@ -164,6 +167,7 @@ void MenuBuilder::callMenu(int menuId)
                     break;
             }
         break;
+
         case EDITCANCEL:
             this->BasicRunlevel("EDIT MENU");
             switch(ReferenceType)
@@ -202,8 +206,8 @@ void MenuBuilder::callMenu(int menuId)
                     break;
             }
         break;
+
 		case RESEARCHPAPER:
-            ReferenceType=RESEARCHPAPERTYPE;
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
 			this->MenuShow(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ);
@@ -213,8 +217,10 @@ void MenuBuilder::callMenu(int menuId)
                 TypeCheck=this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ,FORMMENU);
             }while(TypeCheck==0);
 		break;
+        case RESEARCHSUBMIT:
+           ReferenceType=RESEARCHPAPERTYPE;
+        break;
 		case TEXTBOOK:
-            ReferenceType=TEXTBOOKTYPE;
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
 			this->MenuShow(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ);
@@ -223,14 +229,14 @@ void MenuBuilder::callMenu(int menuId)
                 TextBookFormPtr->BrowseTextBookForm();
                 TypeCheck=this->menuBrowserOperator(this->AddTextBookFormMenu(),ADDTEXTBOOKFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
+        break;
 
 		case TEXTBOOKSUBMIT:
-			this->BasicRunlevel("Show Data");
-            TextBookFormPtr->save();
+            this->BasicRunlevel("ADD TEXTBOOK");
+            ReferenceType=TEXTBOOKTYPE;
 		break;
-		break;
+
 		case MAGAZINE:
-            ReferenceType=MAGAZINETYPE;
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
 			this->MenuShow(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ);
@@ -240,17 +246,21 @@ void MenuBuilder::callMenu(int menuId)
                 TypeCheck=this->menuBrowserOperator(this->AddMagazineFormMenu(),ADDMAGAZINEFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
 		break;
+
         case MAGAZINESUBMIT:
-			this->BasicRunlevel("Show Data");
-            MagazineFormPtr->showTest();
+            ReferenceType=MAGAZINETYPE;
+			this->BasicRunlevel("ADD MAGAZINE");
         break;
+
 		case LOAN:
             this->BasicRunlevel("LOAN MENU");
 			this->MenuShow(this->LoanMenu(),LOANMENU_SIZ);
 			this->menuBrowserOperator(this->LoanMenu(),LOANMENU_SIZ,NORMALMENU);
 		break;
+
 		case EXISTINGMEMBER:
 		break;
+
         case NEWUSER:
             this->BasicRunlevel("NEW USER REGISTRATION");
             this->showLoanForm(NEWUSER);
@@ -261,6 +271,7 @@ void MenuBuilder::callMenu(int menuId)
                 TypeCheck=this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
+
 		default:
             this->BasicRunlevel("MAIN MENU");
 			this->MenuShow(this->MainMenu(),MAIN_SIZ);
