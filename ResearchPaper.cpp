@@ -62,20 +62,20 @@ string ResearchPaper::getSponsor() const
 }
 void ResearchPaper::showReferenceMaterial(int xCoord,int yCoord)
 {
-    frameObj.setFrame(xCoord,20,yCoord,8,false);
+    frameObj.setFrame(xCoord,xCoord+50,yCoord,yCoord+14,false);
     frameObj.sFraming();
 
     consoleObj.xyCoord(xCoord+2,yCoord+2);
-    cout<<referenceNumber;
+    cout<<"Reference Number: "<<referenceNumber;
     consoleObj.xyCoord(xCoord+2,yCoord+4);
-    cout<<author;
+    cout<<"Author: "<<author;
     consoleObj.xyCoord(xCoord+2,yCoord+6);
-    cout<<title;
+    cout<<"Title: "<<title;
 
     consoleObj.xyCoord(xCoord+2,yCoord+8);
-    cout<<researchTopic;
+    cout<<"Research Topic: "<<researchTopic;
     consoleObj.xyCoord(xCoord+2,yCoord+10);
-    cout<<supervisor;
+    cout<<"Supervisor: "<<supervisor;
     consoleObj.xyCoord(xCoord+2,yCoord+12);
-    cout<<sponsor;
+    cout<<"Sponsor: "<<sponsor;
 }
