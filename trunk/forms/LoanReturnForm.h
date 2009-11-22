@@ -12,14 +12,14 @@ using namespace std;
 class LoanReturnForm: public Form
 {
 private:
-    int LoanReturnCoord[3][3];
+    int LoanReturnCoord[4][3];
     console consoleObj;
     FormInputBuilder FormInputBuilderObj;
     string ReferenceNumber;
     int IdNumber;
     int FieldPosition;
     string LoanReturnDate;
-    string AllInput[3];
+    string AllInput[4];
     string input;
     string *InputPtr;
 public:
