@@ -34,6 +34,7 @@ void Validator::formValidate(int *referenceObj)
 {
     ReferenceMaterial *referenceMaterialObj = (ReferenceMaterial*)referenceObj;
     int materialType = referenceMaterialObj->getMaterialTypeFromReferenceNumber(referenceMaterialObj->getReferenceNumber());
+
     int refNo = referenceMaterialObj->getIdFromReferenceNumber(referenceMaterialObj->getReferenceNumber());
     switch(materialType)
     {
@@ -62,7 +63,9 @@ bool Validator::recordExists(string referenceNumber)
 {
     ReferenceMaterial referenceMaterial;
     int recordId = referenceMaterial.getIdFromReferenceNumber(referenceNumber);
+    cout << "Debug recordId: " << recordId <<endl;
     if(recordId > 0) recordId -= 1;
+    cout << "Debug recordId: " << recordId <<endl;
     int referenceType = referenceMaterial.getMaterialTypeFromReferenceNumber(referenceNumber);
     ifstream fileObj;
     bool exists = false;
@@ -74,7 +77,7 @@ bool Validator::recordExists(string referenceNumber)
             fileObj.open(textBookObj.getDataFileName(),ios::in | ios::binary);
             if(fileObj.is_open())
             {
-                cout << "Debug tellg: " << fileObj.tellg() <<endl;
+                /*cout << "Debug tellg: " << fileObj.tellg() <<endl;
                 fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
                 while(!fileObj.eof())
                 {
@@ -86,9 +89,9 @@ bool Validator::recordExists(string referenceNumber)
                         break;
                     }
                     fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
-                }
+                }*/
                 cout << "Debug recordId: " << recordId <<endl;
-                fileObj.seekg(recordId * sizeof(TextBook), ios::beg);
+                fileObj.seekg((recordId) * sizeof(TextBook), ios::beg);
                 cout << "Debug tellg: " << fileObj.tellg() <<endl;
                 fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
                 cout << "Debug: Did i get here?" << endl;
@@ -101,6 +104,7 @@ bool Validator::recordExists(string referenceNumber)
                     cout << "Debug: Are you saying i do not exist?" << endl;
                 }
                 fileObj.close();
+                system("pause");
             }
         break;
         /*case TYPE_MAGAZINE:

@@ -169,7 +169,7 @@ int TextBookForm::save()
     cout << "Debug this->textBookPtr->getReferenceNumber: " << (*this->textBookPtr).getReferenceNumber() <<endl;
     position = this->textBookPtr->getIdFromReferenceNumber(this->textBookPtr->getReferenceNumber());
 
-    if(position>0) position -=1;
+    if(position>0) position -=2;
     Validator * validator = new Validator();
     //(int*)this->textBookPtr;
     validator->formValidate((int*)this->textBookPtr);
@@ -186,5 +186,6 @@ int TextBookForm::save()
         cout << "Debug tellp: " << fileWriteObj.tellp() << endl;
         fileWriteObj.close();
     }
+    fgetc(stdin);
     return 0;
 }
