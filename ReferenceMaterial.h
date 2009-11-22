@@ -31,6 +31,7 @@ public:
 	int getMaterialTypeFromReferenceNumber(string) const;
 	void setReferenceNumberPrefix(string);
 	string getReferenceNumberPrefix() const;
+	void insertReferenceNumberPrefix(string);
 	char* getDataFileName() const;
 };
 #endif
