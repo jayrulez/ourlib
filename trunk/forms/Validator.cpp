@@ -1,4 +1,4 @@
-#ifndef _VALIDATOR_H
+/*#ifndef _VALIDATOR_H
 #include "./Validator.h"
 #endif
 #ifndef _REFERENCEMATERIAL_H
@@ -16,7 +16,7 @@
 
 #include <fstream>
 
-/*Validator::Validator() {}
+Validator::Validator() {}
 Validator::~Validator() {}
 
 bool Validator::recordExists(string referenceNumber)
