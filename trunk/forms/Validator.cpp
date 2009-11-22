@@ -29,6 +29,29 @@ bool Validator::hasError()
     return (this->error).length()>0;
 }
 
+int Validator::checkDate(string dateStr)
+{
+    char month[2];
+    char day[2];
+    char year[2];
+    memset( month, '\0', 2 );
+    memset( day, '\0', 2 );
+    memset( year, '\0', 2 );
+    if(dateStr.length()!=8)
+    {
+        return 0;
+    }else{
+        dateStr.copy(month,2);
+        int dayAsInt = atoi(day);
+        int monthAsInt = atoi(month);
+        int yearAsInt = atoi(year);
+        //if(year)
+        //{
+            //return;
+        //}
+    }
+    return 0;
+}
 
 void Validator::formValidate(int *referenceObj)
 {
