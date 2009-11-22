@@ -86,9 +86,8 @@ bool Validator::recordExists(string referenceNumber)
 {
     ReferenceMaterial referenceMaterial;
     int recordId = referenceMaterial.getIdFromReferenceNumber(referenceNumber);
-    cout << "Debug recordId: " << recordId <<endl;
     if(recordId > 0) recordId -= 1;
-    cout << "Debug recordId: " << recordId <<endl;
+    //cout << "Debug recordId: " << recordId <<endl;
     int referenceType = referenceMaterial.getMaterialTypeFromReferenceNumber(referenceNumber);
     ifstream fileObj;
     bool exists = false;
@@ -98,29 +97,24 @@ bool Validator::recordExists(string referenceNumber)
         case TYPE_TEXTBOOK:
             TextBook textBookObj;
             fileObj.open(textBookObj.getDataFileName(),ios::in | ios::binary);
+
             if(fileObj.is_open())
             {
-                /*cout << "Debug tellg: " << fileObj.tellg() <<endl;
+                //fileObj.seekg(0,ios::end);
+                //int pos = fileObj.tellg();
+                //int siz = pos/sizeof(TextBook);
+                //cout << "Records: " << siz << endl;
+/*start*/
+
+                fileObj.seekg((recordId) * sizeof(TextBook));
+                //cout << "Debug tellg: " << fileObj.tellg() <<endl;
                 fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
-                while(!fileObj.eof())
-                {
-                    if(textBookObj.getReferenceNumber().compare(referenceNumber)==0)
-                    {
-                        cout << "Ref. No.: " << textBookObj.getReferenceNumber() << endl;
-                        cout << "Debug tellg: " << fileObj.tellg() <<endl;
-                        exists = true;
-                        break;
-                    }
-                    fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
-                }*/
-                cout << "Debug recordId: " << recordId <<endl;
-                fileObj.seekg(recordId * sizeof(TextBook), ios::beg);
-                cout << "Debug tellg: " << fileObj.tellg() <<endl;
-                fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
-                cout << "Debug textBookObj.getReferenceNumber(): " << textBookObj.getReferenceNumber() << endl;
+                //cout << "Debug textBookObj.getReferenceNumber(): " << textBookObj.getReferenceNumber() << endl;
+/*end*/
                 if(textBookObj.getReferenceNumber().compare(referenceNumber)==0)
                 {
                     exists = true;
+                    cout << "Error, exists" << endl;
                 }
                 fileObj.close();
             }
