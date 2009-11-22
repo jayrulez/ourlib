@@ -1,0 +1,254 @@
+# depslib dependency file v1.0
+1258779767 source:c:\documents and settings\michael\desktop\ourlib\application.cpp
+	<iostream>
+	<string>
+	"windows.h"
+	"Application.h"
+	"Controller.h"
+	"ApplicationException.h"
+	"MenuBuilder.h"
+
+1258779767 c:\documents and settings\michael\desktop\ourlib\application.h
+	"Controller.h"
+	"ApplicationException.h"
+
+1258779767 c:\documents and settings\michael\desktop\ourlib\controller.h
+	"MenuBuilder.h"
+
+1258871387 c:\documents and settings\michael\desktop\ourlib\menubuilder.h
+	"gui/console/item.h"
+	"gui/console/media.h"
+	"gui/console/scroller.h"
+	<string>
+
+1258779697 c:\documents and settings\michael\desktop\ourlib\gui\console\item.h
+	"console.h"
+	<string>
+
+1258779697 c:\documents and settings\michael\desktop\ourlib\gui\console\console.h
+	<windows.h>
+
+1258779697 c:\documents and settings\michael\desktop\ourlib\gui\console\media.h
+
+1258779697 c:\documents and settings\michael\desktop\ourlib\gui\console\scroller.h
+	"frame.h"
+
+1258779697 c:\documents and settings\michael\desktop\ourlib\gui\console\frame.h
+	"line.h"
+	"console.h"
+
+1258779697 c:\documents and settings\michael\desktop\ourlib\gui\console\line.h
+	"console.h"
+
+1258779767 c:\documents and settings\michael\desktop\ourlib\applicationexception.h
+	<exception>
+	<iostream>
+
+1258779767 source:c:\documents and settings\michael\desktop\ourlib\applicationexception.cpp
+	"ApplicationException.h"
+
+1258779767 source:c:\documents and settings\michael\desktop\ourlib\controller.cpp
+	"Controller.h"
+
+1258779767 source:c:\documents and settings\michael\desktop\ourlib\date.cpp
+	"Date.h"
+	<iostream>
+	<ctime>
+
+1258779767 c:\documents and settings\michael\desktop\ourlib\date.h
+	<string>
+
+1258779767 source:c:\documents and settings\michael\desktop\ourlib\loan.cpp
+	"Loan.h"
+	<iostream>
+	<string>
+
+1258779767 c:\documents and settings\michael\desktop\ourlib\loan.h
+	"Date.h"
+	<string>
+
+1258853686 source:c:\documents and settings\michael\desktop\ourlib\magazine.cpp
+	"Magazine.h"
+	<iostream>
+	<string>
+
+1258853686 c:\documents and settings\michael\desktop\ourlib\magazine.h
+	"Referencematerial.h"
+	"Date.h"
+	"gui\console\console.h"
+	"gui\console\frame.h"
+	<string>
+
+1258869621 c:\documents and settings\michael\desktop\ourlib\referencematerial.h
+	<string>
+
+1258779767 source:c:\documents and settings\michael\desktop\ourlib\maindriver.cpp
+	"Application.h"
+
+1258779767 source:c:\documents and settings\michael\desktop\ourlib\member.cpp
+	"Member.h"
+	<iostream>
+	<string>
+
+1258853686 c:\documents and settings\michael\desktop\ourlib\member.h
+	"gui\console\console.h"
+	"gui\console\frame.h"
+	<string>
+
+1258871387 source:c:\documents and settings\michael\desktop\ourlib\menubuilder.cpp
+	<iostream>
+	<string>
+	"MenuBuilder.h"
+	"gui/console/console.h"
+	"gui/console/frame.h"
+	"gui/console/line.h"
+	"gui/console/item.h"
+	"gui/console/media.h"
+	"gui/console/scroller.h"
+	<string>
+	"TextBook.h"
+	"forms/TextBookForm.h"
+	"Magazine.h"
+	"forms/MagazineForm.h"
+	"ResearchPaper.h"
+	"forms/ResearchPaperForm.h"
+	"forms/MemberForm.h"
+	"forms/LoanReturnForm.h"
+	"forms/FormInputBuilder.h"
+
+1258869556 c:\documents and settings\michael\desktop\ourlib\textbook.h
+	"Referencematerial.h"
+	"Date.h"
+	"Serializer.hpp"
+	"gui\console\console.h"
+	"gui\console\frame.h"
+	<string>
+
+1258837932 c:\documents and settings\michael\desktop\ourlib\serializer.hpp
+	<iostream>
+	<string>
+	<algorithm>
+	<fstream>
+
+1258853684 c:\documents and settings\michael\desktop\ourlib\forms\textbookform.h
+	"../TextBook.h"
+	"../gui/console/console.h"
+	"FormInputBuilder.h"
+
+1258841143 c:\documents and settings\michael\desktop\ourlib\forms\forminputbuilder.h
+	"..\gui\console\console.h"
+	<string>
+
+1258853684 c:\documents and settings\michael\desktop\ourlib\forms\magazineform.h
+	"../Magazine.h"
+	"ReferenceMaterial.h"
+	"../gui/console/console.h"
+	"FormInputBuilder.h"
+
+1258853686 c:\documents and settings\michael\desktop\ourlib\researchpaper.h
+	"Referencematerial.h"
+	"gui\console\console.h"
+	"gui\console\frame.h"
+	<iostream>
+	<string>
+
+1258853684 c:\documents and settings\michael\desktop\ourlib\forms\researchpaperform.h
+	"../ResearchPaper.h"
+	"../gui/console/console.h"
+	"FormInputBuilder.h"
+
+1258820543 c:\documents and settings\michael\desktop\ourlib\forms\memberform.h
+	"../Member.h"
+	"../gui/console/console.h"
+	"FormInputBuilder.h"
+
+1258868971 c:\documents and settings\michael\desktop\ourlib\forms\loanreturnform.h
+	"../gui/console/console.h"
+	"FormInputBuilder.h"
+	<string>
+
+1258870865 source:c:\documents and settings\michael\desktop\ourlib\referencematerial.cpp
+	"ReferenceMaterial.h"
+	<iostream>
+	<string>
+	<stdlib.h>
+
+1258853686 source:c:\documents and settings\michael\desktop\ourlib\researchpaper.cpp
+	"ResearchPaper.h"
+	<iostream>
+	<string>
+
+1258869714 source:c:\documents and settings\michael\desktop\ourlib\textbook.cpp
+	"TextBook.h"
+	<iostream>
+	<string>
+
+1258842508 source:c:\documents and settings\michael\desktop\ourlib\forms\forminputbuilder.cpp
+	"windows.h"
+	<iostream>
+	<cctype>
+	<string>
+	"FormInputBuilder.h"
+
+1258871386 source:c:\documents and settings\michael\desktop\ourlib\forms\loanreturnform.cpp
+	"LoanReturnForm.h"
+	<string>
+	<iostream>
+
+1258868971 source:c:\documents and settings\michael\desktop\ourlib\forms\magazineform.cpp
+	"MagazineForm.h"
+	"../Magazine.h"
+	<iostream>
+	<string>
+	<windows.h>
+	"../gui/console/console.h"
+
+1258841143 source:c:\documents and settings\michael\desktop\ourlib\forms\memberform.cpp
+	"MemberForm.h"
+	<string>
+	<iostream>
+
+1258853684 source:c:\documents and settings\michael\desktop\ourlib\forms\researchpaperform.cpp
+	"ResearchpaperForm.h"
+	"../ResearchPaper.h"
+	<iostream>
+
+1258872884 source:c:\documents and settings\michael\desktop\ourlib\forms\textbookform.cpp
+	"TextBookForm.h"
+	"../TextBook.h"
+	"./Validator.h"
+	<iostream>
+
+1258870996 c:\documents and settings\michael\desktop\ourlib\forms\validator.h
+	<string>
+
+1258871478 source:c:\documents and settings\michael\desktop\ourlib\forms\validator.cpp
+	"./Validator.h"
+	"../ReferenceMaterial.h"
+	"../TextBook.h"
+	"../Magazine.h"
+	"../ResearchPaper.h"
+	<fstream>
+
+1258779697 source:c:\documents and settings\michael\desktop\ourlib\gui\console\console.cpp
+	<iostream>
+	<windows.h>
+	"console.h"
+
+1258779697 source:c:\documents and settings\michael\desktop\ourlib\gui\console\frame.cpp
+	<iostream>
+	"line.h"
+	"console.h"
+	"frame.h"
+
+1258779697 source:c:\documents and settings\michael\desktop\ourlib\gui\console\item.cpp
+	<iostream>
+	"item.h"
+	"console.h"
+	<string>
+
+1258779697 source:c:\documents and settings\michael\desktop\ourlib\gui\console\line.cpp
+	<iostream>
+	"console.h"
+	"line.h"
+
