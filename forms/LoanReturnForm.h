@@ -15,13 +15,17 @@ private:
     int LoanReturnCoord[4][3];
     console consoleObj;
     FormInputBuilder FormInputBuilderObj;
+
     string ReferenceNumber;
     int IdNumber;
-    int FieldPosition;
     string LoanReturnDate;
+    string LoanType;
+
+    int FieldPosition;
     string AllInput[4];
     string input;
     string *InputPtr;
+    string choices[2];
 public:
     LoanReturnForm();
     ~LoanReturnForm();
