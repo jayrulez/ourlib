@@ -10,6 +10,8 @@ using namespace std;
 */
 Magazine::Magazine()
 {
+        this->dataFileName = "magazines.bin";
+        this->setReferenceNumberPrefix("MG-");
 }
 /*
 *
@@ -18,12 +20,13 @@ Magazine::~Magazine()
 {
 }
 
-Magazine::Magazine(string referenceNumber, string author,string title, string volume,string issueTopic)
+Magazine::Magazine(string referenceNumber, string author,string title, string volume,string issueTopic, string issueDate)
 {
 	this->referenceNumber = referenceNumber;
 	this->author = author;
 	this->volume = volume;
 	this->issueTopic = issueTopic;
+	this->issueDate = issueDate;
 }
 
 void Magazine::setVolume(string volume)

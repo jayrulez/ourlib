@@ -28,7 +28,7 @@ bool Validator::recordExists(string referenceNumber)
     switch(referenceType)
     {
         case TYPE_TEXTBOOK:
-            /*TextBook textBookObj;
+            TextBook textBookObj;
             fileObj.open(textBookObj.getDataFileName(),ios::in | ios::binary);
             if(fileObj.is_open())
             {
@@ -37,7 +37,7 @@ bool Validator::recordExists(string referenceNumber)
                 if(textBookObj.getReferenceNumber().compare(referenceNumber)==0)
                     return true;
                 fileObj.close();
-            }*/
+            }
         break;
         /*case TYPE_MAGAZINE:
         break;

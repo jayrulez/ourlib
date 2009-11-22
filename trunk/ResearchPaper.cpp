@@ -10,6 +10,8 @@ using namespace std;
 */
 ResearchPaper::ResearchPaper()
 {
+        this->dataFileName = "researchpapers.bin";
+        this->setReferenceNumberPrefix("RP-");
 }
 
 /*

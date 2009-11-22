@@ -174,9 +174,12 @@ int TextBookForm::save()
 
     if(validator.recordExists(this->textBookPtr->getReferenceNumber()))
     {
-        // record Exists
+        cout << "Record with reference number already exists" << endl;
     }else{
-
+        ofstream fileWriteObj (this->textBookPtr->getDataFileName(), ios::out | ios::binary);
+        fileWriteObj.seekp(this->textBookPtr->getIdFromReferenceNumber(this->textBookPtr->getReferenceNumber()) * sizeof(TextBook));
+        fileWriteObj.write(reinterpret_cast < char * > (this->textBookPtr),sizeof(TextBook));
+        fileWriteObj.close();
     }
     return 0;
 }

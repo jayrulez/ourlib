@@ -13,6 +13,16 @@
 #ifndef _MENUBUILDER_H
 #include "MenuBuilder.h"
 #endif
+#ifndef _TEXTBOOK_H
+#include "TextBook.h"
+#endif
+#ifndef _RESEARCHPAPER_H
+#include "ResearchPaper.h"
+#endif
+#ifndef _MAGAZINE_H
+#include "Magazine.h"
+#endif
+#include <fstream>
 
 using namespace std;
 
@@ -70,11 +80,86 @@ void Application::welcome()
 	//cout << "Application Skeleton";
 }
 
+void Application::buildDataFiles()
+{
+    int i;
+
+	/*
+	* creates binary data files
+	*
+	*/
+
+	TextBook textBookObj;
+	Magazine magazineObj;
+	ResearchPaper researchPaperObj;
+
+    ifstream fileReadObj;
+	ofstream fileWriteObj;
+
+	fileReadObj.open(textBookObj.getDataFileName(),ios::in | ios::binary);
+	if(!fileReadObj.is_open())
+	{
+        fileWriteObj.open(textBookObj.getDataFileName(), ios::out | ios::binary);
+        if(fileWriteObj.is_open())
+        {
+            TextBook emptyTextBookObj("","","","","","","");
+            for(i=0;i<999;i++)
+            {
+                fileWriteObj.write(reinterpret_cast < char * > (&emptyTextBookObj),sizeof(TextBook));
+            }
+            fileWriteObj.close();
+            fileWriteObj.clear();
+        }else{
+            // Error, make sure the disk is writable
+        }
+	}
+	fileReadObj.clear();
+
+	fileReadObj.open(magazineObj.getDataFileName(),ios::in | ios::binary);
+	if(!fileReadObj.is_open())
+	{
+        fileWriteObj.open(magazineObj.getDataFileName(), ios::out | ios::binary);
+        if(fileWriteObj.is_open())
+        {
+            Magazine emptyMagazineObj("","","","","","");
+            for(i=0;i<999;i++)
+            {
+                fileWriteObj.write(reinterpret_cast < char * > (&emptyMagazineObj),sizeof(Magazine));
+            }
+            fileWriteObj.close();
+            fileWriteObj.clear();
+        }else{
+            // Error, make sure the disk is writable
+        }
+	}
+	fileReadObj.clear();
+
+	fileReadObj.open(researchPaperObj.getDataFileName(),ios::in | ios::binary);
+	if(!fileReadObj.is_open())
+	{
+        fileWriteObj.open(researchPaperObj.getDataFileName(), ios::out | ios::binary);
+        if(fileWriteObj.is_open())
+        {
+            ResearchPaper emptyResearchPaperObj("","","","","","");
+            for(i=0;i<999;i++)
+            {
+                fileWriteObj.write(reinterpret_cast < char * > (&emptyResearchPaperObj),sizeof(ResearchPaper));
+            }
+            fileWriteObj.close();
+            fileWriteObj.clear();
+        }else{
+            // Error, make sure the disk is writable
+        }
+	}
+	fileReadObj.clear();
+}
+
 void Application::main()
 {
 	/*
 	try block and catch ApplicationException& e, e.toString();
 	*/
+	this->buildDataFiles();
 	this->controllerObj = new Controller();
 	this->controllerObj->init()->callMenu(MAINMENU);
 }

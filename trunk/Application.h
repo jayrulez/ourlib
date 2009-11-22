@@ -15,6 +15,7 @@ private:
 public:
 	Application();
 	~Application();
+	void buildDataFiles();
 	Controller* controllerObj;
 	void setState(bool = true);
 	bool getState();
