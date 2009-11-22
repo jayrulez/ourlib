@@ -6,8 +6,8 @@ class Form
     public:
         Form();
         virtual ~Form();
-        virtual void show()=0;
-        virtual void browseForm()=0;
-        virtual void save() = 0;
+        virtual void show();
+        virtual void browseForm();
+        virtual void save();
 };
 #endif // FORM_H
