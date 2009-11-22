@@ -249,7 +249,6 @@ void MenuBuilder::callMenu(int menuId)
                             break;
                     }
                     break;
-                    break;
                 case MEMBERTYPE:
                     cout<<"           Submitting edit textbook";
                     break;
@@ -329,6 +328,7 @@ void MenuBuilder::callMenu(int menuId)
                             TextBookFormPtr->save();
                             break;
                     }
+                break;
                 case EDITTYPE:
                     switch(ReferenceType)
                     {
@@ -342,6 +342,7 @@ void MenuBuilder::callMenu(int menuId)
                             this->BasicRunlevel("EDIT TEXTBOOK");
                             break;
                     }
+                break;
                 case MEMBERTYPE:
                     cout<<"           Submitting edit textbook";
                     break;
