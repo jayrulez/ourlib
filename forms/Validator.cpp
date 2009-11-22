@@ -117,17 +117,12 @@ bool Validator::recordExists(string referenceNumber)
                 fileObj.seekg(recordId * sizeof(TextBook), ios::beg);
                 cout << "Debug tellg: " << fileObj.tellg() <<endl;
                 fileObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
-                cout << "Debug: Did i get here?" << endl;
                 cout << "Debug textBookObj.getReferenceNumber(): " << textBookObj.getReferenceNumber() << endl;
                 if(textBookObj.getReferenceNumber().compare(referenceNumber)==0)
                 {
-                    cout << "Debug: So i do exist" << endl;
                     exists = true;
-                }else{
-                    cout << "Debug: Are you saying i do not exist?" << endl;
                 }
                 fileObj.close();
-                system("pause");
             }
         break;
         /*case TYPE_MAGAZINE:
