@@ -182,14 +182,17 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
         case ADDSAVE:
-            this->BasicRunlevel("EDIT MENU");
+            this->BasicRunlevel("ADD MENU");
             switch(ReferenceType)
             {
                 case TEXTBOOKTYPE:
+                    cout<<"           saving textbook";
                     break;
                 case RESEARCHPAPERTYPE:
+                    cout<<"           saving research paper";
                     break;
                 case MAGAZINETYPE:
+                    cout<<"           saving magazine";
                     break;
             }
         break;
@@ -217,12 +220,14 @@ void MenuBuilder::callMenu(int menuId)
                 TypeCheck=this->menuBrowserOperator(this->AddResearchPaperFormMenu(),ADDRESAERCHPAPERFORMMENU_SIZ,FORMMENU);
             }while(TypeCheck==0);
 		break;
+
         case RESEARCHSUBMIT:
             this->BasicRunlevel("ADD RESEARCH PAPER");
             ReferenceType=RESEARCHPAPERTYPE;
             this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
             this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
         break;
+
 		case TEXTBOOK:
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
@@ -392,8 +397,8 @@ item* MenuBuilder::EditConfirmMenu()
 item* MenuBuilder::AddConfirmMenu()
 {
     static item AddConfirmMenuItem[ADDCONFIRMMENU_SIZ];
-    AddConfirmMenuItem[0].setItem(20,30,ADDSAVE,"SAVE MATERIAL");
-    AddConfirmMenuItem[1].setItem(40,30,ADDCANCEL,"CANCEL");
+    AddConfirmMenuItem[0].setItem(20,20,ADDSAVE,"SAVE MATERIAL");
+    AddConfirmMenuItem[1].setItem(50,20,ADDCANCEL,"CANCEL");
     return &AddConfirmMenuItem[0];
 }
 /*
