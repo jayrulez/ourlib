@@ -159,7 +159,7 @@ void Application::main()
 	/*
 	try block and catch ApplicationException& e, e.toString();
 	*/
-	this->buildDataFiles();
+	this->buildDataFiles(); // build data files if they do not exist
 	this->controllerObj = new Controller();
 	this->controllerObj->init()->callMenu(MAINMENU);
 }

@@ -60,7 +60,10 @@ int ReferenceMaterial::getIdFromReferenceNumber(string referenceNumber) const
 
 int ReferenceMaterial::getMaterialTypeFromReferenceNumber(string referenceNumber) const
 {
-    string shortType = referenceNumber.substr(3);
+    char prefix[3];
+    for(int i=0;i<3;i++)
+        prefix[i] = referenceNumber[i];
+    string shortType = prefix;
 
     if(shortType.compare("TX-")==0)
     {
