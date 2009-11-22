@@ -65,7 +65,6 @@ void Validator::formValidate(int *referenceObj)
     switch(materialType)
     {
         case TYPE_TEXTBOOK:
-            cout << "Validating textbook form" << endl;
             if(refNo < 1 || refNo > 999)
             {
                 this->error = "Reference Number must be between TX-001 and TX-999.";
@@ -77,10 +76,26 @@ void Validator::formValidate(int *referenceObj)
             }
         break;
         case TYPE_MAGAZINE:
-            cout << "Validating mag form" << endl;
+            if(refNo < 1 || refNo > 999)
+            {
+                this->error = "Reference Number must be between MG-001 and MG-999.";
+            }else if(this->recordExists(referenceMaterialObj->getReferenceNumber()))
+            {
+                this->error = "A Magazine with the Reference number \"";
+                (this->error).append((char*)refNo);
+                (this->error).append("\" already exists.");
+            }
         break;
         case TYPE_RESEARCHPAPER:
-            cout << "Validating researchpaper form" << endl;
+            if(refNo < 1 || refNo > 999)
+            {
+                this->error = "Reference Number must be between RP-001 and RP-999.";
+            }else if(this->recordExists(referenceMaterialObj->getReferenceNumber()))
+            {
+                this->error = "A Research Paper with the Reference number \"";
+                (this->error).append((char*)refNo);
+                (this->error).append("\" already exists.");
+            }
         break;
     }
 }

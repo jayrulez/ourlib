@@ -164,10 +164,7 @@ void TextBookForm::save()
 {
     this->textBookPtr->insertReferenceNumberPrefix(this->textBookPtr->getReferenceNumber());
 
-    TextBook textBookObj;
-    int position;
-
-    position = this->textBookPtr->getIdFromReferenceNumber(this->textBookPtr->getReferenceNumber());
+    int position = this->textBookPtr->getIdFromReferenceNumber(this->textBookPtr->getReferenceNumber());
     if(position>0) position -= 1;
 
     Validator * validator = new Validator();
@@ -181,7 +178,7 @@ void TextBookForm::save()
         fileWriteObj.seekp(position * sizeof(TextBook));
         try
         {
-            fileWriteObj.write(reinterpret_cast < char * > (&(*this->textBookPtr)),sizeof(TextBook));
+            fileWriteObj.write(reinterpret_cast < char * > (this->textBookPtr),sizeof(TextBook));
         }catch(ofstream::failure e)
         {
             //cout << e.what() << endl;

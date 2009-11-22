@@ -5,6 +5,10 @@
 #include "../ResearchPaper.h"
 #endif
 
+#include <fstream>
+#ifndef _VALIDATOR_H
+#include "./Validator.h"
+#endif
 #include <iostream>
 using namespace std;
 
@@ -139,4 +143,29 @@ void ResearchPaperForm::show()
 }
 void ResearchPaperForm::save()
 {
+    this->researchPaperPtr->insertReferenceNumberPrefix(this->researchPaperPtr->getReferenceNumber());
+
+    int position = this->researchPaperPtr->getIdFromReferenceNumber(this->researchPaperPtr->getReferenceNumber());
+    if(position>0) position -= 1;
+
+    Validator * validator = new Validator();
+    validator->formValidate((int*)this->researchPaperPtr);
+    if (validator->hasError())
+    {
+        cout << "Error: " << validator->getError() << endl;
+    }else{
+        ofstream fileWriteObj (this->researchPaperPtr->getDataFileName(),ios::out | ios::binary);
+        fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
+        fileWriteObj.seekp(position * sizeof(ResearchPaper));
+        try
+        {
+            fileWriteObj.write(reinterpret_cast < char * > (&(*this->researchPaperPtr)),sizeof(ResearchPaper));
+        }catch(ofstream::failure e)
+        {
+            //cout << e.what() << endl;
+            cout << "Error, could not write to file" << endl;
+        }
+        fileWriteObj.close();
+    }
+    fgetc(stdin);
 }
