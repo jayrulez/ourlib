@@ -99,6 +99,20 @@
 #define NEWUSER 25
 #define LOANMENU_SIZ 3
 
+/*
+* Existing User Loan Menu
+*/
+#define LOANSUBMIT 26
+#define LOANCLEARFIELD 27
+#define EXISTINGUSERMENU_SIZ 4
+
+/*
+* Existing User Return Menu
+*/
+#define RETURNSUBMIT 26
+#define RETURNCLEARFIELD 27
+#define RETURNMENU_SIZ 4
+
 #include <string>
 using namespace std;
 
@@ -107,18 +121,29 @@ class MenuBuilder
 public:
 	MenuBuilder();
 	~MenuBuilder();
+
 	item* MainMenu();
+
 	item* AddReferenceMaterial();
 	item* AddResearchPaperFormMenu();
 	item* AddMagazineFormMenu();
 	item* AddTextBookFormMenu();
 	item* AddMemberFormMenu();
+	item* AddConfirmMenu();
+
 	item* EditMenu();
 	item* EditFormMenu();
 	item* EditConfirmMenu();
-	item* AddConfirmMenu();
+
 	item* DeleteMenu();
+
 	item* LoanMenu();
+	item* LoanFormMenu();
+	item* LoanConfirmMenu();
+
+    item* ReturnFormMenu();
+	item* ReturnConfirmMenu();
+
 	int EditMenuDriver();
 	int EditInput(string *);
 	int DeleteMenuDriver();

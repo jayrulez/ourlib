@@ -62,6 +62,10 @@
 #include "forms/MemberForm.h"
 #endif
 
+#ifndef LOANRETURNFORM_H
+#include "forms/LoanReturnForm.h"
+#endif
+
 #ifndef FORMINPUTBUILDER_H
 #include "forms/FormInputBuilder.h"
 #endif
@@ -125,6 +129,8 @@ void MenuBuilder::callMenu(int menuId)
     static MemberForm *MemberPtr=new MemberForm;
     static TextBookForm *TextBookFormPtr=new TextBookForm;
     static ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
+    static LoanReturnForm *LoanReturnFormPtr=new LoanReturnForm;
+    static LoanReturnForm *ReturnFormPtr=new LoanReturnForm;
     static int ReferenceType;
     con.setCursor(false,50);
 
@@ -286,6 +292,14 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 
 		case EXISTINGMEMBER:
+            this->BasicRunlevel("LOAN MENU");
+            LoanReturnFormPtr->show();
+            this->MenuShow(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ);
+			do
+			{
+                LoanReturnFormPtr->BrowseLoanReturnForm();
+                TypeCheck=this->menuBrowserOperator(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ,FORMMENU);
+			}while(TypeCheck==0);
 		break;
 
         case NEWUSER:
@@ -296,6 +310,17 @@ void MenuBuilder::callMenu(int menuId)
 			{
                 MemberPtr->BrowseMemberForm();
                 TypeCheck=this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
+			}while(TypeCheck==0);
+        break;
+
+        case RETURN:
+            this->BasicRunlevel("RETURN MENU");
+            ReturnFormPtr->show();
+            this->MenuShow(this->ReturnFormMenu(),RETURNMENU_SIZ);
+			do
+			{
+                ReturnFormPtr->BrowseLoanReturnForm();
+                TypeCheck=this->menuBrowserOperator(this->ReturnFormMenu(),RETURNMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
 
@@ -427,6 +452,43 @@ item* MenuBuilder::LoanMenu()
     LoanMenuItem[1].setItem(55,21,NEWUSER,"NEW USER");
     LoanMenuItem[2].setItem(35,25,MAINMENU,"MAIN MENU");
     return &LoanMenuItem[0];
+}
+
+/*
+*   This function creates menu items for the Loan Form
+*/
+item* MenuBuilder::LoanFormMenu()
+{
+    static item LoanFormMenuItem[EXISTINGUSERMENU_SIZ];
+    LoanFormMenuItem[0].setItem(15,35,LOANSUBMIT,"SUBMIT");
+    LoanFormMenuItem[1].setItem(35,35,LOANCLEARFIELD,"CLEAR FIELDS");
+    LoanFormMenuItem[2].setItem(55,35,LOAN,"<-- LOAN MENU");
+    LoanFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return &LoanFormMenuItem[0];
+}
+/*
+*   This function creates menu items for the Loan Confirmation Menu
+*/
+item* MenuBuilder::LoanConfirmMenu()
+{
+}
+/*
+*   This function creates menu items for the Return Form
+*/
+item* MenuBuilder::ReturnFormMenu()
+{
+    static item ReturnFormMenuItem[RETURNMENU_SIZ];
+    ReturnFormMenuItem[0].setItem(15,35,RETURNSUBMIT,"SUBMIT");
+    ReturnFormMenuItem[1].setItem(35,35,RETURNCLEARFIELD,"CLEAR FIELDS");
+    ReturnFormMenuItem[2].setItem(55,35,RETURN,"<-- RETURN MENU");
+    ReturnFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    return &ReturnFormMenuItem[0];
+}
+/*
+*   This function creates menu items for the Return Confoirmation Menu
+*/
+item* MenuBuilder::ReturnConfirmMenu()
+{
 }
 /*
 *   This function creates menu items for the Delete Menu
