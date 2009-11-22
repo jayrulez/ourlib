@@ -8,6 +8,10 @@
 #include <string>
 #include <windows.h>
 #include "../gui/console/console.h"
+#include <fstream>
+#ifndef _VALIDATOR_H
+#include "./Validator.h"
+#endif
 
 using namespace std;
 
@@ -156,4 +160,29 @@ void MagazineForm::show()
 }
 void MagazineForm::save()
 {
+    this->magazinePtr->insertReferenceNumberPrefix(this->magazinePtr->getReferenceNumber());
+
+    int position = this->magazinePtr->getIdFromReferenceNumber(this->magazinePtr->getReferenceNumber());
+    if(position>0) position -= 1;
+
+    Validator * validator = new Validator();
+    validator->formValidate((int*)this->magazinePtr);
+    if (validator->hasError())
+    {
+        cout << "Error: " << validator->getError() << endl;
+    }else{
+        ofstream fileWriteObj (this->magazinePtr->getDataFileName(),ios::out | ios::binary);
+        fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
+        fileWriteObj.seekp(position * sizeof(Magazine));
+        try
+        {
+            fileWriteObj.write(reinterpret_cast < char * > (&(*this->magazinePtr)),sizeof(Magazine));
+        }catch(ofstream::failure e)
+        {
+            //cout << e.what() << endl;
+            cout << "Error, could not write to file" << endl;
+        }
+        fileWriteObj.close();
+    }
+    fgetc(stdin);
 }
