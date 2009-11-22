@@ -11,6 +11,12 @@
 #endif
 
 /*
+* Referce Material Types
+*/
+#define TEXTBOOK 1000
+#define RESEARCHPAPER 1001
+#define MAGAZINE 1002
+/*
 * Menu Type
 */
 #define NORMALMENU 100

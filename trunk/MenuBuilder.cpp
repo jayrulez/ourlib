@@ -150,11 +150,55 @@ void MenuBuilder::callMenu(int menuId)
         break;
         case EDITCLEARFIELD:
         break;
+
         case EDITSAVE:
+            switch(ReferenceType)
+            {
+                case TEXTBOOK:
+                    break;
+                case RESEARCHPAPER:
+                    break;
+                case MAGAZINE:
+                    break;
+            }
         break;
         case EDITCANCEL:
             this->BasicRunlevel("EDIT MENU");
+            switch(ReferenceType)
+            {
+                case TEXTBOOK:
+                    break;
+                case RESEARCHPAPER:
+                    break;
+                case MAGAZINE:
+                    break;
+            }
+        break;
 
+        case ADDSAVE:
+            this->BasicRunlevel("EDIT MENU");
+            switch(ReferenceType)
+            {
+                case TEXTBOOK:
+                    break;
+                case RESEARCHPAPER:
+                    break;
+                case MAGAZINE:
+                    break;
+            }
+        break;
+
+        case ADDCANCEL:
+            this->BasicRunlevel("ADD MENU");
+            switch(ReferenceType)
+            {
+                case TEXTBOOK:
+                    break;
+                case RESEARCHPAPER:
+                    break;
+                case MAGAZINE:
+                    break;
+            }
         break;
 		case RESEARCHPAPER:
 			this->BasicRunlevel("ADD RESEARCH PAPER");
