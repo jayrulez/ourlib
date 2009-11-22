@@ -11,19 +11,6 @@ using namespace std;
 TextBook::TextBook()
 {
         this->dataFileName = "textbooks.bin";
-        ifstream fileReadObj (this->dataFileName,ios::in | ios::binary);
-        ofstream fileWriteObj;
-        if(!fileReadObj.is_open())
-        {
-            fileWriteObj.open(this->dataFileName,ios::out | ios::binary);
-            if(fileWriteObj.is_open())
-            {
-                for(int i=0; i < 9999999999; i++)
-                {
-
-                }
-            }
-        }
 }
 
 /*
