@@ -392,8 +392,8 @@ item* MenuBuilder::EditConfirmMenu()
 item* MenuBuilder::AddConfirmMenu()
 {
     static item AddConfirmMenuItem[ADDCONFIRMMENU_SIZ];
-    AddConfirmMenuItem[0].setItem(20,50,ADDSAVE,"SAVE MATERIAL");
-    AddConfirmMenuItem[1].setItem(40,50,ADDCANCEL,"CANCEL");
+    AddConfirmMenuItem[0].setItem(20,30,ADDSAVE,"SAVE MATERIAL");
+    AddConfirmMenuItem[1].setItem(40,30,ADDCANCEL,"CANCEL");
     return &AddConfirmMenuItem[0];
 }
 /*
