@@ -53,7 +53,7 @@ void TextBookForm::BrowseTextBookForm()
 {
 	bool read=false;
 	int KeyType;
-	consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+18,TextBookCoord[FieldPosition][1]);
+	consoleObj.xyCoord(TextBookCoord[0][0]+18,TextBookCoord[0][1]);
 	cout<<tag;
 	consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
 	while(!read)

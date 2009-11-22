@@ -25,6 +25,7 @@ private:
     string input;
     string AllInput[6];
     string *InputPtr;
+    string tag;
 public:
     MagazineForm();
     ~MagazineForm();

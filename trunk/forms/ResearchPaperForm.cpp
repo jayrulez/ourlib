@@ -13,9 +13,10 @@ ResearchPaperForm::ResearchPaperForm()
     this->researchPaperPtr = new ResearchPaper;
     FieldPosition=0;
     InputPtr=&input;
+    tag="RP-";
     ResearchPaperCoord[0][0]=25;
     ResearchPaperCoord[0][1]=12;
-    ResearchPaperCoord[0][2]=18;
+    ResearchPaperCoord[0][2]=21;
 
     ResearchPaperCoord[1][0]=25;
     ResearchPaperCoord[1][1]=15;
@@ -47,6 +48,8 @@ void ResearchPaperForm::BrowseResearchPaperForm()
 {
 	bool read=false;
 	int KeyType;
+    consoleObj.xyCoord(ResearchPaperCoord[0][0]+18,ResearchPaperCoord[0][1]);
+	cout<<tag;
 	consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+AllInput[FieldPosition].length(),ResearchPaperCoord[FieldPosition][1]);
 	while(!read)
 	{
