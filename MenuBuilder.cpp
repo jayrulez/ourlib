@@ -280,7 +280,6 @@ void MenuBuilder::callMenu(int menuId)
             switch(MenuType)
             {
                 case ADDTYPE:
-                    ReferenceType=RESEARCHPAPERTYPE;
                     switch(ReferenceType)
                     {
                         case MAGAZINETYPE:
@@ -298,7 +297,6 @@ void MenuBuilder::callMenu(int menuId)
                     this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
                     break;
                 case EDITTYPE:
-                    ReferenceType=RESEARCHPAPERTYPE;
                     switch(ReferenceType)
                     {
                         case MAGAZINETYPE:
