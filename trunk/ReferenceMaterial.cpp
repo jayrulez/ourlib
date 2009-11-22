@@ -53,20 +53,27 @@ void ReferenceMaterial::setAuthor(string author)
 
 int ReferenceMaterial::getIdFromReferenceNumber(string referenceNumber)
 {
-    int refNoLength = referenceNumber.length();
-    const char* refNoAsCharStr = referenceNumber.c_str();
-	int idLength = refNoLength - 3;
-	int i = 3;
-	int c;
-	char idAsString[idLength];
-
-	for(c=0; c < idLength; i++, c++)
-	{
-		idAsString[c] = refNoAsCharStr[i];
-	}
-
-	int id = atoi(idAsString);
+    string idAsString = referenceNumber.substr(3);
+    int id = atoi(idAsString.c_str());
 	return id;
+}
+
+int ReferenceMaterial::getMaterialTypeFromReferenceNumber(string referenceNumber)
+{
+    string shortType = referenceNumber.substr(3);
+
+    if(shortType.compare("TX-")==0)
+    {
+        return TYPE_TEXTBOOK;
+    }else if(shortType.compare("MG-")==0)
+    {
+        return TYPE_MAGAZINE;
+    }else if(shortType.compare("RP-")==0)
+    {
+        return TYPE_RESEARCHPAPER;
+    }else{
+        return TYPE_NONEXISTENT;
+    }
 }
 
 

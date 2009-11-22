@@ -4,8 +4,8 @@
 #ifndef _TEXTBOOK_H
 #include "../TextBook.h"
 #endif
-#ifndef _SERIALIZER_HPP
-#include "Serializer.hpp"
+#ifndef _VALIDATOR_H
+#include "./Validator.h"
 #endif
 
 #include <iostream>
@@ -164,26 +164,20 @@ void TextBookForm::show(TextBook * textBookObj)
 
 int TextBookForm::save()
 {
-    TextBook textBookObj;
-    bool recordExists = false;
+    /*TextBook textBookObj;
+    this->textBookPtr->setReferenceNumber((*this->textBookPtr).getReferenceNumberPrefix().append(this->textBookPtr->getReferenceNumber()));
+    cout << this->textBookPtr->getReferenceNumber();
+    int position;
+    position = atoi((*this->textBookPtr).getReferenceNumber().c_str());
+    if(position>0) position -=1;
+    Validator validator;
 
-    ifstream fileReadObj (this->textBookPtr->getDataFileName(),ios::in | ios::binary);
-    if(fileReadObj.is_open())
+    if(validator.recordExists(this->textBookPtr->getReferenceNumber()))
     {
-        fileReadObj.seekg(0);
-        fileReadObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
-        while(!fileReadObj.eof())
-        {
-            fileReadObj.read(reinterpret_cast < char * > (&textBookObj),sizeof(TextBook));
-            cout << "\n\nRef. No: " << textBookObj.getReferenceNumber() << "\nISBN: " << textBookObj.getISBN() << endl;
-        }
-        fileReadObj.close();
-    }
+        // record Exists
+    }else{
 
-    ofstream fileWriteObj (this->textBookPtr->getDataFileName(),ios::out | ios::app | ios::binary);
-    fileWriteObj.write(reinterpret_cast < char * > (&(*this->textBookPtr)),sizeof(TextBook));
-//    fileWriteObj.tellp(0);
-    fileWriteObj.close();
+    }*/
 
     return 0;
 }

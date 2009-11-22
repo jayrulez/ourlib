@@ -18,7 +18,7 @@ TextBook::TextBook()
 */
 TextBook::~TextBook()
 {
-
+    this->referenceNumberPrefix = "TX-";
 }
 TextBook::TextBook(string referenceNumber,string author,string title, string ISBN,string course,string publisher)
 {
@@ -88,6 +88,11 @@ void TextBook::showReferenceMaterial(int xCoord,int yCoord)
 char* TextBook::getDataFileName()
 {
     return this->dataFileName;
+}
+
+string TextBook::getReferenceNumberPrefix()
+{
+    return this->referenceNumberPrefix;
 }
 
 

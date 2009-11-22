@@ -1,6 +1,11 @@
 #ifndef _REFERENCEMATERIAL_H
 #define _REFERENCEMATERIAL_H
 
+#define TYPE_TEXTBOOK 1
+#define TYPE_MAGAZINE 2
+#define TYPE_RESEARCHPAPER 3
+#define TYPE_NONEXISTENT 0
+
 #include <string>
 using namespace std;
 
@@ -21,5 +26,6 @@ public:
 	void setTitle(string);
 	void setAuthor(string);
 	int getIdFromReferenceNumber(string);
+	int getMaterialTypeFromReferenceNumber(string);
 };
 #endif
