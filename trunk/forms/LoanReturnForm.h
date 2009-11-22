@@ -16,7 +16,7 @@ private:
     string ReferenceNumber;
     int IdNumber;
     int FieldPosition;
-    string LoanDate;
+    string LoanReturnDate;
     string AllInput[3];
     string input;
     string *InputPtr;

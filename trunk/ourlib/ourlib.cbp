@@ -45,8 +45,8 @@
 		<Unit filename="..\TextBook.h" />
 		<Unit filename="..\forms\FormInputBuilder.cpp" />
 		<Unit filename="..\forms\FormInputBuilder.h" />
-		<Unit filename="..\forms\LoanForm.cpp" />
-		<Unit filename="..\forms\LoanForm.h" />
+		<Unit filename="..\forms\LoanReturnForm.cpp" />
+		<Unit filename="..\forms\LoanReturnForm.h" />
 		<Unit filename="..\forms\MagazineForm.cpp" />
 		<Unit filename="..\forms\MagazineForm.h" />
 		<Unit filename="..\forms\MemberForm.cpp" />
