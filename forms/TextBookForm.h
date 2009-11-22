@@ -21,6 +21,8 @@ private:
     string input;
     string AllInput[7];
     string *InputPtr;
+    string tag;
+    //string ReferenceNumber;
 public:
     TextBookForm();
     ~TextBookForm();

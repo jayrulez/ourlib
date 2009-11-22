@@ -13,11 +13,12 @@ using namespace std;
 TextBookForm::TextBookForm()
 {
     this->textBookPtr = new TextBook;
+    tag="TX-";
     FieldPosition=0;
     InputPtr=&input;
     TextBookCoord[0][0]=25;
     TextBookCoord[0][1]=12;
-    TextBookCoord[0][2]=18;
+    TextBookCoord[0][2]=21;
 
     TextBookCoord[1][0]=25;
     TextBookCoord[1][1]=15;
@@ -52,14 +53,18 @@ void TextBookForm::BrowseTextBookForm()
 {
 	bool read=false;
 	int KeyType;
+	consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+18,TextBookCoord[FieldPosition][1]);
+	cout<<tag;
 	consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
 	while(!read)
 	{
 	    switch(FieldPosition)
 	    {
             case 0:
+                //*InputPtr = ReferenceNumber.c_str();
                 *InputPtr = this->textBookPtr->getReferenceNumber();
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,3,TextBookCoord,FieldPosition,false);
+                //this->ReferenceNumber = *InputPtr;
                 this->textBookPtr->setReferenceNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -166,6 +171,7 @@ int TextBookForm::save()
     TextBook textBookObj;
     //this->textBookPtr->setReferenceNumber((*this->textBookPtr).getReferenceNumberPrefix().append(this->textBookPtr->getReferenceNumber()));
     int position;
+    //this->textBookPtr->setReferenceNumber(this->tag+this->ReferenceNumber);
     cout << "Debug this->textBookPtr->getReferenceNumber: " << (*this->textBookPtr).getReferenceNumber() <<endl;
     position = this->textBookPtr->getIdFromReferenceNumber(this->textBookPtr->getReferenceNumber());
 
