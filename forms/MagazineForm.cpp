@@ -16,9 +16,10 @@ MagazineForm::MagazineForm()
     this->magazinePtr = new Magazine;
     FieldPosition=0;
     InputPtr=&input;
+    tag="MG-";
     MagazineCoord[0][0]=25;
     MagazineCoord[0][1]=11;
-    MagazineCoord[0][2]=18;
+    MagazineCoord[0][2]=21;
 
     MagazineCoord[1][0]=25;
     MagazineCoord[1][1]=14;
@@ -50,6 +51,8 @@ void MagazineForm::BrowseMagazineForm()
 	// 5 pointers needed for 5 inputs
 	bool read=false;
 	int KeyType;
+	consoleObj.xyCoord(MagazineCoord[0][0]+18,MagazineCoord[0][1]);
+	cout<<tag;
 	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
 	while(!read)
 	{
