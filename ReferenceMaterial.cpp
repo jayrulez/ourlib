@@ -40,7 +40,7 @@ string ReferenceMaterial::getAuthor() const
 }
 void ReferenceMaterial::setReferenceNumber(string referenceNumber)
 {
-    this->referenceNumber = referenceNumber;
+    this->referenceNumber = this->getReferenceNumberPrefix().append(referenceNumber);
 }
 void ReferenceMaterial::setTitle(string title)
 {
