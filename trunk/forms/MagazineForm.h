@@ -29,8 +29,9 @@ private:
 public:
     MagazineForm();
     ~MagazineForm();
-    void BrowseMagazineForm();
-	void show(Magazine*);
+    void browseForm();
+	void show();
+    void save();
 	void showTest();
 };
 

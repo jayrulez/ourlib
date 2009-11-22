@@ -27,9 +27,9 @@ private:
 public:
     TextBookForm();
     ~TextBookForm();
-    void BrowseTextBookForm();
-	void show(TextBook*);
-	int save();
+    void browseForm();
+	void show();
+	void save();
 };
 
 #endif

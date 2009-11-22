@@ -24,7 +24,8 @@ private:
 public:
     MemberForm();
     ~MemberForm();
-    void BrowseMemberForm();
+    void browseForm();
 	void show();
+    void save();
 };
 #endif // MEMBERFORM_H_

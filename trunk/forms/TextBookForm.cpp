@@ -48,7 +48,7 @@ TextBookForm::~TextBookForm()
 {
 
 }
-void TextBookForm::BrowseTextBookForm()
+void TextBookForm::browseForm()
 {
 	bool read=false;
 	int KeyType;
@@ -139,15 +139,9 @@ void TextBookForm::BrowseTextBookForm()
 	consoleObj.setCursor(false,3);
 }
 
-void TextBookForm::show(TextBook * textBookObj)
+void TextBookForm::show()
 {
-	string referenceNumber = textBookObj->getReferenceNumber();
-	if(referenceNumber.empty())
-	{
-		//NEW RECORD
-	}else{
-		//record from file
-	}
+
     consoleObj.xyCoord(TextBookCoord[0][0],TextBookCoord[0][1]);
 	cout<<"Reference Number: ";
 	consoleObj.xyCoord(TextBookCoord[1][0],TextBookCoord[1][1]);
@@ -166,7 +160,7 @@ void TextBookForm::show(TextBook * textBookObj)
 	cout<<"Date Published: ";
 }
 
-int TextBookForm::save()
+void TextBookForm::save()
 {
     this->textBookPtr->insertReferenceNumberPrefix(this->textBookPtr->getReferenceNumber());
 
@@ -196,5 +190,4 @@ int TextBookForm::save()
         fileWriteObj.close();
     }
     fgetc(stdin);
-    return 0;
 }

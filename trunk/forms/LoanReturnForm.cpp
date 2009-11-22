@@ -25,7 +25,7 @@ LoanReturnForm::LoanReturnForm()
 LoanReturnForm::~LoanReturnForm()
 {
 }
-void LoanReturnForm::BrowseLoanReturnForm()
+void LoanReturnForm::browseForm()
 {
     char* tempId;
 	bool read=false;
@@ -97,4 +97,7 @@ void LoanReturnForm::show()
 	cout<<"Id Number: ";
 	consoleObj.xyCoord(LoanReturnCoord[2][0],LoanReturnCoord[2][1]);
 	cout<<"Date: ";
+}
+void LoanReturnForm::save()
+{
 }
