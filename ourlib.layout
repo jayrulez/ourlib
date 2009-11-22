@@ -16,6 +16,12 @@
 	<File name="Magazine.h" open="0" top="0" tabpos="0">
 		<Cursor position="510" topLine="0" />
 	</File>
+	<File name="MenuBuilder.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="4648" topLine="153" />
+	</File>
+	<File name="MenuBuilder.h" open="1" top="0" tabpos="1">
+		<Cursor position="442" topLine="0" />
+	</File>
 	<File name="ReferenceMaterial.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="1404" topLine="49" />
 	</File>
@@ -30,6 +36,18 @@
 	</File>
 	<File name="TextBook.h" open="0" top="0" tabpos="0">
 		<Cursor position="871" topLine="22" />
+	</File>
+	<File name="forms\FormInputBuilder.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="3899" topLine="0" />
+	</File>
+	<File name="forms\LoanReturnForm.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="808" topLine="0" />
+	</File>
+	<File name="forms\LoanReturnForm.h" open="0" top="0" tabpos="0">
+		<Cursor position="347" topLine="0" />
+	</File>
+	<File name="forms\MemberForm.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="977" topLine="75" />
 	</File>
 	<File name="forms\TextBookForm.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="6370" topLine="160" />

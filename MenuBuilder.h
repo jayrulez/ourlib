@@ -16,6 +16,12 @@
 #define TEXTBOOKTYPE 1000
 #define RESEARCHPAPERTYPE 1001
 #define MAGAZINETYPE 1002
+#define MEMBERTYPE 1003
+#define LOANTYPE 1004
+#define RETURNTYPE 1005
+#define DELETETYPE 1006
+#define EDITTYPE 1007
+#define ADDTYPE 1008
 /*
 * Menu Type
 */
@@ -45,27 +51,15 @@
 /*
 * Add Research Paper
 */
-#define RESEARCHSUBMIT 10
-#define RESEARCHCLEARFIELD 11
-#define ADDRESAERCHPAPERFORMMENU_SIZ 4
+#define ADDFORMMENU_SIZ 4
 /*
-* Add Magazine
+* Add Member Form Menu
 */
-#define MAGAZINESUBMIT 12
-#define MAGAZINECLEARFIELD 13
-#define ADDMAGAZINEFORMMENU_SIZ 4
-/*
-* Add TextBook
-*/
-#define TEXTBOOKSUBMIT 14
-#define TEXTBOOKCLEARFIELD 15
-#define ADDTEXTBOOKFORMMENU_SIZ 4
-/*
-* Add Member
-*/
-#define MEMBERSUBMIT 16
-#define MEMBERCLEARFIELD 17
 #define ADDMEMBERFORMMENU_SIZ 4
+/*
+* Add Member Confirmation Menu
+*/
+#define MEMBERCONFIRMMENU_SIZ 2
 /*
 * Edit Menu
 */
@@ -73,45 +67,61 @@
 /*
 * Edit Form Menu
 */
-#define EDITSUBMIT 18
-#define EDITCLEARFIELD 19
 #define EDITFORMMENU_SIZ 4
 /*
 * Edit Confirmation Menu
 */
-#define EDITSAVE 20
-#define EDITCANCEL 21
 #define EDITCONFIRMMENU_SIZ 2
 /*
 * Add Confirmation Menu
 */
-#define ADDSAVE 22
-#define ADDCANCEL 23
 #define ADDCONFIRMMENU_SIZ 2
 /*
 * Delete Menu
 */
 #define DELETEMENU_SIZ 1
 /*
+* Delete Confirmation Menu
+*/
+#define DELETECONFIRMMENU_SIZ 2
+/*
 * Loan Menu
 */
-#define EXISTINGMEMBER 24
-#define NEWUSER 25
+#define EXISTINGMEMBER 10
+#define NEWUSER 11
 #define LOANMENU_SIZ 3
-
 /*
 * Existing User Loan Menu
 */
-#define LOANSUBMIT 26
-#define LOANCLEARFIELD 27
 #define EXISTINGUSERMENU_SIZ 4
-
+/*
+* Existing User Loan Confirmation menu
+*/
+#define LOANCONFIRMMENU_SIZ 2
 /*
 * Existing User Return Menu
 */
-#define RETURNSUBMIT 26
-#define RETURNCLEARFIELD 27
 #define RETURNMENU_SIZ 4
+/*
+* Return User Loan Confirmation menu
+*/
+#define RETURNCONFIRMMENU_SIZ 2
+/*
+* Return User Loan Confirmation menu
+*/
+#define RETURNCONFIRMMENU_SIZ 2
+
+/*
+* Form Confirmation Menu Items
+*/
+#define SAVE 12
+#define CANCEL 13
+
+/*
+* Form Menu Items
+*/
+#define SUBMIT 14
+#define CLEARFIELD 15
 
 #include <string>
 using namespace std;
@@ -125,10 +135,7 @@ public:
 	item* MainMenu();
 
 	item* AddReferenceMaterial();
-	item* AddResearchPaperFormMenu();
-	item* AddMagazineFormMenu();
-	item* AddTextBookFormMenu();
-	item* AddMemberFormMenu();
+	item* AddFormMenu();
 	item* AddConfirmMenu();
 
 	item* EditMenu();
@@ -136,10 +143,13 @@ public:
 	item* EditConfirmMenu();
 
 	item* DeleteMenu();
+	item* DeleteConfirmMenu();
 
 	item* LoanMenu();
 	item* LoanFormMenu();
 	item* LoanConfirmMenu();
+    item* AddMemberFormMenu();
+	item* MemberConfirmMenu();
 
     item* ReturnFormMenu();
 	item* ReturnConfirmMenu();
