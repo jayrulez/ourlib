@@ -19,7 +19,6 @@ using namespace std;
 class TextBook:public ReferenceMaterial
 {
 private:
-    string referenceNumberPrefix;
 	string ISBN;
 	string course;
 	string publisher;
@@ -40,7 +39,6 @@ public:
 	string getPublisher() const;
 	string getDatePublished() const;
 	void showReferenceMaterial(int,int);
-	string getReferenceNumberPrefix();
 	char* getDataFileName();
 	void write(Serializer& s)
 	{

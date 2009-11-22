@@ -4,9 +4,6 @@
 #ifndef _TEXTBOOK_H
 #include "../TextBook.h"
 #endif
-#ifndef _VALIDATOR_H
-#include "./Validator.h"
-#endif
 
 #include <iostream>
 using namespace std;

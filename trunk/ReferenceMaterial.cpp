@@ -51,14 +51,14 @@ void ReferenceMaterial::setAuthor(string author)
     this->author = author;
 }
 
-int ReferenceMaterial::getIdFromReferenceNumber(string referenceNumber)
+int ReferenceMaterial::getIdFromReferenceNumber(string referenceNumber) const
 {
     string idAsString = referenceNumber.substr(3);
     int id = atoi(idAsString.c_str());
 	return id;
 }
 
-int ReferenceMaterial::getMaterialTypeFromReferenceNumber(string referenceNumber)
+int ReferenceMaterial::getMaterialTypeFromReferenceNumber(string referenceNumber) const
 {
     string shortType = referenceNumber.substr(3);
 
@@ -74,6 +74,16 @@ int ReferenceMaterial::getMaterialTypeFromReferenceNumber(string referenceNumber
     }else{
         return TYPE_NONEXISTENT;
     }
+}
+
+void ReferenceMaterial::setReferenceNumberPrefix(string referenceNumberPrefix)
+{
+    this->referenceNumberPrefix = referenceNumberPrefix;
+}
+
+string ReferenceMaterial::getReferenceNumberPrefix() const
+{
+    return this->referenceNumberPrefix;
 }
 
 

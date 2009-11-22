@@ -13,6 +13,7 @@ class ReferenceMaterial
 {
 protected:
 	string referenceNumber;
+    string referenceNumberPrefix;
 	string title;
 	string author;
 public:
@@ -25,7 +26,9 @@ public:
 	void setReferenceNumber(string);
 	void setTitle(string);
 	void setAuthor(string);
-	int getIdFromReferenceNumber(string);
-	int getMaterialTypeFromReferenceNumber(string);
+	int getIdFromReferenceNumber(string) const;
+	int getMaterialTypeFromReferenceNumber(string) const;
+	void setReferenceNumberPrefix(string);
+	string getReferenceNumberPrefix() const;
 };
 #endif

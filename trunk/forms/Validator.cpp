@@ -16,12 +16,12 @@
 
 #include <fstream>
 
-Validator::Validator() {}
+/*Validator::Validator() {}
 Validator::~Validator() {}
 
 bool Validator::recordExists(string referenceNumber)
 {
-    /*ReferenceMaterial referenceMaterial;
+    ReferenceMaterial referenceMaterial;
     int recordId = referenceMaterial.getIdFromReferenceNumber(referenceNumber);
     int referenceType = referenceMaterial.getMaterialTypeFromReferenceNumber(referenceNumber);
     ifstream fileObj;
@@ -44,6 +44,7 @@ bool Validator::recordExists(string referenceNumber)
         break;
         case TYPE_RESEARCHPAPER:
         break;
-    }*/
+    }
     return false;
 }
+*/
