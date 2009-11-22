@@ -169,17 +169,18 @@ int TextBookForm::save()
     cout << "Debug this->textBookPtr->getReferenceNumber: " << (*this->textBookPtr).getReferenceNumber() <<endl;
     position = this->textBookPtr->getIdFromReferenceNumber(this->textBookPtr->getReferenceNumber());
 
-    //if(position>0) position -=1;
-    Validator validator;
-
-    if(validator.recordExists(this->textBookPtr->getReferenceNumber()))
+    if(position>0) position -=1;
+    Validator * validator = new Validator();
+    //(int*)this->textBookPtr;
+    validator->formValidate((int*)this->textBookPtr);
+    if (validator->hasError())
     {
-        cout << "Record with reference number already exists" << endl;
+        cout << "Error: " << validator->getError() << endl;
     }else{
 
         cout << "Debug position: " << position <<endl;
         ofstream fileWriteObj (this->textBookPtr->getDataFileName(), ios::out | ios::app | ios::binary);
-        fileWriteObj.seekp((position-1) * sizeof(TextBook), ios::beg);
+        fileWriteObj.seekp(position * sizeof(TextBook), ios::beg);
         cout << "Debug tellp: " << fileWriteObj.tellp() << endl;
         fileWriteObj.write(reinterpret_cast < char * > (&(*this->textBookPtr)),sizeof(TextBook));
         cout << "Debug tellp: " << fileWriteObj.tellp() << endl;
