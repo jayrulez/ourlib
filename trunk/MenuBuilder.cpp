@@ -188,7 +188,7 @@ void MenuBuilder::callMenu(int menuId)
                             this->BasicRunlevel("EDIT TEXTBOOK");
                             break;
                     }
-                    this->MenuShow(AddConfirmMenu(),EDITCONFIRMMENU_SIZ);
+                    this->MenuShow(EditConfirmMenu(),EDITCONFIRMMENU_SIZ);
                     this->menuBrowserOperator(EditConfirmMenu(),EDITCONFIRMMENU_SIZ,NORMALMENU);
                     break;
 
@@ -215,9 +215,6 @@ void MenuBuilder::callMenu(int menuId)
                     this->menuBrowserOperator(DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,NORMALMENU);
                     break;
             }
-            this->BasicRunlevel("EDIT MENU");
-            this->MenuShow(this->EditConfirmMenu(),EDITCONFIRMMENU_SIZ);
-            this->menuBrowserOperator(this->EditConfirmMenu(),EDITCONFIRMMENU_SIZ,NORMALMENU);
         break;
 
         case CLEARFIELD:
@@ -332,9 +329,6 @@ void MenuBuilder::callMenu(int menuId)
                             TextBookFormPtr->save();
                             break;
                     }
-                    this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
-                    this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
-                    break;
                 case EDITTYPE:
                     switch(ReferenceType)
                     {
