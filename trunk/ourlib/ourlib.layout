@@ -43,10 +43,10 @@
 	<File name="..\Member.h" open="0" top="0" tabpos="5">
 		<Cursor position="84" topLine="0" />
 	</File>
-	<File name="..\MenuBuilder.cpp" open="1" top="1" tabpos="1">
+	<File name="..\MenuBuilder.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="22105" topLine="737" />
 	</File>
-	<File name="..\MenuBuilder.h" open="1" top="0" tabpos="2">
+	<File name="..\MenuBuilder.h" open="0" top="0" tabpos="2">
 		<Cursor position="2191" topLine="28" />
 	</File>
 	<File name="..\ReferenceMaterial.cpp" open="0" top="0" tabpos="6">
@@ -73,11 +73,11 @@
 	<File name="..\forms\FormInputBuilder.h" open="0" top="0" tabpos="5">
 		<Cursor position="441" topLine="0" />
 	</File>
-	<File name="..\forms\MagazineForm.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="3942" topLine="106" />
+	<File name="..\forms\MagazineForm.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="4857" topLine="118" />
 	</File>
-	<File name="..\forms\MagazineForm.h" open="0" top="0" tabpos="4">
-		<Cursor position="478" topLine="0" />
+	<File name="..\forms\MagazineForm.h" open="1" top="0" tabpos="3">
+		<Cursor position="414" topLine="0" />
 	</File>
 	<File name="..\forms\MemberForm.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="1160" topLine="32" />

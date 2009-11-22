@@ -146,7 +146,7 @@ void MagazineForm::show(Magazine * magazineObj)
 	}
 	consoleObj.xyCoord(MagazineCoord[0][0],MagazineCoord[0][1]);
 	cout<<"Reference Number: ";
-	consoleObj.xyCoord(MagazineCoord[2][0],MagazineCoord[2][1]);
+	consoleObj.xyCoord(MagazineCoord[1][0],MagazineCoord[1][1]);
 	cout<<"Title: ";
 	consoleObj.xyCoord(MagazineCoord[2][0],MagazineCoord[2][1]);
 	cout<<"Author: ";
