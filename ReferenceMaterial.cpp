@@ -86,4 +86,9 @@ string ReferenceMaterial::getReferenceNumberPrefix() const
     return this->referenceNumberPrefix;
 }
 
+char* ReferenceMaterial::getDataFileName() const
+{
+    return this->dataFileName;
+}
+
 

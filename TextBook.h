@@ -23,12 +23,11 @@ private:
 	string course;
 	string publisher;
 	string datePublished;
-	char* dataFileName;
 	console consoleObj;
 	frame frameObj;
 public:
 	TextBook();
-	TextBook(string,string,string,string,string,string);
+	TextBook(string,string,string,string,string,string,string);
 	~TextBook();
 	void setISBN(string);
 	void setCourse(string);
@@ -39,7 +38,6 @@ public:
 	string getPublisher() const;
 	string getDatePublished() const;
 	void showReferenceMaterial(int,int);
-	char* getDataFileName();
 	void write(Serializer& s)
 	{
 	    s << referenceNumber;

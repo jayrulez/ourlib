@@ -24,7 +24,7 @@ private:
 public:
 	Magazine();
 	~Magazine();
-	Magazine(string,string,string,string,string);
+	Magazine(string,string,string,string,string,string);
 	void setVolume(string);
 	void setIssueTopic(string);
 	void setIssueDate(string);

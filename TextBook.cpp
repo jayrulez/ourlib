@@ -20,7 +20,7 @@ TextBook::TextBook()
 TextBook::~TextBook()
 {
 }
-TextBook::TextBook(string referenceNumber,string author,string title, string ISBN,string course,string publisher)
+TextBook::TextBook(string referenceNumber,string author,string title, string ISBN,string course,string publisher,string datePublished)
 {
 	this->referenceNumber = referenceNumber;
 	this->author = author;
@@ -28,6 +28,7 @@ TextBook::TextBook(string referenceNumber,string author,string title, string ISB
 	this->ISBN = ISBN;
 	this->course = course;
 	this->publisher = publisher;
+	this->datePublished = datePublished;
 }
 
 void TextBook::setISBN(string ISBN)
@@ -83,11 +84,6 @@ void TextBook::showReferenceMaterial(int xCoord,int yCoord)
     consoleObj.xyCoord(xCoord+2,yCoord+14);
     cout<<datePublished;
 
-}
-
-char* TextBook::getDataFileName()
-{
-    return this->dataFileName;
 }
 
 

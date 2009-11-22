@@ -16,6 +16,7 @@ protected:
     string referenceNumberPrefix;
 	string title;
 	string author;
+	char* dataFileName;
 public:
 	ReferenceMaterial();
 	virtual ~ReferenceMaterial();
@@ -30,5 +31,6 @@ public:
 	int getMaterialTypeFromReferenceNumber(string) const;
 	void setReferenceNumberPrefix(string);
 	string getReferenceNumberPrefix() const;
+	char* getDataFileName() const;
 };
 #endif
