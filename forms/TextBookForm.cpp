@@ -13,7 +13,6 @@ using namespace std;
 TextBookForm::TextBookForm()
 {
     this->textBookPtr = new TextBook;
-    tag="TX-";
     FieldPosition=0;
     InputPtr=&input;
     TextBookCoord[0][0]=25;
@@ -53,8 +52,9 @@ void TextBookForm::BrowseTextBookForm()
 {
 	bool read=false;
 	int KeyType;
+
 	consoleObj.xyCoord(TextBookCoord[0][0]+18,TextBookCoord[0][1]);
-	cout<<tag;
+	cout<<this->textBookPtr->getReferenceNumberPrefix();
 	consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
 	while(!read)
 	{
