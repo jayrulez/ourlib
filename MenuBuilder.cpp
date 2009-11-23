@@ -432,7 +432,7 @@ void MenuBuilder::callMenu(int menuId)
             this->MenuShow(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ);
 			do
 			{
-                //this->formPtr->browseForm();
+                this->formPtr->browseForm();
                 TypeCheck=this->menuBrowserOperator(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
 		break;
