@@ -23,11 +23,9 @@ private:
     string LoanType;
 
     int FieldPosition;
-    int ChoicePosition;
     string AllInput[4];
     string input;
     string *InputPtr;
-    string choices[2];
 public:
     LoanReturnForm();
     LoanReturnForm(bool);

@@ -75,13 +75,6 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             break;
                         }
 				    }
-                    if(length==0)
-				    {
-				        consoleObj.setCursor(false,3);
-				        consoleObj.xyCoord(coord[FieldPosition][0]+coord[FieldPosition][2],
-				        coord[FieldPosition][1]);
-				        cout<<*input<<" ";
-				    }
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
                         case VK_RETURN:
@@ -97,16 +90,10 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:
-                            if(length==0)
-                            {
-                                return InputRec.Event.KeyEvent.wVirtualKeyCode;
-                            }
+
                         break;
                         case VK_LEFT:
-                            if(length==0)
-                            {
-                                return InputRec.Event.KeyEvent.wVirtualKeyCode;
-                            }
+
                         break;
                         case VK_BACK:
                             if(input->length()>0)
