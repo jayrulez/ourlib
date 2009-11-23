@@ -56,7 +56,7 @@ LoanReturnForm::LoanReturnForm(bool t)
 
     LoanReturnCoord[3][0]=25;
     LoanReturnCoord[3][1]=22;
-    LoanReturnCoord[3][2]=6;
+    LoanReturnCoord[3][2]=11;
 }
 
 void LoanReturnForm::setLoanForm(bool t)
@@ -122,25 +122,27 @@ void LoanReturnForm::browseForm()
             case VK_DOWN:
                 FieldPosition+=1;
             break;
-
-            case VK_LEFT:
-                if(ChoicePosition==0)
-                {
-                    ChoicePosition=1;
-                }
-                else if(ChoicePosition==1){
-                    ChoicePosition=0;
-                }
-            break;
-            case VK_RIGHT:
-                if(ChoicePosition==0)
-                {
-                    ChoicePosition=1;
-                }
-                else if(ChoicePosition==1){
-                    ChoicePosition=0;
-                }
-            break;
+            if(FormType)
+            {
+                case VK_LEFT:
+                    if(ChoicePosition==0)
+                    {
+                        ChoicePosition=1;
+                    }
+                    else if(ChoicePosition==1){
+                        ChoicePosition=0;
+                    }
+                    break;
+                case VK_RIGHT:
+                    if(ChoicePosition==0)
+                    {
+                        ChoicePosition=1;
+                    }
+                    else if(ChoicePosition==1){
+                        ChoicePosition=0;
+                    }
+                break;
+            }
         }
         if(FieldPosition>3 && FormType)
         {
