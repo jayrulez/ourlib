@@ -424,8 +424,7 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 
 		case EXISTINGMEMBER:
-            this->formPtr = new LoanReturnForm(true);
-
+            formPtr = new LoanReturnForm(true);
             MenuType=LOANTYPE;
             this->BasicRunlevel("LOAN MENU");
             this->formPtr->show();
@@ -435,6 +434,7 @@ void MenuBuilder::callMenu(int menuId)
                 this->formPtr->browseForm();
                 TypeCheck=this->menuBrowserOperator(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
+
 		break;
 
         case NEWUSER:
@@ -451,14 +451,14 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
         case RETURN:
-            this->formPtr = new LoanReturnForm(false);
+            formPtr = new LoanReturnForm(false);
             MenuType=RETURNTYPE;
             this->BasicRunlevel("RETURN MENU");
-            this->formPtr->show();
+            formPtr->show();
             this->MenuShow(this->ReturnFormMenu(),RETURNMENU_SIZ);
 			do
 			{
-                this->formPtr->browseForm();
+                formPtr->browseForm();
                 TypeCheck=this->menuBrowserOperator(this->ReturnFormMenu(),RETURNMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
