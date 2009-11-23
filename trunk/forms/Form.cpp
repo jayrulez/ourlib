@@ -45,6 +45,15 @@ bool Form::hasError() const
     return (this->error).length()>0;
 }
 
+void Form::setFormType(int type)
+{
+    this->formType = type;
+}
+
+int Form::getFormType() const
+{
+    return this->formType;
+}
 
 void Form::setModel(ReferenceMaterial *referenceMaterialObj)
 {
