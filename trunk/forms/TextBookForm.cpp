@@ -195,6 +195,3 @@ void TextBookForm::save()
     }
 }
 
-void TextBookForm::validate()
-{
-}
