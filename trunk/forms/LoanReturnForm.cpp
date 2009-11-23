@@ -118,12 +118,12 @@ void LoanReturnForm::browseForm()
                 }
             break;
         }
-        if(FieldPosition>3)
+        if(FieldPosition>3 && FormType=="loan")
         {
             FieldPosition=3;
             read=true;
         }
-        else if(FieldPosition>2 && FormType!="loan")
+        else if(FieldPosition>2)
         {
             FieldPosition=2;
             read=true;
