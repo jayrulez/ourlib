@@ -11,7 +11,7 @@ LoanReturnForm::LoanReturnForm()
     FieldPosition=0;
     ChoicePosition=0;
     InputPtr=&input;
-    choices[0]="IN";
+    choices[0]="IN ";
     choices[1]="OUT";
     LoanReturnCoord[0][0]=25;
     LoanReturnCoord[0][1]=13;
@@ -31,6 +31,11 @@ LoanReturnForm::LoanReturnForm()
 }
 LoanReturnForm::~LoanReturnForm()
 {
+}
+
+void LoanReturnForm::setLoanForm(string t)
+{
+    this->FormType=t;
 }
 void LoanReturnForm::browseForm()
 {
@@ -61,9 +66,14 @@ void LoanReturnForm::browseForm()
                 LoanReturnDate = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
-            case 3:
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,0,LoanReturnCoord,FieldPosition,false);
-                break;
+            if(LoanType=="loan");
+            {
+                case 3:
+                    *InputPtr=choices[ChoicePosition];
+                    KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,0,LoanReturnCoord,FieldPosition,false);
+                    LoanType = choices[ChoicePosition];
+                    break;
+            }
 	    }
         switch(KeyType)
         {
@@ -104,14 +114,16 @@ void LoanReturnForm::browseForm()
                 }
             break;
         }
-        if(FieldPosition>3)
+        if(FieldPosition>3 && LoanType=="Loan")
         {
             FieldPosition=3;
             read=true;
         }
-        //*InputPtr = "";
-        //consoleObj.xyCoord(60,3);
-        //cout<< FieldPosition;
+        else
+        {
+            FieldPosition=2;
+            read=true;
+        }
         consoleObj.xyCoord(LoanReturnCoord[FieldPosition][0]+LoanReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),LoanReturnCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
