@@ -18,6 +18,7 @@ private:
     FormInputBuilder FormInputBuilderObj;
     Member *memberPtr;
     int FieldPosition;
+    int IdNumber;
     string input;
     string AllInput[5];
     string *InputPtr;
