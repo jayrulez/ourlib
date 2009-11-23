@@ -81,7 +81,7 @@ void MagazineForm::browseForm()
                 break;
             case 3:
                 *InputPtr = this->magazinePtr->getVolume();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,3,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setVolume(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -180,6 +180,8 @@ void MagazineForm::save()
             this->setState(STATE_FAILURE);
             this->setError(e.what());
         }
+        cout << "here" <<endl;
+        system("pause");
         fileWriteObj.close();
     }
 }
