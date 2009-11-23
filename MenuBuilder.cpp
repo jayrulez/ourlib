@@ -333,19 +333,19 @@ void MenuBuilder::callMenu(int menuId)
                         case TEXTBOOKTYPE:
                             this->BasicRunlevel("ADD TEXTBOOK");
                             this->formPtr->save();
-								switch(this->formPtr->getState())
-								{
-									case STATE_ERROR:
-									case STATE_FAILURE:
-										cout << this->formPtr->getError() << endl;
-									break;
-									case STATE_SUCCESS:
-                                        FileModel *fileModelObj = new FileModel();
-                                        this->formPtr->setModel(fileModelObj->getReferenceMaterialRecordFromFile(this->formPtr->getModel()->getReferenceNumber()));
-										this->formPtr->getModel()->showReferenceMaterial(10,5);
-									break;
-								}
                             break;
+                    }
+                    switch(this->formPtr->getState())
+                    {
+                        case STATE_ERROR:
+                        case STATE_FAILURE:
+                            cout << this->formPtr->getError() << endl;
+                        break;
+                        case STATE_SUCCESS:
+                            FileModel *fileModelObj = new FileModel();
+                            this->formPtr->setModel(fileModelObj->getReferenceMaterialRecordFromFile(this->formPtr->getModel()->getReferenceNumber()));
+                            this->formPtr->getModel()->showReferenceMaterial(10,5);
+                        break;
                     }
                 break;
                 case EDITTYPE:
