@@ -36,6 +36,27 @@ LoanReturnForm::~LoanReturnForm()
 LoanReturnForm::LoanReturnForm(bool t)
 {
     this->FormType=t;
+    FieldPosition=0;
+    ChoicePosition=0;
+    InputPtr=&input;
+    FormType="loan";
+    choices[0]="IN";
+    choices[1]="OUT";
+    LoanReturnCoord[0][0]=25;
+    LoanReturnCoord[0][1]=13;
+    LoanReturnCoord[0][2]=18;
+
+    LoanReturnCoord[1][0]=25;
+    LoanReturnCoord[1][1]=16;
+    LoanReturnCoord[1][2]=11;
+
+    LoanReturnCoord[2][0]=25;
+    LoanReturnCoord[2][1]=19;
+    LoanReturnCoord[2][2]=6;
+
+    LoanReturnCoord[3][0]=25;
+    LoanReturnCoord[3][1]=22;
+    LoanReturnCoord[3][2]=6;
 }
 
 void LoanReturnForm::setLoanForm(bool t)
@@ -48,6 +69,7 @@ void LoanReturnForm::browseForm()
 	bool read=false;
 	int KeyType;
 	consoleObj.xyCoord(LoanReturnCoord[FieldPosition][0]+LoanReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),LoanReturnCoord[FieldPosition][1]);
+
 	while(!read)
 	{
 	    switch(FieldPosition)
@@ -100,7 +122,7 @@ void LoanReturnForm::browseForm()
             case VK_DOWN:
                 FieldPosition+=1;
             break;
-            /*
+
             case VK_LEFT:
                 if(ChoicePosition==0)
                 {
@@ -119,7 +141,6 @@ void LoanReturnForm::browseForm()
                     ChoicePosition=0;
                 }
             break;
-            */
         }
         if(FieldPosition>3 && FormType)
         {
