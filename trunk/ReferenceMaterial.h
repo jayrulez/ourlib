@@ -33,5 +33,6 @@ public:
 	string getReferenceNumberPrefix() const;
 	void insertReferenceNumberPrefix(string);
 	char* getDataFileName() const;
+	virtual void showReferenceMaterial(int,int);
 };
 #endif
