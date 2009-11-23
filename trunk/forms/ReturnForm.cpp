@@ -33,8 +33,8 @@ void ReturnForm::browseForm()
 	bool read=false;
 	int KeyType;
 
-	consoleObj.xyCoord(ReturnCCoord[FieldPosition][0]+ReturnCCoord[FieldPosition][2]+
-	AllInput[FieldPosition].length(),ReturnCCoord[FieldPosition][1]);
+	consoleObj.xyCoord(ReturnCoord[FieldPosition][0]+ReturnCoord[FieldPosition][2]+
+	AllInput[FieldPosition].length(),ReturnCoord[FieldPosition][1]);
 
 	while(!read)
 	{
@@ -43,20 +43,20 @@ void ReturnForm::browseForm()
 	    {
             case 0:
                 *InputPtr =  ReferenceNumber;
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,6,LoanCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,6,ReturnCoord,FieldPosition,false);
                 ReferenceNumber = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
                 itoa(IdNumber,tempId,10);
                 *InputPtr=tempId;
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,7,LoanCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,7,ReturnCoord,FieldPosition,false);
                 IdNumber = atoi(InputPtr->c_str());
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
                 *InputPtr = ReturnDate;
-                KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,8,LoanCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,8,ReturnCoord,FieldPosition,false);
                 ReturnDate = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -86,9 +86,9 @@ void ReturnForm::browseForm()
         {
             FieldPosition = 2;
         }
-        consoleObj.xyCoord(LoanCoord[FieldPosition][0]+
+        consoleObj.xyCoord(ReturnCoord[FieldPosition][0]+
         ReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),
-        ReturnCCoord[FieldPosition][1]);
+        ReturnCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
 }
