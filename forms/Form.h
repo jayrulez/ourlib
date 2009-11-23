@@ -26,7 +26,6 @@ class Form
         virtual void show();
         virtual void browseForm();
         virtual void save();
-        virtual void validate();
         void setError(string);
         void setState(int);
         int getState() const;

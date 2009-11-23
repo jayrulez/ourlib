@@ -19,7 +19,6 @@ Form::~Form()
 void Form::show() {}
 void Form::browseForm() {}
 void Form::save() {}
-void Form::validate(){}
 
 void Form::setState(int state)
 {
