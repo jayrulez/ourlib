@@ -57,9 +57,9 @@ void LoanForm::browseForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
-                *InputPtr = LoanReturnDate;
+                *InputPtr = LoanDate;
                 KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,8,LoanCoord,FieldPosition,false);
-                LoanReturnDate = *InputPtr;
+                LoanDate = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 

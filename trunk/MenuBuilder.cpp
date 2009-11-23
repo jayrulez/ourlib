@@ -70,8 +70,12 @@
 #include "forms/MemberForm.h"
 #endif
 
-#ifndef LOANRETURNFORM_H
+#ifndef LOANFORM_H
 #include "forms/LoanForm.h"
+#endif
+
+#ifndef RETURNFORM_H
+#include "forms/ReturnForm.h"
 #endif
 
 #ifndef FORMINPUTBUILDER_H
@@ -444,7 +448,7 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 
 		case EXISTINGMEMBER:
-            formPtr = new LoanReturnForm(true);
+            formPtr = new LoanForm;
             MenuType=LOANTYPE;
             this->BasicRunlevel("LOAN MENU");
             this->formPtr->show();
@@ -471,7 +475,7 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
         case RETURN:
-            formPtr = new LoanReturnForm(false);
+            formPtr = new ReturnForm;
             MenuType=RETURNTYPE;
             this->BasicRunlevel("RETURN MENU");
             formPtr->show();
