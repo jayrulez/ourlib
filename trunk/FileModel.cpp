@@ -29,7 +29,6 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
     {
         case TYPE_TEXTBOOK:
             referenceMaterialObj = new TextBook();
-            cout << referenceMaterialObj << endl;
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::in | ios::binary);
             if(fileObj.is_open())
             {
