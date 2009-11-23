@@ -171,7 +171,8 @@ void TextBookForm::save()
     if(position>0) position -= 1;
 
     Validator * validator = new Validator();
-    validator->formValidate((int*)this->textBookPtr);
+    ReferenceMaterial *referenceObj = this->textBookPtr;
+    validator->formValidate((int*)referenceObj);
     if (validator->hasError())
     {
         this->setState(STATE_ERROR);
