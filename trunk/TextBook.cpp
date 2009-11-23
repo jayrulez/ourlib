@@ -69,20 +69,20 @@ void TextBook::showReferenceMaterial(int xCoord,int yCoord)
     frameObj.sFraming();
 
     consoleObj.xyCoord(xCoord+2,yCoord+2);
-    cout<<"Reference Number: "<<referenceNumber;
+    cout<<"Reference Number: "<< this->referenceNumber;
     consoleObj.xyCoord(xCoord+2,yCoord+4);
-    cout<<"Author: "<<author;
+    cout<<"Author: "<< this->author;
     consoleObj.xyCoord(xCoord+2,yCoord+6);
-    cout<<"Title: "<<title;
+    cout<<"Title: "<< this->title;
 
     consoleObj.xyCoord(xCoord+2,yCoord+8);
-    cout<<"ISBN: "<<ISBN;
+    cout<<"ISBN: "<< this->ISBN;
     consoleObj.xyCoord(xCoord+2,yCoord+10);
-    cout<<"Course: "<<course;
+    cout<<"Course: "<< this->course;
     consoleObj.xyCoord(xCoord+2,yCoord+12);
-    cout<<"Publisher: "<<publisher;
+    cout<<"Publisher: "<< this->publisher;
     consoleObj.xyCoord(xCoord+2,yCoord+14);
-    cout<<"Date Published: "<<datePublished;
+    cout<<"Date Published: "<< this->datePublished;
 
 }
 
