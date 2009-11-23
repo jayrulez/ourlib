@@ -63,7 +63,7 @@ void MagazineForm::browseForm()
 	    {
             case 0:
                 *InputPtr = this->magazinePtr->getReferenceNumber();
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,3,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setReferenceNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
