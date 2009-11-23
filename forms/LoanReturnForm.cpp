@@ -50,6 +50,9 @@ void LoanReturnForm::browseForm()
 
 	while(!read)
 	{
+	    //consoleObj.xyCoord(60,3);
+	    //cout<<FieldPosition;
+
 	    switch(FieldPosition)
 	    {
             case 0:
