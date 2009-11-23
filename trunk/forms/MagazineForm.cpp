@@ -33,7 +33,7 @@ MagazineForm::MagazineForm()
     MagazineCoord[2][2]=8;
 
     MagazineCoord[3][0]=25;
-    MagazineCoord[3][1]=21;
+    MagazineCoord[3][1]=20;
     MagazineCoord[3][2]=8;
 
     MagazineCoord[4][0]=25;
