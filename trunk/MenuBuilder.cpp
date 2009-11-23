@@ -414,7 +414,7 @@ void MenuBuilder::callMenu(int menuId)
 		break;
 
 		case EXISTINGMEMBER:
-            this->formPtr = new LoanReturnForm;
+            this->formPtr = new LoanReturnForm("loan");
             MenuType=LOANTYPE;
             this->BasicRunlevel("LOAN MENU");
             this->formPtr->show();
@@ -440,7 +440,7 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
         case RETURN:
-            this->formPtr = new LoanReturnForm;
+            this->formPtr = new LoanReturnForm("return");
             MenuType=RETURNTYPE;
             this->BasicRunlevel("RETURN MENU");
             this->formPtr->show();
