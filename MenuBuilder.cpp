@@ -328,6 +328,16 @@ void MenuBuilder::callMenu(int menuId)
                         case TEXTBOOKTYPE:
                             this->BasicRunlevel("ADD TEXTBOOK");
                             this->formPtr->save();
+								switch(this->formPtr->getState())
+								{
+									case STATE_ERROR:
+									case STATE_FAILURE:
+										// show this->formPtr->getError()
+									break;
+									case STATE_SUCCESS:
+										//this->formPtr->getModel()->showReferenceMaterial(10,5);
+									break;
+								}
                             break;
                     }
                 break;
