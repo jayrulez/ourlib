@@ -51,7 +51,7 @@ void Form::setModel(ReferenceMaterial *referenceMaterialObj)
     this->model = referenceMaterialObj;
 }
 
-ReferenceMaterial* Form::getModel() const
+ReferenceMaterial* Form::getModel()
 {
     return this->model;
 }

@@ -31,6 +31,6 @@ class Form
         string getError() const;
         bool hasError() const;
         void setModel(ReferenceMaterial*);
-        ReferenceMaterial* getModel() const;
+        ReferenceMaterial* getModel();
 };
 #endif // FORM_H
