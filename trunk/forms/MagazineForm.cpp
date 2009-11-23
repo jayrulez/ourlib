@@ -180,8 +180,6 @@ void MagazineForm::save()
             this->setState(STATE_FAILURE);
             this->setError(e.what());
         }
-        cout << "here" <<endl;
-        system("pause");
         fileWriteObj.close();
     }
 }
