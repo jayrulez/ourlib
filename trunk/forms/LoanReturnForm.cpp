@@ -74,7 +74,7 @@ void LoanReturnForm::browseForm()
                 LoanReturnDate = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
-            if(FormType);
+            if(FormType)
             {
                 case 3:
                     *InputPtr=choices[ChoicePosition];
@@ -82,6 +82,7 @@ void LoanReturnForm::browseForm()
                     LoanType = choices[ChoicePosition];
                     break;
             }
+            else{}
 	    }
         switch(KeyType)
         {
