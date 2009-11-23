@@ -1,49 +1,42 @@
-#ifndef LOANRETURNFORM_H
-#include "LoanReturnForm.h"
+#ifndef LOANFORM_H
+#include "LoanForm.h"
 #endif
 
 #include <string>
 #include <iostream>
 using namespace std;
 
-LoanReturnForm::LoanReturnForm()
+LoanForm::LoanForm()
 {
-}
-LoanReturnForm::~LoanReturnForm()
-{
-}
-LoanReturnForm::LoanReturnForm(bool t)
-{
-    this->FormType=t;
     FieldPosition=0;
     InputPtr=&input;
-    LoanReturnCoord[0][0]=25;
-    LoanReturnCoord[0][1]=13;
-    LoanReturnCoord[0][2]=18;
+    LoanCoord[0][0]=25;
+    LoanCoord[0][1]=13;
+    LoanCoord[0][2]=18;
 
-    LoanReturnCoord[1][0]=25;
-    LoanReturnCoord[1][1]=16;
-    LoanReturnCoord[1][2]=11;
+    LoanCoord[1][0]=25;
+    LoanCoord[1][1]=16;
+    LoanCoord[1][2]=11;
 
-    LoanReturnCoord[2][0]=25;
-    LoanReturnCoord[2][1]=19;
-    LoanReturnCoord[2][2]=6;
+    LoanCoord[2][0]=25;
+    LoanCoord[2][1]=19;
+    LoanCoord[2][2]=6;
 
-    LoanReturnCoord[3][0]=25;
-    LoanReturnCoord[3][1]=22;
-    LoanReturnCoord[3][2]=11;
+    LoanCoord[3][0]=25;
+    LoanCoord[3][1]=22;
+    LoanCoord[3][2]=11;
 }
-
-void LoanReturnForm::setLoanForm(bool t)
+LoanForm::~LoanForm()
 {
-    this->FormType=t;
 }
-void LoanReturnForm::browseForm()
+
+void LoanForm::browseForm()
 {
     char* tempId;
 	bool read=false;
 	int KeyType;
-	consoleObj.xyCoord(LoanReturnCoord[FieldPosition][0]+LoanReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),LoanReturnCoord[FieldPosition][1]);
+
+	consoleObj.xyCoord(LoanCoord[FieldPosition][0]+LoanCoord[FieldPosition][2]+AllInput[FieldPosition].length(),LoanCoord[FieldPosition][1]);
 
 	while(!read)
 	{
@@ -52,32 +45,31 @@ void LoanReturnForm::browseForm()
 	    {
             case 0:
                 *InputPtr =  ReferenceNumber;
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,6,LoanReturnCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,6,LoanCoord,FieldPosition,false);
                 ReferenceNumber = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
                 itoa(IdNumber,tempId,10);
                 *InputPtr=tempId;
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,7,LoanReturnCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,7,LoanCoord,FieldPosition,false);
                 IdNumber = atoi(InputPtr->c_str());
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
                 *InputPtr = LoanReturnDate;
-                KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,8,LoanReturnCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,8,LoanCoord,FieldPosition,false);
                 LoanReturnDate = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
-            if(FormType)
-            {
-                case 3:
-                    *InputPtr = LoanType;
-                    KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,3,LoanReturnCoord,FieldPosition,false);
-                    LoanType = *InputPtr;
-                    AllInput[FieldPosition] = *InputPtr;
-                    break;
-            }
+
+            case 3:
+                *InputPtr = LoanType;
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,3,LoanCoord,FieldPosition,false);
+                LoanType = *InputPtr;
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+
 	    }
         switch(KeyType)
         {
@@ -100,47 +92,33 @@ void LoanReturnForm::browseForm()
                 FieldPosition+=1;
             break;
         }
-        if(FormType)
+        if(FieldPosition>3)
         {
-            if(FieldPosition>3)
-            {
-                FieldPosition=3;
-                read=true;
-            }
+            FieldPosition = 3;
         }
-        else if(!FormType)
-        {
-            if(FieldPosition>2)
-            {
-                FieldPosition=2;
-                read=true;
-            }
-        }
-        consoleObj.xyCoord(LoanReturnCoord[FieldPosition][0]+
-        LoanReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),
-        LoanReturnCoord[FieldPosition][1]);
+        consoleObj.xyCoord(LoanCoord[FieldPosition][0]+
+        LoanCoord[FieldPosition][2]+AllInput[FieldPosition].length(),
+        LoanCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
 }
 
-void LoanReturnForm::show()
+void LoanForm::show()
 {
-    consoleObj.xyCoord(LoanReturnCoord[0][0],LoanReturnCoord[0][1]);
+    consoleObj.xyCoord(LoanCoord[0][0],LoanCoord[0][1]);
 	cout<<"Reference Number: ";
-	consoleObj.xyCoord(LoanReturnCoord[1][0],LoanReturnCoord[1][1]);
+	consoleObj.xyCoord(LoanCoord[1][0],LoanCoord[1][1]);
 	cout<<"Id Number: ";
-	consoleObj.xyCoord(LoanReturnCoord[2][0]-13,LoanReturnCoord[2][1]);
+	consoleObj.xyCoord(LoanCoord[2][0]-13,LoanCoord[2][1]);
 	cout<<"<dd/mm/yy>";
-	consoleObj.xyCoord(LoanReturnCoord[2][0],LoanReturnCoord[2][1]);
+	consoleObj.xyCoord(LoanCoord[2][0],LoanCoord[2][1]);
 	cout<<"Date: ";
-	if(FormType)
-	{
-	    consoleObj.xyCoord(LoanReturnCoord[3][0]-11,LoanReturnCoord[3][1]);
-	    cout<<"<IN/OUT>";
-        consoleObj.xyCoord(LoanReturnCoord[3][0],LoanReturnCoord[3][1]);
-        cout<<"Loan Type: ";
-	}
+    consoleObj.xyCoord(LoanCoord[3][0]-11,LoanCoord[3][1]);
+    cout<<"<IN/OUT>";
+    consoleObj.xyCoord(LoanCoord[3][0],LoanCoord[3][1]);
+    cout<<"Loan Type: ";
+
 }
-void LoanReturnForm::save()
+void LoanForm::save()
 {
 }

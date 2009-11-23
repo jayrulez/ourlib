@@ -1,5 +1,5 @@
-#ifndef LOANRETURNFORM_H
-#define LOANRETURNFORM_H
+#ifndef LOANFORM_H
+#define LOANFORM_H
 
 #include "../gui/console/console.h"
 #include "FormInputBuilder.h"
@@ -9,11 +9,10 @@
 
 using namespace std;
 
-class LoanReturnForm: public Form
+class LoanForm: public Form
 {
 private:
-    int LoanReturnCoord[4][3];
-    bool FormType;
+    int LoanCoord[4][3];
     console consoleObj;
     FormInputBuilder FormInputBuilderObj;
 
@@ -27,10 +26,8 @@ private:
     string input;
     string *InputPtr;
 public:
-    LoanReturnForm();
-    LoanReturnForm(bool);
-    ~LoanReturnForm();
-    void setLoanForm(bool);
+    LoanForm();
+    ~LoanForm();
     void browseForm();
 	void show();
     void save();
