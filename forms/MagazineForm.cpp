@@ -87,15 +87,16 @@ void MagazineForm::browseForm()
                 break;
 
             case 4:
-                *InputPtr = this->magazinePtr->getIssueTopic();
-                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
-                this->magazinePtr->setIssueTopic(*InputPtr);
-                AllInput[FieldPosition] = *InputPtr;
-                break;
-            case 5:
                 *InputPtr = this->magazinePtr->getIssueDate();
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,8,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setIssueDate(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+
+            case 5:
+                *InputPtr = this->magazinePtr->getIssueTopic();
+                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
+                this->magazinePtr->setIssueTopic(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 	    }
