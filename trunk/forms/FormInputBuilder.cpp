@@ -75,6 +75,10 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             break;
                         }
 				    }
+                    if(length==0)
+				    {
+				        cout<<input;
+				    }
                     switch(InputRec.Event.KeyEvent.wVirtualKeyCode)
                     {
                         case VK_RETURN:
