@@ -19,8 +19,8 @@ public:
     Validator();
     ~Validator();
     bool recordExists(string);
-    int checkDate(string);
-    void formValidate(int *);
+    bool checkDate(string);
+    void formValidate(int*);
 };
 
 #endif
