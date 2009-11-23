@@ -24,7 +24,7 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
     ifstream fileObj;
     int recordPosition = referenceMaterialObj->getIdFromReferenceNumber(referenceNumber);
     if(recordPosition>0) recordPosition -= 1;
-    cout << "fucking bug, i'm onto you" << endl;
+
     switch(materialType)
     {
         case TYPE_TEXTBOOK:
@@ -32,9 +32,8 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::in | ios::binary);
             if(fileObj.is_open())
             {
-                cout << "i will get you" << endl;
                 fileObj.seekg((recordPosition) * sizeof(TextBook));
-                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(TextBook));
+                fileObj.read(reinterpret_cast < char * > (&referenceMaterialObj),sizeof(TextBook));
             }
         break;
         case TYPE_MAGAZINE:
@@ -44,7 +43,7 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             if(fileObj.is_open())
             {
                 fileObj.seekg((recordPosition) * sizeof(Magazine));
-                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(Magazine));
+                fileObj.read(reinterpret_cast < char * > (&referenceMaterialObj),sizeof(Magazine));
             }
         break;
         case TYPE_RESEARCHPAPER:
@@ -54,11 +53,10 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             if(fileObj.is_open())
             {
                 fileObj.seekg((recordPosition) * sizeof(ResearchPaper));
-                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(ResearchPaper));
+                fileObj.read(reinterpret_cast < char * > (&referenceMaterialObj),sizeof(ResearchPaper));
             }
         break;
     }
     fileObj.close();
-    cout << "did i squash you?" << endl;
     return referenceMaterialObj;
 }

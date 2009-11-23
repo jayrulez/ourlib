@@ -73,7 +73,6 @@ void Validator::formValidate(int *referenceObj)
             {
                 this->error = "A Textbook with the Reference number already exists.";
             }
-            cout << "hola mofo" <<endl;
         break;
         case TYPE_MAGAZINE:
             if(refNo < 1 || refNo > 999)
@@ -99,10 +98,7 @@ void Validator::formValidate(int *referenceObj)
 bool Validator::recordExists(string referenceNumber)
 {
     FileModel * fileModelObj = new FileModel();
-    cout << "i get here" << endl;
     string recordReferenceNumber = fileModelObj->getReferenceMaterialRecordFromFile(referenceNumber)->getReferenceNumber();
     bool flag = (recordReferenceNumber.compare(referenceNumber)==0);
-
-    cout << "but do i get here" << endl;
     return flag;
 }
