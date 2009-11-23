@@ -21,6 +21,7 @@ public:
     bool recordExists(string);
     bool checkDate(string);
     void formValidate(int*);
+    bool checkReferenceNumber(string);
 };
 
 #endif

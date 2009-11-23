@@ -151,3 +151,10 @@ bool Validator::recordExists(string referenceNumber)
     bool flag = (recordReferenceNumber.compare(referenceNumber)==0);
     return flag;
 }
+
+bool Validate::checkReferenceNumber(string referenceNumber)
+{
+    ReferenceMaterial *refObj = new ReferenceMaterial();
+    int type = refObj->getMaterialTypeFromReferenceNumber(referenceNumber);
+    return (type==TYPE_TEXTBOOK||type==TYPE_MAGAZINE||type==TYPE_RESEARCHPAPER) ? true : false;
+}
