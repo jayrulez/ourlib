@@ -32,7 +32,7 @@ bool Validator::hasError()
     return (this->error).length()>0;
 }
 
-int Validator::checkDate(string dateStr)
+bool Validator::checkDate(string dateStr)
 {
     char month[2];
     char day[2];
@@ -54,40 +54,57 @@ int Validator::checkDate(string dateStr)
             //return;
         //}
     }
-    return 0;
+    return true;
 }
 
 void Validator::formValidate(int *referenceObj)
 {
-    ReferenceMaterial *referenceMaterialObj = (ReferenceMaterial*)referenceObj;
-    int materialType = referenceMaterialObj->getMaterialTypeFromReferenceNumber(referenceMaterialObj->getReferenceNumber());
+    int materialType = ((ReferenceMaterial*)referenceObj)->getMaterialTypeFromReferenceNumber(((ReferenceMaterial*)referenceObj)->getReferenceNumber());
 
-    int refNo = referenceMaterialObj->getIdFromReferenceNumber(referenceMaterialObj->getReferenceNumber());
+    int refNo = ((ReferenceMaterial*)referenceObj)->getIdFromReferenceNumber(((ReferenceMaterial*)referenceObj)->getReferenceNumber());
     switch(materialType)
     {
         case TYPE_TEXTBOOK:
+            TextBook *textBookObj = (TextBook*)referenceObj;
             if(refNo < 1 || refNo > 999)
             {
                 this->error = "Reference Number must be between TX-001 and TX-999.";
-            }else if(this->recordExists(referenceMaterialObj->getReferenceNumber()))
+            }else if(this->recordExists(textBookObj->getReferenceNumber()))
             {
                 this->error = "A Textbook with the Reference number already exists.";
+            }else if(textBookObj->getTitle().length()<5)
+            {
+                this->error = "Title must be atleast 5 characters long";
+            }else if(textBookObj->getAuthor().length()<15)
+            {
+                this->error = "Author\'s name must be atleast 15 characters long.";
+            }else if(textBookObj->getISBN().length()<9)
+            {
+                this->error = "ISBN must be atleast 9 characters long.";
+            }else if(textBookObj->getPublisher().length()<5)
+            {
+                this->error = "Publisher\'s name must be atleast 5 characters long.";
+            }else if(!this->checkDate(textBookObj->getDatePublished()))
+            {
+                this->error = "Enter a valid date in the format mm/dd/yy";
             }
         break;
         case TYPE_MAGAZINE:
+            Magazine *magazineObj = (Magazine*)referenceObj;
             if(refNo < 1 || refNo > 999)
             {
                 this->error = "Reference Number must be between MG-001 and MG-999.";
-            }else if(this->recordExists(referenceMaterialObj->getReferenceNumber()))
+            }else if(this->recordExists(magazineObj->getReferenceNumber()))
             {
                 this->error = "A Magazine with the Reference number already exists.";
             }
         break;
         case TYPE_RESEARCHPAPER:
+            ResearchPaper *researchPaperObj = (ResearchPaper*)referenceObj;
             if(refNo < 1 || refNo > 999)
             {
                 this->error = "Reference Number must be between RP-001 and RP-999.";
-            }else if(this->recordExists(referenceMaterialObj->getReferenceNumber()))
+            }else if(this->recordExists(researchPaperObj->getReferenceNumber()))
             {
                 this->error = "A Research Paper with the Reference number already exists.";
             }
