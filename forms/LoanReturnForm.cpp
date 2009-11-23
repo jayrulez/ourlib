@@ -16,10 +16,7 @@ LoanReturnForm::LoanReturnForm(bool t)
 {
     this->FormType=t;
     FieldPosition=0;
-    ChoicePosition=0;
     InputPtr=&input;
-    choices[0]="IN";
-    choices[1]="OUT";
     LoanReturnCoord[0][0]=25;
     LoanReturnCoord[0][1]=13;
     LoanReturnCoord[0][2]=18;
@@ -77,12 +74,12 @@ void LoanReturnForm::browseForm()
             if(FormType)
             {
                 case 3:
-                    *InputPtr=choices[ChoicePosition];
-                    KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,0,LoanReturnCoord,FieldPosition,false);
-                    LoanType = choices[ChoicePosition];
+                    *InputPtr = LoanType;
+                    KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,3,LoanReturnCoord,FieldPosition,false);
+                    LoanType = *InputPtr;
+                    AllInput[FieldPosition] = *InputPtr;
                     break;
             }
-            else{}
 	    }
         switch(KeyType)
         {
@@ -104,27 +101,6 @@ void LoanReturnForm::browseForm()
             case VK_DOWN:
                 FieldPosition+=1;
             break;
-            if(FormType)
-            {
-                case VK_LEFT:
-                    if(ChoicePosition==0)
-                    {
-                        ChoicePosition=1;
-                    }
-                    else{
-                        ChoicePosition=0;
-                    }
-                    break;
-                case VK_RIGHT:
-                    if(ChoicePosition==0)
-                    {
-                        ChoicePosition=1;
-                    }
-                    else{
-                        ChoicePosition=0;
-                    }
-                break;
-            }
         }
         if(FormType)
         {
@@ -142,7 +118,9 @@ void LoanReturnForm::browseForm()
                 read=true;
             }
         }
-        consoleObj.xyCoord(LoanReturnCoord[FieldPosition][0]+LoanReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),LoanReturnCoord[FieldPosition][1]);
+        consoleObj.xyCoord(LoanReturnCoord[FieldPosition][0]+
+        LoanReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),
+        LoanReturnCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
 }
