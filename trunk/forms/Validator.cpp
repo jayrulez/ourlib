@@ -152,7 +152,7 @@ bool Validator::recordExists(string referenceNumber)
     return flag;
 }
 
-bool Validate::checkReferenceNumber(string referenceNumber)
+bool Validator::checkReferenceNumber(string referenceNumber)
 {
     ReferenceMaterial *refObj = new ReferenceMaterial();
     int type = refObj->getMaterialTypeFromReferenceNumber(referenceNumber);
