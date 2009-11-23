@@ -47,14 +47,14 @@ void LoanReturnForm::browseForm()
 
 	while(!read)
 	{
-	    //consoleObj.xyCoord(60,3);
-	    //cout<<FieldPosition;
+
+	    cout<<FieldPosition;
 
 	    switch(FieldPosition)
 	    {
             case 0:
                 *InputPtr =  ReferenceNumber;
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,6,LoanReturnCoord,FieldPosition,false);
                 ReferenceNumber = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -67,7 +67,7 @@ void LoanReturnForm::browseForm()
                 break;
             case 2:
                 *InputPtr = LoanReturnDate;
-                KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,8,LoanReturnCoord,FieldPosition,false);
                 LoanReturnDate = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -131,6 +131,8 @@ void LoanReturnForm::show()
 	cout<<"Reference Number: ";
 	consoleObj.xyCoord(LoanReturnCoord[1][0],LoanReturnCoord[1][1]);
 	cout<<"Id Number: ";
+	consoleObj.xyCoord(LoanReturnCoord[2][0]-13,LoanReturnCoord[2][1]);
+	cout<<"<dd/mm/yy>";
 	consoleObj.xyCoord(LoanReturnCoord[2][0],LoanReturnCoord[2][1]);
 	cout<<"Date: ";
 	if(FormType)
