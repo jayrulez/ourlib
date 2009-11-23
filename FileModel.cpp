@@ -29,11 +29,12 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
     {
         case TYPE_TEXTBOOK:
             referenceMaterialObj = new TextBook();
+            cout << referenceMaterialObj << endl;
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::in | ios::binary);
             if(fileObj.is_open())
             {
                 fileObj.seekg((recordPosition) * sizeof(TextBook));
-                fileObj.read(reinterpret_cast < char * > (&referenceMaterialObj),sizeof(TextBook));
+                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(TextBook));
             }
         break;
         case TYPE_MAGAZINE:
@@ -43,7 +44,7 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             if(fileObj.is_open())
             {
                 fileObj.seekg((recordPosition) * sizeof(Magazine));
-                fileObj.read(reinterpret_cast < char * > (&referenceMaterialObj),sizeof(Magazine));
+                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(Magazine));
             }
         break;
         case TYPE_RESEARCHPAPER:
@@ -53,7 +54,7 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             if(fileObj.is_open())
             {
                 fileObj.seekg((recordPosition) * sizeof(ResearchPaper));
-                fileObj.read(reinterpret_cast < char * > (&referenceMaterialObj),sizeof(ResearchPaper));
+                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(ResearchPaper));
             }
         break;
     }
