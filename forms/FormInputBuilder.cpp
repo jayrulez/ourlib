@@ -97,21 +97,15 @@ int FormInputBuilder::FormInput (int type,int SpaceType,string *input,int length
                             return InputRec.Event.KeyEvent.wVirtualKeyCode;
                         break;
                         case VK_RIGHT:
-                            if((unsigned)position<input->length())
+                            if(length==0)
                             {
-                                if(length==0)
-                                {
-                                    return InputRec.Event.KeyEvent.wVirtualKeyCode;
-                                }
+                                return InputRec.Event.KeyEvent.wVirtualKeyCode;
                             }
                         break;
                         case VK_LEFT:
-                            if(position>0)
+                            if(length==0)
                             {
-                                if(length==0)
-                                {
-                                    return InputRec.Event.KeyEvent.wVirtualKeyCode;
-                                }
+                                return InputRec.Event.KeyEvent.wVirtualKeyCode;
                             }
                         break;
                         case VK_BACK:

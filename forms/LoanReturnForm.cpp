@@ -18,7 +18,6 @@ LoanReturnForm::LoanReturnForm(bool t)
     FieldPosition=0;
     ChoicePosition=0;
     InputPtr=&input;
-    FormType="loan";
     choices[0]="IN";
     choices[1]="OUT";
     LoanReturnCoord[0][0]=25;
@@ -54,6 +53,8 @@ void LoanReturnForm::browseForm()
 	    switch(FieldPosition)
 	    {
             case 0:
+                cout<<FormType;
+                system("pause");
                 *InputPtr =  ReferenceNumber;
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
                 ReferenceNumber = *InputPtr;
@@ -108,7 +109,7 @@ void LoanReturnForm::browseForm()
                     {
                         ChoicePosition=1;
                     }
-                    else if(ChoicePosition==1){
+                    else{
                         ChoicePosition=0;
                     }
                     break;
@@ -117,21 +118,27 @@ void LoanReturnForm::browseForm()
                     {
                         ChoicePosition=1;
                     }
-                    else if(ChoicePosition==1){
+                    else{
                         ChoicePosition=0;
                     }
                 break;
             }
         }
-        if(FieldPosition>3 && FormType)
+        if(FormType)
         {
-            FieldPosition=3;
-            read=true;
+            if(FieldPosition>3)
+            {
+                FieldPosition=3;
+                read=true;
+            }
         }
-        else if(FieldPosition>2 && !FormType)
+        else if(!FormType)
         {
-            FieldPosition=2;
-            read=true;
+            if(FieldPosition>2)
+            {
+                FieldPosition=2;
+                read=true;
+            }
         }
         consoleObj.xyCoord(LoanReturnCoord[FieldPosition][0]+LoanReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),LoanReturnCoord[FieldPosition][1]);
     }
