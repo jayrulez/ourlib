@@ -71,7 +71,7 @@
 #endif
 
 #ifndef LOANRETURNFORM_H
-#include "forms/LoanReturnForm.h"
+#include "forms/LoanForm.h"
 #endif
 
 #ifndef FORMINPUTBUILDER_H
