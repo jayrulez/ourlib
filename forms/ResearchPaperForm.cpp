@@ -141,6 +141,7 @@ void ResearchPaperForm::show()
 	consoleObj.xyCoord(ResearchPaperCoord[5][0],ResearchPaperCoord[5][1]);
 	cout<<"Sponsor: ";
 }
+
 void ResearchPaperForm::save()
 {
     this->researchPaperPtr->insertReferenceNumberPrefix(this->researchPaperPtr->getReferenceNumber());
@@ -149,23 +150,26 @@ void ResearchPaperForm::save()
     if(position>0) position -= 1;
 
     Validator * validator = new Validator();
-    validator->formValidate((int*)this->researchPaperPtr);
+    ReferenceMaterial *referenceObj = this->researchPaperPtr;
+    validator->formValidate((int*)referenceObj);
     if (validator->hasError())
     {
-        cout << "Error: " << validator->getError() << endl;
+        this->setState(STATE_ERROR);
+        this->setError(validator->getError());
     }else{
         ofstream fileWriteObj (this->researchPaperPtr->getDataFileName(),ios::out | ios::binary);
         fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
         fileWriteObj.seekp(position * sizeof(ResearchPaper));
         try
         {
-            fileWriteObj.write(reinterpret_cast < char * > (&(*this->researchPaperPtr)),sizeof(ResearchPaper));
+            fileWriteObj.write(reinterpret_cast < char * > (this->researchPaperPtr),sizeof(ResearchPaper));
+            this->setState(STATE_SUCCESS);
+            this->setModel(this->researchPaperPtr);
         }catch(ofstream::failure e)
         {
-            //cout << e.what() << endl;
-            cout << "Error, could not write to file" << endl;
+            this->setState(STATE_FAILURE);
+            this->setError(e.what());
         }
         fileWriteObj.close();
     }
-    fgetc(stdin);
 }
