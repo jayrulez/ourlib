@@ -185,6 +185,7 @@ void TextBookForm::save()
             fileWriteObj.write(reinterpret_cast < char * > (this->textBookPtr),sizeof(TextBook));
             this->setState(STATE_SUCCESS);
             FileModel *fileModelObj = new FileModel();
+            cout << this->textBookPtr->getReferenceNumber() << endl;
             this->setModel(fileModelObj->getReferenceMaterialRecordFromFile(this->textBookPtr->getReferenceNumber()));
         }catch(ofstream::failure e)
         {
