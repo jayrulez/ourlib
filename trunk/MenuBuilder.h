@@ -63,7 +63,8 @@
 /*
 * Edit Menu
 */
-#define EDITMENU_SIZ 1
+#define SEARCH 16
+#define EDITMENU_SIZ 2
 /*
 * Edit Form Menu
 */
@@ -79,7 +80,7 @@
 /*
 * Delete Menu
 */
-#define DELETEMENU_SIZ 1
+#define DELETEMENU_SIZ 2
 /*
 * Delete Confirmation Menu
 */
