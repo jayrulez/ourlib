@@ -33,7 +33,7 @@ MagazineForm::MagazineForm()
     MagazineCoord[2][2]=8;
 
     MagazineCoord[3][0]=25;
-    MagazineCoord[3][1]=20;
+    MagazineCoord[3][1]=21;
     MagazineCoord[3][2]=8;
 
     MagazineCoord[4][0]=25;
@@ -69,26 +69,26 @@ void MagazineForm::browseForm()
                 break;
             case 1:
                 *InputPtr = this->magazinePtr->getTitle();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setTitle(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
                 *InputPtr = this->magazinePtr->getAuthor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setAuthor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 3:
                 *InputPtr = this->magazinePtr->getTitle();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setTitle(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 
             case 4:
                 *InputPtr = this->magazinePtr->getIssueTopic();
-                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,10,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setIssueTopic(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -131,14 +131,6 @@ void MagazineForm::browseForm()
         consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
-}
-
-void MagazineForm::showTest()
-{
-    cout << this->magazinePtr->getReferenceNumber() << endl;
-    cout << this->magazinePtr->getIssueDate() << endl;
-    cout << this->magazinePtr->getIssueTopic() << endl;
-    fgetc(stdin);
 }
 
 void MagazineForm::show()
