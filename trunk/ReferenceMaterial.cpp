@@ -108,4 +108,9 @@ char* ReferenceMaterial::getDataFileName() const
     return this->dataFileName;
 }
 
+void ReferenceMaterial::showReferenceMaterial(int xCoord, int yCoord)
+{
+
+}
+
 
