@@ -62,7 +62,7 @@ void LoanReturnForm::browseForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
-                //itoa(IdNumber,tempId,10);
+                itoa(IdNumber,tempId,10);
                 *InputPtr=tempId;
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,7,LoanReturnCoord,FieldPosition,false);
                 IdNumber = atoi(InputPtr->c_str());

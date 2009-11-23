@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 MemberForm::MemberForm()
@@ -32,19 +33,23 @@ MemberForm::~MemberForm()
 }
 void MemberForm::browseForm()
 {
-    char* tempId;
 	bool read=false;
 	int KeyType;
+    string s;
+    stringstream out;
 	consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MemberCoord[FieldPosition][1]);
 	while(!read)
 	{
 	    switch(FieldPosition)
 	    {
             case 0:
-                *InputPtr = itoa(this->memberPtr->getId(),tempId,10);
+
+                out << memberPtr->getId();
+                s = out.str();
+                *InputPtr=s;
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,MemberCoord,FieldPosition,false);
                 this->memberPtr->setId(atoi(InputPtr->c_str()));
-                *InputPtr=tempId;
+                *InputPtr=s;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
