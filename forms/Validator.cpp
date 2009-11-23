@@ -44,7 +44,7 @@ bool Validator::checkDate(string dateStr)
     memset( year, '\0', 2 );
     memset( sep1, '\0', 1 );
     memset( sep2, '\0', 2 );
-    if(dateStr.length()!=8||())
+    if(dateStr.length()!=8/*||()*/) //fix properly
     {
         return false;
     }else{
