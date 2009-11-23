@@ -24,37 +24,40 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
     ifstream fileObj;
     int recordPosition = referenceMaterialObj->getIdFromReferenceNumber(referenceNumber);
     if(recordPosition>0) recordPosition -= 1;
+
     switch(materialType)
     {
         case TYPE_TEXTBOOK:
-            referenceMaterialObj = new TextBook();
+            TextBook *textBookObj = new TextBook();
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::in | ios::binary);
-
             if(fileObj.is_open())
             {
                 fileObj.seekg((recordPosition) * sizeof(TextBook));
-                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(TextBook));
+                fileObj.read(reinterpret_cast < char * > (textBookObj),sizeof(TextBook));
             }
+            referenceMaterialObj = textBookObj;
         break;
         case TYPE_MAGAZINE:
-            referenceMaterialObj = new Magazine();
+            Magazine *magazineObj = new Magazine();
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::in | ios::binary);
 
             if(fileObj.is_open())
             {
                 fileObj.seekg((recordPosition) * sizeof(Magazine));
-                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(TextBook));
+                fileObj.read(reinterpret_cast < char * > (magazineObj),sizeof(Magazine));
             }
+            referenceMaterialObj = magazineObj;
         break;
         case TYPE_RESEARCHPAPER:
-            referenceMaterialObj = new ResearchPaper();
+            ResearchPaper *researchPaperObj = new ResearchPaper();
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::in | ios::binary);
 
             if(fileObj.is_open())
             {
-                fileObj.seekg((recordPosition) * sizeof(TextBook));
-                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(ResearchPaper));
+                fileObj.seekg((recordPosition) * sizeof(ResearchPaper));
+                fileObj.read(reinterpret_cast < char * > (researchPaperObj),sizeof(ResearchPaper));
             }
+            referenceMaterialObj = researchPaperObj;
         break;
     }
     fileObj.close();
