@@ -75,9 +75,9 @@ void Validator::formValidate(int *referenceObj)
             }else if(textBookObj->getTitle().length()<5)
             {
                 this->error = "Title must be atleast 5 characters long";
-            }else if(textBookObj->getAuthor().length()<15)
+            }else if(textBookObj->getAuthor().length()<5)
             {
-                this->error = "Author\'s name must be atleast 15 characters long.";
+                this->error = "Author\'s name must be atleast 5 characters long.";
             }else if(textBookObj->getISBN().length()<9)
             {
                 this->error = "ISBN must be atleast 9 characters long.";
