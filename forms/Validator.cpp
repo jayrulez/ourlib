@@ -71,9 +71,7 @@ void Validator::formValidate(int *referenceObj)
                 this->error = "Reference Number must be between TX-001 and TX-999.";
             }else if(this->recordExists(referenceMaterialObj->getReferenceNumber()))
             {
-                this->error = "A Textbook with the Reference number \"";
-                (this->error).append((char*)refNo);
-                (this->error).append("\" already exists.");
+                this->error = "A Textbook with the Reference number already exists.";
             }
         break;
         case TYPE_MAGAZINE:
@@ -104,9 +102,7 @@ void Validator::formValidate(int *referenceObj)
 bool Validator::recordExists(string referenceNumber)
 {
     FileModel * fileModelObj = new FileModel();
-    cout << referenceNumber << endl;
-    if(fileModelObj->getReferenceMaterialRecordFromFile(referenceNumber)->getReferenceNumber()==referenceNumber)
-        return true;
-    else
-        return false;
+    string recordReferenceNumber = fileModelObj->getReferenceMaterialRecordFromFile(referenceNumber)->getReferenceNumber();
+    bool flag = (recordReferenceNumber.compare(referenceNumber)==0);
+    return flag;
 }
