@@ -99,9 +99,9 @@ void Validator::formValidate(int *referenceObj)
             }else if(this->recordExists(magazineObj->getReferenceNumber()))
             {
                 this->error = "A Magazine with the Reference number already exists.";
-            }else if(magazineObj->getTitle().length()<10)
+            }else if(magazineObj->getTitle().length()<5)
             {
-                this->error = "Title must be atleast 10 characters long.";
+                this->error = "Title must be atleast 5 characters long.";
             }else if(magazineObj->getAuthor().length()<10)
             {
                 this->error = "Author\'s name must be atleast 10 characters long.";
