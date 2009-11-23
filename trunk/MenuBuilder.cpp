@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
 
+
+#ifndef _FILEMODEL_H
+#include "./FileModel.h"
+#endif
+
 #ifndef _MENUBUILDER_H
 #include "MenuBuilder.h"
 #endif
@@ -335,6 +340,8 @@ void MenuBuilder::callMenu(int menuId)
 										cout << this->formPtr->getError() << endl;
 									break;
 									case STATE_SUCCESS:
+                                        FileModel *fileModelObj = new FileModel();
+                                        this->formPtr->setModel(fileModelObj->getReferenceMaterialRecordFromFile(this->formPtr->getModel()->getReferenceNumber()));
 										this->formPtr->getModel()->showReferenceMaterial(10,5);
 									break;
 								}
