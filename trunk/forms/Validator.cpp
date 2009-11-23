@@ -93,6 +93,7 @@ void Validator::formValidate(int *referenceObj)
             Magazine *magazineObj = (Magazine*)referenceObj;
             int volume;
             volume = atoi(magazineObj->getVolume().c_str());
+            cout << volume;
             if(refNo < 1 || refNo > 999)
             {
                 this->error = "Reference Number must be between MG-001 and MG-999.";
@@ -105,7 +106,7 @@ void Validator::formValidate(int *referenceObj)
             }else if(magazineObj->getAuthor().length()<10)
             {
                 this->error = "Author\'s name must be atleast 10 characters long.";
-            }else if(volume>1||volume>100)
+            }else if(volume<1||volume>100)
             {
                 this->error = "You must enter a volume between 1 and 100.";
             }else if(!this->checkDate(magazineObj->getIssueDate()))

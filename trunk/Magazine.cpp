@@ -65,15 +65,15 @@ void Magazine::showReferenceMaterial(int xCoord,int yCoord)
     frameObj.sFraming();
 
     consoleObj.xyCoord(xCoord+2,yCoord+2);
-    cout<<"Reference Number: "<<referenceNumber;
+    cout<<"Reference Number: "<<this->getReferenceNumber();
     consoleObj.xyCoord(xCoord+2,yCoord+4);
-    cout<<"Author: "<<author;
+    cout<<"Author: "<<this->getAuthor();
     consoleObj.xyCoord(xCoord+2,yCoord+6);
-    cout<<"Title: "<<title;
+    cout<<"Title: "<<this->getTitle();
     consoleObj.xyCoord(xCoord+2,yCoord+8);
-    cout<<"Volume: "<<volume;
+    cout<<"Volume: "<<this->getVolume();
     consoleObj.xyCoord(xCoord+2,yCoord+10);
-    cout<<"Issue Topic: "<<issueTopic;
+    cout<<"Issue Topic: "<<this->getIssueTopic();
     consoleObj.xyCoord(xCoord+2,yCoord+12);
-    cout<<"Issue Date: "<<issueDate;
+    cout<<"Issue Date: "<<this->getIssueDate();
 }
