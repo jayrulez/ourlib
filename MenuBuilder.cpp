@@ -275,10 +275,10 @@ void MenuBuilder::callMenu(int menuId)
                     {
 
                         case TEXTBOOKTYPE:
-                            callMEnu(TEXTBOOK);
+                            callMenu(TEXTBOOK);
                             break;
                         case RESEARCHPAPERTYPE:
-                            callMEnu(RESEARCHPAPER);
+                            callMenu(RESEARCHPAPER);
                             break;
                         case MAGAZINETYPE:
                             callMenu(MAGAZINE);
@@ -289,13 +289,13 @@ void MenuBuilder::callMenu(int menuId)
                     switch(ReferenceType)
                     {
                         case TEXTBOOKTYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(TEXTBOOK);
                             break;
                         case RESEARCHPAPERTYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(RESEARCHPAPER);
                             break;
                         case MAGAZINETYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(MAGAZINE);
                             break;
                     }
                     break;
