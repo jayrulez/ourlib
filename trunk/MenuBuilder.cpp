@@ -319,9 +319,11 @@ void MenuBuilder::callMenu(int menuId)
                     {
                         case MAGAZINETYPE:
                             this->BasicRunlevel("ADD MAGAZINE");
+                            this->formPtr->save();
                             break;
                         case RESEARCHPAPERTYPE:
                             this->BasicRunlevel("ADD RESEARCH PAPER");
+                            this->formPtr->save();
                             break;
                         case TEXTBOOKTYPE:
                             this->BasicRunlevel("ADD TEXTBOOK");

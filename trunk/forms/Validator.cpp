@@ -48,6 +48,7 @@ int Validator::checkDate(string dateStr)
         int dayAsInt = atoi(day);
         int monthAsInt = atoi(month);
         int yearAsInt = atoi(year);
+        cout << monthAsInt << dayAsInt << yearAsInt << endl;
         //if(year)
         //{
             //return;
@@ -103,6 +104,7 @@ void Validator::formValidate(int *referenceObj)
 bool Validator::recordExists(string referenceNumber)
 {
     FileModel * fileModelObj = new FileModel();
+    cout << referenceNumber << endl;
     if(fileModelObj->getReferenceMaterialRecordFromFile(referenceNumber)->getReferenceNumber()==referenceNumber)
         return true;
     else
