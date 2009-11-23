@@ -62,7 +62,7 @@ void LoanReturnForm::browseForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 3:
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETIC,SPACING,InputPtr,0,LoanReturnCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,0,LoanReturnCoord,FieldPosition,false);
                 break;
 	    }
         switch(KeyType)
