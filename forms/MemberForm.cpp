@@ -43,13 +43,11 @@ void MemberForm::browseForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-
                 out << memberPtr->getId();
                 s = out.str();
                 *InputPtr=s;
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,MemberCoord,FieldPosition,false);
                 this->memberPtr->setId(atoi(InputPtr->c_str()));
-                *InputPtr=s;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
