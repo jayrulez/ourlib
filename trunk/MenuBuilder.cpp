@@ -332,7 +332,7 @@ void MenuBuilder::callMenu(int menuId)
 								{
 									case STATE_ERROR:
 									case STATE_FAILURE:
-										cout << "error"<<endl;//this->formPtr->getError() << endl;
+										cout << this->formPtr->getError() << endl;
 									break;
 									case STATE_SUCCESS:
 										this->formPtr->getModel()->showReferenceMaterial(10,5);
