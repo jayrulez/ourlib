@@ -22,6 +22,7 @@ private:
     string LoanType;
 
     int FieldPosition;
+    int ChoicePosition;
     string AllInput[4];
     string input;
     string *InputPtr;
