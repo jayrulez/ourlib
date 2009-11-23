@@ -33,7 +33,7 @@ class Form
         bool hasError() const;
         void setModel(ReferenceMaterial*);
         void setFormType(int);
-        int getFormType();
+        int getFormType() const;
         ReferenceMaterial* getModel();
 };
 #endif // FORM_H
