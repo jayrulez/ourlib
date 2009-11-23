@@ -38,6 +38,7 @@ void MemberForm::browseForm()
     string s;
     stringstream out;
 	consoleObj.xyCoord(MemberCoord[FieldPosition][0]+MemberCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MemberCoord[FieldPosition][1]);
+	cout<<memberPtr->getId();
 	while(!read)
 	{
 	    switch(FieldPosition)
