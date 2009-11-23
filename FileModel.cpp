@@ -24,42 +24,41 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
     ifstream fileObj;
     int recordPosition = referenceMaterialObj->getIdFromReferenceNumber(referenceNumber);
     if(recordPosition>0) recordPosition -= 1;
-
+    cout << "fucking bug, i'm onto you" << endl;
     switch(materialType)
     {
         case TYPE_TEXTBOOK:
-            TextBook *textBookObj = new TextBook();
+            referenceMaterialObj = new TextBook();
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::in | ios::binary);
             if(fileObj.is_open())
             {
+                cout << "i will get you" << endl;
                 fileObj.seekg((recordPosition) * sizeof(TextBook));
-                fileObj.read(reinterpret_cast < char * > (textBookObj),sizeof(TextBook));
+                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(TextBook));
             }
-            referenceMaterialObj = textBookObj;
         break;
         case TYPE_MAGAZINE:
-            Magazine *magazineObj = new Magazine();
+            referenceMaterialObj = new Magazine();
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::in | ios::binary);
 
             if(fileObj.is_open())
             {
                 fileObj.seekg((recordPosition) * sizeof(Magazine));
-                fileObj.read(reinterpret_cast < char * > (magazineObj),sizeof(Magazine));
+                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(Magazine));
             }
-            referenceMaterialObj = magazineObj;
         break;
         case TYPE_RESEARCHPAPER:
-            ResearchPaper *researchPaperObj = new ResearchPaper();
+            referenceMaterialObj = new ResearchPaper();
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::in | ios::binary);
 
             if(fileObj.is_open())
             {
                 fileObj.seekg((recordPosition) * sizeof(ResearchPaper));
-                fileObj.read(reinterpret_cast < char * > (researchPaperObj),sizeof(ResearchPaper));
+                fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(ResearchPaper));
             }
-            referenceMaterialObj = researchPaperObj;
         break;
     }
     fileObj.close();
+    cout << "did i squash you?" << endl;
     return referenceMaterialObj;
 }
