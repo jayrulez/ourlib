@@ -37,14 +37,27 @@ bool Validator::checkDate(string dateStr)
     char month[2];
     char day[2];
     char year[2];
+    char sep1[1];
+    char sep2[1];
     memset( month, '\0', 2 );
     memset( day, '\0', 2 );
     memset( year, '\0', 2 );
-    if(dateStr.length()!=8)
+    memset( sep1, '\0', 1 );
+    memset( sep2, '\0', 2 );
+    if(dateStr.length()!=8||())
     {
-        return 0;
+        return false;
     }else{
+       /* dateStr.copy(month,2);
+        dateStr = dateStr.substr(2);
+        dateStr.copy(sep1,1);
+        dateStr.substr(1);
+
         dateStr.copy(month,2);
+        dateStr = dateStr.substr(2);
+        dateStr.copy(sep2,1);
+        dateStr.substr(1);
+
         int dayAsInt = atoi(day);
         int monthAsInt = atoi(month);
         int yearAsInt = atoi(year);
@@ -52,7 +65,7 @@ bool Validator::checkDate(string dateStr)
         //if(year)
         //{
             //return;
-        //}
+        //}*/
     }
     return true;
 }
@@ -105,7 +118,7 @@ void Validator::formValidate(int *referenceObj)
             }else if(magazineObj->getAuthor().length()<10)
             {
                 this->error = "Author\'s name must be atleast 10 characters long.";
-            }else if(volume<1||volume>100)
+            }else if(volume < 1 || volume > 100)
             {
                 this->error = "You must enter a volume between 1 and 100.";
             }else if(!this->checkDate(magazineObj->getIssueDate()))
