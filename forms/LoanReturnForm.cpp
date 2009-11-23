@@ -135,6 +135,8 @@ void LoanReturnForm::show()
 	cout<<"Date: ";
 	if(FormType)
 	{
+	    consoleObj.xyCoord(LoanReturnCoord[3][0]-11,LoanReturnCoord[3][1]);
+	    cout<<"<IN/OUT>";
         consoleObj.xyCoord(LoanReturnCoord[3][0],LoanReturnCoord[3][1]);
         cout<<"Loan Type: ";
 	}
