@@ -91,12 +91,29 @@ void Validator::formValidate(int *referenceObj)
         break;
         case TYPE_MAGAZINE:
             Magazine *magazineObj = (Magazine*)referenceObj;
+            int volume;
+            volume = atoi(magazineObj->getVolume().c_str());
             if(refNo < 1 || refNo > 999)
             {
                 this->error = "Reference Number must be between MG-001 and MG-999.";
             }else if(this->recordExists(magazineObj->getReferenceNumber()))
             {
                 this->error = "A Magazine with the Reference number already exists.";
+            }else if(magazineObj->getTitle().length()<10)
+            {
+                this->error = "Title must be atleast 10 characters long.";
+            }else if(magazineObj->getAuthor().length()<10)
+            {
+                this->error = "Author\'s name must be atleast 10 characters long.";
+            }else if(volume>1||volume>100)
+            {
+                this->error = "You must enter a volume between 1 and 100.";
+            }else if(!this->checkDate(magazineObj->getIssueDate()))
+            {
+                this->error = "Issue date requires a valid date in the format mm/dd/yy.";
+            }else if(magazineObj->getIssueTopic().length()<5)
+            {
+                this->error = "Issue Topic must be atleast 5 characters long.";
             }
         break;
         case TYPE_RESEARCHPAPER:
@@ -107,6 +124,21 @@ void Validator::formValidate(int *referenceObj)
             }else if(this->recordExists(researchPaperObj->getReferenceNumber()))
             {
                 this->error = "A Research Paper with the Reference number already exists.";
+            }else if(researchPaperObj->getTitle().length()<10)
+            {
+                this->error = "Title must be atleast 10 characters long.";
+            }else if(researchPaperObj->getAuthor().length()<10)
+            {
+                this->error = "Author\'s name must be atleast 10 characters long.";
+            }else if(researchPaperObj->getResearchTopic().length()<10)
+            {
+                this->error = "Research Topic must be atleast 10 characters long.";
+            }else if(researchPaperObj->getSupervisor().length()<10)
+            {
+                this->error = "Supervisor field must be atleast 10 characters long.";
+            }else if(researchPaperObj->getSponsor().length()<10)
+            {
+                this->error = "Sponsor field must be atleast 10 characters long.";
             }
         break;
     }
