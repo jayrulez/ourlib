@@ -48,8 +48,6 @@ void LoanReturnForm::browseForm()
 	while(!read)
 	{
 
-	    cout<<FieldPosition;
-
 	    switch(FieldPosition)
 	    {
             case 0:
