@@ -13,6 +13,7 @@ class LoanReturnForm: public Form
 {
 private:
     int LoanReturnCoord[4][3];
+    string FormType;
     console consoleObj;
     FormInputBuilder FormInputBuilderObj;
 
@@ -30,6 +31,7 @@ private:
 public:
     LoanReturnForm();
     ~LoanReturnForm();
+    void setLoanForm(string);
     void browseForm();
 	void show();
     void save();
