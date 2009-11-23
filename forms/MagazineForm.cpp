@@ -94,7 +94,7 @@ void MagazineForm::browseForm()
                 break;
             case 5:
                 *InputPtr = this->magazinePtr->getIssueDate();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,8,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setIssueDate(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -152,7 +152,7 @@ void MagazineForm::show()
 	consoleObj.xyCoord(MagazineCoord[3][0],MagazineCoord[3][1]);
 	cout<<"Volume: ";
     consoleObj.xyCoord(13,23);
-	cout<<"<dd/mm/yy>";
+	cout<<"<mm/dd/yy>";
 	consoleObj.xyCoord(MagazineCoord[4][0],MagazineCoord[4][1]);
 	cout<<"Issue Date: ";
 	consoleObj.xyCoord(MagazineCoord[5][0],MagazineCoord[5][1]);
