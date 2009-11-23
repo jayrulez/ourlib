@@ -378,7 +378,15 @@ void MenuBuilder::callMenu(int menuId)
                     break;
             }
         break;
-
+        case SEARCH:
+            switch(MenuType)
+            {
+                case DELETETYPE:
+                break;
+                case EDITTYPE:
+                break;
+            }
+        break;
 		case RESEARCHPAPER:
             this->formPtr = new ResearchPaperForm;
             ReferenceType=RESEARCHPAPERTYPE;
@@ -422,8 +430,11 @@ void MenuBuilder::callMenu(int menuId)
             MenuType=DELETETYPE;
             this->BasicRunlevel("DELETE MENU");
             this->MenuShow(DeleteMenu(),DELETEMENU_SIZ);
-            this->DeleteMenuDriver();
-            this->menuBrowserOperator(DeleteMenu(),DELETEMENU_SIZ,FORMMENU);
+            do
+            {
+                this->DeleteMenuDriver();
+                TypeCheck=this->menuBrowserOperator(DeleteMenu(),DELETEMENU_SIZ,FORMMENU);
+			}while(TypeCheck==0);
         break;
 
 		case LOAN:
@@ -538,7 +549,8 @@ item* MenuBuilder::AddMemberFormMenu()
 item* MenuBuilder::EditMenu()
 {
     static item EditMenuItem[EDITMENU_SIZ];
-    EditMenuItem[0].setItem(35,32,MAINMENU,"MAINMENU");
+    EditMenuItem[0].setItem(25,32,SEARCH,"SEARCH");
+    EditMenuItem[1].setItem(45,32,MAINMENU,"MAINMENU");
     return &EditMenuItem[0];
 }
 item* MenuBuilder::EditFormMenu()
@@ -633,7 +645,8 @@ item* MenuBuilder::MemberConfirmMenu()
 item* MenuBuilder::DeleteMenu()
 {
     static item DeleteMenuItem[DELETEMENU_SIZ];
-    DeleteMenuItem[0].setItem(35,32,MAINMENU,"MAINMENU");
+    DeleteMenuItem[0].setItem(25,32,SEARCH,"SEARCH");
+    DeleteMenuItem[1].setItem(45,32,MAINMENU,"MAINMENU");
     return &DeleteMenuItem[0];
 }
 /*
@@ -956,12 +969,6 @@ int MenuBuilder::EditMenuDriver()
     string *ReferenceNumberPtr;
     ReferenceNumberPtr = &ReferenceNumber;
     result = this->EditInput(ReferenceNumberPtr);
-    switch(result)
-    {
-        case VK_RETURN:
-            return 0;
-        break;
-    }
     return 0;
 }
 
@@ -985,12 +992,6 @@ int MenuBuilder::DeleteMenuDriver()
     string *ReferenceNumberPtr;
     ReferenceNumberPtr = &ReferenceNumber;
     result = this->DeleteInput(ReferenceNumberPtr);
-    switch(result)
-    {
-        case VK_RETURN:
-            return 0;
-        break;
-    }
     return 0;
 }
 
