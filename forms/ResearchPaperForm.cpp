@@ -60,7 +60,7 @@ void ResearchPaperForm::browseForm()
 	    {
             case 0:
                 *InputPtr = this->researchPaperPtr->getReferenceNumber();
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,ResearchPaperCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,3,ResearchPaperCoord,FieldPosition,false);
                 this->researchPaperPtr->setReferenceNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
