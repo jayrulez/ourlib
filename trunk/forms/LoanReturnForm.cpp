@@ -11,7 +11,7 @@ LoanReturnForm::LoanReturnForm()
     FieldPosition=0;
     ChoicePosition=0;
     InputPtr=&input;
-    choices[0]="IN ";
+    choices[0]="IN";
     choices[1]="OUT";
     LoanReturnCoord[0][0]=25;
     LoanReturnCoord[0][1]=13;
@@ -70,7 +70,7 @@ void LoanReturnForm::browseForm()
                 LoanReturnDate = *InputPtr;
                 AllInput[FieldPosition] = *InputPtr;
                 break;
-            if(FormType=="loan");
+            if(FormType.compare("loan")==0);
             {
                 case 3:
                     *InputPtr=choices[ChoicePosition];
@@ -118,7 +118,7 @@ void LoanReturnForm::browseForm()
                 }
             break;
         }
-        if(FieldPosition>3 && FormType=="loan")
+        if(FieldPosition>3 && FormType.compare("loan")==0)
         {
             FieldPosition=3;
             read=true;
@@ -141,7 +141,7 @@ void LoanReturnForm::show()
 	cout<<"Id Number: ";
 	consoleObj.xyCoord(LoanReturnCoord[2][0],LoanReturnCoord[2][1]);
 	cout<<"Date: ";
-	if(FormType=="loan")
+	if(FormType.compare("loan")==0)
 	{
         consoleObj.xyCoord(LoanReturnCoord[3][0],LoanReturnCoord[3][1]);
         cout<<"Loan Type: ";
