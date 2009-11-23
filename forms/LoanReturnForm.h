@@ -30,6 +30,7 @@ private:
     string choices[2];
 public:
     LoanReturnForm();
+    LoanReturnForm(string);
     ~LoanReturnForm();
     void setLoanForm(string);
     void browseForm();
