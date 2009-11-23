@@ -93,7 +93,6 @@ void Validator::formValidate(int *referenceObj)
             Magazine *magazineObj = (Magazine*)referenceObj;
             int volume;
             volume = atoi(magazineObj->getVolume().c_str());
-            cout << volume;
             if(refNo < 1 || refNo > 999)
             {
                 this->error = "Reference Number must be between MG-001 and MG-999.";
