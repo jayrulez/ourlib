@@ -18,7 +18,7 @@ private:
 
     string ReferenceNumber;
     int IdNumber;
-    string LoanReturnDate;
+    string LoanDate;
     string LoanType;
 
     int FieldPosition;
