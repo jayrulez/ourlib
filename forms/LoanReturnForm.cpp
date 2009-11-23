@@ -11,6 +11,7 @@ LoanReturnForm::LoanReturnForm()
     FieldPosition=0;
     ChoicePosition=0;
     InputPtr=&input;
+    FormType="loan";
     choices[0]="IN";
     choices[1]="OUT";
     LoanReturnCoord[0][0]=25;
