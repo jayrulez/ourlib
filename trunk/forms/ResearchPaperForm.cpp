@@ -66,32 +66,32 @@ void ResearchPaperForm::browseForm()
                 break;
             case 1:
                 *InputPtr = this->researchPaperPtr->getTitle();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,ResearchPaperCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,15,ResearchPaperCoord,FieldPosition,false);
                 this->researchPaperPtr->setTitle(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
                 *InputPtr = this->researchPaperPtr->getAuthor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,ResearchPaperCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,20,ResearchPaperCoord,FieldPosition,false);
                 this->researchPaperPtr->setAuthor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 3:
                 *InputPtr = this->researchPaperPtr->getResearchTopic();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,10,ResearchPaperCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,ResearchPaperCoord,FieldPosition,false);
                 this->researchPaperPtr->setResearchTopic(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 
             case 4:
                 *InputPtr = this->researchPaperPtr->getSupervisor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,ResearchPaperCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,15,ResearchPaperCoord,FieldPosition,false);
                 this->researchPaperPtr->setSupervisor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 5:
                 *InputPtr = this->researchPaperPtr->getSponsor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,10,ResearchPaperCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,15,ResearchPaperCoord,FieldPosition,false);
                 this->researchPaperPtr->setSponsor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
