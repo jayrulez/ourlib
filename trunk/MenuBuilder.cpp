@@ -275,13 +275,13 @@ void MenuBuilder::callMenu(int menuId)
                     {
 
                         case TEXTBOOKTYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMEnu(TEXTBOOK);
                             break;
                         case RESEARCHPAPERTYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMEnu(RESEARCHPAPER);
                             break;
                         case MAGAZINETYPE:
-                            cout<<"           Submitting edit textbook";
+                            callMenu(MAGAZINE);
                             break;
                     }
                     break;
