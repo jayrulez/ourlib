@@ -80,7 +80,7 @@ void Validator::formValidate(int *referenceObj)
                 this->error = "Reference Number must be between MG-001 and MG-999.";
             }else if(this->recordExists(referenceMaterialObj->getReferenceNumber()))
             {
-                this->error = "A Magazine with the Reference number already exists.");
+                this->error = "A Magazine with the Reference number already exists.";
             }
         break;
         case TYPE_RESEARCHPAPER:
