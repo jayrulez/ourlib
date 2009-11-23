@@ -7,6 +7,9 @@
 #ifndef _VALIDATOR_H
 #include "./Validator.h"
 #endif
+#ifndef _FILEMODEL_H
+#include "../FileModel.h"
+#endif
 #include <iostream>
 using namespace std;
 
@@ -171,7 +174,8 @@ void TextBookForm::save()
     validator->formValidate((int*)this->textBookPtr);
     if (validator->hasError())
     {
-        cout << "Error: " << validator->getError() << endl;
+        this->setState(STATE_ERROR);
+        this->setError(validator->getError());
     }else{
         ofstream fileWriteObj (this->textBookPtr->getDataFileName(),ios::out | ios::binary);
         fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
@@ -179,13 +183,14 @@ void TextBookForm::save()
         try
         {
             fileWriteObj.write(reinterpret_cast < char * > (this->textBookPtr),sizeof(TextBook));
-            cout << "New record saved" <<endl;
+            this->setState(STATE_SUCCESS);
+            FileModel *fileModelObj = new FileModel();
+            this->setModel(fileModelObj->getReferenceMaterialRecordFromFile(this->textBookPtr->getReferenceNumber()));
         }catch(ofstream::failure e)
         {
-            //cout << e.what() << endl;
-            cout << "Error, could not write to file" << endl;
+            this->setState(STATE_FAILURE);
+            this->setError(e.what());
         }
         fileWriteObj.close();
     }
-    fgetc(stdin);
 }
