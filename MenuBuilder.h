@@ -151,6 +151,7 @@ public:
 	item* EditMenu();
 	item* EditFormMenu();
 	item* EditConfirmMenu();
+    item* EditAfterSaveMenu();
 
 	item* DeleteMenu();
 	item* DeleteConfirmMenu();

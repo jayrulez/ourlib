@@ -657,6 +657,16 @@ item* MenuBuilder::AddAfterSaveMenu()
     return &AddAfterSaveMenuItem[0];
 }
 /*
+*   This function creates menu items for after save
+*/
+item* MenuBuilder::EditAfterSaveMenu()
+{
+    static item EditAfterSaveMenuItem[AFTERSAVEMENU_SIZ];
+    EditAfterSaveMenuItem[0].setItem(20,35,EDIT,"<--ADD MENU");
+    EditAfterSaveMenuItem[1].setItem(50,35,MAINMENU,"MAIN MENU");
+    return &EditAfterSaveMenuItem[0];
+}
+/*
 * This function displays the contents for the menus
 */
 void MenuBuilder::MenuShow(item *iptr,int size)
