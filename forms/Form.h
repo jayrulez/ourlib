@@ -19,6 +19,7 @@ class Form
         int state;
         string error;
         ReferenceMaterial * model;
+        int formType;
     public:
         Form();
         virtual ~Form();
@@ -31,6 +32,8 @@ class Form
         string getError() const;
         bool hasError() const;
         void setModel(ReferenceMaterial*);
+        void setFormType(int);
+        int getFormType();
         ReferenceMaterial* getModel();
 };
 #endif // FORM_H
