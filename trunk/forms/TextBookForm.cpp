@@ -194,3 +194,7 @@ void TextBookForm::save()
         fileWriteObj.close();
     }
 }
+
+void TextBookForm::validate()
+{
+}

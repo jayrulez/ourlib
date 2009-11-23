@@ -98,7 +98,7 @@ void Validator::formValidate(int *referenceObj)
                 this->error = "Reference Number must be between MG-001 and MG-999.";
             }else if(this->recordExists(magazineObj->getReferenceNumber()))
             {
-                this->error = "A Magazine with the Reference number already exists.";
+                this->error = "Reference number already exists";
             }else if(magazineObj->getTitle().length()<5)
             {
                 this->error = "Title must be atleast 5 characters long.";
