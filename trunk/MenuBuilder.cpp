@@ -652,8 +652,8 @@ item* MenuBuilder::DeleteConfirmMenu()
 item* MenuBuilder::AddAfterSaveMenu()
 {
     static item AddAfterSaveMenuItem[AFTERSAVEMENU_SIZ];
-    AddAfterSaveMenuItem[0].setItem(20,20,ADD,"<--ADD MENU");
-    AddAfterSaveMenuItem[1].setItem(50,20,MAINMENU,"MAIN MENU");
+    AddAfterSaveMenuItem[0].setItem(20,35,ADD,"<--ADD MENU");
+    AddAfterSaveMenuItem[1].setItem(50,35,MAINMENU,"MAIN MENU");
     return &AddAfterSaveMenuItem[0];
 }
 /*
