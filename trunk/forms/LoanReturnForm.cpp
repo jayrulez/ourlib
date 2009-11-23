@@ -9,8 +9,9 @@ using namespace std;
 LoanReturnForm::LoanReturnForm()
 {
     FieldPosition=0;
+    ChoicePosition=0;
     InputPtr=&input;
-    choises[0]="IN"
+    choices[0]="IN";
     choices[1]="OUT";
     LoanReturnCoord[0][0]=25;
     LoanReturnCoord[0][1]=13;
@@ -83,6 +84,24 @@ void LoanReturnForm::browseForm()
             break;
             case VK_DOWN:
                 FieldPosition+=1;
+            break;
+            case VK_LEFT:
+                if(ChoicePosition==0)
+                {
+                    ChoicePosition=1;
+                }
+                else if(ChoicePosition==1){
+                    ChoicePosition=0;
+                }
+            break;
+            case VK_RIGHT:
+                if(ChoicePosition==0)
+                {
+                    ChoicePosition=1;
+                }
+                else if(ChoicePosition==1){
+                    ChoicePosition=0;
+                }
             break;
         }
         if(FieldPosition>3)
