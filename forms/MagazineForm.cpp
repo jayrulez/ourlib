@@ -38,11 +38,11 @@ MagazineForm::MagazineForm()
 
     MagazineCoord[4][0]=25;
     MagazineCoord[4][1]=23;
-    MagazineCoord[4][2]=13;
+    MagazineCoord[4][2]=12;
 
     MagazineCoord[5][0]=25;
     MagazineCoord[5][1]=26;
-    MagazineCoord[5][2]=12;
+    MagazineCoord[5][2]=13;
 }
 
 MagazineForm::~MagazineForm()
@@ -80,9 +80,9 @@ void MagazineForm::browseForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 3:
-                *InputPtr = this->magazinePtr->getTitle();
+                *InputPtr = this->magazinePtr->getVolume();
                 KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
-                this->magazinePtr->setTitle(*InputPtr);
+                this->magazinePtr->setVolume(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 
