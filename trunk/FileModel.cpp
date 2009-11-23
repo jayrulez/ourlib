@@ -56,6 +56,9 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
                 fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(ResearchPaper));
             }
         break;
+        case TYPE_NONEXISTENT:
+            referenceMaterialObj->setReferenceNumber("0");
+        break;
     }
     fileObj.close();
     return referenceMaterialObj;
