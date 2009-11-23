@@ -53,8 +53,6 @@ void LoanReturnForm::browseForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-                cout<<FormType;
-                system("pause");
                 *InputPtr =  ReferenceNumber;
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,LoanReturnCoord,FieldPosition,false);
                 ReferenceNumber = *InputPtr;
