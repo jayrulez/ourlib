@@ -158,6 +158,7 @@ void MagazineForm::show()
 	consoleObj.xyCoord(MagazineCoord[5][0],MagazineCoord[5][1]);
 	cout<<"Issue Topic: ";
 }
+
 void MagazineForm::save()
 {
     this->magazinePtr->insertReferenceNumberPrefix(this->magazinePtr->getReferenceNumber());
@@ -166,23 +167,26 @@ void MagazineForm::save()
     if(position>0) position -= 1;
 
     Validator * validator = new Validator();
-    validator->formValidate((int*)this->magazinePtr);
+    ReferenceMaterial *referenceObj = this->magazinePtr;
+    validator->formValidate((int*)referenceObj);
     if (validator->hasError())
     {
-        cout << "Error: " << validator->getError() << endl;
+        this->setState(STATE_ERROR);
+        this->setError(validator->getError());
     }else{
         ofstream fileWriteObj (this->magazinePtr->getDataFileName(),ios::out | ios::binary);
         fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
         fileWriteObj.seekp(position * sizeof(Magazine));
         try
         {
-            fileWriteObj.write(reinterpret_cast < char * > (&(*this->magazinePtr)),sizeof(Magazine));
+            fileWriteObj.write(reinterpret_cast < char * > (this->magazinePtr),sizeof(Magazine));
+            this->setState(STATE_SUCCESS);
+            this->setModel(this->magazinePtr);
         }catch(ofstream::failure e)
         {
-            //cout << e.what() << endl;
-            cout << "Error, could not write to file" << endl;
+            this->setState(STATE_FAILURE);
+            this->setError(e.what());
         }
         fileWriteObj.close();
     }
-    fgetc(stdin);
 }
