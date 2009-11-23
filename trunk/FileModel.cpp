@@ -34,10 +34,6 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             {
                 fileObj.seekg((recordPosition) * sizeof(TextBook));
                 fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(TextBook));
-                if(referenceMaterialObj->getReferenceNumber().compare(referenceNumber)==0)
-                {
-                }
-                fileObj.close();
             }
         break;
         case TYPE_MAGAZINE:
@@ -48,10 +44,6 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             {
                 fileObj.seekg((recordPosition) * sizeof(Magazine));
                 fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(TextBook));
-                if(referenceMaterialObj->getReferenceNumber().compare(referenceNumber)==0)
-                {
-                }
-                fileObj.close();
             }
         break;
         case TYPE_RESEARCHPAPER:
@@ -62,12 +54,9 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             {
                 fileObj.seekg((recordPosition) * sizeof(TextBook));
                 fileObj.read(reinterpret_cast < char * > (referenceMaterialObj),sizeof(ResearchPaper));
-                if(referenceMaterialObj->getReferenceNumber().compare(referenceNumber)==0)
-                {
-                }
-                fileObj.close();
             }
         break;
     }
+    fileObj.close();
     return referenceMaterialObj;
 }
