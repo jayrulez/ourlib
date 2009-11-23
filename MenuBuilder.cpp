@@ -347,6 +347,8 @@ void MenuBuilder::callMenu(int menuId)
                             this->formPtr->getModel()->showReferenceMaterial(10,5);
                         break;
                     }
+                    this->MenuShow(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+                    this->menuBrowserOperator(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
                 break;
                 case EDITTYPE:
                     switch(ReferenceType)
@@ -643,6 +645,16 @@ item* MenuBuilder::DeleteConfirmMenu()
     DeleteConfirmMenuItem[0].setItem(20,20,SAVE,"DELETE MATERIAL");
     DeleteConfirmMenuItem[1].setItem(50,20,CANCEL,"CANCEL");
     return &DeleteConfirmMenuItem[0];
+}
+/*
+*   This function creates menu items for after save
+*/
+item* MenuBuilder::AddAfterSaveMenu()
+{
+    static item AddAfterSaveMenuItem[AFTERSAVEMENU_SIZ];
+    AddAfterSaveMenuItem[0].setItem(20,20,ADD,"<--ADD MENU");
+    AddAfterSaveMenuItem[1].setItem(50,20,MAINMENU,"MAIN MENU");
+    return &AddAfterSaveMenuItem[0];
 }
 /*
 * This function displays the contents for the menus

@@ -116,7 +116,10 @@
 */
 #define SAVE 12
 #define CANCEL 13
-
+/*
+* After Save Menu
+*/
+#define AFTERSAVEMENU_SIZ 2
 /*
 * Form Menu Items
 */
@@ -143,6 +146,7 @@ public:
 	item* AddReferenceMaterial();
 	item* AddFormMenu();
 	item* AddConfirmMenu();
+    item* AddAfterSaveMenu();
 
 	item* EditMenu();
 	item* EditFormMenu();
