@@ -85,6 +85,7 @@ void ReturnForm::browseForm()
         if(FieldPosition>2)
         {
             FieldPosition = 2;
+            read=true;
         }
         consoleObj.xyCoord(ReturnCoord[FieldPosition][0]+
         ReturnCoord[FieldPosition][2]+AllInput[FieldPosition].length(),
