@@ -169,7 +169,7 @@ public:
 
 	string EditMenuDriver();
 	int EditInput(string *);
-	int DeleteMenuDriver();
+	string DeleteMenuDriver();
 	int DeleteInput(string *);
 	int menuBrowserOperator(item*,int,int);
 	int MenuProcessing( int,item*,int*,scroller*,int,int);

@@ -28,6 +28,7 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
     switch(materialType)
     {
         case TYPE_TEXTBOOK:
+        {
             //cout <<
             referenceMaterialObj = new TextBook();
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::binary);
@@ -38,8 +39,10 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             }
             fileObj.close();
             return referenceMaterialObj;
+        }
         break;
         case TYPE_MAGAZINE:
+        {
             referenceMaterialObj = new Magazine();
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::binary);
 
@@ -50,8 +53,10 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             }
             fileObj.close();
             return referenceMaterialObj;
+        }
         break;
         case TYPE_RESEARCHPAPER:
+        {
             referenceMaterialObj = new ResearchPaper();
             fileObj.open(referenceMaterialObj->getDataFileName(),ios::binary);
 
@@ -62,11 +67,14 @@ ReferenceMaterial* FileModel::getReferenceMaterialRecordFromFile(string referenc
             }
             fileObj.close();
             return referenceMaterialObj;
+        }
         break;
         case TYPE_NONEXISTENT:
         default:
+        {
             referenceMaterialObj->setReferenceNumber("0");
             return referenceMaterialObj;
+        }
         break;
     }
 }

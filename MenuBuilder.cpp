@@ -147,7 +147,16 @@ void MenuBuilder::callMenu(int menuId)
             this->MenuShow(this->AddReferenceMaterial(),ADDMENU_SIZ);
 			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ,NORMALMENU);
 		break;
-
+        case DEL:
+            MenuType=DELETETYPE;
+            this->BasicRunlevel("DELETE MENU");
+            this->MenuShow(DeleteMenu(),DELETEMENU_SIZ);
+            do
+            {
+                this->queryString = this->DeleteMenuDriver();
+                TypeCheck=this->menuBrowserOperator(DeleteMenu(),DELETEMENU_SIZ,FORMMENU);
+			}while(TypeCheck==0);
+        break;
 		case EDIT:
             MenuType=EDITTYPE;
             this->BasicRunlevel("EDIT MENU");
@@ -411,6 +420,13 @@ void MenuBuilder::callMenu(int menuId)
             }
         break;
         case SEARCH:
+            if(MenuType==DELETETYPE)
+            {
+                this->queryString = this->DeleteMenuDriver();
+            }else if(MenuType==EDITTYPE)
+            {
+                this->queryString = this->EditMenuDriver();
+            }
             Validator *validator = new Validator();
             bool isValidReferenceNumber = validator->checkReferenceNumber(this->queryString);
             bool recExists = (isValidReferenceNumber&&validator->recordExists(this->queryString)) ? true : false;
@@ -559,17 +575,6 @@ void MenuBuilder::callMenu(int menuId)
                 TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
 		break;
-
-        case DEL:
-            MenuType=DELETETYPE;
-            this->BasicRunlevel("DELETE MENU");
-            this->MenuShow(DeleteMenu(),DELETEMENU_SIZ);
-            do
-            {
-                this->DeleteMenuDriver();
-                TypeCheck=this->menuBrowserOperator(DeleteMenu(),DELETEMENU_SIZ,FORMMENU);
-			}while(TypeCheck==0);
-        break;
 
 		case LOAN:
             this->BasicRunlevel("LOAN MENU");
@@ -1118,14 +1123,14 @@ int MenuBuilder::EditInput(string *ReferenceNumberPtr)
     cout<<"Reference Number: ";
     return EditEntry.FormInput(ALPHANUMERIC,NOSPACING,ReferenceNumberPtr,6,EditCoord,position,true);
 }
-int MenuBuilder::DeleteMenuDriver()
+string MenuBuilder::DeleteMenuDriver()
 {
     int result;
     string ReferenceNumber;
     string *ReferenceNumberPtr;
     ReferenceNumberPtr = &ReferenceNumber;
     result = this->DeleteInput(ReferenceNumberPtr);
-    return 0;
+    return ReferenceNumber;
 }
 
 int MenuBuilder::DeleteInput(string *ReferenceNumberPtr)
