@@ -13,6 +13,7 @@
 #ifndef _MAGAZINE_H
 #include "Magazine.h"
 #endif
+#include <fstream>
 
 FileModel::FileModel() {}
 FileModel::~FileModel() {}
