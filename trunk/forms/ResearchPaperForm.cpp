@@ -47,6 +47,7 @@ ResearchPaperForm::~ResearchPaperForm()
 {
 
 }
+
 void ResearchPaperForm::browseForm()
 {
 	bool read=false;
@@ -158,11 +159,12 @@ void ResearchPaperForm::save()
         this->setError(validator->getError());
     }else{
         ofstream fileWriteObj (this->researchPaperPtr->getDataFileName(),ios::out | ios::binary);
-        fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
+        fileWriteObj.exceptions(ofstream::failbit | ofstream::badbit);
         fileWriteObj.seekp(position * sizeof(ResearchPaper));
         try
         {
-            fileWriteObj.write(reinterpret_cast < char * > (this->researchPaperPtr),sizeof(ResearchPaper));
+            fileWriteObj.write(reinterpret_cast < const char * > (this->researchPaperPtr),sizeof(ResearchPaper));
+            fileWriteObj.close();
             this->setState(STATE_SUCCESS);
             this->setModel(this->researchPaperPtr);
         }catch(ofstream::failure e)
@@ -170,6 +172,5 @@ void ResearchPaperForm::save()
             this->setState(STATE_FAILURE);
             this->setError(e.what());
         }
-        fileWriteObj.close();
     }
 }

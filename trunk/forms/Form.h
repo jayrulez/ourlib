@@ -3,6 +3,9 @@
 #ifndef _REFERENCEMATERIAL_H
 #include "../ReferenceMaterial.h"
 #endif
+#ifndef _TEXTBOOK_H
+#include "../TextBook.h"
+#endif
 
 #include <string>
 
@@ -19,6 +22,7 @@ class Form
         int state;
         string error;
         ReferenceMaterial * model;
+        ReferenceMaterial * referenceMaterialPtr;
         int formType;
     public:
         Form();
@@ -35,5 +39,6 @@ class Form
         void setFormType(int);
         int getFormType() const;
         ReferenceMaterial* getModel();
+        virtual void setReferenceMaterialPtr(ReferenceMaterial*);
 };
 #endif // FORM_H

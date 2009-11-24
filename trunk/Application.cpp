@@ -102,18 +102,17 @@ void Application::buildDataFiles()
         fileWriteObj.open(textBookObj.getDataFileName(), ios::out | ios::binary);
         if(fileWriteObj.is_open())
         {
-            TextBook emptyTextBookObj("","","","","","","");
+            TextBook emptyTextBookObj;
             for(i=0;i<999;i++)
             {
-                fileWriteObj.write(reinterpret_cast < char * > (&emptyTextBookObj),sizeof(TextBook));
+                fileWriteObj.write(reinterpret_cast < const char * > (&emptyTextBookObj),sizeof(TextBook));
             }
             fileWriteObj.close();
-            fileWriteObj.clear();
         }else{
             // Error, make sure the disk is writable
         }
 	}
-	fileReadObj.clear();
+	fileReadObj.close();
 
 	fileReadObj.open(magazineObj.getDataFileName(),ios::in | ios::binary);
 	if(!fileReadObj.is_open())
@@ -121,18 +120,17 @@ void Application::buildDataFiles()
         fileWriteObj.open(magazineObj.getDataFileName(), ios::out | ios::binary);
         if(fileWriteObj.is_open())
         {
-            Magazine emptyMagazineObj("","","","","","");
+            Magazine emptyMagazineObj;
             for(i=0;i<999;i++)
             {
-                fileWriteObj.write(reinterpret_cast < char * > (&emptyMagazineObj),sizeof(Magazine));
+                fileWriteObj.write(reinterpret_cast < const char * > (&emptyMagazineObj),sizeof(Magazine));
             }
             fileWriteObj.close();
-            fileWriteObj.clear();
         }else{
             // Error, make sure the disk is writable
         }
 	}
-	fileReadObj.clear();
+	fileReadObj.close();
 
 	fileReadObj.open(researchPaperObj.getDataFileName(),ios::in | ios::binary);
 	if(!fileReadObj.is_open())
@@ -140,18 +138,18 @@ void Application::buildDataFiles()
         fileWriteObj.open(researchPaperObj.getDataFileName(), ios::out | ios::binary);
         if(fileWriteObj.is_open())
         {
-            ResearchPaper emptyResearchPaperObj("","","","","","");
+            ResearchPaper emptyResearchPaperObj;
             for(i=0;i<999;i++)
             {
-                fileWriteObj.write(reinterpret_cast < char * > (&emptyResearchPaperObj),sizeof(ResearchPaper));
+                fileWriteObj.write(reinterpret_cast < const char * > (&emptyResearchPaperObj),sizeof(ResearchPaper));
             }
             fileWriteObj.close();
-            fileWriteObj.clear();
         }else{
             // Error, make sure the disk is writable
         }
+	}else{
+        fileReadObj.close();
 	}
-	fileReadObj.clear();
 }
 
 void Application::main()

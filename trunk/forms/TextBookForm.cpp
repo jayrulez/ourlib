@@ -51,6 +51,7 @@ TextBookForm::~TextBookForm()
 {
 
 }
+
 void TextBookForm::browseForm()
 {
 	bool read=false;
@@ -178,12 +179,13 @@ void TextBookForm::save()
         this->setState(STATE_ERROR);
         this->setError(validator->getError());
     }else{
-        ofstream fileWriteObj (this->textBookPtr->getDataFileName(),ios::out | ios::binary);
-        fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
-        fileWriteObj.seekp(position * sizeof(TextBook));
+        ofstream fileWriteObj (this->textBookPtr->getDataFileName(), ios::binary);
+        fileWriteObj.exceptions(ofstream::failbit | ofstream::badbit);
         try
         {
-            fileWriteObj.write(reinterpret_cast < char * > (this->textBookPtr),sizeof(TextBook));
+            fileWriteObj.seekp(position * sizeof(TextBook));
+            fileWriteObj.write(reinterpret_cast < const char * > (this->textBookPtr),sizeof(TextBook));
+            fileWriteObj.close();
             this->setState(STATE_SUCCESS);
             this->setModel(this->textBookPtr);
         }catch(ofstream::failure e)
@@ -191,7 +193,10 @@ void TextBookForm::save()
             this->setState(STATE_FAILURE);
             this->setError(e.what());
         }
-        fileWriteObj.close();
     }
 }
 
+void TextBookForm::setReferenceMaterialPtr(TextBook* refObj)
+{
+    this->referenceMaterialPtr = refObj;
+}
