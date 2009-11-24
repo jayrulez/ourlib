@@ -170,15 +170,14 @@ void MagazineForm::save()
         ofstream fileWriteObj (this->magazinePtr->getDataFileName(),ios::out | ios::binary);
         fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
         fileWriteObj.seekp(position * sizeof(Magazine));
-        try
+        if(fileWriteObj.is_open())
         {
             fileWriteObj.write(reinterpret_cast < char * > (this->magazinePtr),sizeof(Magazine));
             this->setState(STATE_SUCCESS);
             this->setModel(this->magazinePtr);
-        }catch(ofstream::failure e)
-        {
+        }else{
             this->setState(STATE_FAILURE);
-            this->setError(e.what());
+            this->setError("Cannot create or write to file.");
         }
         fileWriteObj.close();
     }

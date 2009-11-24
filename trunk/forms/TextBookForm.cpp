@@ -11,6 +11,7 @@
 #include "../FileModel.h"
 #endif
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 TextBookForm::TextBookForm()
@@ -180,19 +181,16 @@ void TextBookForm::save()
         this->setError(validator->getError());
     }else{
         ofstream fileWriteObj (this->textBookPtr->getDataFileName(),ios::ate | ios::binary);
-        fileWriteObj.exceptions(ofstream::failbit | ofstream::badbit);
-        //fileWriteObj.seekp(0, ios::end);
-        try
+        if(fileWriteObj.is_open())
         {
             fileWriteObj.seekp(position * sizeof(TextBook), ios::beg);
             fileWriteObj.write(reinterpret_cast < const char * > (this->textBookPtr),sizeof(TextBook));
             fileWriteObj.close();
             this->setState(STATE_SUCCESS);
             this->setModel(this->textBookPtr);
-        }catch(ofstream::failure e)
-        {
+        }else{
             this->setState(STATE_FAILURE);
-            this->setError(e.what());
+            this->setError("Cannot create or write to file.");
         }
     }
 }

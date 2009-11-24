@@ -159,18 +159,16 @@ void ResearchPaperForm::save()
         this->setError(validator->getError());
     }else{
         ofstream fileWriteObj (this->researchPaperPtr->getDataFileName(),ios::out | ios::binary);
-        fileWriteObj.exceptions(ofstream::failbit | ofstream::badbit);
         fileWriteObj.seekp(position * sizeof(ResearchPaper));
-        try
+        if(fileWriteObj.is_open())
         {
             fileWriteObj.write(reinterpret_cast < const char * > (this->researchPaperPtr),sizeof(ResearchPaper));
             fileWriteObj.close();
             this->setState(STATE_SUCCESS);
             this->setModel(this->researchPaperPtr);
-        }catch(ofstream::failure e)
-        {
+        }else{
             this->setState(STATE_FAILURE);
-            this->setError(e.what());
+            this->setError("Cannot create or write to file.");
         }
     }
 }
