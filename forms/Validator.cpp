@@ -78,6 +78,7 @@ void Validator::formValidate(int *referenceObj)
     switch(materialType)
     {
         case TYPE_TEXTBOOK:
+		{
             TextBook *textBookObj = (TextBook*)referenceObj;
             if(refNo < 1 || refNo > 999)
             {
@@ -101,8 +102,10 @@ void Validator::formValidate(int *referenceObj)
             {
                 this->error = "Enter a valid date in the format mm/dd/yy";
             }
+		}
         break;
         case TYPE_MAGAZINE:
+		{
             Magazine *magazineObj = (Magazine*)referenceObj;
             int volume;
             volume = atoi(magazineObj->getVolume().c_str());
@@ -128,8 +131,10 @@ void Validator::formValidate(int *referenceObj)
             {
                 this->error = "Issue Topic must be atleast 5 characters long.";
             }
+		}
         break;
         case TYPE_RESEARCHPAPER:
+		{
             ResearchPaper *researchPaperObj = (ResearchPaper*)referenceObj;
             if(refNo < 1 || refNo > 999)
             {
@@ -153,6 +158,7 @@ void Validator::formValidate(int *referenceObj)
             {
                 this->error = "Sponsor field must be atleast 10 characters long.";
             }
+		}
         break;
     }
 }
@@ -161,7 +167,6 @@ bool Validator::recordExists(string referenceNumber)
 {
     FileModel * fileModelObj = new FileModel();
     string recordReferenceNumber;
-    ReferenceMaterial* referenceMaterialObj;
     recordReferenceNumber = fileModelObj->getReferenceMaterialRecordFromFile(referenceNumber)->getReferenceNumber();
     //cout << referenceMaterialObj->getReferenceNumber() << endl;
     bool flag = (recordReferenceNumber.compare(referenceNumber)==0);

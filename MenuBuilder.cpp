@@ -431,6 +431,7 @@ void MenuBuilder::callMenu(int menuId)
                             switch(materialType)
                             {
                                 case TYPE_TEXTBOOK:
+								{
                                     TextBook *textBookObj = new TextBook();
                                     textBookObj = (TextBook*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
                                     this->formPtr = new TextBookForm();
@@ -447,8 +448,10 @@ void MenuBuilder::callMenu(int menuId)
                                         this->formPtr->browseForm();
                                         TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
                                     }while(TypeCheck==0);
+								}
                                 break;
                                 case TYPE_MAGAZINE:
+								{
                                     Magazine *magazineObj = new Magazine();
                                     magazineObj = (Magazine*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
                                     this->formPtr = new MagazineForm();
@@ -457,7 +460,7 @@ void MenuBuilder::callMenu(int menuId)
                                     //this->formPtr->browseForm();
                                     ReferenceType=MAGAZINETYPE;
                                     this->BasicRunlevel("EDIT MAGAZINE");
-                                    textBookObj->showReferenceMaterial(10,5);
+                                    magazineObj->showReferenceMaterial(10,5);
                                     this->showReferenceMaterialForm(MAGAZINE);
                                     this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
                                     do
@@ -465,8 +468,10 @@ void MenuBuilder::callMenu(int menuId)
                                         this->formPtr->browseForm();
                                         TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
                                     }while(TypeCheck==0);
+								}
                                 break;
                                 case TYPE_RESEARCHPAPER:
+								{
                                     ResearchPaper *researchPaperObj = new ResearchPaper();
                                     researchPaperObj = (ResearchPaper*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
                                     this->formPtr = new ResearchPaperForm();
@@ -483,6 +488,7 @@ void MenuBuilder::callMenu(int menuId)
                                         this->formPtr->browseForm();
                                         TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
                                     }while(TypeCheck==0);
+								}
                                 break;
                             }
                         }else{
