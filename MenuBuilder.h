@@ -138,6 +138,7 @@ class MenuBuilder
 {
 private:
 	Form* formPtr;
+	string queryString;
 public:
 	MenuBuilder();
 	~MenuBuilder();
@@ -166,7 +167,7 @@ public:
     item* ReturnFormMenu();
 	item* ReturnConfirmMenu();
 
-	int EditMenuDriver();
+	string EditMenuDriver();
 	int EditInput(string *);
 	int DeleteMenuDriver();
 	int DeleteInput(string *);

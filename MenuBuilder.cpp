@@ -82,6 +82,10 @@
 #include "forms/FormInputBuilder.h"
 #endif
 
+#ifndef _VALIDATOR_H
+#include "./forms/Validator.h"
+#endif
+
 using namespace std;
 
 /*
@@ -150,7 +154,7 @@ void MenuBuilder::callMenu(int menuId)
             this->MenuShow(EditMenu(),EDITMENU_SIZ);
 			do
 			{
-                this->EditMenuDriver();
+                this->queryString = this->EditMenuDriver();
                 TypeCheck=this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ,FORMMENU);
 			}while(TypeCheck==0);
         break;
@@ -329,27 +333,51 @@ void MenuBuilder::callMenu(int menuId)
                         case MAGAZINETYPE:
                             this->BasicRunlevel("ADD MAGAZINE");
                             this->formPtr->save();
+							switch(this->formPtr->getState())
+							{
+								case STATE_ERROR:
+								case STATE_FAILURE:
+									cout << this->formPtr->getError() << endl;
+								break;
+								case STATE_SUCCESS:
+									FileModel *fileModelObj = new FileModel();
+									this->formPtr->setModel((Magazine*)fileModelObj->getReferenceMaterialRecordFromFile(this->formPtr->getModel()->getReferenceNumber()));
+									this->formPtr->getModel()->showReferenceMaterial(10,5);
+								break;
+							}
                             break;
                         case RESEARCHPAPERTYPE:
                             this->BasicRunlevel("ADD RESEARCH PAPER");
                             this->formPtr->save();
+							switch(this->formPtr->getState())
+							{
+								case STATE_ERROR:
+								case STATE_FAILURE:
+									cout << this->formPtr->getError() << endl;
+								break;
+								case STATE_SUCCESS:
+									FileModel *fileModelObj = new FileModel();
+									this->formPtr->setModel((ResearchPaper*)fileModelObj->getReferenceMaterialRecordFromFile(this->formPtr->getModel()->getReferenceNumber()));
+									this->formPtr->getModel()->showReferenceMaterial(10,5);
+								break;
+							}
                             break;
                         case TEXTBOOKTYPE:
                             this->BasicRunlevel("ADD TEXTBOOK");
                             this->formPtr->save();
+							switch(this->formPtr->getState())
+							{
+								case STATE_ERROR:
+								case STATE_FAILURE:
+									cout << this->formPtr->getError() << endl;
+								break;
+								case STATE_SUCCESS:
+									FileModel *fileModelObj = new FileModel();
+									this->formPtr->setModel((TextBook*)fileModelObj->getReferenceMaterialRecordFromFile(this->formPtr->getModel()->getReferenceNumber()));
+									this->formPtr->getModel()->showReferenceMaterial(10,5);
+								break;
+							}
                             break;
-                    }
-                    switch(this->formPtr->getState())
-                    {
-                        case STATE_ERROR:
-                        case STATE_FAILURE:
-                            cout << this->formPtr->getError() << endl;
-                        break;
-                        case STATE_SUCCESS:
-                            FileModel *fileModelObj = new FileModel();
-                            this->formPtr->setModel(fileModelObj->getReferenceMaterialRecordFromFile(this->formPtr->getModel()->getReferenceNumber()));
-                            this->formPtr->getModel()->showReferenceMaterial(10,5);
-                        break;
                     }
                     this->MenuShow(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ);
                     this->menuBrowserOperator(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
@@ -388,6 +416,81 @@ void MenuBuilder::callMenu(int menuId)
                 case DELETETYPE:
                 break;
                 case EDITTYPE:
+                    Validator *validator = new Validator();
+                    if(validator->checkReferenceNumber(this->queryString))
+                    {
+                        bool recExists;
+                        recExists = validator->recordExists(this->queryString);
+
+                        if(recExists)
+                        {
+                            //cout << "Record found" << endl;
+                            ReferenceMaterial * referenceMaterialObj;
+                            int materialType = referenceMaterialObj->getMaterialTypeFromReferenceNumber(this->queryString);
+                            FileModel * fileModelObj = new FileModel();
+                            switch(materialType)
+                            {
+                                case TYPE_TEXTBOOK:
+                                    TextBook *textBookObj = new TextBook();
+                                    textBookObj = (TextBook*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
+                                    this->formPtr = new TextBookForm();
+                                    this->formPtr->setReferenceMaterialPtr(textBookObj);
+                                    //cout << textBookObj->getReferenceNumber() << endl;
+                                    //this->formPtr->browseForm();
+                                    ReferenceType=TEXTBOOKTYPE;
+                                    this->BasicRunlevel("EDIT TEXTBOOK");
+                                    textBookObj->showReferenceMaterial(10,5);
+                                    this->showReferenceMaterialForm(TEXTBOOK);
+                                    this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
+                                    do
+                                    {
+                                        this->formPtr->browseForm();
+                                        TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+                                    }while(TypeCheck==0);
+                                break;
+                                case TYPE_MAGAZINE:
+                                    Magazine *magazineObj = new Magazine();
+                                    magazineObj = (Magazine*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
+                                    this->formPtr = new MagazineForm();
+                                    this->formPtr->setReferenceMaterialPtr(magazineObj);
+                                    //cout << textBookObj->getReferenceNumber() << endl;
+                                    //this->formPtr->browseForm();
+                                    ReferenceType=MAGAZINETYPE;
+                                    this->BasicRunlevel("EDIT MAGAZINE");
+                                    textBookObj->showReferenceMaterial(10,5);
+                                    this->showReferenceMaterialForm(MAGAZINE);
+                                    this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
+                                    do
+                                    {
+                                        this->formPtr->browseForm();
+                                        TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+                                    }while(TypeCheck==0);
+                                break;
+                                case TYPE_RESEARCHPAPER:
+                                    ResearchPaper *researchPaperObj = new ResearchPaper();
+                                    researchPaperObj = (ResearchPaper*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
+                                    this->formPtr = new ResearchPaperForm();
+                                    this->formPtr->setReferenceMaterialPtr(researchPaperObj);
+                                    //cout << textBookObj->getReferenceNumber() << endl;
+                                    //this->formPtr->browseForm();
+                                    ReferenceType=RESEARCHPAPERTYPE;
+                                    this->BasicRunlevel("EDIT RESEARCH PAPER");
+                                    researchPaperObj->showReferenceMaterial(10,5);
+                                    this->showReferenceMaterialForm(RESEARCHPAPER);
+                                    this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
+                                    do
+                                    {
+                                        this->formPtr->browseForm();
+                                        TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+                                    }while(TypeCheck==0);
+                                break;
+                            }
+                        }else{
+                            cout << "Record with reference Number does not exist" << endl;
+                        }
+                    }else{
+                        cout << "Invalid reference number entered." << endl;
+                    }
                 break;
             }
         break;
@@ -966,14 +1069,13 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
     return 1;
 }
 
-int MenuBuilder::EditMenuDriver()
+string MenuBuilder::EditMenuDriver()
 {
-    int result;
     string ReferenceNumber;
     string *ReferenceNumberPtr;
     ReferenceNumberPtr = &ReferenceNumber;
-    result = this->EditInput(ReferenceNumberPtr);
-    return 0;
+    this->EditInput(ReferenceNumberPtr);
+    return ReferenceNumber;
 }
 
 int MenuBuilder::EditInput(string *ReferenceNumberPtr)

@@ -55,6 +55,11 @@ int Form::getFormType() const
     return this->formType;
 }
 
+void Form::setReferenceMaterialPtr(ReferenceMaterial* refObj)
+{
+    this->referenceMaterialPtr = refObj;
+}
+
 void Form::setModel(ReferenceMaterial *referenceMaterialObj)
 {
     this->model = referenceMaterialObj;

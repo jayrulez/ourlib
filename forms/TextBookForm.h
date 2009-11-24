@@ -23,6 +23,7 @@ private:
     string AllInput[7];
     string *InputPtr;
     string tag;
+    TextBook * referenceMaterialPtr;
     //string ReferenceNumber;
 public:
     TextBookForm();
@@ -30,6 +31,7 @@ public:
     void browseForm();
 	void show();
 	void save();
+	void setReferenceMaterialPtr(TextBook*);
 };
 
 #endif

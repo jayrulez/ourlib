@@ -27,6 +27,7 @@ private:
     string *InputPtr;
     string tag;
 public:
+    void setMagazinePtr(Magazine*);
     MagazineForm();
     ~MagazineForm();
     void browseForm();

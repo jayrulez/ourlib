@@ -160,7 +160,10 @@ void Validator::formValidate(int *referenceObj)
 bool Validator::recordExists(string referenceNumber)
 {
     FileModel * fileModelObj = new FileModel();
-    string recordReferenceNumber = fileModelObj->getReferenceMaterialRecordFromFile(referenceNumber)->getReferenceNumber();
+    string recordReferenceNumber;
+    ReferenceMaterial* referenceMaterialObj;
+    recordReferenceNumber = fileModelObj->getReferenceMaterialRecordFromFile(referenceNumber)->getReferenceNumber();
+    //cout << referenceMaterialObj->getReferenceNumber() << endl;
     bool flag = (recordReferenceNumber.compare(referenceNumber)==0);
     return flag;
 }
