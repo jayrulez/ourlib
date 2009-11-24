@@ -179,11 +179,12 @@ void TextBookForm::save()
         this->setState(STATE_ERROR);
         this->setError(validator->getError());
     }else{
-        ofstream fileWriteObj (this->textBookPtr->getDataFileName(), ios::binary);
+        ofstream fileWriteObj (this->textBookPtr->getDataFileName(),ios::ate | ios::binary);
         fileWriteObj.exceptions(ofstream::failbit | ofstream::badbit);
+        //fileWriteObj.seekp(0, ios::end);
         try
         {
-            fileWriteObj.seekp(position * sizeof(TextBook));
+            fileWriteObj.seekp(position * sizeof(TextBook), ios::beg);
             fileWriteObj.write(reinterpret_cast < const char * > (this->textBookPtr),sizeof(TextBook));
             fileWriteObj.close();
             this->setState(STATE_SUCCESS);
