@@ -646,7 +646,7 @@ item* MenuBuilder::AddMemberFormMenu()
     static item AddMemberFormMenuItem[ADDMEMBERFORMMENU_SIZ];
     AddMemberFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
     AddMemberFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
-    AddMemberFormMenuItem[2].setItem(55,35,ADD,"<-- LOAN MENU");
+    AddMemberFormMenuItem[2].setItem(55,35,LOAN,"<-- LOAN MENU");
     AddMemberFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &AddMemberFormMenuItem[0];
 }
