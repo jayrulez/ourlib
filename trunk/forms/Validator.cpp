@@ -169,13 +169,14 @@ bool Validator::recordExists(string referenceNumber)
     string recordReferenceNumber;
     recordReferenceNumber = fileModelObj->getReferenceMaterialRecordFromFile(referenceNumber)->getReferenceNumber();
     //cout << referenceMaterialObj->getReferenceNumber() << endl;
-    bool flag = (recordReferenceNumber.compare(referenceNumber)==0);
-    return flag;
+    return (recordReferenceNumber==referenceNumber) ? true : false;
 }
 
 bool Validator::checkReferenceNumber(string referenceNumber)
 {
     ReferenceMaterial *refObj = new ReferenceMaterial();
     int type = refObj->getMaterialTypeFromReferenceNumber(referenceNumber);
+    cout << "referenceNumber" <<endl;
+    system("pause");
     return (type==TYPE_TEXTBOOK||type==TYPE_MAGAZINE||type==TYPE_RESEARCHPAPER) ? true : false;
 }
