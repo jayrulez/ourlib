@@ -95,6 +95,7 @@ void LoanForm::browseForm()
         if(FieldPosition>3)
         {
             FieldPosition = 3;
+            read=true;
         }
         consoleObj.xyCoord(LoanCoord[FieldPosition][0]+
         LoanCoord[FieldPosition][2]+AllInput[FieldPosition].length(),
