@@ -411,93 +411,114 @@ void MenuBuilder::callMenu(int menuId)
             }
         break;
         case SEARCH:
-            switch(MenuType)
+            Validator *validator = new Validator();
+            bool isValidReferenceNumber = validator->checkReferenceNumber(this->queryString);
+            bool recExists = (isValidReferenceNumber&&validator->recordExists(this->queryString)) ? true : false;
+            ReferenceMaterial * referenceMaterialObj;
+            int materialType = referenceMaterialObj->getMaterialTypeFromReferenceNumber(this->queryString);
+            if(recExists)
             {
-                case DELETETYPE:
-                break;
-                case EDITTYPE:
-                    Validator *validator = new Validator();
-                    if(validator->checkReferenceNumber(this->queryString))
+                FileModel * fileModelObj = new FileModel();
+                switch(materialType)
+                {
+                    case TYPE_TEXTBOOK:
                     {
-                        bool recExists;
-                        recExists = validator->recordExists(this->queryString);
+                        TextBook *textBookObj = new TextBook();
+                        textBookObj = (TextBook*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
+                        ReferenceType=TEXTBOOKTYPE;
 
-                        if(recExists)
+                        if(MenuType==DELETETYPE)
                         {
-                            //cout << "Record found" << endl;
-                            ReferenceMaterial * referenceMaterialObj;
-                            int materialType = referenceMaterialObj->getMaterialTypeFromReferenceNumber(this->queryString);
-                            FileModel * fileModelObj = new FileModel();
-                            switch(materialType)
+                            this->BasicRunlevel("EDIT TEXTBOOK");
+                            textBookObj->showReferenceMaterial(10,5);
+                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
+                            do
                             {
-                                case TYPE_TEXTBOOK:
-								{
-                                    TextBook *textBookObj = new TextBook();
-                                    textBookObj = (TextBook*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
-                                    this->formPtr = new TextBookForm();
-                                    this->formPtr->setReferenceMaterialPtr(textBookObj);
-                                    //cout << textBookObj->getReferenceNumber() << endl;
-                                    //this->formPtr->browseForm();
-                                    ReferenceType=TEXTBOOKTYPE;
-                                    this->BasicRunlevel("EDIT TEXTBOOK");
-                                    textBookObj->showReferenceMaterial(10,5);
-                                    this->showReferenceMaterialForm(TEXTBOOK);
-                                    this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
-                                    do
-                                    {
-                                        this->formPtr->browseForm();
-                                        TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
-                                    }while(TypeCheck==0);
-								}
-                                break;
-                                case TYPE_MAGAZINE:
-								{
-                                    Magazine *magazineObj = new Magazine();
-                                    magazineObj = (Magazine*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
-                                    this->formPtr = new MagazineForm();
-                                    this->formPtr->setReferenceMaterialPtr(magazineObj);
-                                    //cout << textBookObj->getReferenceNumber() << endl;
-                                    //this->formPtr->browseForm();
-                                    ReferenceType=MAGAZINETYPE;
-                                    this->BasicRunlevel("EDIT MAGAZINE");
-                                    magazineObj->showReferenceMaterial(10,5);
-                                    this->showReferenceMaterialForm(MAGAZINE);
-                                    this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
-                                    do
-                                    {
-                                        this->formPtr->browseForm();
-                                        TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
-                                    }while(TypeCheck==0);
-								}
-                                break;
-                                case TYPE_RESEARCHPAPER:
-								{
-                                    ResearchPaper *researchPaperObj = new ResearchPaper();
-                                    researchPaperObj = (ResearchPaper*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
-                                    this->formPtr = new ResearchPaperForm();
-                                    this->formPtr->setReferenceMaterialPtr(researchPaperObj);
-                                    //cout << textBookObj->getReferenceNumber() << endl;
-                                    //this->formPtr->browseForm();
-                                    ReferenceType=RESEARCHPAPERTYPE;
-                                    this->BasicRunlevel("EDIT RESEARCH PAPER");
-                                    researchPaperObj->showReferenceMaterial(10,5);
-                                    this->showReferenceMaterialForm(RESEARCHPAPER);
-                                    this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
-                                    do
-                                    {
-                                        this->formPtr->browseForm();
-                                        TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
-                                    }while(TypeCheck==0);
-								}
-                                break;
-                            }
-                        }else{
-                            cout << "Record with reference Number does not exist" << endl;
+                                TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,FORMMENU);
+                            }while(TypeCheck==0);
+                        }else if(MenuType==EDITTYPE)
+                        {
+                            this->formPtr = new TextBookForm();
+                            this->formPtr->setReferenceMaterialPtr(textBookObj);
+                            this->BasicRunlevel("EDIT TEXTBOOK");
+                            textBookObj->showReferenceMaterial(10,5);
+                            this->showReferenceMaterialForm(TEXTBOOK);
+                            this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
+                            do
+                            {
+                                this->formPtr->browseForm();
+                                TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+                            }while(TypeCheck==0);
                         }
-                    }else{
-                        cout << "Invalid reference number entered." << endl;
                     }
-                break;
+                    break;
+                    case TYPE_MAGAZINE:
+                    {
+                        Magazine *magazineObj = new Magazine();
+                        magazineObj = (Magazine*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
+                        ReferenceType=MAGAZINETYPE;
+
+                        if(MenuType==DELETETYPE)
+                        {
+                            this->BasicRunlevel("DELETE MAGAZINE");
+                            magazineObj->showReferenceMaterial(10,5);
+                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
+                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
+                            do
+                            {
+                                TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,FORMMENU);
+                            }while(TypeCheck==0);
+                        }else if(MenuType==EDITTYPE)
+                        {
+                            this->formPtr = new MagazineForm();
+                            this->formPtr->setReferenceMaterialPtr(magazineObj);
+                            this->BasicRunlevel("EDIT MAGAZINE");
+                            magazineObj->showReferenceMaterial(10,5);
+                            this->showReferenceMaterialForm(MAGAZINE);
+                            this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
+                            do
+                            {
+                                this->formPtr->browseForm();
+                                TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+                            }while(TypeCheck==0);
+                        }
+                    }
+                    break;
+                    case TYPE_RESEARCHPAPER:
+                    {
+                        ResearchPaper *researchPaperObj = new ResearchPaper();
+                        researchPaperObj = (ResearchPaper*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
+                        ReferenceType=RESEARCHPAPERTYPE;
+                        if(MenuType==DELETETYPE)
+                        {
+                            this->BasicRunlevel("DELETE RESEARCH PAPER");
+                            researchPaperObj->showReferenceMaterial(10,5);
+                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
+                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
+                            do
+                            {
+                                TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,FORMMENU);
+                            }while(TypeCheck==0);
+                        }else if(MenuType==EDITTYPE)
+                        {
+
+                            this->formPtr = new ResearchPaperForm();
+                            this->formPtr->setReferenceMaterialPtr(researchPaperObj);
+                            this->BasicRunlevel("EDIT RESEARCH PAPER");
+                            researchPaperObj->showReferenceMaterial(10,5);
+                            this->showReferenceMaterialForm(RESEARCHPAPER);
+                            this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
+                            do
+                            {
+                                this->formPtr->browseForm();
+                                TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+                            }while(TypeCheck==0);
+                        }
+                    }
+                    break;
+                }
+            }else{
+                cout << "Record with reference Number is invalid or does not exist" << endl;
             }
         break;
 		case RESEARCHPAPER:
