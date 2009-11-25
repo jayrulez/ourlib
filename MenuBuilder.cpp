@@ -419,122 +419,14 @@ void MenuBuilder::callMenu(int menuId)
                     break;
             }
         break;
-        case SEARCH:
-            if(MenuType==DELETETYPE)
+case SEARCH:
+            switch(MenuType)
             {
-                this->queryString = this->DeleteMenuDriver();
-            }else if(MenuType==EDITTYPE)
-            {
-                this->queryString = this->EditMenuDriver();
-            }
-            Validator *validator = new Validator();
-            bool isValidReferenceNumber = validator->checkReferenceNumber(this->queryString);
-            bool recExists = (isValidReferenceNumber&&validator->recordExists(this->queryString)) ? true : false;
-            ReferenceMaterial * referenceMaterialObj;
-            int materialType = referenceMaterialObj->getMaterialTypeFromReferenceNumber(this->queryString);
-            if(recExists)
-            {
-                FileModel * fileModelObj = new FileModel();
-                switch(materialType)
-                {
-                    case TYPE_TEXTBOOK:
-                    {
-                        TextBook *textBookObj = new TextBook();
-                        textBookObj = (TextBook*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
-                        ReferenceType=TEXTBOOKTYPE;
-
-                        if(MenuType==DELETETYPE)
-                        {
-                            this->BasicRunlevel("EDIT TEXTBOOK");
-                            textBookObj->showReferenceMaterial(10,5);
-                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
-                            do
-                            {
-                                TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,FORMMENU);
-                            }while(TypeCheck==0);
-                        }else if(MenuType==EDITTYPE)
-                        {
-                            this->formPtr = new TextBookForm();
-                            this->formPtr->setReferenceMaterialPtr(textBookObj);
-                            this->BasicRunlevel("EDIT TEXTBOOK");
-                            textBookObj->showReferenceMaterial(10,5);
-                            this->showReferenceMaterialForm(TEXTBOOK);
-                            this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
-                            do
-                            {
-                                this->formPtr->browseForm();
-                                TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
-                            }while(TypeCheck==0);
-                        }
-                    }
-                    break;
-                    case TYPE_MAGAZINE:
-                    {
-                        Magazine *magazineObj = new Magazine();
-                        magazineObj = (Magazine*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
-                        ReferenceType=MAGAZINETYPE;
-
-                        if(MenuType==DELETETYPE)
-                        {
-                            this->BasicRunlevel("DELETE MAGAZINE");
-                            magazineObj->showReferenceMaterial(10,5);
-                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
-                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
-                            do
-                            {
-                                TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,FORMMENU);
-                            }while(TypeCheck==0);
-                        }else if(MenuType==EDITTYPE)
-                        {
-                            this->formPtr = new MagazineForm();
-                            this->formPtr->setReferenceMaterialPtr(magazineObj);
-                            this->BasicRunlevel("EDIT MAGAZINE");
-                            magazineObj->showReferenceMaterial(10,5);
-                            this->showReferenceMaterialForm(MAGAZINE);
-                            this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
-                            do
-                            {
-                                this->formPtr->browseForm();
-                                TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
-                            }while(TypeCheck==0);
-                        }
-                    }
-                    break;
-                    case TYPE_RESEARCHPAPER:
-                    {
-                        ResearchPaper *researchPaperObj = new ResearchPaper();
-                        researchPaperObj = (ResearchPaper*)fileModelObj->getReferenceMaterialRecordFromFile(this->queryString);
-                        ReferenceType=RESEARCHPAPERTYPE;
-                        if(MenuType==DELETETYPE)
-                        {
-                            this->BasicRunlevel("DELETE RESEARCH PAPER");
-                            researchPaperObj->showReferenceMaterial(10,5);
-                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
-                            this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
-                            do
-                            {
-                                TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,FORMMENU);
-                            }while(TypeCheck==0);
-                        }else if(MenuType==EDITTYPE)
-                        {
-
-                            this->formPtr = new ResearchPaperForm();
-                            this->formPtr->setReferenceMaterialPtr(researchPaperObj);
-                            this->BasicRunlevel("EDIT RESEARCH PAPER");
-                            researchPaperObj->showReferenceMaterial(10,5);
-                            this->showReferenceMaterialForm(RESEARCHPAPER);
-                            this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
-                            do
-                            {
-                                this->formPtr->browseForm();
-                                TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
-                            }while(TypeCheck==0);
-                        }
-                    }
-                    break;
-                }
-            }else{
-                cout << "Record with reference Number is invalid or does not exist" << endl;
+                case DELETETYPE:
+                break;
+                case EDITTYPE:
+                    //outtype2
+                break;
             }
         break;
 		case RESEARCHPAPER:
@@ -676,10 +568,10 @@ item* MenuBuilder::AddFormMenu()
 item* MenuBuilder::AddMemberFormMenu()
 {
     static item AddMemberFormMenuItem[ADDMEMBERFORMMENU_SIZ];
-    AddMemberFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
-    AddMemberFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
-    AddMemberFormMenuItem[2].setItem(55,35,LOAN,"<-- LOAN MENU");
-    AddMemberFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    AddMemberFormMenuItem[0].setItem(15,45,SUBMIT,"SUBMIT");
+    AddMemberFormMenuItem[1].setItem(35,45,CLEARFIELD,"CLEAR FIELDS");
+    AddMemberFormMenuItem[2].setItem(55,45,LOAN,"<-- LOAN MENU");
+    AddMemberFormMenuItem[3].setItem(35,49,MAINMENU,"MAIN MENU");
     return &AddMemberFormMenuItem[0];
 }
 /*
@@ -695,10 +587,10 @@ item* MenuBuilder::EditMenu()
 item* MenuBuilder::EditFormMenu()
 {
     static item EditFormMenuItem[EDITFORMMENU_SIZ];
-    EditFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
-    EditFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
-    EditFormMenuItem[2].setItem(55,35,EDIT,"<-- EDIT MENU");
-    EditFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
+    EditFormMenuItem[0].setItem(15,45,SUBMIT,"SUBMIT");
+    EditFormMenuItem[1].setItem(35,45,CLEARFIELD,"CLEAR FIELDS");
+    EditFormMenuItem[2].setItem(55,45,EDIT,"<-- EDIT MENU");
+    EditFormMenuItem[3].setItem(35,49,MAINMENU,"MAIN MENU");
     return &EditFormMenuItem[0];
 }
 item* MenuBuilder::EditConfirmMenu()

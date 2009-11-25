@@ -155,30 +155,4 @@ void MagazineForm::show()
 void MagazineForm::save()
 {
     this->magazinePtr->insertReferenceNumberPrefix(this->magazinePtr->getReferenceNumber());
-
-    int position = this->magazinePtr->getIdFromReferenceNumber(this->magazinePtr->getReferenceNumber());
-    if(position>0) position -= 1;
-
-    Validator * validator = new Validator();
-    ReferenceMaterial *referenceObj = this->magazinePtr;
-    validator->formValidate((int*)referenceObj);
-    if (validator->hasError())
-    {
-        this->setState(STATE_ERROR);
-        this->setError(validator->getError());
-    }else{
-        ofstream fileWriteObj (this->magazinePtr->getDataFileName(),ios::out | ios::binary);
-        fileWriteObj.exceptions(ofstream::eofbit | ofstream::failbit | ofstream::badbit);
-        fileWriteObj.seekp(position * sizeof(Magazine));
-        if(fileWriteObj.is_open())
-        {
-            fileWriteObj.write(reinterpret_cast < char * > (this->magazinePtr),sizeof(Magazine));
-            this->setState(STATE_SUCCESS);
-            this->setModel(this->magazinePtr);
-        }else{
-            this->setState(STATE_FAILURE);
-            this->setError("Cannot create or write to file.");
-        }
-        fileWriteObj.close();
-    }
 }

@@ -168,30 +168,43 @@ void TextBookForm::show()
 void TextBookForm::save()
 {
     this->textBookPtr->insertReferenceNumberPrefix(this->textBookPtr->getReferenceNumber());
-
-    int position = this->textBookPtr->getIdFromReferenceNumber(this->textBookPtr->getReferenceNumber());
-    if(position>0) position -= 1;
-
-    Validator * validator = new Validator();
-    ReferenceMaterial *referenceObj = this->textBookPtr;
-    validator->formValidate((int*)referenceObj);
-    if (validator->hasError())
+    TextBook textBookObj;
+    bool recordExists = false;
+    ifstream fileReadObj (this->textBookPtr->getDataFileName());
+    if(!fileReadObj)
     {
-        this->setState(STATE_ERROR);
-        this->setError(validator->getError());
+        cout << "No file exists" << endl;
     }else{
-        ofstream fileWriteObj (this->textBookPtr->getDataFileName(),ios::ate | ios::binary);
-        if(fileWriteObj.is_open())
+        fileReadObj.seekg(0);
+        while(fileReadObj)
         {
-            fileWriteObj.seekp(position * sizeof(TextBook), ios::beg);
-            fileWriteObj.write(reinterpret_cast < const char * > (this->textBookPtr),sizeof(TextBook));
-            fileWriteObj.close();
-            this->setState(STATE_SUCCESS);
-            this->setModel(this->textBookPtr);
-        }else{
-            this->setState(STATE_FAILURE);
-            this->setError("Cannot create or write to file.");
+            fileReadObj.read(reinterpret_cast <char*> (&textBookObj),sizeof(TextBook));
+            if(textBookObj.getReferenceNumber()==this->textBookPtr->getReferenceNumber())
+            {
+                recordExists = true;
+                break;
+            }
         }
+        fileReadObj.close();
+    }
+
+    ofstream fileWriteObj(this->textBookPtr->getDataFileName(),ios::app);
+    if(!fileWriteObj)
+        cout << "Cannot create file" << endl;
+
+    if(!recordExists)
+    {
+        fileWriteObj.seekp(ios::end);
+        fileWriteObj.write(reinterpret_cast <const char*> (this->textBookPtr),sizeof(TextBook));
+        fileWriteObj.close();
+        if(fileWriteObj.fail())
+        {
+            cout << "Error writing to file." << endl;
+        }else{
+            cout << "Data saved to file" << endl;
+        }
+    }else{
+        cout << "Record with reference Number exists" << endl;
     }
 }
 

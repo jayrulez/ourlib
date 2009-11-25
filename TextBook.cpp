@@ -65,23 +65,23 @@ string TextBook::getDatePublished() const
 }
 void TextBook::showReferenceMaterial(int xCoord,int yCoord)
 {
-    frameObj.setFrame(xCoord,xCoord+45,yCoord,yCoord+16,false);
+    frameObj.setFrame(xCoord,xCoord+35,yCoord,yCoord+9,false);
     frameObj.sFraming();
 
-    consoleObj.xyCoord(xCoord+2,yCoord+2);
+    consoleObj.xyCoord(xCoord+2,yCoord+1);
     cout<<"Reference Number: "<< this->getReferenceNumber();
-    consoleObj.xyCoord(xCoord+2,yCoord+4);
+    consoleObj.xyCoord(xCoord+2,yCoord+2);
     cout<<"Author: "<< this->getAuthor();
-    consoleObj.xyCoord(xCoord+2,yCoord+6);
+    consoleObj.xyCoord(xCoord+2,yCoord+3);
     cout<<"Title: "<< this->getTitle();
 
-    consoleObj.xyCoord(xCoord+2,yCoord+8);
+    consoleObj.xyCoord(xCoord+2,yCoord+4);
     cout<<"ISBN: "<< this->getISBN();
-    consoleObj.xyCoord(xCoord+2,yCoord+10);
+    consoleObj.xyCoord(xCoord+2,yCoord+5);
     cout<<"Course: "<< this->getCourse();
-    consoleObj.xyCoord(xCoord+2,yCoord+12);
+    consoleObj.xyCoord(xCoord+2,yCoord+6);
     cout<<"Publisher: "<< this->getPublisher();
-    consoleObj.xyCoord(xCoord+2,yCoord+14);
+    consoleObj.xyCoord(xCoord+2,yCoord+7);
     cout<<"Date Published: "<< this->getDatePublished();
 
 }

@@ -147,28 +147,5 @@ void ResearchPaperForm::save()
 {
     this->researchPaperPtr->insertReferenceNumberPrefix(this->researchPaperPtr->getReferenceNumber());
 
-    int position = this->researchPaperPtr->getIdFromReferenceNumber(this->researchPaperPtr->getReferenceNumber());
-    if(position>0) position -= 1;
 
-    Validator * validator = new Validator();
-    ReferenceMaterial *referenceObj = this->researchPaperPtr;
-    validator->formValidate((int*)referenceObj);
-    if (validator->hasError())
-    {
-        this->setState(STATE_ERROR);
-        this->setError(validator->getError());
-    }else{
-        ofstream fileWriteObj (this->researchPaperPtr->getDataFileName(),ios::out | ios::binary);
-        fileWriteObj.seekp(position * sizeof(ResearchPaper));
-        if(fileWriteObj.is_open())
-        {
-            fileWriteObj.write(reinterpret_cast < const char * > (this->researchPaperPtr),sizeof(ResearchPaper));
-            fileWriteObj.close();
-            this->setState(STATE_SUCCESS);
-            this->setModel(this->researchPaperPtr);
-        }else{
-            this->setState(STATE_FAILURE);
-            this->setError("Cannot create or write to file.");
-        }
-    }
 }
