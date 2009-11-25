@@ -96,7 +96,7 @@ void Application::buildDataFiles()
     ifstream fileReadObj;
 	ofstream fileWriteObj;
 
-	fileReadObj.open(textBookObj.getDataFileName(),ios::in | ios::binary);
+	/*fileReadObj.open(textBookObj.getDataFileName(),ios::in | ios::binary);
 	if(!fileReadObj.is_open())
 	{
         fileWriteObj.open(textBookObj.getDataFileName(), ios::out | ios::binary);
@@ -149,7 +149,7 @@ void Application::buildDataFiles()
         }
 	}else{
         fileReadObj.close();
-	}
+	}*/
 }
 
 void Application::main()
