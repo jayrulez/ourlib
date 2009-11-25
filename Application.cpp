@@ -82,74 +82,7 @@ void Application::welcome()
 
 void Application::buildDataFiles()
 {
-    int i;
 
-	/*
-	* creates binary data files
-	*
-	*/
-
-	TextBook textBookObj;
-	Magazine magazineObj;
-	ResearchPaper researchPaperObj;
-
-    ifstream fileReadObj;
-	ofstream fileWriteObj;
-
-	/*fileReadObj.open(textBookObj.getDataFileName(),ios::in | ios::binary);
-	if(!fileReadObj.is_open())
-	{
-        fileWriteObj.open(textBookObj.getDataFileName(), ios::out | ios::binary);
-        if(fileWriteObj.is_open())
-        {
-            TextBook emptyTextBookObj;
-            for(i=0;i<999;i++)
-            {
-                fileWriteObj.write(reinterpret_cast < const char * > (&emptyTextBookObj),sizeof(TextBook));
-            }
-            fileWriteObj.close();
-        }else{
-            // Error, make sure the disk is writable
-        }
-	}
-	fileReadObj.close();
-
-	fileReadObj.open(magazineObj.getDataFileName(),ios::in | ios::binary);
-	if(!fileReadObj.is_open())
-	{
-        fileWriteObj.open(magazineObj.getDataFileName(), ios::out | ios::binary);
-        if(fileWriteObj.is_open())
-        {
-            Magazine emptyMagazineObj;
-            for(i=0;i<999;i++)
-            {
-                fileWriteObj.write(reinterpret_cast < const char * > (&emptyMagazineObj),sizeof(Magazine));
-            }
-            fileWriteObj.close();
-        }else{
-            // Error, make sure the disk is writable
-        }
-	}
-	fileReadObj.close();
-
-	fileReadObj.open(researchPaperObj.getDataFileName(),ios::in | ios::binary);
-	if(!fileReadObj.is_open())
-	{
-        fileWriteObj.open(researchPaperObj.getDataFileName(), ios::out | ios::binary);
-        if(fileWriteObj.is_open())
-        {
-            ResearchPaper emptyResearchPaperObj;
-            for(i=0;i<999;i++)
-            {
-                fileWriteObj.write(reinterpret_cast < const char * > (&emptyResearchPaperObj),sizeof(ResearchPaper));
-            }
-            fileWriteObj.close();
-        }else{
-            // Error, make sure the disk is writable
-        }
-	}else{
-        fileReadObj.close();
-	}*/
 }
 
 void Application::main()
