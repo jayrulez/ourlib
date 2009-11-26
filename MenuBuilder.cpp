@@ -278,16 +278,16 @@ void MenuBuilder::callMenu(int menuId)
                     }
                     break;
                 case MEMBERTYPE:
-                    cout<<"           Submitting edit textbook";
+                    callMenu(LOAN);
                     break;
                 case LOANTYPE:
-                    cout<<"           Submitting edit textbook";
+                    callMenu(LOAN);
                     break;
                 case RETURNTYPE:
-                    cout<<"           Submitting edit textbook";
+                    callMenu(RETURN);
                     break;
                 case DELETETYPE:
-                    cout<<"           Submitting edit textbook";
+                    callMenu(DEL);
                     break;
             }
         break;
@@ -520,7 +520,7 @@ void MenuBuilder::callMenu(int menuId)
 						if(rc>0)
 						{
 							this->BasicRunlevel("ERROR");
-							con.xyCoord(10,15);
+							con.xyCoord(7,15);
 							con.setColour(12);
 							cout << "Error: You cannot delete a reference material that is on loan.";
 							con.setColour(15);
@@ -573,7 +573,7 @@ void MenuBuilder::callMenu(int menuId)
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 												}else{
 													this->BasicRunlevel("ERROR");
-													con.xyCoord(20,15);
+													con.xyCoord(5,15);
 													con.setColour(12);
 													cout << "Error: Could not delete textbook.";
 													con.setColour(15);
@@ -583,7 +583,7 @@ void MenuBuilder::callMenu(int menuId)
 											}
 										}else{
 											this->BasicRunlevel("ERROR");
-											con.xyCoord(10,15);
+											con.xyCoord(5,15);
 											con.setColour(12);
 											cout << "Error: No textbook was found with the reference number provided.";
 											con.setColour(15);
@@ -648,7 +648,7 @@ void MenuBuilder::callMenu(int menuId)
 											}
 										}else{
 											this->BasicRunlevel("ERROR");
-											con.xyCoord(10,15);
+											con.xyCoord(5,15);
 											con.setColour(12);
 											cout << "Error: No magazine was found with the reference number provided.";
 											con.setColour(15);
@@ -713,7 +713,7 @@ void MenuBuilder::callMenu(int menuId)
 											}
 										}else{
 											this->BasicRunlevel("ERROR");
-											con.xyCoord(10,15);
+											con.xyCoord(5,15);
 											con.setColour(12);
 											cout << "Error: No Research Paper was found with the reference number provided.";
 											con.setColour(15);
@@ -727,7 +727,7 @@ void MenuBuilder::callMenu(int menuId)
 								case TYPE_NONEXISTENT:
 								default:
 									this->BasicRunlevel("ERROR");
-									con.xyCoord(10,15);
+									con.xyCoord(5,15);
 									con.setColour(12);
 									cout << "Error: No Research Paper was found with the reference number provided.";
 									con.setColour(15);
@@ -792,7 +792,7 @@ void MenuBuilder::callMenu(int menuId)
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
-									con.xyCoord(10,15);
+									con.xyCoord(5,15);
 									con.setColour(12);
 									cout << "Error: No Textbook record exitst with the reference number provided." << endl;system("pause");
 									con.setColour(15);
@@ -837,7 +837,7 @@ void MenuBuilder::callMenu(int menuId)
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
-									con.xyCoord(10,15);
+									con.xyCoord(5,15);
 									con.setColour(12);
 									cout << "Error: No magazine record exists with the reference number provided";
 									con.setColour(15);
