@@ -450,7 +450,7 @@ void MenuBuilder::callMenu(int menuId)
 							cout << this->formPtr->getError();
 						break;
 						case STATE_SUCCESS:
-							con.xyCoord(5,20);
+							con.xyCoord(25,15);
 							cout << "Reference Material returned.";
 						break;
 					}
@@ -491,8 +491,10 @@ void MenuBuilder::callMenu(int menuId)
 					if (!pRS->Valid())
 					{
 						this->BasicRunlevel("ERROR");
-						con.xyCoord(5,20);
+						con.xyCoord(10,15);
+						con.setColour(12);
 						cout << "Error: " << pRS->GetLastError();
+						con.setColour(15);
 						SAFE_DELETE(pRS);
 						sqlite3_close(l_sql_db);
 						this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
@@ -504,8 +506,10 @@ void MenuBuilder::callMenu(int menuId)
 						if(rc>0)
 						{
 							this->BasicRunlevel("ERROR");
-							con.xyCoord(5,20);
+							con.xyCoord(10,15);
+							con.setColour(12);
 							cout << "Error: You cannot delete a reference material that is on loan.";
+							con.setColour(15);
 							this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 							this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 						}else{
@@ -518,8 +522,11 @@ void MenuBuilder::callMenu(int menuId)
 									pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 									if (!pRS->Valid()) {
 										this->BasicRunlevel("ERROR");
-										con.xyCoord(5,20);
-										cout << "Error: " << pRS->GetLastError();										SAFE_DELETE(pRS);
+										con.xyCoord(10,15);
+										con.setColour(12);
+										cout << "Error: " << pRS->GetLastError();
+										con.setColour(15);
+										SAFE_DELETE(pRS);
 										sqlite3_close(l_sql_db);
 										this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
@@ -533,8 +540,10 @@ void MenuBuilder::callMenu(int menuId)
 											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 											if (!pRS->Valid()) {
 												this->BasicRunlevel("ERROR");
-												con.xyCoord(5,25);
+												con.xyCoord(10,15);
+												con.setColour(12);
 												cout << "Error: " << pRS->GetLastError();
+												con.setColour(15);
 												SAFE_DELETE(pRS);
 												sqlite3_close(l_sql_db);
 												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
@@ -543,23 +552,27 @@ void MenuBuilder::callMenu(int menuId)
 												if(pRS!=NULL)
 												{
 													this->BasicRunlevel("OPERATION SUCCESSFUL");
-													con.xyCoord(5,20);
-													cout << "Textbook was deleted.";
+													con.xyCoord(20,15);
+													cout << "Textbook deleted successfully.";
 													SAFE_DELETE(pRS);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 												}else{
 													this->BasicRunlevel("ERROR");
-													con.xyCoord(5,20);
+													con.xyCoord(20,15);
+													con.setColour(12);
 													cout << "Error: Could not delete textbook.";
+													con.setColour(15);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 												}
 											}
 										}else{
 											this->BasicRunlevel("ERROR");
-											con.xyCoord(5,25);
-											cout << "No textbook was found with the reference number provided.";
+											con.xyCoord(10,15);
+											con.setColour(12);
+											cout << "Error: No textbook was found with the reference number provided.";
+											con.setColour(15);
 											this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 										}
@@ -574,8 +587,10 @@ void MenuBuilder::callMenu(int menuId)
 									pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 									if (!pRS->Valid()) {
 										this->BasicRunlevel("ERROR");
-										con.xyCoord(5,20);
-										cout << "Error: " << pRS->GetLastError();										
+										con.xyCoord(10,15);
+										con.setColour(12);
+										cout << "Error: " << pRS->GetLastError();
+										con.setColour(15);
 										SAFE_DELETE(pRS);
 										sqlite3_close(l_sql_db);
 										this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
@@ -590,8 +605,10 @@ void MenuBuilder::callMenu(int menuId)
 											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 											if (!pRS->Valid()) {
 												this->BasicRunlevel("ERROR");
-												con.xyCoord(5,20);
+												con.xyCoord(10,15);
+												con.setColour(12);
 												cout << "Error: " << pRS->GetLastError();
+												con.setColour(15);
 												SAFE_DELETE(pRS);
 												sqlite3_close(l_sql_db);
 												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
@@ -600,23 +617,27 @@ void MenuBuilder::callMenu(int menuId)
 												if(pRS!=NULL)
 												{
 													this->BasicRunlevel("OPERATION SUCCESSFUL");
-													con.xyCoord(5,20);
-													cout << "Magazine was deleted.";
+													con.xyCoord(20,15);
+													cout << "Magazine deleted successfully.";
 													SAFE_DELETE(pRS);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 												}else{
 													this->BasicRunlevel("ERROR");
-													con.xyCoord(5,20);
+													con.xyCoord(20,15);
+													con.setColour(12);
 													cout << "Error: Could not delete magazine.";
+													con.setColour(15);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 												}
 											}
 										}else{
 											this->BasicRunlevel("ERROR");
-											con.xyCoord(5,20);
-											cout << "No magazine was found with the reference number provided.";
+											con.xyCoord(10,15);
+											con.setColour(12);
+											cout << "Error: No magazine was found with the reference number provided.";
+											con.setColour(15);
 											this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 										}
@@ -657,23 +678,27 @@ void MenuBuilder::callMenu(int menuId)
 												if(pRS!=NULL)
 												{
 													this->BasicRunlevel("OPERATION SUCCESSFUL");
-													con.xyCoord(5,20);
-													cout << "Research Paper was deleted.";
+													con.xyCoord(20,15);
+													cout << "Research Paper deleted successfully.";
 													SAFE_DELETE(pRS);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 												}else{
 													this->BasicRunlevel("ERROR");
-													con.xyCoord(5,20);
+													con.xyCoord(15,15);
+													con.setColour(12);
 													cout << "Error: Could not delete Research Paper.";
+													con.setColour(15);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 												}
 											}
 										}else{
 											this->BasicRunlevel("ERROR");
-											con.xyCoord(5,20);
-											cout << "No Research Paper was found with the reference number provided.";
+											con.xyCoord(10,15);
+											con.setColour(12);
+											cout << "Error: No Research Paper was found with the reference number provided.";
+											con.setColour(15);
 											this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 										}
@@ -684,8 +709,10 @@ void MenuBuilder::callMenu(int menuId)
 								case TYPE_NONEXISTENT:
 								default:
 									this->BasicRunlevel("ERROR");
-									con.xyCoord(5,20);
-									cout << "No Research Paper was found with the reference number provided.";
+									con.xyCoord(10,15);
+									con.setColour(12);
+									cout << "Error: No Research Paper was found with the reference number provided.";
+									con.setColour(15);
 									this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 									this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 								break;
@@ -744,8 +771,10 @@ void MenuBuilder::callMenu(int menuId)
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
-									con.xyCoord(10,25);
+									con.xyCoord(10,15);
+									con.setColour(12);
 									cout << "Error: No Textbook record exitst with the reference number provided." << endl;system("pause");
+									con.setColour(15);
 									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
 									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 								}
@@ -784,8 +813,10 @@ void MenuBuilder::callMenu(int menuId)
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
-									con.xyCoord(10,25);
+									con.xyCoord(10,15);
+									con.setColour(12);
 									cout << "Error: No magazine record exists with the reference number provided";
+									con.setColour(15);
 									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
 									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 								}
@@ -823,8 +854,10 @@ void MenuBuilder::callMenu(int menuId)
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
-									con.xyCoord(10,25);
+									con.xyCoord(18,15);
+									con.setColour(12);
 									cout << "Error: No such research paper exists.";
+									con.setColour(15);
 									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
 									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 								}
@@ -835,8 +868,10 @@ void MenuBuilder::callMenu(int menuId)
 						default:
 						{
 							this->BasicRunlevel("ERROR");
-							con.xyCoord(15,25);
+							con.xyCoord(20,15);
+							con.setColour(12);
 							cout << "Error: Invalid reference Number provided.";
+							con.setColour(15);
 							this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
 							this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 						}
@@ -1126,7 +1161,7 @@ item* MenuBuilder::AddAfterSaveMenu()
 item* MenuBuilder::EditAfterSaveMenu()
 {
     static item EditAfterSaveMenuItem[AFTERSAVEMENU_SIZ];
-    EditAfterSaveMenuItem[0].setItem(20,35,EDIT,"<--ADD MENU");
+    EditAfterSaveMenuItem[0].setItem(20,35,EDIT,"<--EDIT MENU");
     EditAfterSaveMenuItem[1].setItem(50,35,MAINMENU,"MAIN MENU");
     return &EditAfterSaveMenuItem[0];
 }
