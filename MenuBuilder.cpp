@@ -167,6 +167,7 @@ void MenuBuilder::callMenu(int menuId)
                             this->BasicRunlevel("ADD TEXTBOOK");
                             break;
                     }
+					this->formPtr->getModel()->showReferenceMaterial(10,5);
                     this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
                     this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
                     break;
