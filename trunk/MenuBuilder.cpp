@@ -1016,8 +1016,8 @@ item* MenuBuilder::EditFormMenu()
 item* MenuBuilder::EditConfirmMenu()
 {
     static item EditConfirmMenuItem[EDITCONFIRMMENU_SIZ];
-    EditConfirmMenuItem[0].setItem(20,50,SAVE,"SAVE CHANGES");
-    EditConfirmMenuItem[1].setItem(40,50,CANCEL,"CANCEL");
+    EditConfirmMenuItem[0].setItem(20,30,SAVE,"SAVE CHANGES");
+    EditConfirmMenuItem[1].setItem(40,30,CANCEL,"CANCEL");
     return &EditConfirmMenuItem[0];
 }
 item* MenuBuilder::AddConfirmMenu()
