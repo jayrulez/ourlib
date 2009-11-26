@@ -22,6 +22,7 @@
 #define DELETETYPE 1006
 #define EDITTYPE 1007
 #define ADDTYPE 1008
+#define EXITTYPE 1009
 /*
 * Menu Type
 */
@@ -107,6 +108,7 @@
 * Return User Loan Confirmation menu
 */
 #define RETURNCONFIRMMENU_SIZ 2
+
 /*
 * Return User Loan Confirmation menu
 */
@@ -121,11 +123,17 @@
 * After Save Menu
 */
 #define AFTERSAVEMENU_SIZ 2
+
 /*
 * Form Menu Items
 */
 #define SUBMIT 14
 #define CLEARFIELD 15
+
+/*
+* Termatates program
+*/
+#define TERMINATE 20
 
 #ifndef FORM_H
 #include "./forms/Form.h"
@@ -170,6 +178,8 @@ public:
     item* ReturnFormMenu();
 	item* ReturnConfirmMenu();
 	item* ReturnAfterSaveMenu();
+
+	item* ExitConfirmMenu();
 
 	string EditMenuDriver();
 	int EditInput(string *);
