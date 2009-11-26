@@ -164,6 +164,98 @@ void TextBookForm::show()
 	cout<<"Date Published: ";
 }
 
+void TextBookForm::browseEditForm(string referenceNumber)
+{
+	this->setReferenceNumber(referenceNumber);
+	bool read=false;
+	int KeyType;
+
+	consoleObj.xyCoord(TextBookCoord[0][0]+18,TextBookCoord[0][1]);
+	cout<<referenceNumber;
+	consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
+	while(!read)
+	{
+	    switch(FieldPosition)
+	    {
+            case 0:
+                //*InputPtr = ReferenceNumber.c_str();
+                *InputPtr = this->textBookPtr->getReferenceNumber();
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,0,TextBookCoord,FieldPosition,false);
+                //this->ReferenceNumber = *InputPtr;
+                this->textBookPtr->setReferenceNumber(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 1:
+                *InputPtr = this->textBookPtr->getTitle();
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,TextBookCoord,FieldPosition,false);
+                this->textBookPtr->setTitle(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 2:
+                *InputPtr = this->textBookPtr->getAuthor();
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,20,TextBookCoord,FieldPosition,false);
+                this->textBookPtr->setAuthor(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 3:
+                *InputPtr = this->textBookPtr->getISBN();
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
+                this->textBookPtr->setISBN(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+
+            case 4:
+                *InputPtr = this->textBookPtr->getCourse();
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,TextBookCoord,FieldPosition,false);
+                this->textBookPtr->setCourse(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 5:
+                *InputPtr = this->textBookPtr->getPublisher();
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,TextBookCoord,FieldPosition,false);
+                this->textBookPtr->setPublisher(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 6:
+                *InputPtr = this->textBookPtr->getDatePublished();
+                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,8,TextBookCoord,FieldPosition,false);
+                this->textBookPtr->setDatePublished(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+	    }
+        switch(KeyType)
+        {
+            case VK_UP:
+                if(FieldPosition<0)
+                {
+                    FieldPosition=0;
+                    break;
+                }else{
+                    FieldPosition-=1;
+                }
+            break;
+            case VK_RETURN:
+                FieldPosition+=1;
+            break;
+            case VK_TAB:
+                FieldPosition+=1;
+            break;
+            case VK_DOWN:
+                FieldPosition+=1;
+            break;
+        }
+        if(FieldPosition>6)
+        {
+            FieldPosition=6;
+            read=true;
+        }
+        consoleObj.xyCoord(60,3);
+        cout<< FieldPosition;
+        consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
+    }
+	consoleObj.setCursor(false,3);
+}
+
 void TextBookForm::save()
 {
     this->textBookPtr->insertReferenceNumberPrefix(this->textBookPtr->getReferenceNumber());
@@ -246,7 +338,33 @@ void TextBookForm::save()
 	}
 }
 
-void TextBookForm::setReferenceMaterialPtr(TextBook* refObj)
+void TextBookForm::editSave()
 {
-    this->referenceMaterialPtr = refObj;
+	string l_filename = DATABASE_FILE;
+	ostringstream message;
+	ostringstream l_query;
+	sqlite3* l_sql_db = NULL;
+
+	int rc = sqlite3_open(l_filename.c_str(), &l_sql_db);
+	if( rc ){
+		sqlite3_close(l_sql_db);
+		this->setState(STATE_FAILURE);
+		this->setError("Error couldn't open SQLite database");
+	}else{
+		RJM_SQLite_Resultset *pRS = NULL;
+		l_query.str("");
+		l_query << "UPDATE textbook SET title='"<<this->textBookPtr->getTitle()<<"', author='"<<this->textBookPtr->getAuthor()<<"', isbn='"<<this->textBookPtr->getISBN()<<"', course='"<<this->textBookPtr->getCourse()<<"', publisher='"<<this->textBookPtr->getPublisher()<<"', datepublished='"<<this->textBookPtr->getDatePublished()<<"' WHERE referencenumber='" << this->getReferenceNumber() << "';";
+		pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+		if (!pRS->Valid()) {
+			message.str("");
+			message << "Error occured while trying to edit reference material";
+			SAFE_DELETE(pRS);
+			this->setState(STATE_FAILURE);
+			sqlite3_close(l_sql_db);
+		}else{
+			this->setState(STATE_SUCCESS);
+			TextBook *textBookObj = new TextBook(this->getReferenceNumber(),this->textBookPtr->getTitle(),this->textBookPtr->getAuthor(),this->textBookPtr->getISBN(),this->textBookPtr->getCourse(),this->textBookPtr->getPublisher(),this->textBookPtr->getDatePublished());
+			this->setModel(textBookObj);
+		}
+	}
 }

@@ -56,7 +56,7 @@ void MemberForm::browseForm()
                 s = itoa(newId,buffer,10);
                 *InputPtr=s;
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,0,MemberCoord,FieldPosition,false);
-                this->memberPtr->setId(atoi((*InputPtr).c_str()));
+                this->memberPtr->setId(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
@@ -145,12 +145,11 @@ void MemberForm::save()
 
 	RJM_SQLite_Resultset *pRS = NULL;
 
-	cout << this->memberPtr->getId();
-	system("pause");
+	int memberId = atoi(this->memberPtr->getId().c_str());
 
 	l_query.str("");
 	l_query << "insert into member (id,firstname, lastname, address, contactnumber)";
-	l_query << " values ('"<<this->memberPtr->getId()<<"','"<<this->memberPtr->getFirstName()<<"','"<<this->memberPtr->getLastName()<<"','"<<this->memberPtr->getAddress()<<"','"<< this->memberPtr->getContactNumber()<<"')";
+	l_query << " values ('"<<memberId<<"','"<<this->memberPtr->getFirstName()<<"','"<<this->memberPtr->getLastName()<<"','"<<this->memberPtr->getAddress()<<"','"<< this->memberPtr->getContactNumber()<<"')";
 	pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 	if (!pRS->Valid())
 	{
@@ -184,7 +183,10 @@ void MemberForm::save()
 		sqlite3_close(l_sql_db);
 		SAFE_DELETE(pRS);
 			
-		Member* memberObj = new Member((int)id,fname,lname,address,number);
+		int x = (int)id;
+		char buffer[10];
+		string memId = itoa(x,buffer,10);
+		Member* memberObj = new Member(memId,fname,lname,address,number);
 		this->setMember(memberObj);
 		this->setState(STATE_SUCCESS);
 	};

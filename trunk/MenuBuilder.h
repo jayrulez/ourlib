@@ -157,15 +157,19 @@ public:
 
 	item* DeleteMenu();
 	item* DeleteConfirmMenu();
+	item* AfterDeleteMenu();
 
 	item* LoanMenu();
 	item* LoanFormMenu();
 	item* LoanConfirmMenu();
+	item* LoanAfterSaveMenu();
+
     item* AddMemberFormMenu();
 	item* MemberConfirmMenu();
 
     item* ReturnFormMenu();
 	item* ReturnConfirmMenu();
+	item* ReturnAfterSaveMenu();
 
 	string EditMenuDriver();
 	int EditInput(string *);

@@ -14,10 +14,12 @@ string Date::sysDate()
 {
     string ret;
 
-    char* d;
-    _strdate(d);
+  time_t rawtime;
+  struct tm * timeinfo;
 
-    ret = d;
+  time ( &rawtime );
+  timeinfo = localtime ( &rawtime );
+  ret = asctime(timeinfo);
     return ret;
 }
 

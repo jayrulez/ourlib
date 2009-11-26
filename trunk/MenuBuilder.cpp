@@ -24,6 +24,10 @@
 #ifndef SCROLLER_H
 #include "./gui/console/scroller.h"
 #endif
+#ifndef _DATE_H
+#include "Date.h"
+#endif
+
 #define _MAX 2
 #define _MIN 1
 #include <string>
@@ -194,12 +198,10 @@ void MenuBuilder::callMenu(int menuId)
                     this->MenuShow(LoanConfirmMenu(),LOANCONFIRMMENU_SIZ);
                     this->menuBrowserOperator(LoanConfirmMenu(),LOANCONFIRMMENU_SIZ,NORMALMENU);
                     break;
-                    break;
                 case RETURNTYPE:
                     this->BasicRunlevel("RETURN CONFIRMATION");
                     this->MenuShow(MemberConfirmMenu(),RETURNCONFIRMMENU_SIZ);
                     this->menuBrowserOperator(MemberConfirmMenu(),RETURNCONFIRMMENU_SIZ,NORMALMENU);
-                    break;
                     break;
                 case DELETETYPE:
                     this->BasicRunlevel("DELETE CONFIRMATION");
@@ -325,7 +327,8 @@ void MenuBuilder::callMenu(int menuId)
 							{
 								case STATE_ERROR:
 								case STATE_FAILURE:
-									cout << this->formPtr->getError() << endl;
+									con.xyCoord(5,25);
+									cout << this->formPtr->getError();
 								break;
 								case STATE_SUCCESS:
 									this->formPtr->getModel()->showReferenceMaterial(10,5);
@@ -339,7 +342,8 @@ void MenuBuilder::callMenu(int menuId)
 							{
 								case STATE_ERROR:
 								case STATE_FAILURE:
-									cout << this->formPtr->getError() << endl;
+									con.xyCoord(5,25);
+									cout << this->formPtr->getError();
 								break;
 								case STATE_SUCCESS:
 									this->formPtr->getModel()->showReferenceMaterial(10,5);
@@ -353,7 +357,8 @@ void MenuBuilder::callMenu(int menuId)
 							{
 								case STATE_ERROR:
 								case STATE_FAILURE:
-									cout << this->formPtr->getError() << endl;
+									con.xyCoord(5,25);
+									cout << this->formPtr->getError();
 								break;
 								case STATE_SUCCESS:
 									this->formPtr->getModel()->showReferenceMaterial(10,5);
@@ -365,18 +370,59 @@ void MenuBuilder::callMenu(int menuId)
                     this->menuBrowserOperator(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
                 break;
                 case EDITTYPE:
+				{
+					//cout << this->queryString << endl;system("pause");
                     switch(ReferenceType)
                     {
                         case MAGAZINETYPE:
                             this->BasicRunlevel("EDIT MAGAZINE");
+							this->formPtr->editSave();
+							switch(this->formPtr->getState())
+							{
+								case STATE_ERROR:
+								case STATE_FAILURE:
+									con.xyCoord(5,25);
+									cout << this->formPtr->getError();
+								break;
+								case STATE_SUCCESS:
+									this->formPtr->getModel()->showReferenceMaterial(10,5);
+								break;
+							}
                             break;
                         case RESEARCHPAPERTYPE:
                             this->BasicRunlevel("EDIT RESEARCH PAPER");
+							this->formPtr->editSave();
+							switch(this->formPtr->getState())
+							{
+								case STATE_ERROR:
+								case STATE_FAILURE:
+									con.xyCoord(5,25);
+									cout << this->formPtr->getError();
+								break;
+								case STATE_SUCCESS:
+									this->formPtr->getModel()->showReferenceMaterial(10,5);
+								break;
+							}
                             break;
                         case TEXTBOOKTYPE:
                             this->BasicRunlevel("EDIT TEXTBOOK");
+							this->formPtr->editSave();
+							switch(this->formPtr->getState())
+							{
+								case STATE_ERROR:
+								case STATE_FAILURE:
+									con.xyCoord(5,25);
+									cout << this->formPtr->getError();
+								break;
+								case STATE_SUCCESS:
+									this->formPtr->getModel()->showReferenceMaterial(10,5);
+								break;
+							}
                             break;
                     }
+                    this->MenuShow(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+                    this->menuBrowserOperator(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+				}
                 break;
                 case MEMBERTYPE:
                     this->formPtr->save();
@@ -384,14 +430,15 @@ void MenuBuilder::callMenu(int menuId)
 					{
 						case STATE_ERROR:
 						case STATE_FAILURE:
-							cout << this->formPtr->getError() << endl;
+							con.xyCoord(5,25);
+							cout << this->formPtr->getError();
 						break;
 						case STATE_SUCCESS:
 							this->formPtr->getMember()->showMember(10,5);
 						break;
 					}
-					this->MenuShow(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-                    this->menuBrowserOperator(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+					this->MenuShow(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+                    this->menuBrowserOperator(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
                     break;
                 case LOANTYPE:
                     this->formPtr->save();
@@ -399,17 +446,33 @@ void MenuBuilder::callMenu(int menuId)
 					{
 						case STATE_ERROR:
 						case STATE_FAILURE:
-							cout << this->formPtr->getError() << endl;
+							con.xyCoord(5,25);
+							cout << this->formPtr->getError();
 						break;
 						case STATE_SUCCESS:
-							this->formPtr->getMember()->showMember(10,5);
+							this->formPtr->getLoan()->showLoan(10,5);
 						break;
 					}
-					this->MenuShow(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-                    this->menuBrowserOperator(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+					this->MenuShow(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+                    this->menuBrowserOperator(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
                     break;
                 case RETURNTYPE:
-                    cout<<"           Submitting edit textbook";
+                    this->formPtr->save();
+					switch(this->formPtr->getState())
+					{
+						case STATE_ERROR:
+						case STATE_FAILURE:
+							con.xyCoord(5,20);
+							cout << this->formPtr->getError();
+						break;
+						case STATE_SUCCESS:
+							con.xyCoord(5,20);
+							cout << "Reference Material returned.";
+						break;
+					}
+					//pointx
+					this->MenuShow(ReturnAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+                    this->menuBrowserOperator(ReturnAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
                     break;
                 case DELETETYPE:
                     cout<<"           Deleting";
@@ -417,7 +480,7 @@ void MenuBuilder::callMenu(int menuId)
                     break;
             }
         break;
-case SEARCH:
+		case SEARCH:
             switch(MenuType)
             {
                 case DELETETYPE:
@@ -439,137 +502,358 @@ case SEARCH:
 					ReferenceMaterial * refObj = new ReferenceMaterial();
 					//if(this->queryString.empty())this->queryString="";
 					int materialType = refObj->getMaterialTypeFromReferenceNumber(this->queryString);
-					l_query << "SELECT * FROM loan WHERE referencenumber='" << this->queryString << "';";
+					l_query << "select * FROM loan WHERE referencenumber='"<<this->queryString<<"'";
 					pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 					if (!pRS->Valid())
 					{
+						this->BasicRunlevel("ERROR");
+						con.xyCoord(5,20);
+						cout << "Error: " << pRS->GetLastError();
 						SAFE_DELETE(pRS);
 						sqlite3_close(l_sql_db);
-					};
-					rc = pRS->GetRowCount();
-					SAFE_DELETE(pRS);
-					if(rc>0)
-					{
-						cout << "You cannot delete a reference material that is on loan." << endl;
+						this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+						this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+
 					}else{
-						l_query.str("");
-						switch(materialType)
+						rc = pRS->GetRowCount();
+						SAFE_DELETE(pRS);
+						if(rc>0)
 						{
-							case TYPE_TEXTBOOK:
+							this->BasicRunlevel("ERROR");
+							con.xyCoord(5,20);
+							cout << "Error: You cannot delete a reference material that is on loan.";
+							this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+							this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+						}else{
+							switch(materialType)
 							{
-								l_query << "SELECT * FROM textbook WHERE referencenumber='" << this->queryString << "';";
-								pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
-								if (!pRS->Valid()) {
-									SAFE_DELETE(pRS);
-									sqlite3_close(l_sql_db);
-								};
-								rc = pRS->GetRowCount();
-								SAFE_DELETE(pRS);
-								if(rc>0)
+								case TYPE_TEXTBOOK:
 								{
 									l_query.str("");
-									l_query << "DELETE FROM textbook WHERE referencenumber='" << this->queryString << "';";
+									l_query << "select * FROM textbook WHERE referencenumber='"<<this->queryString<<"'";
 									pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 									if (!pRS->Valid()) {
-										SAFE_DELETE(pRS);
+										this->BasicRunlevel("ERROR");
+										con.xyCoord(5,20);
+										cout << "Error: " << pRS->GetLastError();										SAFE_DELETE(pRS);
 										sqlite3_close(l_sql_db);
-									};
-									rc = pRS->GetRowCount();
-									SAFE_DELETE(pRS);
-									if(rc>0)
-									{
-										cout << "Textbook deleted." << endl;
+										this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 									}else{
-										cout << "Error, could not delete Textbook record from database." << endl;
+										rc = pRS->GetRowCount();
+										SAFE_DELETE(pRS);
+										if(rc>0)
+										{
+											l_query.str("");
+											l_query << "delete FROM textbook WHERE referencenumber='" << this->queryString << "'";
+											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+											if (!pRS->Valid()) {
+												this->BasicRunlevel("ERROR");
+												con.xyCoord(5,25);
+												cout << "Error: " << pRS->GetLastError();
+												SAFE_DELETE(pRS);
+												sqlite3_close(l_sql_db);
+												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+											}else{
+												if(pRS!=NULL)
+												{
+													this->BasicRunlevel("OPERATION SUCCESSFUL");
+													con.xyCoord(5,20);
+													cout << "Textbook was deleted.";
+													SAFE_DELETE(pRS);
+													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+												}else{
+													this->BasicRunlevel("ERROR");
+													con.xyCoord(5,20);
+													cout << "Error: Could not delete textbook.";
+													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+												}
+											}
+										}else{
+											this->BasicRunlevel("ERROR");
+											con.xyCoord(5,25);
+											cout << "No textbook was found with the reference number provided.";
+											this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+										}
+										sqlite3_close(l_sql_db);
 									}
-								}else{
-									cout << "No textbook record exists with the reference number entered." << endl;
 								}
-								sqlite3_close(l_sql_db);
-							}
-							break;
-							case TYPE_MAGAZINE:
-							{
-								l_query << "SELECT * FROM magazine WHERE referencenumber='" << this->queryString << "';";
-								pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
-								if (!pRS->Valid()) {
-									SAFE_DELETE(pRS);
-									sqlite3_close(l_sql_db);
-								};
-								rc = pRS->GetRowCount();
-								SAFE_DELETE(pRS);
-								if(rc>0)
-								{
+								break;
+								case TYPE_MAGAZINE:
+																{
 									l_query.str("");
-									l_query << "DELETE FROM magazine WHERE referencenumber='" << this->queryString << "';";
+									l_query << "select * FROM magazine WHERE referencenumber='"<<this->queryString<<"'";
 									pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 									if (!pRS->Valid()) {
+										this->BasicRunlevel("ERROR");
+										con.xyCoord(5,20);
+										cout << "Error: " << pRS->GetLastError();										
 										SAFE_DELETE(pRS);
 										sqlite3_close(l_sql_db);
-									};
-									rc = pRS->GetRowCount();
-									SAFE_DELETE(pRS);
-									if(rc>0)
-									{
-										cout << "Magazine deleted." << endl;
+										this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 									}else{
-										cout << "Error, could not delete magazine record from database." << endl;
+										rc = pRS->GetRowCount();
+										SAFE_DELETE(pRS);
+										if(rc>0)
+										{
+											l_query.str("");
+											l_query << "delete FROM magazine WHERE referencenumber='" << this->queryString << "'";
+											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+											if (!pRS->Valid()) {
+												this->BasicRunlevel("ERROR");
+												con.xyCoord(5,20);
+												cout << "Error: " << pRS->GetLastError();
+												SAFE_DELETE(pRS);
+												sqlite3_close(l_sql_db);
+												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+											}else{
+												if(pRS!=NULL)
+												{
+													this->BasicRunlevel("OPERATION SUCCESSFUL");
+													con.xyCoord(5,20);
+													cout << "Magazine was deleted.";
+													SAFE_DELETE(pRS);
+													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+												}else{
+													this->BasicRunlevel("ERROR");
+													con.xyCoord(5,20);
+													cout << "Error: Could not delete magazine.";
+													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+												}
+											}
+										}else{
+											this->BasicRunlevel("ERROR");
+											con.xyCoord(5,20);
+											cout << "No magazine was found with the reference number provided.";
+											this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+										}
+										sqlite3_close(l_sql_db);
 									}
-								}else{
-									cout << "No Magazine record exists with the reference number entered." << endl;
 								}
-								sqlite3_close(l_sql_db);
-							}
-							break;
-							case TYPE_RESEARCHPAPER:
-							{
-								l_query << "SELECT * FROM researchpaper WHERE referencenumber='" << this->queryString << "';";
-								pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
-								if (!pRS->Valid()) {
-									SAFE_DELETE(pRS);
-									sqlite3_close(l_sql_db);
-								};
-								rc = pRS->GetRowCount();
-								SAFE_DELETE(pRS);
-								if(rc>0)
-								{
+								break;
+								case TYPE_RESEARCHPAPER:
+																{
 									l_query.str("");
-									l_query << "DELETE FROM researchpaper WHERE referencenumber='" << this->queryString << "';";
+									l_query << "select * FROM researchpaper WHERE referencenumber='"<<this->queryString<<"'";
 									pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 									if (!pRS->Valid()) {
+										this->BasicRunlevel("ERROR");
+										con.xyCoord(5,20);
+										cout << "Error: " << pRS->GetLastError();										
 										SAFE_DELETE(pRS);
 										sqlite3_close(l_sql_db);
-									};
-									rc = pRS->GetRowCount();
-									SAFE_DELETE(pRS);
-									if(rc>0)
-									{
-										cout << "Research Paper deleted." << endl;
+										this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 									}else{
-										cout << "Error, could not delete magazine record from database." << endl;
+										rc = pRS->GetRowCount();
+										SAFE_DELETE(pRS);
+										if(rc>0)
+										{
+											l_query.str("");
+											l_query << "delete FROM researchpaper WHERE referencenumber='" << this->queryString << "'";
+											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+											if (!pRS->Valid()) {
+												this->BasicRunlevel("ERROR");
+												con.xyCoord(5,20);
+												cout << "Error: " << pRS->GetLastError();
+												SAFE_DELETE(pRS);
+												sqlite3_close(l_sql_db);
+												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+											}else{
+												if(pRS!=NULL)
+												{
+													this->BasicRunlevel("OPERATION SUCCESSFUL");
+													con.xyCoord(5,20);
+													cout << "Research Paper was deleted.";
+													SAFE_DELETE(pRS);
+													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+												}else{
+													this->BasicRunlevel("ERROR");
+													con.xyCoord(5,20);
+													cout << "Error: Could not delete Research Paper.";
+													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+												}
+											}
+										}else{
+											this->BasicRunlevel("ERROR");
+											con.xyCoord(5,20);
+											cout << "No Research Paper was found with the reference number provided.";
+											this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+										}
+										sqlite3_close(l_sql_db);
 									}
-								}else{
-									cout << "No Research Paper record exists with the reference number entered." << endl;
 								}
-								sqlite3_close(l_sql_db);
+								break;
+								case TYPE_NONEXISTENT:
+								default:
+									this->BasicRunlevel("ERROR");
+									con.xyCoord(5,20);
+									cout << "No Research Paper was found with the reference number provided.";
+									this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+									this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+								break;
 							}
-							break;
-							case TYPE_NONEXISTENT:
-							default:
-								cout << "No Reference Material record exists with the reference number entered." << endl;
-							break;
 						}
 					}
-					system("pause");
 				}
                 break;
                 case EDITTYPE:
-                    //outtype2
+				{
+					string l_filename = DATABASE_FILE;
+					ostringstream message;
+					message.str("");
+					ostringstream l_query;
+					sqlite3* l_sql_db = NULL;
+
+					int rc = sqlite3_open(l_filename.c_str(), &l_sql_db);
+					if( rc ){
+						sqlite3_close(l_sql_db);
+					};
+
+					RJM_SQLite_Resultset *pRS = NULL;
+
+					ReferenceMaterial* refObj = new ReferenceMaterial();
+					int materialType = refObj->getMaterialTypeFromReferenceNumber(this->queryString);
+					switch(materialType)
+					{
+						case TYPE_TEXTBOOK:
+						{
+							l_query.str("");
+							l_query << "select * FROM textbook WHERE referencenumber='"<<this->queryString<<"'";
+							pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+							if (!pRS->Valid()) {
+								this->BasicRunlevel("ERROR");
+								cout << "Error: " << pRS->GetLastError() << endl;system("pause");
+								SAFE_DELETE(pRS);
+								sqlite3_close(l_sql_db);
+								this->callMenu(EDIT);
+							}else{
+								rc = pRS->GetRowCount();
+								SAFE_DELETE(pRS);
+								sqlite3_close(l_sql_db);
+							
+								if(rc>0)
+								{
+									this->formPtr = new TextBookForm;
+									ReferenceType=TEXTBOOK;
+									this->BasicRunlevel("EDIT TEXTBOOK");
+									this->showReferenceMaterialForm(TEXTBOOK);
+									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
+									do
+									{
+										this->formPtr->browseEditForm(this->queryString);
+										TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+									}while(TypeCheck==0);
+								}else{
+									this->BasicRunlevel("ERROR");
+									cout << "Error: No Textbook record exitst with the reference number provided." << endl;system("pause");
+									this->callMenu(EDIT);
+								}
+							}
+						}
+						break;
+						case TYPE_MAGAZINE:
+						{
+							l_query.str("");
+							l_query << "select * FROM magazine WHERE referencenumber='"<<this->queryString<<"'";
+							pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+							if (!pRS->Valid()) {
+								this->BasicRunlevel("ERROR");
+								cout << "Error: " << pRS->GetLastError() << endl;system("pause");
+								SAFE_DELETE(pRS);
+								sqlite3_close(l_sql_db);
+								this->callMenu(EDIT);
+							}else{
+								rc = pRS->GetRowCount();
+								SAFE_DELETE(pRS);
+								
+								sqlite3_close(l_sql_db);
+								
+								if(rc>0)
+								{
+									this->formPtr = new MagazineForm;
+									ReferenceType=MAGAZINE;
+									this->BasicRunlevel("EDIT MAGAZINE");
+									this->showReferenceMaterialForm(MAGAZINE);
+									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
+									do
+									{
+										this->formPtr->browseEditForm(this->queryString);
+										TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+									}while(TypeCheck==0);
+								}else{
+									this->BasicRunlevel("ERROR");
+									cout << "Error: No magazine record exists with the reference number provided" << endl;system("pause");
+									this->callMenu(EDIT);
+								}
+							}
+						}
+						break;
+						case TYPE_RESEARCHPAPER:
+						{
+							l_query.str("");
+							l_query << "select * FROM researchpaper WHERE referencenumber='"<<this->queryString<<"'";
+							pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+							if (!pRS->Valid()) {
+								SAFE_DELETE(pRS);
+								sqlite3_close(l_sql_db);
+								cout << "Error" <<pRS->GetLastError() << endl;
+							}else{
+								rc = pRS->GetRowCount();
+								SAFE_DELETE(pRS);
+								
+								sqlite3_close(l_sql_db);
+								
+								if(rc>0)
+								{
+									this->formPtr = new ResearchPaperForm;
+									this->formPtr->setFormType(TYPE_EDIT);
+									ReferenceType=RESEARCHPAPERTYPE;
+									this->BasicRunlevel("EDIT RESEARCH PAPER");
+									this->showReferenceMaterialForm(RESEARCHPAPER);
+									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
+									do
+									{
+										this->formPtr->browseEditForm(this->queryString);
+										TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+									}while(TypeCheck==0);
+								}else{
+									this->BasicRunlevel("ERROR");
+									cout << "Error: No such research paper exists." << endl;system("pause");
+									this->callMenu(EDIT);
+								}
+							}
+						}
+						break;
+						case TYPE_NONEXISTENT:
+						default:
+						{
+							this->BasicRunlevel("ERROR");
+							cout << "Error: Invalid reference Number provided." << endl;system("pause");
+							this->callMenu(EDIT);
+						}
+						break;
+					}
+				}
                 break;
             }
         break;
 		case RESEARCHPAPER:
             this->formPtr = new ResearchPaperForm;
+			this->formPtr->setFormType(TYPE_ADD);
             ReferenceType=RESEARCHPAPERTYPE;
 			this->BasicRunlevel("ADD RESEARCH PAPER");
 			this->showReferenceMaterialForm(RESEARCHPAPER);
@@ -583,6 +867,7 @@ case SEARCH:
 
 		case TEXTBOOK:
             this->formPtr = new TextBookForm;
+			this->formPtr->setFormType(TYPE_ADD);
             ReferenceType=TEXTBOOKTYPE;
 			this->BasicRunlevel("ADD TEXTBOOK");
 			this->showReferenceMaterialForm(TEXTBOOK);
@@ -596,6 +881,7 @@ case SEARCH:
 
 		case MAGAZINE:
             this->formPtr = new MagazineForm;
+			this->formPtr->setFormType(TYPE_ADD);
             ReferenceType=MAGAZINETYPE;
 			this->BasicRunlevel("ADD MAGAZINE");
 			this->showReferenceMaterialForm(MAGAZINE);
@@ -707,10 +993,10 @@ item* MenuBuilder::AddFormMenu()
 item* MenuBuilder::AddMemberFormMenu()
 {
     static item AddMemberFormMenuItem[ADDMEMBERFORMMENU_SIZ];
-    AddMemberFormMenuItem[0].setItem(15,45,SUBMIT,"SUBMIT");
-    AddMemberFormMenuItem[1].setItem(35,45,CLEARFIELD,"CLEAR FIELDS");
-    AddMemberFormMenuItem[2].setItem(55,45,LOAN,"<-- LOAN MENU");
-    AddMemberFormMenuItem[3].setItem(35,49,MAINMENU,"MAIN MENU");
+    AddMemberFormMenuItem[0].setItem(15,35,SUBMIT,"SUBMIT");
+    AddMemberFormMenuItem[1].setItem(35,35,CLEARFIELD,"CLEAR FIELDS");
+    AddMemberFormMenuItem[2].setItem(55,35,LOAN,"<-- LOAN MENU");
+    AddMemberFormMenuItem[3].setItem(35,39,MAINMENU,"MAIN MENU");
     return &AddMemberFormMenuItem[0];
 }
 /*
@@ -848,6 +1134,33 @@ item* MenuBuilder::EditAfterSaveMenu()
     EditAfterSaveMenuItem[0].setItem(20,35,EDIT,"<--ADD MENU");
     EditAfterSaveMenuItem[1].setItem(50,35,MAINMENU,"MAIN MENU");
     return &EditAfterSaveMenuItem[0];
+}
+/*
+* This function displays menu items after the loan is executed.
+*/
+item* MenuBuilder::LoanAfterSaveMenu()
+{
+    static item LoanAfterSaveMenuItem[AFTERSAVEMENU_SIZ];
+    LoanAfterSaveMenuItem[0].setItem(20,35,LOAN,"<--LOAN MENU");
+    LoanAfterSaveMenuItem[1].setItem(50,35,MAINMENU,"MAIN MENU");
+    return &LoanAfterSaveMenuItem[0];
+}
+/*
+* This function displays menu items after returning a material
+*/
+item* MenuBuilder::ReturnAfterSaveMenu()
+{
+    static item ReturnAfterSaveMenuItem[AFTERSAVEMENU_SIZ];
+    ReturnAfterSaveMenuItem[0].setItem(20,35,RETURN,"<--RETURN MENU");
+    ReturnAfterSaveMenuItem[1].setItem(50,35,MAINMENU,"MAIN MENU");
+    return &ReturnAfterSaveMenuItem[0];
+}
+item* MenuBuilder::AfterDeleteMenu()
+{
+    static item AfterDeleteMenuItem[AFTERSAVEMENU_SIZ];
+    AfterDeleteMenuItem[0].setItem(20,35,DEL,"<--DELETE MENU");
+    AfterDeleteMenuItem[1].setItem(50,35,MAINMENU,"MAIN MENU");
+    return &AfterDeleteMenuItem[0];
 }
 /*
 * This function displays the contents for the menus
@@ -1180,6 +1493,7 @@ int MenuBuilder::DeleteInput(string *ReferenceNumberPtr)
 
 void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)
 {
+	Date *dateObj = new Date();
 	frame BaseFrame;
 	console con;
 	con.clearScreen();
@@ -1189,5 +1503,7 @@ void MenuBuilder::BasicRunlevel(string MenuName,int consoleX, int consoleY)
 	con.xyCoord(0,0);
 	con.xyCoord(3,1);
 	cout<<MenuName;
+	con.xyCoord(53,1);
+	cout<<dateObj->sysDate();
 }
 

@@ -3,6 +3,8 @@
 #ifndef _DATE_H
 #include "Date.h"
 #endif
+#include "./gui/console/console.h"
+#include "./gui/console/frame.h"
 
 #include <string>
 using namespace std;
@@ -10,19 +12,21 @@ using namespace std;
 class Loan
 {
 private:
-	int memberId;
+	string memberId;
 	string referenceNumber;
 	string requestDate;
 	string loanType;
+	console consoleObj;
+	frame frameObj;
 public:
 	Loan();
 	~Loan();
-	Loan(int,string,string);
-	void setMemberId(int);
+	Loan(string,string,string,string);
+	void setMemberId(string);
 	void setReferenceNumber(string);
 	void setLoanType(string);
 	void setRequestDate(string);
-	int getMemberId() const;
+	string getMemberId() const;
 	string getReferenceNumber() const;
 	string getLoanType() const;
 	string getRequestDate() const;

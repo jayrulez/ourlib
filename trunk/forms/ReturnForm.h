@@ -1,6 +1,8 @@
 #ifndef RETURNFORM_H
 #define RETURNFORM_H
-
+#ifndef _LOAN_H
+#include "../Loan.h"
+#endif
 #include "../gui/console/console.h"
 #include "FormInputBuilder.h"
 
@@ -17,8 +19,9 @@ private:
     FormInputBuilder FormInputBuilderObj;
 
     string ReferenceNumber;
-    int IdNumber;
+    string IdNumber;
     string ReturnDate;
+	Loan * loanPtr;
 
     int FieldPosition;
     string AllInput[3];

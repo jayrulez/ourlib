@@ -76,18 +76,13 @@ int ReferenceMaterial::getMaterialTypeFromReferenceNumber(string referenceNumber
 {
 	if(referenceNumber.length()>4)
 	{
-		char prefix[3];
-		for(int i=0;i<3;i++)
-			prefix[i] = referenceNumber[i];
-		string shortType = prefix;
-
-		if(shortType.compare("TX-")==0)
+		if(referenceNumber.find("TX-")!=string::npos)
 		{
 			return TYPE_TEXTBOOK;
-		}else if(shortType.compare("MG-")==0)
+		}else if(referenceNumber.find("MG-")!=string::npos)
 		{
 			return TYPE_MAGAZINE;
-		}else if(shortType.compare("RP-")==0)
+		}else if(referenceNumber.find("RP-")!=string::npos)
 		{
 			return TYPE_RESEARCHPAPER;
 		}else{

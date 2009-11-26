@@ -9,6 +9,9 @@
 #ifndef _TEXTBOOK_H
 #include "../TextBook.h"
 #endif
+#ifndef _LOAN_H
+#include "../Loan.h"
+#endif
 
 #include <string>
 
@@ -28,13 +31,15 @@ class Form
         string error;
         ReferenceMaterial * model;
 		Member * member;
-        ReferenceMaterial * referenceMaterialPtr;
+        string referenceNumber;
         int formType;
+		Loan *loan;
     public:
         Form();
         virtual ~Form();
         virtual void show();
         virtual void browseForm();
+		virtual void browseEditForm(string);
         virtual void save();
         void setError(string);
         void setState(int);
@@ -47,6 +52,10 @@ class Form
         void setFormType(int);
         int getFormType() const;
         ReferenceMaterial* getModel();
-        virtual void setReferenceMaterialPtr(ReferenceMaterial*);
+		void setReferenceNumber(string);
+		string getReferenceNumber() const;
+		virtual void editSave();
+		Loan* getLoan();
+		void setLoan(Loan*);
 };
 #endif // FORM_H

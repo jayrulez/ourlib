@@ -23,15 +23,15 @@ private:
     string AllInput[7];
     string *InputPtr;
     string tag;
-    TextBook * referenceMaterialPtr;
     //string ReferenceNumber;
 public:
     TextBookForm();
     ~TextBookForm();
     void browseForm();
+	void browseEditForm(string);
 	void show();
 	void save();
-	void setReferenceMaterialPtr(TextBook*);
+	void editSave();
 };
 
 #endif

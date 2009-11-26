@@ -28,12 +28,13 @@ private:
     string tag;
 public:
     void setMagazinePtr(Magazine*);
+	void browseEditForm(string);
     MagazineForm();
     ~MagazineForm();
     void browseForm();
 	void show();
     void save();
-	void showTest();
+	void editSave();
 };
 
 #endif

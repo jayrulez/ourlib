@@ -54,6 +54,7 @@ MagazineForm::~MagazineForm()
 void MagazineForm::browseForm()
 {
 	// 5 pointers needed for 5 inputs
+	//cout << this->getFormType();system("sleep");
 	bool read=false;
 	int KeyType;
 	consoleObj.xyCoord(MagazineCoord[0][0]+18,MagazineCoord[0][1]);
@@ -66,6 +67,93 @@ void MagazineForm::browseForm()
             case 0:
                 *InputPtr = this->magazinePtr->getReferenceNumber();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,3,MagazineCoord,FieldPosition,false);
+                this->magazinePtr->setReferenceNumber(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 1:
+                *InputPtr = this->magazinePtr->getTitle();
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
+                this->magazinePtr->setTitle(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 2:
+                *InputPtr = this->magazinePtr->getAuthor();
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
+                this->magazinePtr->setAuthor(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 3:
+                *InputPtr = this->magazinePtr->getVolume();
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,3,MagazineCoord,FieldPosition,false);
+                this->magazinePtr->setVolume(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+
+            case 4:
+                *InputPtr = this->magazinePtr->getIssueDate();
+                KeyType=FormInputBuilderObj.FormInput(DATE,NOSPACING,InputPtr,8,MagazineCoord,FieldPosition,false);
+                this->magazinePtr->setIssueDate(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+
+            case 5:
+                *InputPtr = this->magazinePtr->getIssueTopic();
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
+                this->magazinePtr->setIssueTopic(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+	    }
+        switch(KeyType)
+        {
+            case VK_UP:
+                if(FieldPosition<=0)
+                {
+                    FieldPosition=0;
+                    break;
+                }else{
+                    FieldPosition-=1;
+                }
+            break;
+            case VK_RETURN:
+                FieldPosition+=1;
+            break;
+            case VK_TAB:
+                FieldPosition+=1;
+            break;
+            case VK_DOWN:
+                FieldPosition+=1;
+            break;
+        }
+        if(FieldPosition>5)
+        {
+            FieldPosition=5;
+            read=true;
+        }
+        //*InputPtr = "";
+        consoleObj.xyCoord(60,3);
+        cout<< FieldPosition;
+        consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
+    }
+	consoleObj.setCursor(false,3);
+}
+
+void MagazineForm::browseEditForm(string referenceNumber)
+{
+	this->setReferenceNumber(referenceNumber);
+	// 5 pointers needed for 5 inputs
+	//cout << this->getFormType();system("sleep");
+	bool read=false;
+	int KeyType;
+	consoleObj.xyCoord(MagazineCoord[0][0]+18,MagazineCoord[0][1]);
+	cout<<referenceNumber;
+	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
+	while(!read)
+	{
+	    switch(FieldPosition)
+	    {
+            case 0:
+                *InputPtr = this->magazinePtr->getReferenceNumber();
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,0,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setReferenceNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -232,5 +320,36 @@ void MagazineForm::save()
 			this->setModel(magazineObj);
 			this->setState(STATE_SUCCESS);
 		};
+	}
+}
+
+void MagazineForm::editSave()
+{
+	string l_filename = DATABASE_FILE;
+	ostringstream message;
+	ostringstream l_query;
+	sqlite3* l_sql_db = NULL;
+
+	int rc = sqlite3_open(l_filename.c_str(), &l_sql_db);
+	if( rc ){
+		sqlite3_close(l_sql_db);
+		this->setState(STATE_FAILURE);
+		this->setError("Error couldn't open SQLite database");
+	}else{
+		RJM_SQLite_Resultset *pRS = NULL;
+		l_query.str("");
+		l_query << "UPDATE magazine SET title='"<<this->magazinePtr->getTitle()<<"', author='"<<this->magazinePtr->getAuthor()<<"', volume='"<<this->magazinePtr->getVolume()<<"', issuedate='"<<this->magazinePtr->getIssueDate()<<"', issueTopic='"<<this->magazinePtr->getIssueTopic()<<"' WHERE referencenumber='" << this->getReferenceNumber() << "';";
+		pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+		if (!pRS->Valid()) {
+			message.str("");
+			message << "Error occured while trying to edit reference material";
+			SAFE_DELETE(pRS);
+			this->setState(STATE_FAILURE);
+			sqlite3_close(l_sql_db);
+		}else{
+			this->setState(STATE_SUCCESS);
+			Magazine *magazineObj = new Magazine(this->getReferenceNumber(),this->magazinePtr->getTitle(),this->magazinePtr->getAuthor(),this->magazinePtr->getVolume(),this->magazinePtr->getIssueDate(),this->magazinePtr->getIssueTopic());
+			this->setModel(magazineObj);
+		}
 	}
 }

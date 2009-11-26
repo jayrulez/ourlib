@@ -23,7 +23,7 @@ Member::Member()
 Member::~Member()
 {
 }
-Member::Member(int id,string fname,string lname,string address,string contactNumber)
+Member::Member(string id,string fname,string lname,string address,string contactNumber)
 {
 	this->id = id;
 	this->firstName = fname;
@@ -31,7 +31,7 @@ Member::Member(int id,string fname,string lname,string address,string contactNum
 	this->address = address;
 	this->contactNumber = contactNumber;
 }
-void Member::setId(int id)
+void Member::setId(string id)
 {
 	this->id = id;
 }
@@ -51,7 +51,7 @@ void Member::setContactNumber(string contactNumber)
 {
 	this->contactNumber = contactNumber;
 }
-int Member::getId() const
+string Member::getId() const
 {
 	return this->id;
 }

@@ -10,7 +10,7 @@ using namespace std;
 class Member
 {
 private:
-	int id;
+	string id;
 	string firstName;
 	string lastName;
 	string address;
@@ -20,14 +20,14 @@ private:
 public:
 	Member();
 	~Member();
-	Member(int,string,string,string,string);
-	void setId(int);
+	Member(string,string,string,string,string);
+	void setId(string);
 	int getNewId();
 	void setFirstName(string);
 	void setLastName(string);
 	void setAddress(string);
 	void setContactNumber(string);
-	int getId() const;
+	string getId() const;
 	string getFirstName() const;
 	string getLastName() const;
 	string getAddress() const;

@@ -18,7 +18,9 @@ Form::~Form()
 
 void Form::show() {}
 void Form::browseForm() {}
+void Form::browseEditForm(string referenceNumber) {}
 void Form::save() {}
+void Form::editSave() {}
 
 void Form::setState(int state)
 {
@@ -55,9 +57,14 @@ int Form::getFormType() const
     return this->formType;
 }
 
-void Form::setReferenceMaterialPtr(ReferenceMaterial* refObj)
+void Form::setReferenceNumber(string referenceNumber)
 {
-    this->referenceMaterialPtr = refObj;
+    this->referenceNumber = referenceNumber;
+}
+
+string Form::getReferenceNumber() const
+{
+    return this->referenceNumber;
 }
 
 void Form::setModel(ReferenceMaterial *referenceMaterialObj)
@@ -78,4 +85,14 @@ void Form::setMember(Member* memberObj)
 Member* Form::getMember()
 {
 	return this->member;
+}
+
+Loan* Form::getLoan()
+{
+	return this->loan;
+}
+
+void Form::setLoan(Loan *loan)
+{
+	this->loan = loan;
 }

@@ -128,6 +128,88 @@ void ResearchPaperForm::browseForm()
     }
 	consoleObj.setCursor(false,3);
 }
+
+void ResearchPaperForm::browseEditForm(string referenceNumber)
+{
+	this->setReferenceNumber(referenceNumber);
+	bool read=false;
+	int KeyType;
+    consoleObj.xyCoord(ResearchPaperCoord[0][0]+18,ResearchPaperCoord[0][1]);
+	cout<<referenceNumber;
+	consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+AllInput[FieldPosition].length(),ResearchPaperCoord[FieldPosition][1]);
+	while(!read)
+	{
+	    switch(FieldPosition)
+	    {
+            case 0:
+                *InputPtr = this->researchPaperPtr->getReferenceNumber();
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,0,ResearchPaperCoord,FieldPosition,false);
+                this->researchPaperPtr->setReferenceNumber(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 1:
+                *InputPtr = this->researchPaperPtr->getTitle();
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,15,ResearchPaperCoord,FieldPosition,false);
+                this->researchPaperPtr->setTitle(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 2:
+                *InputPtr = this->researchPaperPtr->getAuthor();
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,20,ResearchPaperCoord,FieldPosition,false);
+                this->researchPaperPtr->setAuthor(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 3:
+                *InputPtr = this->researchPaperPtr->getResearchTopic();
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,ResearchPaperCoord,FieldPosition,false);
+                this->researchPaperPtr->setResearchTopic(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+
+            case 4:
+                *InputPtr = this->researchPaperPtr->getSupervisor();
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,15,ResearchPaperCoord,FieldPosition,false);
+                this->researchPaperPtr->setSupervisor(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+            case 5:
+                *InputPtr = this->researchPaperPtr->getSponsor();
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,15,ResearchPaperCoord,FieldPosition,false);
+                this->researchPaperPtr->setSponsor(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
+                break;
+	    }
+        switch(KeyType)
+        {
+            case VK_UP:
+                if(FieldPosition<0)
+                {
+                    FieldPosition=0;
+                    break;
+                }else{
+                    FieldPosition-=1;
+                }
+            break;
+            case VK_RETURN:
+                FieldPosition+=1;
+            break;
+            case VK_TAB:
+                FieldPosition+=1;
+            break;
+            case VK_DOWN:
+                FieldPosition+=1;
+            break;
+        }
+        if(FieldPosition>5)
+        {
+            FieldPosition=5;
+            read=true;
+        }
+        consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+AllInput[FieldPosition].length(),ResearchPaperCoord[FieldPosition][1]);
+    }
+	consoleObj.setCursor(false,3);
+}
+
 void ResearchPaperForm::show()
 {
 	consoleObj.xyCoord(ResearchPaperCoord[0][0],ResearchPaperCoord[0][1]);
@@ -221,5 +303,36 @@ void ResearchPaperForm::save()
 			this->setModel(researchPaperObj);
 			this->setState(STATE_SUCCESS);
 		};
+	}
+}
+
+void ResearchPaperForm::editSave()
+{
+	string l_filename = DATABASE_FILE;
+	ostringstream message;
+	ostringstream l_query;
+	sqlite3* l_sql_db = NULL;
+
+	int rc = sqlite3_open(l_filename.c_str(), &l_sql_db);
+	if( rc ){
+		sqlite3_close(l_sql_db);
+		this->setState(STATE_FAILURE);
+		this->setError("Error couldn't open SQLite database");
+	}else{
+		RJM_SQLite_Resultset *pRS = NULL;
+		l_query.str("");
+		l_query << "UPDATE researchpaper SET title='"<<this->researchPaperPtr->getTitle()<<"', author='"<<this->researchPaperPtr->getAuthor()<<"', researchtopic='"<<this->researchPaperPtr->getResearchTopic()<<"', supervisor='"<<this->researchPaperPtr->getSupervisor()<<"', sponsor='"<<this->researchPaperPtr->getSponsor()<<"' WHERE referencenumber='" << this->getReferenceNumber() << "';";
+		pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+		if (!pRS->Valid()) {
+			message.str("");
+			message << "Error occured while trying to edit reference material";
+			SAFE_DELETE(pRS);
+			this->setState(STATE_FAILURE);
+			sqlite3_close(l_sql_db);
+		}else{
+			this->setState(STATE_SUCCESS);
+			ResearchPaper *researchPaperObj = new ResearchPaper(this->getReferenceNumber(),this->researchPaperPtr->getTitle(),this->researchPaperPtr->getAuthor(),this->researchPaperPtr->getResearchTopic(),this->researchPaperPtr->getSupervisor(),this->researchPaperPtr->getSponsor());
+			this->setModel(researchPaperObj);
+		}
 	}
 }
