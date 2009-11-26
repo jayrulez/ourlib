@@ -315,10 +315,9 @@ void MagazineForm::save()
 			pRS->GetColValueVARCHAR(0,5,&issuedate);
 			sqlite3_close(l_sql_db);
 			SAFE_DELETE(pRS);
-			
+			this->setState(STATE_SUCCESS);
 			Magazine* magazineObj = new Magazine(refNo,title,author,volume,topic,issuedate);
 			this->setModel(magazineObj);
-			this->setState(STATE_SUCCESS);
 		};
 	}
 }
