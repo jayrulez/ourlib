@@ -71,6 +71,7 @@ int Application::terminate()
 
 void Application::process()
 {
+	SetConsoleTitle("NATIONAL LIBRARY");
 	this->welcome();
 	this->main();
 }
