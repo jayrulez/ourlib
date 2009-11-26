@@ -158,7 +158,6 @@ void MenuBuilder::callMenu(int menuId)
                             this->BasicRunlevel("ADD TEXTBOOK");
                             break;
                     }
-					this->formPtr->getModel()->showReferenceMaterial(10,5);
                     this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
                     this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
                     break;
@@ -175,8 +174,8 @@ void MenuBuilder::callMenu(int menuId)
                         case TEXTBOOKTYPE:
                             this->BasicRunlevel("EDIT TEXTBOOK");
                             break;
-                    }
-                    this->MenuShow(EditConfirmMenu(),EDITCONFIRMMENU_SIZ);
+					}
+					this->MenuShow(EditConfirmMenu(),EDITCONFIRMMENU_SIZ);
                     this->menuBrowserOperator(EditConfirmMenu(),EDITCONFIRMMENU_SIZ,NORMALMENU);
                     break;
 
@@ -242,9 +241,6 @@ void MenuBuilder::callMenu(int menuId)
                     break;
                 case RETURNTYPE:
                     callMenu(RETURN);
-                    break;
-                case DELETETYPE:
-                    cout<<"           Submitting edit textbook";
                     break;
             }
         break;
@@ -312,10 +308,12 @@ void MenuBuilder::callMenu(int menuId)
 								case STATE_ERROR:
 								case STATE_FAILURE:
 									con.xyCoord(5,25);
-									cout << this->formPtr->getError();
+									con.setColour(12);
+									cout<<"Error: "<< this->formPtr->getError();
+									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(10,5);
+									this->formPtr->getModel()->showReferenceMaterial(20,15);
 								break;
 							}
                             break;
@@ -326,11 +324,13 @@ void MenuBuilder::callMenu(int menuId)
 							{
 								case STATE_ERROR:
 								case STATE_FAILURE:
-									con.xyCoord(5,25);
-									cout << this->formPtr->getError();
+									con.xyCoord(5,15);
+									con.setColour(12);
+									cout<<"Error: " << this->formPtr->getError();
+									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(10,5);
+									this->formPtr->getModel()->showReferenceMaterial(20,15);
 								break;
 							}
                             break;
@@ -341,11 +341,13 @@ void MenuBuilder::callMenu(int menuId)
 							{
 								case STATE_ERROR:
 								case STATE_FAILURE:
-									con.xyCoord(5,25);
-									cout << this->formPtr->getError();
+									con.xyCoord(5,15);
+									con.setColour(12);
+									cout<<"Error: " << this->formPtr->getError();
+									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(10,5);
+									this->formPtr->getModel()->showReferenceMaterial(20,15);
 								break;
 							}
                             break;
@@ -355,7 +357,6 @@ void MenuBuilder::callMenu(int menuId)
                 break;
                 case EDITTYPE:
 				{
-					//cout << this->queryString << endl;system("pause");
                     switch(ReferenceType)
                     {
                         case MAGAZINETYPE:
@@ -365,11 +366,13 @@ void MenuBuilder::callMenu(int menuId)
 							{
 								case STATE_ERROR:
 								case STATE_FAILURE:
-									con.xyCoord(5,25);
-									cout << this->formPtr->getError();
+									con.xyCoord(5,15);
+									con.setColour(12);
+									cout<<"Error: " << this->formPtr->getError();
+									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(10,5);
+									this->formPtr->getModel()->showReferenceMaterial(17,15);
 								break;
 							}
                             break;
@@ -380,11 +383,13 @@ void MenuBuilder::callMenu(int menuId)
 							{
 								case STATE_ERROR:
 								case STATE_FAILURE:
-									con.xyCoord(5,25);
-									cout << this->formPtr->getError();
+									con.xyCoord(5,15);
+									con.setColour(12);
+									cout<<"Error: " << this->formPtr->getError();
+									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(10,5);
+									this->formPtr->getModel()->showReferenceMaterial(17,15);
 								break;
 							}
                             break;
@@ -395,11 +400,15 @@ void MenuBuilder::callMenu(int menuId)
 							{
 								case STATE_ERROR:
 								case STATE_FAILURE:
-									con.xyCoord(5,25);
-									cout << this->formPtr->getError();
+									con.xyCoord(5,15);
+									con.setColour(12);
+									cout<<"Error: " << this->formPtr->getError();
+									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(10,5);
+								con.xyCoord(25,10);
+								cout << "Textbook changes saved.";
+									this->formPtr->getModel()->showReferenceMaterial(17,10);
 								break;
 							}
                             break;
@@ -414,11 +423,15 @@ void MenuBuilder::callMenu(int menuId)
 					{
 						case STATE_ERROR:
 						case STATE_FAILURE:
-							con.xyCoord(5,25);
-							cout << this->formPtr->getError();
+							con.xyCoord(5,15);
+							con.setColour(12);
+							cout<<"Error: "<< this->formPtr->getError();
+							con.setColour(15);
 						break;
 						case STATE_SUCCESS:
-							this->formPtr->getMember()->showMember(10,5);
+							this->formPtr->getMember()->showMember(17,5);
+							con.xyCoord(20,15);
+							cout << "Registration Completed Successfully.";
 						break;
 					}
 					this->MenuShow(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ);
@@ -430,11 +443,15 @@ void MenuBuilder::callMenu(int menuId)
 					{
 						case STATE_ERROR:
 						case STATE_FAILURE:
-							con.xyCoord(5,25);
-							cout << this->formPtr->getError();
+							con.xyCoord(5,15);
+							con.setColour(12);
+							cout<<"Error: "<< this->formPtr->getError();
+							con.setColour(15);
 						break;
 						case STATE_SUCCESS:
-							this->formPtr->getLoan()->showLoan(10,5);
+							this->formPtr->getLoan()->showLoan(17,15);
+							con.xyCoord(20,15);
+							cout << "Loan completed successfully.";
 						break;
 					}
 					this->MenuShow(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ);
@@ -447,20 +464,17 @@ void MenuBuilder::callMenu(int menuId)
 						case STATE_ERROR:
 						case STATE_FAILURE:
 							con.xyCoord(5,20);
-							cout << this->formPtr->getError();
+							con.setColour(12);
+							cout<<"Error: " << this->formPtr->getError();
+							con.setColour(15);
 						break;
 						case STATE_SUCCESS:
 							con.xyCoord(25,15);
 							cout << "Reference Material returned.";
 						break;
 					}
-					//pointx
 					this->MenuShow(ReturnAfterSaveMenu(),AFTERSAVEMENU_SIZ);
                     this->menuBrowserOperator(ReturnAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
-                    break;
-                case DELETETYPE:
-                    cout<<"           Deleting";
-					system("pause");
                     break;
             }
         break;
@@ -491,7 +505,7 @@ void MenuBuilder::callMenu(int menuId)
 					if (!pRS->Valid())
 					{
 						this->BasicRunlevel("ERROR");
-						con.xyCoord(10,15);
+						con.xyCoord(5,15);
 						con.setColour(12);
 						cout << "Error: " << pRS->GetLastError();
 						con.setColour(15);
@@ -522,7 +536,7 @@ void MenuBuilder::callMenu(int menuId)
 									pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 									if (!pRS->Valid()) {
 										this->BasicRunlevel("ERROR");
-										con.xyCoord(10,15);
+										con.xyCoord(5,15);
 										con.setColour(12);
 										cout << "Error: " << pRS->GetLastError();
 										con.setColour(15);
@@ -540,7 +554,7 @@ void MenuBuilder::callMenu(int menuId)
 											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 											if (!pRS->Valid()) {
 												this->BasicRunlevel("ERROR");
-												con.xyCoord(10,15);
+												con.xyCoord(5,15);
 												con.setColour(12);
 												cout << "Error: " << pRS->GetLastError();
 												con.setColour(15);
@@ -587,7 +601,7 @@ void MenuBuilder::callMenu(int menuId)
 									pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 									if (!pRS->Valid()) {
 										this->BasicRunlevel("ERROR");
-										con.xyCoord(10,15);
+										con.xyCoord(5,15);
 										con.setColour(12);
 										cout << "Error: " << pRS->GetLastError();
 										con.setColour(15);
@@ -605,7 +619,7 @@ void MenuBuilder::callMenu(int menuId)
 											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 											if (!pRS->Valid()) {
 												this->BasicRunlevel("ERROR");
-												con.xyCoord(10,15);
+												con.xyCoord(5,15);
 												con.setColour(12);
 												cout << "Error: " << pRS->GetLastError();
 												con.setColour(15);
@@ -652,8 +666,10 @@ void MenuBuilder::callMenu(int menuId)
 									pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 									if (!pRS->Valid()) {
 										this->BasicRunlevel("ERROR");
-										con.xyCoord(5,20);
-										cout << "Error: " << pRS->GetLastError();										
+										con.xyCoord(5,15);
+										con.setColour(12);
+										cout << "Error: " << pRS->GetLastError();
+										con.setColour(15);
 										SAFE_DELETE(pRS);
 										sqlite3_close(l_sql_db);
 										this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
@@ -668,8 +684,10 @@ void MenuBuilder::callMenu(int menuId)
 											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 											if (!pRS->Valid()) {
 												this->BasicRunlevel("ERROR");
-												con.xyCoord(5,20);
+												con.xyCoord(5,15);
+												con.setColour(12);
 												cout << "Error: " << pRS->GetLastError();
+												con.setColour(15);
 												SAFE_DELETE(pRS);
 												sqlite3_close(l_sql_db);
 												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
@@ -748,7 +766,10 @@ void MenuBuilder::callMenu(int menuId)
 							pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 							if (!pRS->Valid()) {
 								this->BasicRunlevel("ERROR");
-								cout << "Error: " << pRS->GetLastError() << endl;system("pause");
+								con.xyCoord(5,15);
+								con.setColour(12);
+								cout << "Error: " << pRS->GetLastError();
+								con.setColour(15);
 								SAFE_DELETE(pRS);
 								sqlite3_close(l_sql_db);
 								this->callMenu(EDIT);
@@ -760,7 +781,7 @@ void MenuBuilder::callMenu(int menuId)
 								if(rc>0)
 								{
 									this->formPtr = new TextBookForm;
-									ReferenceType=TEXTBOOK;
+									ReferenceType=TEXTBOOKTYPE;
 									this->BasicRunlevel("EDIT TEXTBOOK");
 									this->showReferenceMaterialForm(TEXTBOOK);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
@@ -789,7 +810,10 @@ void MenuBuilder::callMenu(int menuId)
 							pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 							if (!pRS->Valid()) {
 								this->BasicRunlevel("ERROR");
-								cout << "Error: " << pRS->GetLastError() << endl;system("pause");
+								con.xyCoord(5,15);
+								con.setColour(12);
+								cout << "Error: " << pRS->GetLastError();
+								con.setColour(15);
 								SAFE_DELETE(pRS);
 								sqlite3_close(l_sql_db);
 								this->callMenu(EDIT);
@@ -802,7 +826,7 @@ void MenuBuilder::callMenu(int menuId)
 								if(rc>0)
 								{
 									this->formPtr = new MagazineForm;
-									ReferenceType=MAGAZINE;
+									ReferenceType=MAGAZINETYPE;
 									this->BasicRunlevel("EDIT MAGAZINE");
 									this->showReferenceMaterialForm(MAGAZINE);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
@@ -832,7 +856,10 @@ void MenuBuilder::callMenu(int menuId)
 							if (!pRS->Valid()) {
 								SAFE_DELETE(pRS);
 								sqlite3_close(l_sql_db);
-								cout << "Error" <<pRS->GetLastError() << endl;
+								con.xyCoord(5,15);
+								con.setColour(12);
+								cout << "Error: " <<pRS->GetLastError();
+								con.setColour(15);
 							}else{
 								rc = pRS->GetRowCount();
 								SAFE_DELETE(pRS);
