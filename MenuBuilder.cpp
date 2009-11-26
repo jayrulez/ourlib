@@ -794,7 +794,7 @@ void MenuBuilder::callMenu(int menuId)
 									this->BasicRunlevel("ERROR");
 									con.xyCoord(5,15);
 									con.setColour(12);
-									cout << "Error: No Textbook record exitst with the reference number provided." << endl;system("pause");
+									cout << "Error: No Textbook record exitst with the reference number provided.";
 									con.setColour(15);
 									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
 									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
@@ -1000,6 +1000,17 @@ void MenuBuilder::callMenu(int menuId)
             this->BasicRunlevel("MAIN MENU");
 			this->MenuShow(this->MainMenu(),MAIN_SIZ);
 			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ,NORMALMENU);
+		break;
+
+		case EXIT:
+            formPtr = new ReturnForm;
+            MenuType=EXITTYPE;
+            this->BasicRunlevel("EXIT CONFIRMATION");
+            this->MenuShow(this->ExitConfirmMenu(),2);
+            TypeCheck=this->menuBrowserOperator(this->ExitConfirmMenu(),2,NORMALMENU);
+        break;
+		case TERMINATE:
+			exit(0);
 		break;
 	}
 }
@@ -1218,6 +1229,13 @@ item* MenuBuilder::AfterDeleteMenu()
     AfterDeleteMenuItem[0].setItem(20,35,DEL,"<--DELETE MENU");
     AfterDeleteMenuItem[1].setItem(50,35,MAINMENU,"MAIN MENU");
     return &AfterDeleteMenuItem[0];
+}
+item* MenuBuilder::ExitConfirmMenu()
+{
+	 static item ExitConfirmMenuItem[2];
+    ExitConfirmMenuItem[0].setItem(20,20,TERMINATE,"EXIT PROGRAM");
+    ExitConfirmMenuItem[1].setItem(50,20,MAINMENU,"<--MAIN MENU");
+    return &ExitConfirmMenuItem[0];
 }
 /*
 * This function displays the contents for the menus
