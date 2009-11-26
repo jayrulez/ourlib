@@ -18,7 +18,6 @@ int main()
 		ins->invoke();
 	*/
 	buildDatabase();
-	system("pause");
 	Application *app = new Application();
 	return app->run();
 }
