@@ -109,15 +109,6 @@ void MenuBuilder::callMenu(int menuId)
 {
     console con;
     int TypeCheck;
-/*
-    MagazineForm *MagazineFormPtr=new MagazineForm;
-    MemberForm *MemberPtr=new MemberForm;
-    TextBookForm *TextBookFormPtr=new TextBookForm;
-    ResearchPaperForm *ResearchPaperPtr=new ResearchPaperForm;
-    LoanReturnForm *LoanReturnFormPtr=new LoanReturnForm;
-    LoanReturnForm *ReturnFormPtr=new LoanReturnForm;
-*/
-
     static int ReferenceType;
     static int MenuType;
     con.setCursor(false,50);
@@ -215,14 +206,6 @@ void MenuBuilder::callMenu(int menuId)
         case CLEARFIELD:
             switch(MenuType)
             {
-            /*
-                MagazineFormPtr=new MagazineForm;
-                MemberPtr=new MemberForm;
-                TextBookFormPtr=new TextBookForm;
-                ResearchPaperPtr=new ResearchPaperForm;
-                LoanReturnFormPtr=new LoanReturnForm;
-                ReturnFormPtr=new LoanReturnForm;
-            */
                 case ADDTYPE:
                     switch(ReferenceType)
                     {
@@ -421,8 +404,8 @@ void MenuBuilder::callMenu(int menuId)
 							}
                             break;
                     }
-                    this->MenuShow(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-                    this->menuBrowserOperator(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+                    this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+                    this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 				}
                 break;
                 case MEMBERTYPE:
@@ -732,6 +715,7 @@ void MenuBuilder::callMenu(int menuId)
 					{
 						case TYPE_TEXTBOOK:
 						{
+							ReferenceType=TEXTBOOKTYPE;
 							l_query.str("");
 							l_query << "select * FROM textbook WHERE referencenumber='"<<this->queryString<<"'";
 							pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
@@ -760,14 +744,17 @@ void MenuBuilder::callMenu(int menuId)
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
+									con.xyCoord(10,25);
 									cout << "Error: No Textbook record exitst with the reference number provided." << endl;system("pause");
-									this->callMenu(EDIT);
+									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 								}
 							}
 						}
 						break;
 						case TYPE_MAGAZINE:
 						{
+							ReferenceType=MAGAZINETYPE;
 							l_query.str("");
 							l_query << "select * FROM magazine WHERE referencenumber='"<<this->queryString<<"'";
 							pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
@@ -797,14 +784,17 @@ void MenuBuilder::callMenu(int menuId)
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
-									cout << "Error: No magazine record exists with the reference number provided" << endl;system("pause");
-									this->callMenu(EDIT);
+									con.xyCoord(10,25);
+									cout << "Error: No magazine record exists with the reference number provided";
+									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 								}
 							}
 						}
 						break;
 						case TYPE_RESEARCHPAPER:
 						{
+							ReferenceType=RESEARCHPAPERTYPE;
 							l_query.str("");
 							l_query << "select * FROM researchpaper WHERE referencenumber='"<<this->queryString<<"'";
 							pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
@@ -833,8 +823,10 @@ void MenuBuilder::callMenu(int menuId)
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
-									cout << "Error: No such research paper exists." << endl;system("pause");
-									this->callMenu(EDIT);
+									con.xyCoord(10,25);
+									cout << "Error: No such research paper exists.";
+									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 								}
 							}
 						}
@@ -843,8 +835,10 @@ void MenuBuilder::callMenu(int menuId)
 						default:
 						{
 							this->BasicRunlevel("ERROR");
-							cout << "Error: Invalid reference Number provided." << endl;system("pause");
-							this->callMenu(EDIT);
+							con.xyCoord(15,25);
+							cout << "Error: Invalid reference Number provided.";
+							this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
+							this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
 						}
 						break;
 					}
