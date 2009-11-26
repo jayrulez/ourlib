@@ -235,7 +235,7 @@ void MagazineForm::show()
 	consoleObj.xyCoord(MagazineCoord[3][0],MagazineCoord[3][1]);
 	cout<<"Volume: ";
     consoleObj.xyCoord(13,23);
-	cout<<"<mm/dd/yy>";
+	cout<<"<dd/mm/yy>";
 	consoleObj.xyCoord(MagazineCoord[4][0],MagazineCoord[4][1]);
 	cout<<"Issue Date: ";
 	consoleObj.xyCoord(MagazineCoord[5][0],MagazineCoord[5][1]);
