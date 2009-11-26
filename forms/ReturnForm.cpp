@@ -2,12 +2,19 @@
 
 #include <iostream>
 #include <string>
+#ifndef DATABASE_FILE
+#define DATABASE_FILE "database.sqlite"
+#endif
+#include "../sqlite3.h"
+#include "../Glob_Defs.h"
+#include "../RJM_SQLite_Resultset.h"
 using namespace std;
 
 
 
 ReturnForm::ReturnForm()
 {
+	this->loanPtr = new Loan();
     FieldPosition=0;
     InputPtr=&input;
     ReturnCoord[0][0]=25;
@@ -42,22 +49,21 @@ void ReturnForm::browseForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-                *InputPtr =  ReferenceNumber;
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,6,ReturnCoord,FieldPosition,false);
-                ReferenceNumber = *InputPtr;
+				*InputPtr =  this->loanPtr->getReferenceNumber();
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,NOSPACING,InputPtr,6,ReturnCoord,FieldPosition,false);
+				this->loanPtr->setReferenceNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
-                /*itoa(IdNumber,tempId,10);
-                *InputPtr=tempId;
+                *InputPtr =  this->loanPtr->getMemberId();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,7,ReturnCoord,FieldPosition,false);
-                IdNumber = atoi(InputPtr->c_str());
-                AllInput[FieldPosition] = *InputPtr;*/
+                this->loanPtr->setMemberId(*InputPtr);
+                AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
-                *InputPtr = ReturnDate;
+                *InputPtr =  this->loanPtr->getRequestDate();
                 KeyType=FormInputBuilderObj.FormInput(DATE,SPACING,InputPtr,8,ReturnCoord,FieldPosition,false);
-                ReturnDate = *InputPtr;
+				this->loanPtr->setRequestDate(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
 	    }
@@ -108,4 +114,60 @@ void ReturnForm::show()
 
 void ReturnForm::save()
 {
+	string l_filename = DATABASE_FILE;
+	ostringstream message;
+	message.str("");
+	ostringstream l_query;
+	sqlite3* l_sql_db = NULL;
+	
+	int rc = sqlite3_open(l_filename.c_str(), &l_sql_db);
+	if( rc ){
+		sqlite3_close(l_sql_db);
+		this->setState(STATE_FAILURE);
+		this->setError("Error couldn't open SQLite database");
+	};
+
+	RJM_SQLite_Resultset *pRS = NULL;
+	l_query.str("");
+	l_query << "SELECT * FROM loan WHERE referencenumber='" << this->loanPtr->getReferenceNumber() << "' AND memberid='" <<this->loanPtr->getMemberId() <<"';";
+	pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+	if (!pRS->Valid()) {
+		this->setState(STATE_FAILURE);
+		message << "Invalid result set returned " << pRS->GetLastError();
+		this->setError(message.str());
+		SAFE_DELETE(pRS);
+		sqlite3_close(l_sql_db);
+	}else{
+		rc = pRS->GetRowCount();
+		SAFE_DELETE(pRS);
+		if(rc<1)
+		{
+			this->setState(STATE_FAILURE);
+			this->setError("No loan record exists with the details specified.");
+		}else{
+			l_query.str("");
+			l_query << "DELETE FROM loan WHERE referencenumber='" << this->loanPtr->getReferenceNumber() << "' AND memberid='" <<this->loanPtr->getMemberId() <<"';";
+			pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+			if (!pRS->Valid()) {
+				this->setState(STATE_FAILURE);
+				message << "Invalid result set returned " << pRS->GetLastError();
+				this->setError(message.str());
+				SAFE_DELETE(pRS);
+				sqlite3_close(l_sql_db);
+			}else{
+				//SAFE_DELETE(pRS);
+				//rc = pRS->getRowCount(); 
+				if(pRS==NULL)
+				{
+					this->setState(STATE_FAILURE);
+					message << "Error trying to complete the RETURN LOAN operation.";
+					this->setError(message.str());
+				}else{
+					this->setState(STATE_SUCCESS);
+					SAFE_DELETE(pRS);
+				}
+				sqlite3_close(l_sql_db);
+			}
+		}
+	}
 }

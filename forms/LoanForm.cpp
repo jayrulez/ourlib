@@ -2,8 +2,15 @@
 #include "LoanForm.h"
 #endif
 
+#ifndef DATABASE_FILE
+#define DATABASE_FILE "database.sqlite"
+#endif
+#include "../sqlite3.h"
+#include "../Glob_Defs.h"
+#include "../RJM_SQLite_Resultset.h"
 #include <string>
 #include <iostream>
+#include <cctype>
 using namespace std;
 
 LoanForm::LoanForm()
@@ -50,11 +57,9 @@ void LoanForm::browseForm()
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 1:
-				char buffer[50];
-				s = itoa(this->loanPtr->getMemberId(),buffer,10);
-                *InputPtr=s;
+                *InputPtr= this->loanPtr->getMemberId();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,7,LoanCoord,FieldPosition,false);
-				this->loanPtr->setMemberId(atoi((*InputPtr).c_str()));
+				this->loanPtr->setMemberId(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
@@ -123,6 +128,285 @@ void LoanForm::show()
 }
 void LoanForm::save()
 {
-	this->loanPtr->showLoan(10,5);
-	system("pause");
+	//this->loanPtr->showLoan(10,5);
+	string l_filename = DATABASE_FILE;
+	ostringstream message;
+	ostringstream l_query;
+	sqlite3* l_sql_db = NULL;
+	
+	int rc = sqlite3_open(l_filename.c_str(), &l_sql_db);
+	if( rc ){
+		sqlite3_close(l_sql_db);
+		this->setState(STATE_FAILURE);
+		this->setError("Error couldn't open SQLite database");
+	}else{
+		RJM_SQLite_Resultset *pRS = NULL;
+		l_query.str("");
+		l_query << "SELECT * FROM loan WHERE referencenumber='" << this->loanPtr->getReferenceNumber() << "';";
+		pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+		if (!pRS->Valid())
+		{
+			this->setState(STATE_FAILURE);
+			message.str("");
+			message << "Invalid result set returned " << pRS->GetLastError();
+			this->setError(message.str());
+			SAFE_DELETE(pRS);
+			sqlite3_close(l_sql_db);
+		}else{
+			rc = pRS->GetRowCount();
+			SAFE_DELETE(pRS);
+			if(rc>0)
+			{
+				this->setState(STATE_FAILURE);
+				message.str("");
+				message << "Requested research material is already on loan.";
+				this->setError(message.str());
+				sqlite3_close(l_sql_db);
+			}else{
+				l_query.str("");
+				l_query << "SELECT * FROM member WHERE id='" << this->loanPtr->getMemberId() << "';";
+				pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+				if (!pRS->Valid())
+				{
+					this->setState(STATE_FAILURE);
+					message.str("");
+					message << "Invalid result set returned " << pRS->GetLastError();
+					this->setError(message.str());
+					SAFE_DELETE(pRS);
+					sqlite3_close(l_sql_db);
+				}else{
+					rc = pRS->GetRowCount();
+					SAFE_DELETE(pRS);
+					if(rc<1)
+					{
+						this->setState(STATE_FAILURE);
+						message.str("");
+						message << "No user exists with the specified id.";
+						this->setError(message.str());
+						sqlite3_close(l_sql_db);
+					}else{
+						l_query.str("");
+						l_query << "SELECT * FROM loan WHERE memberid='" << this->loanPtr->getMemberId() << "';";
+						pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+						if (!pRS->Valid())
+						{
+							this->setState(STATE_FAILURE);
+							message.str("");
+							message << "Invalid result set returned " << pRS->GetLastError();
+							this->setError(message.str());
+							SAFE_DELETE(pRS);
+							sqlite3_close(l_sql_db);
+						}else{
+							rc = pRS->GetRowCount();
+							SAFE_DELETE(pRS);
+							if(rc>=3)
+							{
+								this->setState(STATE_FAILURE);
+								message.str("");
+								message << "The member with the id specified already has 3 loans.";
+								this->setError(message.str());
+								sqlite3_close(l_sql_db);
+							}else{
+								if(this->loanPtr->getLoanType().compare("IN")==0||this->loanPtr->getLoanType().compare("OUT")==0)
+								{
+									l_query.str("");
+									l_query << "SELECT * FROM loan WHERE memberid='" << this->loanPtr->getMemberId() << "' AND loantype='"<<this->loanPtr->getLoanType()<<"';";
+									pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+									if (!pRS->Valid())
+									{
+										this->setState(STATE_FAILURE);
+										message.str("");
+										message << "Invalid result set returned " << pRS->GetLastError();
+										this->setError(message.str());
+										SAFE_DELETE(pRS);
+										sqlite3_close(l_sql_db);
+									}else{
+										rc = pRS->GetRowCount();
+										SAFE_DELETE(pRS);
+										int limit;
+										if(this->loanPtr->getLoanType().compare("IN")==0)
+											limit=3;
+										else
+											limit=1;
+										if(rc>=limit)
+										{
+											this->setState(STATE_FAILURE);
+											message.str("");
+											message << "The user already has "<< rc <<" loan of type " << this->loanPtr->getLoanType()<<".";
+											this->setError(message.str());
+											sqlite3_close(l_sql_db);
+										}else{
+											ReferenceMaterial * refObj = new ReferenceMaterial();
+											int materialType = refObj->getMaterialTypeFromReferenceNumber(this->loanPtr->getReferenceNumber());
+											switch(materialType)
+											{
+												case TYPE_TEXTBOOK:
+												{
+													l_query.str("");
+													l_query << "SELECT * FROM textbook WHERE referencenumber='" << this->loanPtr->getReferenceNumber() << "';";
+													pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+													if (!pRS->Valid())
+													{
+														this->setState(STATE_FAILURE);
+														message.str("");
+														message << "Invalid result set returned " << pRS->GetLastError();
+														this->setError(message.str());
+														SAFE_DELETE(pRS);
+														sqlite3_close(l_sql_db);
+													}else{
+														rc = pRS->GetRowCount();
+														SAFE_DELETE(pRS);
+														if(rc<1)
+														{
+															this->setState(STATE_FAILURE);
+															message.str("");
+															message << "No textbook exists with the reference number specified.";
+															this->setError(message.str());
+															sqlite3_close(l_sql_db);
+														}else{
+															l_query.str("");
+															l_query << "insert into loan (memberid,referencenumber, requestdate, loantype)";
+															l_query << " values ('"<<this->loanPtr->getMemberId()<<"','"<<this->loanPtr->getReferenceNumber()<<"','"<<this->loanPtr->getRequestDate()<<"','"<<this->loanPtr->getLoanType()<<"')";
+															pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+															if (!pRS->Valid())
+															{
+																this->setState(STATE_FAILURE);
+																message.str("");
+																message << "Invalid result set returned " << pRS->GetLastError();
+																this->setError(message.str());
+																SAFE_DELETE(pRS);
+																sqlite3_close(l_sql_db);
+															}else{
+																rc = pRS->GetRowCount();
+																SAFE_DELETE(pRS);
+																this->setState(STATE_SUCCESS);
+																sqlite3_close(l_sql_db);
+															}
+														}
+													}
+												}
+												break;
+												case TYPE_MAGAZINE:
+												{
+													l_query.str("");
+													l_query << "SELECT * FROM magazine WHERE referencenumber='" << this->loanPtr->getReferenceNumber() << "';";
+													pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+													if (!pRS->Valid())
+													{
+														this->setState(STATE_FAILURE);
+														message.str("");
+														message << "Invalid result set returned " << pRS->GetLastError();
+														this->setError(message.str());
+														SAFE_DELETE(pRS);
+														sqlite3_close(l_sql_db);
+													}else{
+														rc = pRS->GetRowCount();
+														SAFE_DELETE(pRS);
+														if(rc<1)
+														{
+															this->setState(STATE_FAILURE);
+															message.str("");
+															message << "No magazine exists with the reference number specified.";
+															this->setError(message.str());
+															sqlite3_close(l_sql_db);
+														}else{
+															l_query.str("");
+															l_query << "insert into loan (memberid,referencenumber, requestdate, loantype)";
+															l_query << " values ('"<<this->loanPtr->getMemberId()<<"','"<<this->loanPtr->getReferenceNumber()<<"','"<<this->loanPtr->getRequestDate()<<"','"<<this->loanPtr->getLoanType()<<"')";
+															pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+															if (!pRS->Valid())
+															{
+																this->setState(STATE_FAILURE);
+																message.str("");
+																message << "Invalid result set returned " << pRS->GetLastError();
+																this->setError(message.str());
+																SAFE_DELETE(pRS);
+																sqlite3_close(l_sql_db);
+															}else{
+																rc = pRS->GetRowCount();
+																SAFE_DELETE(pRS);
+																this->setState(STATE_SUCCESS);
+																sqlite3_close(l_sql_db);
+															}
+														}
+													}
+												}
+												break;
+												case TYPE_RESEARCHPAPER:
+												{
+													l_query.str("");
+													l_query << "SELECT * FROM researchpaper WHERE referencenumber='" << this->loanPtr->getReferenceNumber() << "';";
+													pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+													if (!pRS->Valid())
+													{
+														this->setState(STATE_FAILURE);
+														message.str("");
+														message << "Invalid result set returned " << pRS->GetLastError();
+														this->setError(message.str());
+														SAFE_DELETE(pRS);
+														sqlite3_close(l_sql_db);
+													}else{
+														rc = pRS->GetRowCount();
+														SAFE_DELETE(pRS);
+														if(rc<1)
+														{
+															this->setState(STATE_FAILURE);
+															message.str("");
+															message << "No research paper exists with the reference number specified.";
+															this->setError(message.str());
+															sqlite3_close(l_sql_db);
+														}else{
+															l_query.str("");
+															l_query << "insert into loan (memberid,referencenumber, requestdate, loantype)";
+															l_query << " values ('"<<this->loanPtr->getMemberId()<<"','"<<this->loanPtr->getReferenceNumber()<<"','"<<this->loanPtr->getRequestDate()<<"','"<<this->loanPtr->getLoanType()<<"')";
+															pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+															if (!pRS->Valid())
+															{
+																this->setState(STATE_FAILURE);
+																message.str("");
+																message << "Invalid result set returned " << pRS->GetLastError();
+																this->setError(message.str());
+																SAFE_DELETE(pRS);
+																sqlite3_close(l_sql_db);
+															}else{
+																rc = pRS->GetRowCount();
+																SAFE_DELETE(pRS);
+																this->setState(STATE_SUCCESS);
+																sqlite3_close(l_sql_db);
+															}
+														}
+													}
+												}
+												break;
+												case TYPE_NONEXISTENT:
+												default:
+												{
+													this->setState(STATE_FAILURE);
+													message.str("");
+													message << "The reference number you entered is invalid";
+													this->setError(message.str());
+													sqlite3_close(l_sql_db);
+												}
+												break;
+											}
+										}
+									}
+								}else{
+									this->setState(STATE_FAILURE);
+									message.str("");
+									message << "Loan type must be 'IN' or 'OUT' (case-sensative).";
+									this->setError(message.str());
+									sqlite3_close(l_sql_db);
+								}								
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	if(this->getState()==STATE_SUCCESS)
+	{
+		this->setLoan(this->loanPtr);
+	}
 }

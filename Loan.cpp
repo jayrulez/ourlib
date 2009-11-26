@@ -1,7 +1,6 @@
 #ifndef _LOAN_H
 #include "Loan.h"
 #endif
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -19,14 +18,15 @@ Loan::~Loan()
 {
 }
 
-Loan::Loan(int memberId,string referenceNumber,string loanType)
+Loan::Loan(string memberId,string referenceNumber,string requestDate,string loanType)
 {
     this->memberId = memberId;
     this->referenceNumber = referenceNumber;
+	this->requestDate = requestDate;
     this->loanType = loanType;
 }
 
-void Loan::setMemberId(int memberId)
+void Loan::setMemberId(string memberId)
 {
     this->memberId = memberId;
 }
@@ -46,7 +46,7 @@ void Loan::setRequestDate(string requestDate)
     this->requestDate = requestDate;
 }
 
-int Loan::getMemberId() const
+string Loan::getMemberId() const
 {
     return this->memberId;
 }
@@ -68,5 +68,16 @@ string Loan::getRequestDate() const
 
 void Loan::showLoan(int xCoord,int yCoord)
 {
-	cout << "showing loan data" <<endl;
+    frameObj.setFrame(xCoord,xCoord+45,yCoord,yCoord+12,false);
+    frameObj.sFraming();
+
+    consoleObj.xyCoord(xCoord+2,yCoord+2);
+    cout<<"Member ID: "<<this->getMemberId();
+    consoleObj.xyCoord(xCoord+2,yCoord+4);
+    cout<<"Reference Number: "<<this->getReferenceNumber();
+    consoleObj.xyCoord(xCoord+2,yCoord+6);
+    cout<<"Request Date: "<<this->getRequestDate();
+
+    consoleObj.xyCoord(xCoord+2,yCoord+8);
+    cout<<"Loan Type: "<<this->getLoanType();
 }
