@@ -177,7 +177,8 @@ void TextBookForm::browseEditForm(string referenceNumber)
 	this->setReferenceNumber(referenceNumber);
 	bool read=false;
 	int KeyType;
-
+	/*consoleObj.xyCoord(TextBookCoord[0][0],TextBookCoord[0][1]-3);
+	cout << "Only fill in the fields you wish to update.";*/
 	consoleObj.xyCoord(TextBookCoord[0][0]+18,TextBookCoord[0][1]);
 	cout<<referenceNumber;
 	consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
@@ -296,7 +297,6 @@ void TextBookForm::save()
 	}else{
 		l_query.str("");
 		l_query << "insert into textbook (referencenumber, title, author, isbn, course, publisher, datepublished)";
-		//l_query << " values ("<<  <<", "<< <<", " <<", "<<", "<< <<", "<< <<", "<< <<")";
 		l_query << " values ('"<<this->textBookPtr->getReferenceNumber()<<"','"<<this->textBookPtr->getTitle()<<"','"<<this->textBookPtr->getAuthor()<<"','"<< this->textBookPtr->getISBN()<<"','"<<this->textBookPtr->getCourse()<<"','"<<this->textBookPtr->getPublisher()<<"','"<<this->textBookPtr->getDatePublished()<<"')";
 		pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 		if (!pRS->Valid())
