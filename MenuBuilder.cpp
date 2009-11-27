@@ -12,6 +12,8 @@
 */
 #include <iostream>
 #include <string>
+#include <windows.h>
+#include <mmsystem.h>
 #ifndef _FILEMODEL_H
 #include "./FileModel.h"
 #endif
@@ -1094,6 +1096,7 @@ void MenuBuilder::callMenu(int menuId)
             TypeCheck=this->menuBrowserOperator(this->ExitConfirmMenu(),2,NORMALMENU,true);
         break;
 		case TERMINATE:
+			PlaySound("sound/exit.wav",NULL,SND_FILENAME|SND_SYNC);
 			exit(0);
 		break;
 	}
