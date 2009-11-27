@@ -166,7 +166,7 @@ void TextBookForm::show()
 	cout<<"Course: ";
 	consoleObj.xyCoord(TextBookCoord[5][0],TextBookCoord[5][1]);
 	cout<<"Publisher: ";
-    consoleObj.xyCoord(10,27);
+    consoleObj.xyCoord(13,27);
 	cout<<"<mm/dd/yy>";
 	consoleObj.xyCoord(TextBookCoord[6][0],TextBookCoord[6][1]);
 	cout<<"Date Published: ";
@@ -385,7 +385,10 @@ bool TextBookForm::validate()
 			NullCue[pos]=0;	
 		if(NullCue[pos]==1)
 		{
-			consoleObj.xyCoord(TextBookCoord[pos][0]-15,TextBookCoord[pos][1]); 
+			if(pos==6)
+				consoleObj.xyCoord(TextBookCoord[pos][0]-23,TextBookCoord[pos][1]); 
+			else 
+				consoleObj.xyCoord(TextBookCoord[pos][0]-15,TextBookCoord[pos][1]); 
 			consoleObj.setColour(12);
 			cout<<"<Required>";
 			consoleObj.setColour(15);
