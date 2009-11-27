@@ -435,7 +435,12 @@ bool LoanForm::validate()
 			NullCue[pos]=0;	
 		if(NullCue[pos]==1)
 		{
-			consoleObj.xyCoord(LoanCoord[pos][0]-15,LoanCoord[pos][1]); 
+			if(pos==2||pos==3)
+				consoleObj.xyCoord(LoanCoord[pos][0]-23,LoanCoord[pos][1]); 
+			else if(pos==3)
+				consoleObj.xyCoord(LoanCoord[pos][0]-20,LoanCoord[pos][1]);
+			else
+				consoleObj.xyCoord(LoanCoord[pos][0]-15,LoanCoord[pos][1]); 
 			consoleObj.setColour(12);
 			cout<<"<Required>";
 			consoleObj.setColour(15);
