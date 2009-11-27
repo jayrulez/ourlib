@@ -325,7 +325,7 @@ void MenuBuilder::callMenu(int menuId)
 									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(20,15);
+									this->formPtr->getModel()->showReferenceMaterial(15,10);
 								break;
 							}
                             break;
@@ -342,7 +342,7 @@ void MenuBuilder::callMenu(int menuId)
 									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(20,15);
+									this->formPtr->getModel()->showReferenceMaterial(15,10);
 								break;
 							}
                             break;
@@ -359,7 +359,7 @@ void MenuBuilder::callMenu(int menuId)
 									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(20,15);
+									this->formPtr->getModel()->showReferenceMaterial(15,10);
 								break;
 							}
                             break;
@@ -810,7 +810,7 @@ void MenuBuilder::callMenu(int menuId)
 									this->formPtr = new TextBookForm;
 									ReferenceType=TEXTBOOKTYPE;
 									this->BasicRunlevel("EDIT TEXTBOOK");
-									textBookObj->showReferenceMaterial(20,33);
+									textBookObj->showReferenceMaterial(16,29);
 									this->showReferenceMaterialForm(TEXTBOOK);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
 									do
@@ -868,7 +868,7 @@ void MenuBuilder::callMenu(int menuId)
 									this->formPtr = new MagazineForm;
 									ReferenceType=MAGAZINETYPE;
 									this->BasicRunlevel("EDIT MAGAZINE");
-									magazineObj->showReferenceMaterial(20,33);
+									magazineObj->showReferenceMaterial(17,28);
 									this->showReferenceMaterialForm(MAGAZINE);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
 									do
@@ -925,7 +925,7 @@ void MenuBuilder::callMenu(int menuId)
 									this->formPtr->setFormType(TYPE_EDIT);
 									ReferenceType=RESEARCHPAPERTYPE;
 									this->BasicRunlevel("EDIT RESEARCH PAPER");
-									researchPaperObj->showReferenceMaterial(20,33);
+									researchPaperObj->showReferenceMaterial(15,29);
 									this->showReferenceMaterialForm(RESEARCHPAPER);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
 									do
