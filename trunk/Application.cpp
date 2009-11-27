@@ -87,6 +87,7 @@ void Application::process()
 {
 	SetConsoleTitle("NATIONAL LIBRARY");
 	this->welcome();
+	PlaySound("sound/startup.wav",NULL,SND_FILENAME|SND_ASYNC);
 	PlaySound("sound/welcome.wav",NULL,SND_FILENAME|SND_ASYNC);
 	this->main();
 }
