@@ -236,7 +236,7 @@ void MagazineForm::show()
 	cout<<"Author: ";
 	consoleObj.xyCoord(MagazineCoord[3][0],MagazineCoord[3][1]);
 	cout<<"Volume: ";
-    consoleObj.xyCoord(10,23);
+    consoleObj.xyCoord(13,23);
 	cout<<"<dd/mm/yy>";
 	consoleObj.xyCoord(MagazineCoord[4][0],MagazineCoord[4][1]);
 	cout<<"Issue Date: ";
@@ -366,8 +366,11 @@ bool MagazineForm::validate()
 		else
 			NullCue[pos]=0;	
 		if(NullCue[pos]==1)
-		{
-			consoleObj.xyCoord(MagazineCoord[pos][0]-15,MagazineCoord[pos][1]); 
+		{	
+			if(pos==4)
+				consoleObj.xyCoord(MagazineCoord[pos][0]-23,MagazineCoord[pos][1]); 
+			else
+				consoleObj.xyCoord(MagazineCoord[pos][0]-15,MagazineCoord[pos][1]); 
 			consoleObj.setColour(12);
 			cout<<"<Required>";
 			consoleObj.setColour(15);
