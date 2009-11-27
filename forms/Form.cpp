@@ -33,6 +33,10 @@ void Form::browseForm() {}
 void Form::browseEditForm(string referenceNumber) {}
 void Form::save() {}
 void Form::editSave() {}
+bool Form::validate()
+{
+	return true;
+}
 
 void Form::setState(int state)
 {

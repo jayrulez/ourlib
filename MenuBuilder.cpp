@@ -131,7 +131,7 @@ void MenuBuilder::callMenu(int menuId)
             MenuType=ADDTYPE;
             this->BasicRunlevel("ADD MENU");
             this->MenuShow(this->AddReferenceMaterial(),ADDMENU_SIZ);
-			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ,NORMALMENU);
+			this->menuBrowserOperator(this->AddReferenceMaterial(),ADDMENU_SIZ,NORMALMENU,true);
 		break;
         case DEL:
             MenuType=DELETETYPE;
@@ -140,7 +140,7 @@ void MenuBuilder::callMenu(int menuId)
             do
             {
                 this->queryString = this->DeleteMenuDriver();
-                TypeCheck=this->menuBrowserOperator(DeleteMenu(),DELETEMENU_SIZ,FORMMENU);
+                TypeCheck=this->menuBrowserOperator(DeleteMenu(),DELETEMENU_SIZ,FORMMENU,true);
 			}while(TypeCheck==0);
         break;
 		case EDIT:
@@ -150,7 +150,7 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 this->queryString = this->EditMenuDriver();
-                TypeCheck=this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ,FORMMENU);
+                TypeCheck=this->menuBrowserOperator(this->EditMenu(),EDITMENU_SIZ,FORMMENU,true);
 			}while(TypeCheck==0);
         break;
 
@@ -171,7 +171,7 @@ void MenuBuilder::callMenu(int menuId)
                             break;
                     }
                     this->MenuShow(AddConfirmMenu(),ADDCONFIRMMENU_SIZ);
-                    this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(AddConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU,true);
                     break;
 
                 case EDITTYPE:
@@ -188,28 +188,28 @@ void MenuBuilder::callMenu(int menuId)
                             break;
 					}
 					this->MenuShow(EditConfirmMenu(),EDITCONFIRMMENU_SIZ);
-                    this->menuBrowserOperator(EditConfirmMenu(),EDITCONFIRMMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(EditConfirmMenu(),EDITCONFIRMMENU_SIZ,NORMALMENU,true);
                     break;
 
                 case MEMBERTYPE:
                     this->BasicRunlevel("NEW USER CONFIRMATION");
                     this->MenuShow(MemberConfirmMenu(),ADDCONFIRMMENU_SIZ);
-                    this->menuBrowserOperator(MemberConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(MemberConfirmMenu(),ADDCONFIRMMENU_SIZ,NORMALMENU,true);
                     break;
                 case LOANTYPE:
                     this->BasicRunlevel("LOAN CONFIRMATION");
                     this->MenuShow(LoanConfirmMenu(),LOANCONFIRMMENU_SIZ);
-                    this->menuBrowserOperator(LoanConfirmMenu(),LOANCONFIRMMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(LoanConfirmMenu(),LOANCONFIRMMENU_SIZ,NORMALMENU,true);
                     break;
                 case RETURNTYPE:
                     this->BasicRunlevel("RETURN CONFIRMATION");
                     this->MenuShow(MemberConfirmMenu(),RETURNCONFIRMMENU_SIZ);
-                    this->menuBrowserOperator(MemberConfirmMenu(),RETURNCONFIRMMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(MemberConfirmMenu(),RETURNCONFIRMMENU_SIZ,NORMALMENU,true);
                     break;
                 case DELETETYPE:
                     this->BasicRunlevel("DELETE CONFIRMATION");
                     this->MenuShow(DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
-                    this->menuBrowserOperator(DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,NORMALMENU,true);
                     break;
             }
         break;
@@ -365,7 +365,7 @@ void MenuBuilder::callMenu(int menuId)
                             break;
                     }
                     this->MenuShow(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-                    this->menuBrowserOperator(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(AddAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
                 break;
                 case EDITTYPE:
 				{
@@ -426,7 +426,7 @@ void MenuBuilder::callMenu(int menuId)
                             break;
                     }
                     this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-                    this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 				}
                 break;
                 case MEMBERTYPE:
@@ -447,7 +447,7 @@ void MenuBuilder::callMenu(int menuId)
 						break;
 					}
 					this->MenuShow(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-                    this->menuBrowserOperator(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
                     break;
                 case LOANTYPE:
                     this->formPtr->save();
@@ -467,7 +467,7 @@ void MenuBuilder::callMenu(int menuId)
 						break;
 					}
 					this->MenuShow(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-                    this->menuBrowserOperator(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(LoanAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
                     break;
                 case RETURNTYPE:
                     this->formPtr->save();
@@ -486,7 +486,7 @@ void MenuBuilder::callMenu(int menuId)
 						break;
 					}
 					this->MenuShow(ReturnAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-                    this->menuBrowserOperator(ReturnAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+                    this->menuBrowserOperator(ReturnAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
                     break;
             }
         break;
@@ -524,7 +524,7 @@ void MenuBuilder::callMenu(int menuId)
 						SAFE_DELETE(pRS);
 						sqlite3_close(l_sql_db);
 						this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-						this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+						this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 
 					}else{
 						rc = pRS->GetRowCount();
@@ -537,7 +537,7 @@ void MenuBuilder::callMenu(int menuId)
 							cout << "Error: You cannot delete a reference material that is on loan.";
 							con.setColour(15);
 							this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-							this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+							this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 						}else{
 							switch(materialType)
 							{
@@ -555,7 +555,7 @@ void MenuBuilder::callMenu(int menuId)
 										SAFE_DELETE(pRS);
 										sqlite3_close(l_sql_db);
 										this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 									}else{
 										rc = pRS->GetRowCount();
 										SAFE_DELETE(pRS);
@@ -573,7 +573,7 @@ void MenuBuilder::callMenu(int menuId)
 												SAFE_DELETE(pRS);
 												sqlite3_close(l_sql_db);
 												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 											}else{
 												if(pRS!=NULL)
 												{
@@ -582,7 +582,7 @@ void MenuBuilder::callMenu(int menuId)
 													cout << "Textbook deleted successfully.";
 													SAFE_DELETE(pRS);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}else{
 													this->BasicRunlevel("ERROR");
 													con.xyCoord(5,15);
@@ -590,7 +590,7 @@ void MenuBuilder::callMenu(int menuId)
 													cout << "Error: Could not delete textbook.";
 													con.setColour(15);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}
 											}
 										}else{
@@ -600,7 +600,7 @@ void MenuBuilder::callMenu(int menuId)
 											cout << "Error: No textbook was found with the reference number provided.";
 											con.setColour(15);
 											this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 										}
 										sqlite3_close(l_sql_db);
 									}
@@ -620,7 +620,7 @@ void MenuBuilder::callMenu(int menuId)
 										SAFE_DELETE(pRS);
 										sqlite3_close(l_sql_db);
 										this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 									}else{
 										rc = pRS->GetRowCount();
 										SAFE_DELETE(pRS);
@@ -638,7 +638,7 @@ void MenuBuilder::callMenu(int menuId)
 												SAFE_DELETE(pRS);
 												sqlite3_close(l_sql_db);
 												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 											}else{
 												if(pRS!=NULL)
 												{
@@ -647,7 +647,7 @@ void MenuBuilder::callMenu(int menuId)
 													cout << "Magazine deleted successfully.";
 													SAFE_DELETE(pRS);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}else{
 													this->BasicRunlevel("ERROR");
 													con.xyCoord(20,15);
@@ -655,7 +655,7 @@ void MenuBuilder::callMenu(int menuId)
 													cout << "Error: Could not delete magazine.";
 													con.setColour(15);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}
 											}
 										}else{
@@ -665,7 +665,7 @@ void MenuBuilder::callMenu(int menuId)
 											cout << "Error: No magazine was found with the reference number provided.";
 											con.setColour(15);
 											this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 										}
 										sqlite3_close(l_sql_db);
 									}
@@ -685,7 +685,7 @@ void MenuBuilder::callMenu(int menuId)
 										SAFE_DELETE(pRS);
 										sqlite3_close(l_sql_db);
 										this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 									}else{
 										rc = pRS->GetRowCount();
 										SAFE_DELETE(pRS);
@@ -703,7 +703,7 @@ void MenuBuilder::callMenu(int menuId)
 												SAFE_DELETE(pRS);
 												sqlite3_close(l_sql_db);
 												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 											}else{
 												if(pRS!=NULL)
 												{
@@ -712,7 +712,7 @@ void MenuBuilder::callMenu(int menuId)
 													cout << "Research Paper deleted successfully.";
 													SAFE_DELETE(pRS);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}else{
 													this->BasicRunlevel("ERROR");
 													con.xyCoord(15,15);
@@ -720,7 +720,7 @@ void MenuBuilder::callMenu(int menuId)
 													cout << "Error: Could not delete Research Paper.";
 													con.setColour(15);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}
 											}
 										}else{
@@ -730,7 +730,7 @@ void MenuBuilder::callMenu(int menuId)
 											cout << "Error: No Research Paper was found with the reference number provided.";
 											con.setColour(15);
 											this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+											this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 										}
 										sqlite3_close(l_sql_db);
 									}
@@ -744,7 +744,7 @@ void MenuBuilder::callMenu(int menuId)
 									cout << "Error: No Research Paper was found with the reference number provided.";
 									con.setColour(15);
 									this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-									this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+									this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 								break;
 							}
 						}
@@ -800,7 +800,7 @@ void MenuBuilder::callMenu(int menuId)
 									do
 									{
 										this->formPtr->browseEditForm(this->queryString);
-										TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+										TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU,true);
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
@@ -809,7 +809,7 @@ void MenuBuilder::callMenu(int menuId)
 									cout << "Error: No Textbook record exitst with the reference number provided.";
 									con.setColour(15);
 									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 								}
 							}
 						}
@@ -845,7 +845,7 @@ void MenuBuilder::callMenu(int menuId)
 									do
 									{
 										this->formPtr->browseEditForm(this->queryString);
-										TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+										TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU,true);
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
@@ -854,7 +854,7 @@ void MenuBuilder::callMenu(int menuId)
 									cout << "Error: No magazine record exists with the reference number provided";
 									con.setColour(15);
 									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 								}
 							}
 						}
@@ -889,7 +889,7 @@ void MenuBuilder::callMenu(int menuId)
 									do
 									{
 										this->formPtr->browseEditForm(this->queryString);
-										TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU);
+										TypeCheck=this->menuBrowserOperator(this->EditFormMenu(),EDITFORMMENU_SIZ,FORMMENU,true);
 									}while(TypeCheck==0);
 								}else{
 									this->BasicRunlevel("ERROR");
@@ -898,7 +898,7 @@ void MenuBuilder::callMenu(int menuId)
 									cout << "Error: No such research paper exists.";
 									con.setColour(15);
 									this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+									this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 								}
 							}
 						}
@@ -912,7 +912,7 @@ void MenuBuilder::callMenu(int menuId)
 							cout << "Error: Invalid reference Number provided.";
 							con.setColour(15);
 							this->MenuShow(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ);
-							this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU);
+							this->menuBrowserOperator(EditAfterSaveMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 						}
 						break;
 					}
@@ -930,7 +930,12 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 this->formPtr->browseForm();
-                TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
+				if(this->formPtr->validate())
+				{
+					TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU,false);
+					continue;
+				}
+				TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU,true);
             }while(TypeCheck==0);
 		break;
 
@@ -944,7 +949,12 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 this->formPtr->browseForm();
-                TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
+				if(this->formPtr->validate())
+				{
+					TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU,false);
+					continue;
+				}
+				TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU,true);
 			}while(TypeCheck==0);
         break;
 
@@ -958,14 +968,19 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 this->formPtr->browseForm();
-                TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU);
+				if(this->formPtr->validate())
+				{
+					TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU,false);
+					continue;
+				}
+				TypeCheck=this->menuBrowserOperator(this->AddFormMenu(),ADDFORMMENU_SIZ,FORMMENU,true);
 			}while(TypeCheck==0);
 		break;
 
 		case LOAN:
             this->BasicRunlevel("LOAN MENU");
 			this->MenuShow(this->LoanMenu(),LOANMENU_SIZ);
-			this->menuBrowserOperator(this->LoanMenu(),LOANMENU_SIZ,NORMALMENU);
+			this->menuBrowserOperator(this->LoanMenu(),LOANMENU_SIZ,NORMALMENU,true);
 		break;
 
 		case EXISTINGMEMBER:
@@ -977,7 +992,12 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 this->formPtr->browseForm();
-                TypeCheck=this->menuBrowserOperator(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ,FORMMENU);
+				if(this->formPtr->validate())
+				{
+					TypeCheck=this->menuBrowserOperator(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ,FORMMENU,false);
+					continue;
+				}
+				TypeCheck=this->menuBrowserOperator(this->LoanFormMenu(),EXISTINGUSERMENU_SIZ,FORMMENU,true);
 			}while(TypeCheck==0);
 
 		break;
@@ -991,7 +1011,12 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 this->formPtr->browseForm();
-                TypeCheck=this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU);
+				if(this->formPtr->validate())
+				{
+					TypeCheck=this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU,false);
+					continue;
+				}
+				TypeCheck=this->menuBrowserOperator(this->AddMemberFormMenu(),ADDMEMBERFORMMENU_SIZ,FORMMENU,true);
 			}while(TypeCheck==0);
         break;
 
@@ -1004,14 +1029,19 @@ void MenuBuilder::callMenu(int menuId)
 			do
 			{
                 formPtr->browseForm();
-                TypeCheck=this->menuBrowserOperator(this->ReturnFormMenu(),RETURNMENU_SIZ,FORMMENU);
+				if(this->formPtr->validate())
+				{
+					TypeCheck=this->menuBrowserOperator(this->ReturnFormMenu(),RETURNMENU_SIZ,FORMMENU,false);
+					continue;
+				}
+				TypeCheck=this->menuBrowserOperator(this->ReturnFormMenu(),RETURNMENU_SIZ,FORMMENU,true);
 			}while(TypeCheck==0);
         break;
 
 		default:
             this->BasicRunlevel("MAIN MENU");
 			this->MenuShow(this->MainMenu(),MAIN_SIZ);
-			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ,NORMALMENU);
+			this->menuBrowserOperator(this->MainMenu(),MAIN_SIZ,NORMALMENU,true);
 		break;
 
 		case EXIT:
@@ -1019,7 +1049,7 @@ void MenuBuilder::callMenu(int menuId)
             MenuType=EXITTYPE;
             this->BasicRunlevel("EXIT CONFIRMATION");
             this->MenuShow(this->ExitConfirmMenu(),2);
-            TypeCheck=this->menuBrowserOperator(this->ExitConfirmMenu(),2,NORMALMENU);
+            TypeCheck=this->menuBrowserOperator(this->ExitConfirmMenu(),2,NORMALMENU,true);
         break;
 		case TERMINATE:
 			exit(0);
@@ -1332,7 +1362,7 @@ int MenuBuilder::MenuRangeX(item *iptr,int size,int type)
 * This is the heart of the menu operations. This function controls
 * the scrolling and selection of different menu items
 */
-int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
+int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType,bool validate)
 {
 
     int position=0;
@@ -1398,37 +1428,37 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
                         * Tab key
                         */
                         case VK_TAB:
-                            check=MenuProcessing(VK_TAB,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_TAB,iptr,posptr,scrptr,size,MenuType,validate);
                         break;
                         /*
                         * Left arrow key
                         */
                         case VK_LEFT:
-                            check=MenuProcessing(VK_LEFT,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_LEFT,iptr,posptr,scrptr,size,MenuType,validate);
                         break;
                         /*
                         * Right arrow key
                         */
                         case VK_RIGHT:
-                            check=MenuProcessing(VK_RIGHT,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_RIGHT,iptr,posptr,scrptr,size,MenuType,validate);
                         break;
                         /*
                         * Up arrow key
                         */
                         case VK_UP:
-                            check=MenuProcessing(VK_UP,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_UP,iptr,posptr,scrptr,size,MenuType,validate);
                         break;
                         /*
                         * Down arrow key
                         */
                         case VK_DOWN:
-                            check=MenuProcessing(VK_DOWN,iptr,posptr,scrptr,size,MenuType);
+                            check=MenuProcessing(VK_DOWN,iptr,posptr,scrptr,size,MenuType,validate);
                         break;
                         /*
                         * Enter key
                         */
                         case VK_RETURN:
-                            return MenuProcessing(VK_RETURN,iptr,posptr,scrptr,size,MenuType);
+                            return MenuProcessing(VK_RETURN,iptr,posptr,scrptr,size,MenuType,validate);
                         break;
                     }
                 }
@@ -1437,7 +1467,7 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType)
     }
     return 0;
 }
-int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,int size,int MenuType)
+int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,int size,int MenuType, bool validate)
 {
     switch(vKeyCode)
     {
@@ -1525,6 +1555,10 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
         * Enter key
         */
         case VK_RETURN:
+			if(MenuType=FORMMENU && (iptr+*pos)->getCode()==SUBMIT && !validate)
+			{
+				return 0;
+			}
 			this->callMenu((iptr+*pos)->getCode());
             //return (iptr+*pos)->getCode();
         break;

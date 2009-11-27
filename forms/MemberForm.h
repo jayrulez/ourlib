@@ -40,5 +40,6 @@ public:
     void browseForm();
 	void show();
     void save();
+	bool validate();
 };
 #endif // MEMBERFORM_H_

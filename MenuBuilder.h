@@ -197,8 +197,8 @@ public:
 	int EditInput(string *);
 	string DeleteMenuDriver();
 	int DeleteInput(string *);
-	int menuBrowserOperator(item*,int,int);
-	int MenuProcessing( int,item*,int*,scroller*,int,int);
+	int menuBrowserOperator(item*,int,int,bool);
+	int MenuProcessing( int,item*,int*,scroller*,int,int,bool);
 	void MenuShow(item*,int);
 	int MenuRangeY(item*,int,int);
 	int MenuRangeX(item*,int,int);

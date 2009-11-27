@@ -53,6 +53,7 @@ class Form
         virtual void browseForm();
 		virtual void browseEditForm(string);
         virtual void save();
+		virtual bool validate();
         void setError(string);
         void setState(int);
         int getState() const;

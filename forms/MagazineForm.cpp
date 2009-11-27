@@ -65,8 +65,6 @@ MagazineForm::~MagazineForm()
 }
 void MagazineForm::browseForm()
 {
-	// 5 pointers needed for 5 inputs
-	//cout << this->getFormType();system("sleep");
 	bool read=false;
 	int KeyType;
 	consoleObj.xyCoord(MagazineCoord[0][0]+18,MagazineCoord[0][1]);
@@ -141,9 +139,6 @@ void MagazineForm::browseForm()
             FieldPosition=5;
             read=true;
         }
-        //*InputPtr = "";
-        consoleObj.xyCoord(60,3);
-        cout<< FieldPosition;
         consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
@@ -152,8 +147,6 @@ void MagazineForm::browseForm()
 void MagazineForm::browseEditForm(string referenceNumber)
 {
 	this->setReferenceNumber(referenceNumber);
-	// 5 pointers needed for 5 inputs
-	//cout << this->getFormType();system("sleep");
 	bool read=false;
 	int KeyType;
 	consoleObj.xyCoord(MagazineCoord[0][0]+18,MagazineCoord[0][1]);
@@ -228,9 +221,6 @@ void MagazineForm::browseEditForm(string referenceNumber)
             FieldPosition=5;
             read=true;
         }
-        //*InputPtr = "";
-        consoleObj.xyCoord(60,3);
-        cout<< FieldPosition;
         consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
@@ -246,7 +236,7 @@ void MagazineForm::show()
 	cout<<"Author: ";
 	consoleObj.xyCoord(MagazineCoord[3][0],MagazineCoord[3][1]);
 	cout<<"Volume: ";
-    consoleObj.xyCoord(13,23);
+    consoleObj.xyCoord(10,23);
 	cout<<"<dd/mm/yy>";
 	consoleObj.xyCoord(MagazineCoord[4][0],MagazineCoord[4][1]);
 	cout<<"Issue Date: ";
@@ -363,4 +353,26 @@ void MagazineForm::editSave()
 			this->setModel(magazineObj);
 		}
 	}
+}
+bool MagazineForm::validate()
+{
+	int formSize=6;
+	int NullCue[6];
+	bool incomplete=false;
+	for(int pos=0;pos<formSize;pos++)
+	{
+		if(AllInput[pos].empty())
+			NullCue[pos]=1;
+		else
+			NullCue[pos]=0;	
+		if(NullCue[pos]==1)
+		{
+			consoleObj.xyCoord(MagazineCoord[pos][0]-15,MagazineCoord[pos][1]); 
+			consoleObj.setColour(12);
+			cout<<"<Required>";
+			consoleObj.setColour(15);
+			incomplete=true;
+		}
+	}
+	return incomplete;
 }
