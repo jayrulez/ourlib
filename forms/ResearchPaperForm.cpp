@@ -309,11 +309,11 @@ void ResearchPaperForm::save()
 			pRS->GetColValueVARCHAR(0,3,&topic);
 			pRS->GetColValueVARCHAR(0,4,&supervisor);
 			pRS->GetColValueVARCHAR(0,5,&sponsor);
-			sqlite3_close(l_sql_db);
 			SAFE_DELETE(pRS);
 			ResearchPaper * researchPaperObj = new ResearchPaper(refNo,title,author,topic,supervisor,sponsor);
 			this->setModel(researchPaperObj);
 			this->setState(STATE_SUCCESS);
+			sqlite3_close(l_sql_db);
 		};
 	}
 }

@@ -787,14 +787,30 @@ void MenuBuilder::callMenu(int menuId)
 								this->callMenu(EDIT);
 							}else{
 								rc = pRS->GetRowCount();
-								SAFE_DELETE(pRS);
-								sqlite3_close(l_sql_db);
-							
 								if(rc>0)
 								{
+									DB_DT_VARCHAR refNo;
+									DB_DT_VARCHAR title;
+									DB_DT_VARCHAR author;
+									DB_DT_VARCHAR isbn;
+									DB_DT_VARCHAR course;
+									DB_DT_VARCHAR publisher;
+									DB_DT_VARCHAR datepublished;
+
+									pRS->GetColValueVARCHAR(0,0,&refNo);
+									pRS->GetColValueVARCHAR(0,1,&title);
+									pRS->GetColValueVARCHAR(0,2,&author);
+									pRS->GetColValueVARCHAR(0,3,&isbn);
+									pRS->GetColValueVARCHAR(0,4,&course);
+									pRS->GetColValueVARCHAR(0,5,&publisher);
+									pRS->GetColValueVARCHAR(0,6,&datepublished);
+									sqlite3_close(l_sql_db);
+									SAFE_DELETE(pRS);
+									TextBook * textBookObj = new TextBook(refNo,title,author,isbn,course,publisher,datepublished);									
 									this->formPtr = new TextBookForm;
 									ReferenceType=TEXTBOOKTYPE;
 									this->BasicRunlevel("EDIT TEXTBOOK");
+									textBookObj->showReferenceMaterial(20,33);
 									this->showReferenceMaterialForm(TEXTBOOK);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
 									do
@@ -831,15 +847,28 @@ void MenuBuilder::callMenu(int menuId)
 								this->callMenu(EDIT);
 							}else{
 								rc = pRS->GetRowCount();
-								SAFE_DELETE(pRS);
-								
-								sqlite3_close(l_sql_db);
-								
 								if(rc>0)
 								{
+									DB_DT_VARCHAR refNo;
+									DB_DT_VARCHAR title;
+									DB_DT_VARCHAR author;
+									DB_DT_VARCHAR volume;
+									DB_DT_VARCHAR topic;
+									DB_DT_VARCHAR issuedate;
+
+									pRS->GetColValueVARCHAR(0,0,&refNo);
+									pRS->GetColValueVARCHAR(0,1,&title);
+									pRS->GetColValueVARCHAR(0,2,&author);
+									pRS->GetColValueVARCHAR(0,3,&volume);
+									pRS->GetColValueVARCHAR(0,4,&topic);
+									pRS->GetColValueVARCHAR(0,5,&issuedate);
+									sqlite3_close(l_sql_db);
+									SAFE_DELETE(pRS);
+									Magazine* magazineObj = new Magazine(refNo,title,author,volume,topic,issuedate);
 									this->formPtr = new MagazineForm;
 									ReferenceType=MAGAZINETYPE;
 									this->BasicRunlevel("EDIT MAGAZINE");
+									magazineObj->showReferenceMaterial(20,33);
 									this->showReferenceMaterialForm(MAGAZINE);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
 									do
@@ -873,17 +902,30 @@ void MenuBuilder::callMenu(int menuId)
 								cout << "Error: " <<pRS->GetLastError();
 								con.setColour(15);
 							}else{
-								rc = pRS->GetRowCount();
-								SAFE_DELETE(pRS);
-								
-								sqlite3_close(l_sql_db);
-								
+								rc = pRS->GetRowCount();								
 								if(rc>0)
 								{
+									DB_DT_VARCHAR refNo;
+									DB_DT_VARCHAR title;
+									DB_DT_VARCHAR author;
+									DB_DT_VARCHAR topic;
+									DB_DT_VARCHAR supervisor;
+									DB_DT_VARCHAR sponsor;
+
+									pRS->GetColValueVARCHAR(0,0,&refNo);
+									pRS->GetColValueVARCHAR(0,1,&title);
+									pRS->GetColValueVARCHAR(0,2,&author);
+									pRS->GetColValueVARCHAR(0,3,&topic);
+									pRS->GetColValueVARCHAR(0,4,&supervisor);
+									pRS->GetColValueVARCHAR(0,5,&sponsor);
+									sqlite3_close(l_sql_db);
+									SAFE_DELETE(pRS);
+									ResearchPaper * researchPaperObj = new ResearchPaper(refNo,title,author,topic,supervisor,sponsor);
 									this->formPtr = new ResearchPaperForm;
 									this->formPtr->setFormType(TYPE_EDIT);
 									ReferenceType=RESEARCHPAPERTYPE;
 									this->BasicRunlevel("EDIT RESEARCH PAPER");
+									researchPaperObj->showReferenceMaterial(20,33);
 									this->showReferenceMaterialForm(RESEARCHPAPER);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
 									do

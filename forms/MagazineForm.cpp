@@ -315,11 +315,11 @@ void MagazineForm::save()
 			pRS->GetColValueVARCHAR(0,3,&volume);
 			pRS->GetColValueVARCHAR(0,4,&topic);
 			pRS->GetColValueVARCHAR(0,5,&issuedate);
-			sqlite3_close(l_sql_db);
 			SAFE_DELETE(pRS);
 			this->setState(STATE_SUCCESS);
 			Magazine* magazineObj = new Magazine(refNo,title,author,volume,topic,issuedate);
 			this->setModel(magazineObj);
+			sqlite3_close(l_sql_db);
 		};
 	}
 }

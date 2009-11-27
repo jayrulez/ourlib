@@ -333,11 +333,11 @@ void TextBookForm::save()
 			pRS->GetColValueVARCHAR(0,4,&course);
 			pRS->GetColValueVARCHAR(0,5,&publisher);
 			pRS->GetColValueVARCHAR(0,6,&datepublished);
-			sqlite3_close(l_sql_db);
 			SAFE_DELETE(pRS);
 			TextBook * textBookObj = new TextBook(refNo,title,author,isbn,course,publisher,datepublished);
 			this->setModel(textBookObj);
 			this->setState(STATE_SUCCESS);
+			sqlite3_close(l_sql_db);
 		};
 	}
 }
