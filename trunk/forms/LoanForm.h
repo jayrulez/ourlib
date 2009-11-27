@@ -47,6 +47,7 @@ public:
     void browseForm();
 	void show();
     void save();
+	bool validate();
 };
 
 #endif // LOANFORM_H
