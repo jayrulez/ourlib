@@ -348,3 +348,25 @@ void ResearchPaperForm::editSave()
 		}
 	}
 }
+bool ResearchPaperForm::validate()
+{
+	int formSize=7;
+	int NullCue[7];
+	bool incomplete=false;
+	for(int pos=0;pos<formSize;pos++)
+	{
+		if(AllInput[pos].empty())
+			NullCue[pos]=1;
+		else
+			NullCue[pos]=0;	
+		if(NullCue[pos]==1)
+		{
+			consoleObj.xyCoord(ResearchPaperCoord[pos][0]-15,ResearchPaperCoord[pos][1]); 
+			consoleObj.setColour(12);
+			cout<<"<Required>";
+			consoleObj.setColour(15);
+			incomplete=true;
+		}
+	}
+	return incomplete;
+}

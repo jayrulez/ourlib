@@ -183,3 +183,25 @@ void ReturnForm::save()
 		}
 	}
 }
+bool ReturnForm::validate()
+{
+	int formSize=4;
+	int NullCue[4];
+	bool incomplete=false;
+	for(int pos=0;pos<formSize;pos++)
+	{
+		if(AllInput[pos].empty())
+			NullCue[pos]=1;
+		else
+			NullCue[pos]=0;	
+		if(NullCue[pos]==1)
+		{
+			consoleObj.xyCoord(ReturnCoord[pos][0]-15,ReturnCoord[pos][1]); 
+			consoleObj.setColour(12);
+			cout<<"<Required>";
+			consoleObj.setColour(15);
+			incomplete=true;
+		}
+	}
+	return incomplete;
+}

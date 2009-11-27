@@ -44,6 +44,7 @@ public:
 	void show();
     void save();
 	void editSave();
+	bool validate();
 };
 
 #endif

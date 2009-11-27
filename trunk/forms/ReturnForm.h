@@ -45,6 +45,7 @@ public:
     void browseForm();
 	void show();
     void save();
+	bool validate();
 
 };
 

@@ -128,7 +128,7 @@ void LoanForm::show()
 	cout<<"Reference Number: ";
 	consoleObj.xyCoord(LoanCoord[1][0],LoanCoord[1][1]);
 	cout<<"Id Number: ";
-	consoleObj.xyCoord(LoanCoord[2][0]-13,LoanCoord[2][1]);
+	consoleObj.xyCoord(LoanCoord[2][0]-12,LoanCoord[2][1]);
 	cout<<"<dd/mm/yy>";
 	consoleObj.xyCoord(LoanCoord[2][0],LoanCoord[2][1]);
 	cout<<"Date: ";
@@ -421,4 +421,26 @@ void LoanForm::save()
 	{
 		this->setLoan(this->loanPtr);
 	}
+}
+bool LoanForm::validate()
+{
+	int formSize=4;
+	int NullCue[4];
+	bool incomplete=false;
+	for(int pos=0;pos<formSize;pos++)
+	{
+		if(AllInput[pos].empty())
+			NullCue[pos]=1;
+		else
+			NullCue[pos]=0;	
+		if(NullCue[pos]==1)
+		{
+			consoleObj.xyCoord(LoanCoord[pos][0]-15,LoanCoord[pos][1]); 
+			consoleObj.setColour(12);
+			cout<<"<Required>";
+			consoleObj.setColour(15);
+			incomplete=true;
+		}
+	}
+	return incomplete;
 }

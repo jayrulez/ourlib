@@ -77,10 +77,8 @@ void TextBookForm::browseForm()
 	    switch(FieldPosition)
 	    {
             case 0:
-                //*InputPtr = ReferenceNumber.c_str();
                 *InputPtr = this->textBookPtr->getReferenceNumber();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,3,TextBookCoord,FieldPosition,false);
-                //this->ReferenceNumber = *InputPtr;
                 this->textBookPtr->setReferenceNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -148,8 +146,6 @@ void TextBookForm::browseForm()
             FieldPosition=6;
             read=true;
         }
-        consoleObj.xyCoord(60,3);
-        cout<< FieldPosition;
         consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
@@ -170,7 +166,7 @@ void TextBookForm::show()
 	cout<<"Course: ";
 	consoleObj.xyCoord(TextBookCoord[5][0],TextBookCoord[5][1]);
 	cout<<"Publisher: ";
-    consoleObj.xyCoord(13,30);
+    consoleObj.xyCoord(10,30);
 	cout<<"<mm/dd/yy>";
 	consoleObj.xyCoord(TextBookCoord[6][0],TextBookCoord[6][1]);
 	cout<<"Date Published: ";
@@ -190,10 +186,8 @@ void TextBookForm::browseEditForm(string referenceNumber)
 	    switch(FieldPosition)
 	    {
             case 0:
-                //*InputPtr = ReferenceNumber.c_str();
                 *InputPtr = this->textBookPtr->getReferenceNumber();
                 KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,0,TextBookCoord,FieldPosition,false);
-                //this->ReferenceNumber = *InputPtr;
                 this->textBookPtr->setReferenceNumber(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -261,8 +255,6 @@ void TextBookForm::browseEditForm(string referenceNumber)
             FieldPosition=6;
             read=true;
         }
-        consoleObj.xyCoord(60,3);
-        cout<< FieldPosition;
         consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
     }
 	consoleObj.setCursor(false,3);
@@ -379,4 +371,26 @@ void TextBookForm::editSave()
 			this->setModel(textBookObj);
 		}
 	}
+}
+bool TextBookForm::validate()
+{
+	int formSize=7;
+	int NullCue[7];
+	bool incomplete=false;
+	for(int pos=0;pos<formSize;pos++)
+	{
+		if(AllInput[pos].empty())
+			NullCue[pos]=1;
+		else
+			NullCue[pos]=0;	
+		if(NullCue[pos]==1)
+		{
+			consoleObj.xyCoord(TextBookCoord[pos][0]-15,TextBookCoord[pos][1]); 
+			consoleObj.setColour(12);
+			cout<<"<Required>";
+			consoleObj.setColour(15);
+			incomplete=true;
+		}
+	}
+	return incomplete;
 }
