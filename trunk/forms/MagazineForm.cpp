@@ -88,7 +88,7 @@ void MagazineForm::browseForm()
                 break;
             case 2:
                 *InputPtr = this->magazinePtr->getAuthor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,30,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,40,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setAuthor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;

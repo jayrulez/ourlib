@@ -90,7 +90,7 @@ void TextBookForm::browseForm()
                 break;
             case 2:
                 *InputPtr = this->textBookPtr->getAuthor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,30,TextBookCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,40,TextBookCoord,FieldPosition,false);
                 this->textBookPtr->setAuthor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
