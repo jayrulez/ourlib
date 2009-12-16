@@ -205,8 +205,8 @@ void MenuBuilder::callMenu(int menuId)
                     break;
                 case RETURNTYPE:
                     this->BasicRunlevel("RETURN CONFIRMATION");
-                    this->MenuShow(MemberConfirmMenu(),RETURNCONFIRMMENU_SIZ);
-                    this->menuBrowserOperator(MemberConfirmMenu(),RETURNCONFIRMMENU_SIZ,NORMALMENU,true);
+                    this->MenuShow(ReturnConfirmMenu(),RETURNCONFIRMMENU_SIZ);
+                    this->menuBrowserOperator(ReturnConfirmMenu(),RETURNCONFIRMMENU_SIZ,NORMALMENU,true);
                     break;
                 case DELETETYPE:
                     this->BasicRunlevel("DELETE CONFIRMATION");
