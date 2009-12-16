@@ -146,6 +146,10 @@ void ResearchPaperForm::browseEditForm(string referenceNumber)
 	this->setReferenceNumber(referenceNumber);
 	bool read=false;
 	int KeyType;
+	consoleObj.xyCoord(ResearchPaperCoord[0][0],ResearchPaperCoord[0][1]-3);
+	consoleObj.setColour(12);
+	cout << "Only fill in the fields you wish to update.";
+	consoleObj.setColour(15);
     consoleObj.xyCoord(ResearchPaperCoord[0][0]+18,ResearchPaperCoord[0][1]);
 	cout<<referenceNumber;
 	consoleObj.xyCoord(ResearchPaperCoord[FieldPosition][0]+ResearchPaperCoord[FieldPosition][2]+AllInput[FieldPosition].length(),ResearchPaperCoord[FieldPosition][1]);
@@ -400,7 +404,6 @@ void ResearchPaperForm::editSave()
 					SAFE_DELETE(pRS);
 					ResearchPaper * researchPaperObj = new ResearchPaper(refNo,title,author,topic,supervisor,sponsor);
 					this->setModel(researchPaperObj);
-					this->setState(STATE_SUCCESS);
 					sqlite3_close(l_sql_db);
 				}
 			}

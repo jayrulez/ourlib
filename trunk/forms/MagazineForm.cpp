@@ -149,6 +149,10 @@ void MagazineForm::browseEditForm(string referenceNumber)
 	this->setReferenceNumber(referenceNumber);
 	bool read=false;
 	int KeyType;
+	consoleObj.xyCoord(MagazineCoord[0][0],MagazineCoord[0][1]-3);
+	consoleObj.setColour(12);
+	cout << "Only fill in the fields you wish to update.";
+	consoleObj.setColour(15);
 	consoleObj.xyCoord(MagazineCoord[0][0]+18,MagazineCoord[0][1]);
 	cout<<referenceNumber;
 	consoleObj.xyCoord(MagazineCoord[FieldPosition][0]+MagazineCoord[FieldPosition][2]+AllInput[FieldPosition].length(),MagazineCoord[FieldPosition][1]);
@@ -373,7 +377,6 @@ void MagazineForm::editSave()
 				l_query << ", issueTopic='"<<this->magazinePtr->getIssueTopic()<<"'";
 			}
 			l_query << " WHERE referencenumber='" << this->getReferenceNumber() << "';";
-			cout << l_query.str() << endl;system("pause");
 			pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
 			if (!pRS->Valid()) {
 				message.str("");
