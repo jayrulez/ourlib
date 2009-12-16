@@ -61,7 +61,7 @@ int buildDatabase()
 	if (0!=rc) {
 		//printf("Table exists\n");
 	} else {
-		cout << "Table doesn't exist creating it\n";
+		cout << "Table member doesn't exist creating it\n";
 		l_query.str("");
 		l_query << "CREATE TABLE [member] (";
 		l_query << "[id] INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,";
@@ -91,7 +91,7 @@ int buildDatabase()
 	if (0!=rc) {
 		//printf("Table exists\n");
 	} else {
-		cout << "Table doesn't exist creating it\n";
+		cout << "Table magazine doesn't exist creating it\n";
 		l_query.str("");
 		l_query << "CREATE TABLE [magazine] (";
 		l_query << "[referencenumber] VARCHAR(6)  NOT NULL PRIMARY KEY,";
@@ -122,7 +122,7 @@ int buildDatabase()
 	if (0!=rc) {
 		//printf("Table exists\n");
 	} else {
-		cout << "Table doesn't exist creating it\n";
+		cout << "Table researchpaper doesn't exist creating it\n";
 		l_query.str("");
 		l_query << "CREATE TABLE [researchpaper] (";
 		l_query << "[referencenumber] VARCHAR(6)  NOT NULL PRIMARY KEY,";
@@ -153,7 +153,7 @@ int buildDatabase()
 	if (0!=rc) {
 		//printf("Table exists\n");
 	} else {
-		cout << "Table doesn't exist creating it\n";
+		cout << "Table textbook doesn't exist creating it\n";
 		l_query.str("");
 		l_query << "CREATE TABLE [textbook] (";
 		l_query << "[referencenumber] VARCHAR(6)  NOT NULL PRIMARY KEY,";
@@ -185,7 +185,7 @@ int buildDatabase()
 	if (0!=rc) {
 		//printf("Table exists\n");
 	} else {
-		cout << "Table doesn't exist creating it\n";
+		cout << "Table loan doesn't exist creating it\n";
 		l_query.str("");
 		l_query << "CREATE TABLE [loan] (";
 		l_query << "[memberid] INTEGER NOT NULL,";
