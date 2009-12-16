@@ -421,7 +421,7 @@ void MenuBuilder::callMenu(int menuId)
 								case STATE_SUCCESS:
 								con.xyCoord(25,10);
 								cout << "Textbook changes saved.";
-									this->formPtr->getModel()->showReferenceMaterial(17,10);
+									this->formPtr->getModel()->showReferenceMaterial(17,15);
 								break;
 							}
                             break;
@@ -442,8 +442,8 @@ void MenuBuilder::callMenu(int menuId)
 							con.setColour(15);
 						break;
 						case STATE_SUCCESS:
-							this->formPtr->getMember()->showMember(17,10);
-							con.xyCoord(20,15);
+							this->formPtr->getMember()->showMember(17,15);
+							con.xyCoord(20,10);
 							cout << "Registration Completed Successfully.";
 						break;
 					}
@@ -462,7 +462,7 @@ void MenuBuilder::callMenu(int menuId)
 							con.setColour(15);
 						break;
 						case STATE_SUCCESS:
-							this->formPtr->getLoan()->showLoan(17,10);
+							this->formPtr->getLoan()->showLoan(17,15);
 							con.xyCoord(20,10);
 							cout << "Loan completed successfully.";
 						break;
