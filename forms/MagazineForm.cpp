@@ -168,19 +168,19 @@ void MagazineForm::browseEditForm(string referenceNumber)
                 break;
             case 1:
                 *InputPtr = this->magazinePtr->getTitle();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,45,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setTitle(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 2:
                 *InputPtr = this->magazinePtr->getAuthor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,35,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setAuthor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
             case 3:
                 *InputPtr = this->magazinePtr->getVolume();
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,3,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,5,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setVolume(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -194,7 +194,7 @@ void MagazineForm::browseEditForm(string referenceNumber)
 
             case 5:
                 *InputPtr = this->magazinePtr->getIssueTopic();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,15,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,35,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setIssueTopic(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
