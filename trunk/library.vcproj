@@ -57,6 +57,8 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="winmm.lib"
+				AdditionalLibraryDirectories="&quot;C:\Program Files\Microsoft SDKs\Windows\v6.0A\Lib&quot;;&quot;C:\Program Files\Microsoft SDKs\Windows\v6.0A\Include&quot;"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>

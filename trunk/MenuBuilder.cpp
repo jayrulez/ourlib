@@ -307,7 +307,6 @@ void MenuBuilder::callMenu(int menuId)
         break;
 
         case SAVE:
-
             this->BasicRunlevel("ADD MENU");
             switch(MenuType)
             {
@@ -1514,6 +1513,7 @@ int MenuBuilder::menuBrowserOperator(item *iptr,int size,int MenuType,bool valid
 }
 int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,int size,int MenuType, bool validate)
 {
+	media mediaObj;
     switch(vKeyCode)
     {
         /*
@@ -1534,6 +1534,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
             (iptr+*pos)->getItemLenght());
             scr->scroll();
+			mediaObj.play("sound/button-21.wav");
         break;
         /*
         * Tab Key
@@ -1557,6 +1558,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
             (iptr+*pos)->getItemLenght());
             scr->scroll();
+			mediaObj.play("sound/button-21.wav");
         break;
         /*
         * Up arrow key
@@ -1576,6 +1578,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
             (iptr+*pos)->getItemLenght());
             scr->scroll();
+			mediaObj.play("sound/button-21.wav");
             break;
         /*
         * Down arrow key
@@ -1595,6 +1598,7 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
             scr->setScroller((iptr+*pos)->getItemX(),(iptr+*pos)->getItemY(),
             (iptr+*pos)->getItemLenght());
             scr->scroll();
+			mediaObj.play("sound/button-21.wav");
             break;
         /*
         * Enter key
@@ -1604,8 +1608,8 @@ int MenuBuilder::MenuProcessing( int vKeyCode,item *iptr,int *pos,scroller *scr,
 			{
 				return 0;
 			}
+			mediaObj.play("sound/button-28.wav");
 			this->callMenu((iptr+*pos)->getCode());
-            //return (iptr+*pos)->getCode();
         break;
     }
     return 1;
