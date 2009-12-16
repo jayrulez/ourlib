@@ -118,7 +118,7 @@ void ReturnForm::show()
 	cout<<"Reference Number: ";
 	consoleObj.xyCoord(ReturnCoord[1][0],ReturnCoord[1][1]);
 	cout<<"Id Number: ";
-	consoleObj.xyCoord(ReturnCoord[2][0]-13,ReturnCoord[2][1]);
+	consoleObj.xyCoord(ReturnCoord[2][0]-12,ReturnCoord[2][1]);
 	cout<<"<dd/mm/yy>";
 	consoleObj.xyCoord(ReturnCoord[2][0],ReturnCoord[2][1]);
 	cout<<"Date: ";
@@ -185,17 +185,22 @@ void ReturnForm::save()
 }
 bool ReturnForm::validate()
 {
-	int formSize=4;
-	int NullCue[4];
+	int formSize=3;
+	int NullCue[3];
 	bool incomplete=false;
 	for(int pos=0;pos<formSize;pos++)
 	{
 		if(AllInput[pos].empty())
 			NullCue[pos]=1;
 		else
-			NullCue[pos]=0;	
+			NullCue[pos]=0;
 		if(NullCue[pos]==1)
 		{
+			if(pos==2)
+			{
+				consoleObj.xyCoord(ReturnCoord[pos][0]-23,ReturnCoord[pos][1]); 
+			}
+			else
 			consoleObj.xyCoord(ReturnCoord[pos][0]-15,ReturnCoord[pos][1]); 
 			consoleObj.setColour(12);
 			cout<<"<Required>";
