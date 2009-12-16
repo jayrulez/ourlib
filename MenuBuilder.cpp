@@ -326,7 +326,7 @@ void MenuBuilder::callMenu(int menuId)
 									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(15,10);
+									this->formPtr->getModel()->showReferenceMaterial(12,10);
 								break;
 							}
                             break;
@@ -343,7 +343,7 @@ void MenuBuilder::callMenu(int menuId)
 									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(15,10);
+									this->formPtr->getModel()->showReferenceMaterial(12,10);
 								break;
 							}
                             break;
@@ -360,7 +360,7 @@ void MenuBuilder::callMenu(int menuId)
 									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(15,10);
+									this->formPtr->getModel()->showReferenceMaterial(12,10);
 								break;
 							}
                             break;
@@ -385,7 +385,7 @@ void MenuBuilder::callMenu(int menuId)
 									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(17,15);
+									this->formPtr->getModel()->showReferenceMaterial(12,15);
 								break;
 							}
                             break;
@@ -402,7 +402,7 @@ void MenuBuilder::callMenu(int menuId)
 									con.setColour(15);
 								break;
 								case STATE_SUCCESS:
-									this->formPtr->getModel()->showReferenceMaterial(17,15);
+									this->formPtr->getModel()->showReferenceMaterial(12,15);
 								break;
 							}
                             break;
@@ -421,7 +421,7 @@ void MenuBuilder::callMenu(int menuId)
 								case STATE_SUCCESS:
 								con.xyCoord(25,10);
 								cout << "Textbook changes saved.";
-									this->formPtr->getModel()->showReferenceMaterial(17,15);
+									this->formPtr->getModel()->showReferenceMaterial(12,15);
 								break;
 							}
                             break;
@@ -580,7 +580,7 @@ void MenuBuilder::callMenu(int menuId)
 											TextBook * textBookObj = new TextBook(refNo,title,author,isbn,course,publisher,datepublished);
 											ReferenceType=TEXTBOOKTYPE;
 											this->BasicRunlevel("DELETE TEXTBOOK");
-											textBookObj->showReferenceMaterial(16,5);
+											textBookObj->showReferenceMaterial(12,5);
 											this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
 											do
 											{
@@ -672,7 +672,7 @@ void MenuBuilder::callMenu(int menuId)
 											Magazine* magazineObj = new Magazine(refNo,title,author,volume,topic,issuedate);
 											ReferenceType=MAGAZINETYPE;
 											this->BasicRunlevel("DELETE MAGAZINE");
-											magazineObj->showReferenceMaterial(17,5);
+											magazineObj->showReferenceMaterial(12,5);
 											this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
 											do
 											{
@@ -761,7 +761,7 @@ void MenuBuilder::callMenu(int menuId)
 											ResearchPaper * researchPaperObj = new ResearchPaper(refNo,title,author,topic,supervisor,sponsor);
 											ReferenceType=RESEARCHPAPERTYPE;
 											this->BasicRunlevel("DELETE RESEARCH PAPER");
-											researchPaperObj->showReferenceMaterial(15,5);
+											researchPaperObj->showReferenceMaterial(12,5);
 											this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
 											do
 											{
@@ -889,7 +889,7 @@ void MenuBuilder::callMenu(int menuId)
 									this->formPtr = new TextBookForm;
 									ReferenceType=TEXTBOOKTYPE;
 									this->BasicRunlevel("EDIT TEXTBOOK");
-									textBookObj->showReferenceMaterial(16,29);
+									textBookObj->showReferenceMaterial(12,29);
 									this->showReferenceMaterialForm(TEXTBOOK);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
 									do
@@ -947,7 +947,7 @@ void MenuBuilder::callMenu(int menuId)
 									this->formPtr = new MagazineForm;
 									ReferenceType=MAGAZINETYPE;
 									this->BasicRunlevel("EDIT MAGAZINE");
-									magazineObj->showReferenceMaterial(17,28);
+									magazineObj->showReferenceMaterial(12,28);
 									this->showReferenceMaterialForm(MAGAZINE);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
 									do
@@ -1004,7 +1004,7 @@ void MenuBuilder::callMenu(int menuId)
 									this->formPtr->setFormType(TYPE_EDIT);
 									ReferenceType=RESEARCHPAPERTYPE;
 									this->BasicRunlevel("EDIT RESEARCH PAPER");
-									researchPaperObj->showReferenceMaterial(15,29);
+									researchPaperObj->showReferenceMaterial(12,29);
 									this->showReferenceMaterialForm(RESEARCHPAPER);
 									this->MenuShow(this->EditFormMenu(),EDITFORMMENU_SIZ);
 									do
