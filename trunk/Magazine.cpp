@@ -85,8 +85,8 @@ void Magazine::showReferenceMaterial(int xCoord,int yCoord)
     cout<<"Title: "<<this->getTitle();
     consoleObj.xyCoord(xCoord+2,yCoord+8);
     cout<<"Volume: "<<this->getVolume();
-    consoleObj.xyCoord(xCoord+2,yCoord+10);
-    cout<<"Issue Topic: "<<this->getIssueTopic();
-    consoleObj.xyCoord(xCoord+2,yCoord+12);
+	consoleObj.xyCoord(xCoord+2,yCoord+10);
     cout<<"Issue Date: "<<this->getIssueDate();
+    consoleObj.xyCoord(xCoord+2,yCoord+12);
+    cout<<"Issue Topic: "<<this->getIssueTopic();
 }
