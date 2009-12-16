@@ -1238,7 +1238,7 @@ item* MenuBuilder::ReturnFormMenu()
 item* MenuBuilder::ReturnConfirmMenu()
 {
     static item ReturnConfirmMenuItem[RETURNCONFIRMMENU_SIZ];
-    ReturnConfirmMenuItem[0].setItem(20,20,SAVE,"SAVE RETURN DATA");
+    ReturnConfirmMenuItem[0].setItem(20,20,SAVE,"CONFIRM RETURN");
     ReturnConfirmMenuItem[1].setItem(50,20,CANCEL,"CANCEL");
     return &ReturnConfirmMenuItem[0];
 }
