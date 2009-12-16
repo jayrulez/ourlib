@@ -319,8 +319,8 @@ void MagazineForm::save()
 				pRS->GetColValueVARCHAR(0,1,&title);
 				pRS->GetColValueVARCHAR(0,2,&author);
 				pRS->GetColValueVARCHAR(0,3,&volume);
-				pRS->GetColValueVARCHAR(0,4,&topic);
-				pRS->GetColValueVARCHAR(0,5,&issuedate);
+				pRS->GetColValueVARCHAR(0,4,&issuedate);
+				pRS->GetColValueVARCHAR(0,5,&topic);
 				SAFE_DELETE(pRS);
 				this->setState(STATE_SUCCESS);
 				Magazine* magazineObj = new Magazine(refNo,title,author,volume,topic,issuedate);
@@ -405,8 +405,8 @@ void MagazineForm::editSave()
 					pRS->GetColValueVARCHAR(0,1,&title);
 					pRS->GetColValueVARCHAR(0,2,&author);
 					pRS->GetColValueVARCHAR(0,3,&volume);
-					pRS->GetColValueVARCHAR(0,4,&topic);
-					pRS->GetColValueVARCHAR(0,5,&issuedate);
+					pRS->GetColValueVARCHAR(0,4,&issuedate);
+					pRS->GetColValueVARCHAR(0,5,&topic);
 					SAFE_DELETE(pRS);
 					Magazine* magazineObj = new Magazine(refNo,title,author,volume,topic,issuedate);
 					this->setModel(magazineObj);
