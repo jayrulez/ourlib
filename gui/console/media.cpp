@@ -23,5 +23,5 @@ media::~media()
 }
 void media::play(char* f)
 {
-    //PlaySound(f,NULL,SND_FILENAME|SND_ASYNC);
+    PlaySound(f,NULL,SND_FILENAME|SND_ASYNC);
 }

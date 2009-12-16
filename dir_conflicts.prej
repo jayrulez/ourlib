@@ -1,0 +1,39 @@
+Trying to change property 'svn:ignore' from 'bin
+magazines.bin
+obj
+ourlib.cbp
+ourlib.depend
+ourlib.layout
+researchpapers.bin
+textbooks.bin
+' to 'Debug
+bin
+magazines.bin
+obj
+ourlib.cbp
+ourlib.depend
+ourlib.layout
+researchpapers.bin
+textbooks.bin
+',
+but the property has been locally changed from 'bin
+magazines.bin
+obj
+ourlib.cbp
+ourlib.depend
+ourlib.layout
+researchpapers.bin
+textbooks.bin
+' to 'Debug
+bin
+doc
+library.ncb
+library.vcproj.DJD._-_DJ-D_-_.user
+magazines.bin
+obj
+ourlib.cbp
+ourlib.depend
+ourlib.layout
+researchpapers.bin
+textbooks.bin
+'.
