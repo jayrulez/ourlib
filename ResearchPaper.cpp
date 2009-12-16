@@ -80,10 +80,9 @@ void ResearchPaper::showReferenceMaterial(int xCoord,int yCoord)
     consoleObj.xyCoord(xCoord+2,yCoord+2);
     cout<<"Reference Number: "<<referenceNumber;
     consoleObj.xyCoord(xCoord+2,yCoord+4);
-    cout<<"Author: "<<author;
-    consoleObj.xyCoord(xCoord+2,yCoord+6);
     cout<<"Title: "<<title;
-
+	consoleObj.xyCoord(xCoord+2,yCoord+6);
+    cout<<"Author: "<<author;
     consoleObj.xyCoord(xCoord+2,yCoord+8);
     cout<<"Research Topic: "<<researchTopic;
     consoleObj.xyCoord(xCoord+2,yCoord+10);
