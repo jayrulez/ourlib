@@ -80,7 +80,7 @@ void ResearchPaperForm::browseForm()
                 break;
             case 1:
                 *InputPtr = this->researchPaperPtr->getTitle();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,40,ResearchPaperCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,45,ResearchPaperCoord,FieldPosition,false);
                 this->researchPaperPtr->setTitle(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -92,7 +92,7 @@ void ResearchPaperForm::browseForm()
                 break;
             case 3:
                 *InputPtr = this->researchPaperPtr->getResearchTopic();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,30,ResearchPaperCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,35,ResearchPaperCoord,FieldPosition,false);
                 this->researchPaperPtr->setResearchTopic(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;

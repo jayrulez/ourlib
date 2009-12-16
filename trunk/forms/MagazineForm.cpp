@@ -82,7 +82,7 @@ void MagazineForm::browseForm()
                 break;
             case 1:
                 *InputPtr = this->magazinePtr->getTitle();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,35,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,45,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setTitle(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
