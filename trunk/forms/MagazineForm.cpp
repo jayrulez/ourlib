@@ -108,7 +108,7 @@ void MagazineForm::browseForm()
 
             case 5:
                 *InputPtr = this->magazinePtr->getIssueTopic();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,25,MagazineCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,30,MagazineCoord,FieldPosition,false);
                 this->magazinePtr->setIssueTopic(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;

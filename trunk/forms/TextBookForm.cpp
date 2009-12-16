@@ -96,7 +96,7 @@ void TextBookForm::browseForm()
                 break;
             case 3:
                 *InputPtr = this->textBookPtr->getISBN();
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,15,TextBookCoord,FieldPosition,false);
                 this->textBookPtr->setISBN(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
