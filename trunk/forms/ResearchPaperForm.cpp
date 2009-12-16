@@ -86,7 +86,7 @@ void ResearchPaperForm::browseForm()
                 break;
             case 2:
                 *InputPtr = this->researchPaperPtr->getAuthor();
-                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,30,ResearchPaperCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHABETICAL,SPACING,InputPtr,40,ResearchPaperCoord,FieldPosition,false);
                 this->researchPaperPtr->setAuthor(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
