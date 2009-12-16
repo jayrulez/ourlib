@@ -442,7 +442,7 @@ void MenuBuilder::callMenu(int menuId)
 							con.setColour(15);
 						break;
 						case STATE_SUCCESS:
-							this->formPtr->getMember()->showMember(17,5);
+							this->formPtr->getMember()->showMember(17,15);
 							con.xyCoord(20,15);
 							cout << "Registration Completed Successfully.";
 						break;
