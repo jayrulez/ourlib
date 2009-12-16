@@ -559,9 +559,36 @@ void MenuBuilder::callMenu(int menuId)
 										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 									}else{
 										rc = pRS->GetRowCount();
-										SAFE_DELETE(pRS);
 										if(rc>0)
 										{
+											DB_DT_VARCHAR refNo;
+											DB_DT_VARCHAR title;
+											DB_DT_VARCHAR author;
+											DB_DT_VARCHAR isbn;
+											DB_DT_VARCHAR course;
+											DB_DT_VARCHAR publisher;
+											DB_DT_VARCHAR datepublished;
+
+											pRS->GetColValueVARCHAR(0,0,&refNo);
+											pRS->GetColValueVARCHAR(0,1,&title);
+											pRS->GetColValueVARCHAR(0,2,&author);
+											pRS->GetColValueVARCHAR(0,3,&isbn);
+											pRS->GetColValueVARCHAR(0,4,&course);
+											pRS->GetColValueVARCHAR(0,5,&publisher);
+											pRS->GetColValueVARCHAR(0,6,&datepublished);
+											sqlite3_close(l_sql_db);
+											SAFE_DELETE(pRS);
+											TextBook * textBookObj = new TextBook(refNo,title,author,isbn,course,publisher,datepublished);
+											ReferenceType=TEXTBOOKTYPE;
+											this->BasicRunlevel("DELETE TEXTBOOK");
+											textBookObj->showReferenceMaterial(16,5);
+											do
+											{
+												TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,NORMALMENU,true);
+											}while(TypeCheck==0);
+											cout << TypeCheck << endl;
+											system("pause");
+										/*
 											l_query.str("");
 											l_query << "delete FROM textbook WHERE referencenumber='" << this->queryString << "'";
 											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
@@ -594,6 +621,7 @@ void MenuBuilder::callMenu(int menuId)
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}
 											}
+										*/
 										}else{
 											this->BasicRunlevel("ERROR");
 											con.xyCoord(5,15);
@@ -624,10 +652,29 @@ void MenuBuilder::callMenu(int menuId)
 										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 									}else{
 										rc = pRS->GetRowCount();
-										SAFE_DELETE(pRS);
 										if(rc>0)
 										{
-											l_query.str("");
+											DB_DT_VARCHAR refNo;
+											DB_DT_VARCHAR title;
+											DB_DT_VARCHAR author;
+											DB_DT_VARCHAR volume;
+											DB_DT_VARCHAR topic;
+											DB_DT_VARCHAR issuedate;
+
+											pRS->GetColValueVARCHAR(0,0,&refNo);
+											pRS->GetColValueVARCHAR(0,1,&title);
+											pRS->GetColValueVARCHAR(0,2,&author);
+											pRS->GetColValueVARCHAR(0,3,&volume);
+											pRS->GetColValueVARCHAR(0,4,&topic);
+											pRS->GetColValueVARCHAR(0,5,&issuedate);
+											sqlite3_close(l_sql_db);
+											SAFE_DELETE(pRS);
+											Magazine* magazineObj = new Magazine(refNo,title,author,volume,topic,issuedate);
+											ReferenceType=MAGAZINETYPE;
+											this->BasicRunlevel("DELETE MAGAZINE");
+											magazineObj->showReferenceMaterial(17,5);
+											system("pause");
+											/*l_query.str("");
 											l_query << "delete FROM magazine WHERE referencenumber='" << this->queryString << "'";
 											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 											if (!pRS->Valid()) {
@@ -658,7 +705,7 @@ void MenuBuilder::callMenu(int menuId)
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}
-											}
+											}*/
 										}else{
 											this->BasicRunlevel("ERROR");
 											con.xyCoord(5,15);
@@ -689,10 +736,29 @@ void MenuBuilder::callMenu(int menuId)
 										this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 									}else{
 										rc = pRS->GetRowCount();
-										SAFE_DELETE(pRS);
 										if(rc>0)
 										{
-											l_query.str("");
+											DB_DT_VARCHAR refNo;
+											DB_DT_VARCHAR title;
+											DB_DT_VARCHAR author;
+											DB_DT_VARCHAR topic;
+											DB_DT_VARCHAR supervisor;
+											DB_DT_VARCHAR sponsor;
+
+											pRS->GetColValueVARCHAR(0,0,&refNo);
+											pRS->GetColValueVARCHAR(0,1,&title);
+											pRS->GetColValueVARCHAR(0,2,&author);
+											pRS->GetColValueVARCHAR(0,3,&topic);
+											pRS->GetColValueVARCHAR(0,4,&supervisor);
+											pRS->GetColValueVARCHAR(0,5,&sponsor);
+											sqlite3_close(l_sql_db);
+											SAFE_DELETE(pRS);
+											ResearchPaper * researchPaperObj = new ResearchPaper(refNo,title,author,topic,supervisor,sponsor);
+											ReferenceType=RESEARCHPAPERTYPE;
+											this->BasicRunlevel("DELETE RESEARCH PAPER");
+											researchPaperObj->showReferenceMaterial(15,5);
+											system("pause");
+											/*l_query.str("");
 											l_query << "delete FROM researchpaper WHERE referencenumber='" << this->queryString << "'";
 											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
 											if (!pRS->Valid()) {
@@ -723,7 +789,7 @@ void MenuBuilder::callMenu(int menuId)
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}
-											}
+											}*/
 										}else{
 											this->BasicRunlevel("ERROR");
 											con.xyCoord(5,15);
@@ -1265,8 +1331,8 @@ item* MenuBuilder::DeleteMenu()
 item* MenuBuilder::DeleteConfirmMenu()
 {
     static item DeleteConfirmMenuItem[DELETECONFIRMMENU_SIZ];
-    DeleteConfirmMenuItem[0].setItem(20,20,SAVE,"DELETE MATERIAL");
-    DeleteConfirmMenuItem[1].setItem(50,20,CANCEL,"CANCEL");
+    DeleteConfirmMenuItem[0].setItem(20,40,SAVE,"DELETE MATERIAL");
+    DeleteConfirmMenuItem[1].setItem(50,40,CANCEL,"CANCEL");
     return &DeleteConfirmMenuItem[0];
 }
 /*
