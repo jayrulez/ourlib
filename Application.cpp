@@ -13,7 +13,7 @@
 
 #include <iostream>
 #include <string>
-#include "windows.h"
+#include <windows.h>
 #include <mmsystem.h>
 #ifndef _APPLICATION_H
 #include "Application.h"
@@ -87,7 +87,7 @@ void Application::process()
 {
 	SetConsoleTitle("NATIONAL LIBRARY");
 	this->welcome();
-	PlaySound("sound/startup.wav",NULL,SND_FILENAME|SND_ASYNC);
+	PlaySound("sound/startup.wav",NULL,SND_FILENAME|SND_SYNC);
 	PlaySound("sound/welcome.wav",NULL,SND_FILENAME|SND_ASYNC);
 	this->main();
 }
