@@ -74,7 +74,7 @@ string ResearchPaper::getSponsor() const
 }
 void ResearchPaper::showReferenceMaterial(int xCoord,int yCoord)
 {
-    frameObj.setFrame(xCoord,xCoord+50,yCoord,yCoord+14,false);
+    frameObj.setFrame(xCoord,xCoord+55,yCoord,yCoord+14,false);
     frameObj.sFraming();
 
     consoleObj.xyCoord(xCoord+2,yCoord+2);

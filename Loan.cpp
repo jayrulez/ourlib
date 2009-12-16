@@ -80,7 +80,7 @@ string Loan::getRequestDate() const
 
 void Loan::showLoan(int xCoord,int yCoord)
 {
-    frameObj.setFrame(xCoord,xCoord+45,yCoord,yCoord+12,false);
+    frameObj.setFrame(xCoord,xCoord+55,yCoord,yCoord+12,false);
     frameObj.sFraming();
 
     consoleObj.xyCoord(xCoord+2,yCoord+2);
