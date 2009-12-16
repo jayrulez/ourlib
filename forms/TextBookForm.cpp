@@ -313,32 +313,35 @@ void TextBookForm::save()
 			pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
 			if (!pRS->Valid()) {
 				//cout << "Invalid result set returned " << pRS->GetLastError() << endl;
+				message.str("");
+				message << pRS->GetLastError();
+				this->setState(STATE_FAILURE);
+				this->setError(message.str());
 				SAFE_DELETE(pRS);
 				sqlite3_close(l_sql_db);
-			};
-			rc = pRS->GetRowCount();
-			
-			DB_DT_VARCHAR refNo;
-			DB_DT_VARCHAR title;
-			DB_DT_VARCHAR author;
-			DB_DT_VARCHAR isbn;
-			DB_DT_VARCHAR course;
-			DB_DT_VARCHAR publisher;
-			DB_DT_VARCHAR datepublished;
+			}else{
+				DB_DT_VARCHAR refNo;
+				DB_DT_VARCHAR title;
+				DB_DT_VARCHAR author;
+				DB_DT_VARCHAR isbn;
+				DB_DT_VARCHAR course;
+				DB_DT_VARCHAR publisher;
+				DB_DT_VARCHAR datepublished;
 
-			pRS->GetColValueVARCHAR(0,0,&refNo);
-			pRS->GetColValueVARCHAR(0,1,&title);
-			pRS->GetColValueVARCHAR(0,2,&author);
-			pRS->GetColValueVARCHAR(0,3,&isbn);
-			pRS->GetColValueVARCHAR(0,4,&course);
-			pRS->GetColValueVARCHAR(0,5,&publisher);
-			pRS->GetColValueVARCHAR(0,6,&datepublished);
-			SAFE_DELETE(pRS);
-			TextBook * textBookObj = new TextBook(refNo,title,author,isbn,course,publisher,datepublished);
-			this->setModel(textBookObj);
-			this->setState(STATE_SUCCESS);
-			sqlite3_close(l_sql_db);
-		};
+				pRS->GetColValueVARCHAR(0,0,&refNo);
+				pRS->GetColValueVARCHAR(0,1,&title);
+				pRS->GetColValueVARCHAR(0,2,&author);
+				pRS->GetColValueVARCHAR(0,3,&isbn);
+				pRS->GetColValueVARCHAR(0,4,&course);
+				pRS->GetColValueVARCHAR(0,5,&publisher);
+				pRS->GetColValueVARCHAR(0,6,&datepublished);
+				SAFE_DELETE(pRS);
+				TextBook * textBookObj = new TextBook(refNo,title,author,isbn,course,publisher,datepublished);
+				this->setModel(textBookObj);
+				this->setState(STATE_SUCCESS);
+				sqlite3_close(l_sql_db);
+			}
+		}
 	}
 }
 
@@ -357,7 +360,12 @@ void TextBookForm::editSave()
 	}else{
 		RJM_SQLite_Resultset *pRS = NULL;
 		l_query.str("");
-		if(this->textBookPtr->getTitle().length()<1&&this->textBookPtr->getAuthor().length()<1&&this->textBookPtr->getISBN().length()<1&&this->textBookPtr->getCourse().length()<1&&this->textBookPtr->getPublisher().length()<1&&this->textBookPtr->getDatePublished().length()<1)
+		if(this->textBookPtr->getTitle().length()<1
+		&&this->textBookPtr->getAuthor().length()<1
+		&&this->textBookPtr->getISBN().length()<1
+		&&this->textBookPtr->getCourse().length()<1
+		&&this->textBookPtr->getPublisher().length()<1
+		&&this->textBookPtr->getDatePublished().length()<1)
 		{
 			this->setState(STATE_FAILURE);
 			this->setError("You must fill in atleast one field to update.");

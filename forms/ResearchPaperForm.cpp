@@ -291,30 +291,33 @@ void ResearchPaperForm::save()
 			pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
 			if (!pRS->Valid()) {
 				//cout << "Invalid result set returned " << pRS->GetLastError() << endl;
+				message.str("");
+				message << pRS->GetLastError();
+				this->setState(STATE_FAILURE);
+				this->setError(message.str());
 				SAFE_DELETE(pRS);
 				sqlite3_close(l_sql_db);
-			};
-			rc = pRS->GetRowCount();
-			
-			DB_DT_VARCHAR refNo;
-			DB_DT_VARCHAR title;
-			DB_DT_VARCHAR author;
-			DB_DT_VARCHAR topic;
-			DB_DT_VARCHAR supervisor;
-			DB_DT_VARCHAR sponsor;
+			}else{
+				DB_DT_VARCHAR refNo;
+				DB_DT_VARCHAR title;
+				DB_DT_VARCHAR author;
+				DB_DT_VARCHAR topic;
+				DB_DT_VARCHAR supervisor;
+				DB_DT_VARCHAR sponsor;
 
-			pRS->GetColValueVARCHAR(0,0,&refNo);
-			pRS->GetColValueVARCHAR(0,1,&title);
-			pRS->GetColValueVARCHAR(0,2,&author);
-			pRS->GetColValueVARCHAR(0,3,&topic);
-			pRS->GetColValueVARCHAR(0,4,&supervisor);
-			pRS->GetColValueVARCHAR(0,5,&sponsor);
-			SAFE_DELETE(pRS);
-			ResearchPaper * researchPaperObj = new ResearchPaper(refNo,title,author,topic,supervisor,sponsor);
-			this->setModel(researchPaperObj);
-			this->setState(STATE_SUCCESS);
-			sqlite3_close(l_sql_db);
-		};
+				pRS->GetColValueVARCHAR(0,0,&refNo);
+				pRS->GetColValueVARCHAR(0,1,&title);
+				pRS->GetColValueVARCHAR(0,2,&author);
+				pRS->GetColValueVARCHAR(0,3,&topic);
+				pRS->GetColValueVARCHAR(0,4,&supervisor);
+				pRS->GetColValueVARCHAR(0,5,&sponsor);
+				SAFE_DELETE(pRS);
+				ResearchPaper * researchPaperObj = new ResearchPaper(refNo,title,author,topic,supervisor,sponsor);
+				this->setModel(researchPaperObj);
+				this->setState(STATE_SUCCESS);
+				sqlite3_close(l_sql_db);
+			}
+		}
 	}
 }
 
@@ -333,18 +336,74 @@ void ResearchPaperForm::editSave()
 	}else{
 		RJM_SQLite_Resultset *pRS = NULL;
 		l_query.str("");
-		l_query << "UPDATE researchpaper SET title='"<<this->researchPaperPtr->getTitle()<<"', author='"<<this->researchPaperPtr->getAuthor()<<"', researchtopic='"<<this->researchPaperPtr->getResearchTopic()<<"', supervisor='"<<this->researchPaperPtr->getSupervisor()<<"', sponsor='"<<this->researchPaperPtr->getSponsor()<<"' WHERE referencenumber='" << this->getReferenceNumber() << "';";
-		pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
-		if (!pRS->Valid()) {
-			message.str("");
-			message << "Error occured while trying to edit reference material";
-			SAFE_DELETE(pRS);
+		if(this->researchPaperPtr->getTitle().length()<1
+		&&this->researchPaperPtr->getAuthor().length()<1
+		&&this->researchPaperPtr->getResearchTopic().length()<1
+		&&this->researchPaperPtr->getSupervisor().length()<1
+		&&this->researchPaperPtr->getSponsor().length()<1)
+		{
 			this->setState(STATE_FAILURE);
-			sqlite3_close(l_sql_db);
+			this->setError("You must fill in atleast one field to update.");
 		}else{
-			this->setState(STATE_SUCCESS);
-			ResearchPaper *researchPaperObj = new ResearchPaper(this->getReferenceNumber(),this->researchPaperPtr->getTitle(),this->researchPaperPtr->getAuthor(),this->researchPaperPtr->getResearchTopic(),this->researchPaperPtr->getSupervisor(),this->researchPaperPtr->getSponsor());
-			this->setModel(researchPaperObj);
+			l_query << "UPDATE researchpaper SET referencenumber='"<<this->getReferenceNumber()<<"'";
+			if(this->researchPaperPtr->getTitle().length()>1)
+			{
+				l_query << ", title='"<<this->researchPaperPtr->getTitle()<<"'";
+			}
+			if(this->researchPaperPtr->getAuthor().length()>1)
+			{
+				l_query << ", author='"<<this->researchPaperPtr->getAuthor()<<"'";
+			}
+			if(this->researchPaperPtr->getResearchTopic().length()>1)
+			{
+				l_query << ", researchtopic='"<<this->researchPaperPtr->getResearchTopic()<<"'";
+			}
+			if(this->researchPaperPtr->getSupervisor().length()>1)
+			{
+				l_query << ", supervisor='"<<this->researchPaperPtr->getSupervisor()<<"'";
+			}
+			if(this->researchPaperPtr->getSponsor().length()>1)
+			{
+				l_query << ", sponsor='"<<this->researchPaperPtr->getSponsor()<<"'";
+			}
+			l_query << " WHERE referencenumber='" << this->getReferenceNumber() << "';";
+			pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+			if (!pRS->Valid()) {
+				message.str("");
+				message << "Error occured while trying to edit reference material";
+				SAFE_DELETE(pRS);
+				this->setState(STATE_FAILURE);
+				sqlite3_close(l_sql_db);
+			}else{
+				this->setState(STATE_SUCCESS);
+				SAFE_DELETE(pRS);
+				l_query.str("");
+				l_query << "select * FROM researchpaper WHERE referencenumber='"<<this->getReferenceNumber()<<"'";
+				pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+				if (!pRS->Valid()) {\
+					SAFE_DELETE(pRS);
+					sqlite3_close(l_sql_db);
+				}else{
+					DB_DT_VARCHAR refNo;
+					DB_DT_VARCHAR title;
+					DB_DT_VARCHAR author;
+					DB_DT_VARCHAR topic;
+					DB_DT_VARCHAR supervisor;
+					DB_DT_VARCHAR sponsor;
+
+					pRS->GetColValueVARCHAR(0,0,&refNo);
+					pRS->GetColValueVARCHAR(0,1,&title);
+					pRS->GetColValueVARCHAR(0,2,&author);
+					pRS->GetColValueVARCHAR(0,3,&topic);
+					pRS->GetColValueVARCHAR(0,4,&supervisor);
+					pRS->GetColValueVARCHAR(0,5,&sponsor);
+					SAFE_DELETE(pRS);
+					ResearchPaper * researchPaperObj = new ResearchPaper(refNo,title,author,topic,supervisor,sponsor);
+					this->setModel(researchPaperObj);
+					this->setState(STATE_SUCCESS);
+					sqlite3_close(l_sql_db);
+				}
+			}
 		}
 	}
 }
