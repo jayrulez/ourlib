@@ -357,18 +357,75 @@ void TextBookForm::editSave()
 	}else{
 		RJM_SQLite_Resultset *pRS = NULL;
 		l_query.str("");
-		l_query << "UPDATE textbook SET title='"<<this->textBookPtr->getTitle()<<"', author='"<<this->textBookPtr->getAuthor()<<"', isbn='"<<this->textBookPtr->getISBN()<<"', course='"<<this->textBookPtr->getCourse()<<"', publisher='"<<this->textBookPtr->getPublisher()<<"', datepublished='"<<this->textBookPtr->getDatePublished()<<"' WHERE referencenumber='" << this->getReferenceNumber() << "';";
-		pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
-		if (!pRS->Valid()) {
-			message.str("");
-			message << "Error occured while trying to edit reference material";
-			SAFE_DELETE(pRS);
+		if(this->textBookPtr->getTitle().length()<1&&this->textBookPtr->getAuthor().length()<1&&this->textBookPtr->getISBN().length()<1&&this->textBookPtr->getCourse().length()<1&&this->textBookPtr->getPublisher().length()<1&&this->textBookPtr->getDatePublished().length()<1)
+		{
 			this->setState(STATE_FAILURE);
-			sqlite3_close(l_sql_db);
+			this->setError("You must fill in atleast one field to update.");
 		}else{
-			this->setState(STATE_SUCCESS);
-			TextBook *textBookObj = new TextBook(this->getReferenceNumber(),this->textBookPtr->getTitle(),this->textBookPtr->getAuthor(),this->textBookPtr->getISBN(),this->textBookPtr->getCourse(),this->textBookPtr->getPublisher(),this->textBookPtr->getDatePublished());
-			this->setModel(textBookObj);
+			l_query << "UPDATE textbook SET referencenumber='"<<this->getReferenceNumber()<<"'";
+			if(this->textBookPtr->getTitle().length()>0)
+			{
+				l_query << ", title='"<<this->textBookPtr->getTitle()<<"'";
+			}
+			if(this->textBookPtr->getAuthor().length()>0)
+			{
+				l_query << ", author='"<<this->textBookPtr->getAuthor()<<"'";
+			}
+			if(this->textBookPtr->getISBN().length()>0)
+			{
+				l_query << ", isbn='"<<this->textBookPtr->getISBN()<<"'";
+			}
+			if(this->textBookPtr->getCourse().length()>0)
+			{
+				l_query << ", course='"<<this->textBookPtr->getCourse()<<"'";
+			}
+			if(this->textBookPtr->getPublisher().length()>0)
+			{
+				l_query << ", publisher='"<<this->textBookPtr->getPublisher()<<"'";
+			}
+			if(this->textBookPtr->getDatePublished().length()>0)
+			{
+				l_query << ", datepublished='"<<this->textBookPtr->getDatePublished()<<"'";
+			}
+			l_query << "WHERE referencenumber='" << this->getReferenceNumber() << "';";
+			pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+			if (!pRS->Valid()) {
+				message.str("");
+				message << "Error occured while trying to edit reference material";
+				SAFE_DELETE(pRS);
+				this->setState(STATE_FAILURE);
+				sqlite3_close(l_sql_db);
+			}else{
+				this->setState(STATE_SUCCESS);
+				SAFE_DELETE(pRS);
+				l_query.str("");
+				l_query << "select * FROM textbook WHERE referencenumber='"<<this->getReferenceNumber()<<"'";
+				pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+				if (!pRS->Valid()) {\
+					SAFE_DELETE(pRS);
+					sqlite3_close(l_sql_db);
+				}else{
+					DB_DT_VARCHAR refNo;
+					DB_DT_VARCHAR title;
+					DB_DT_VARCHAR author;
+					DB_DT_VARCHAR isbn;
+					DB_DT_VARCHAR course;
+					DB_DT_VARCHAR publisher;
+					DB_DT_VARCHAR datepublished;
+
+					pRS->GetColValueVARCHAR(0,0,&refNo);
+					pRS->GetColValueVARCHAR(0,1,&title);
+					pRS->GetColValueVARCHAR(0,2,&author);
+					pRS->GetColValueVARCHAR(0,3,&isbn);
+					pRS->GetColValueVARCHAR(0,4,&course);
+					pRS->GetColValueVARCHAR(0,5,&publisher);
+					pRS->GetColValueVARCHAR(0,6,&datepublished);
+					SAFE_DELETE(pRS);
+					TextBook * textBookObj = new TextBook(refNo,title,author,isbn,course,publisher,datepublished);
+					this->setModel(textBookObj);
+					sqlite3_close(l_sql_db);
+				}
+			}
 		}
 	}
 }
