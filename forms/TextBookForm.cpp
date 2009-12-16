@@ -96,7 +96,7 @@ void TextBookForm::browseForm()
                 break;
             case 3:
                 *InputPtr = this->textBookPtr->getISBN();
-                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,15,TextBookCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(NUMERIC,NOSPACING,InputPtr,10,TextBookCoord,FieldPosition,false);
                 this->textBookPtr->setISBN(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
@@ -177,8 +177,8 @@ void TextBookForm::browseEditForm(string referenceNumber)
 	this->setReferenceNumber(referenceNumber);
 	bool read=false;
 	int KeyType;
-	/*consoleObj.xyCoord(TextBookCoord[0][0],TextBookCoord[0][1]-3);
-	cout << "Only fill in the fields you wish to update.";*/
+	consoleObj.xyCoord(TextBookCoord[0][0],TextBookCoord[0][1]-3);
+	cout << "Only fill in the fields you wish to update.";
 	consoleObj.xyCoord(TextBookCoord[0][0]+18,TextBookCoord[0][1]);
 	cout<<referenceNumber;
 	consoleObj.xyCoord(TextBookCoord[FieldPosition][0]+TextBookCoord[FieldPosition][2]+AllInput[FieldPosition].length(),TextBookCoord[FieldPosition][1]);
