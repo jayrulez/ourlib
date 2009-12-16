@@ -576,52 +576,53 @@ void MenuBuilder::callMenu(int menuId)
 											pRS->GetColValueVARCHAR(0,4,&course);
 											pRS->GetColValueVARCHAR(0,5,&publisher);
 											pRS->GetColValueVARCHAR(0,6,&datepublished);
-											sqlite3_close(l_sql_db);
 											SAFE_DELETE(pRS);
 											TextBook * textBookObj = new TextBook(refNo,title,author,isbn,course,publisher,datepublished);
 											ReferenceType=TEXTBOOKTYPE;
 											this->BasicRunlevel("DELETE TEXTBOOK");
 											textBookObj->showReferenceMaterial(16,5);
+											this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
 											do
 											{
 												TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,NORMALMENU,true);
 											}while(TypeCheck==0);
-											cout << TypeCheck << endl;
-											system("pause");
-										/*
-											l_query.str("");
-											l_query << "delete FROM textbook WHERE referencenumber='" << this->queryString << "'";
-											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
-											if (!pRS->Valid()) {
-												this->BasicRunlevel("ERROR");
-												con.xyCoord(5,15);
-												con.setColour(12);
-												cout << "Error: " << pRS->GetLastError();
-												con.setColour(15);
-												SAFE_DELETE(pRS);
-												sqlite3_close(l_sql_db);
-												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
-											}else{
-												if(pRS!=NULL)
-												{
-													this->BasicRunlevel("OPERATION SUCCESSFUL");
-													con.xyCoord(20,15);
-													cout << "Textbook deleted successfully.";
-													SAFE_DELETE(pRS);
-													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
-												}else{
+											if(TypeCheck==1)
+											{
+												l_query.str("");
+												l_query << "delete FROM textbook WHERE referencenumber='" << this->queryString << "'";
+												pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+												if (!pRS->Valid()) {
 													this->BasicRunlevel("ERROR");
 													con.xyCoord(5,15);
 													con.setColour(12);
-													cout << "Error: Could not delete textbook.";
+													cout << "Error: " << pRS->GetLastError();
 													con.setColour(15);
+													SAFE_DELETE(pRS);
+													sqlite3_close(l_sql_db);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
+												}else{
+													//SAFE_DELETE(pRS);
+													sqlite3_close(l_sql_db);
+													if(pRS!=NULL)
+													{
+														this->BasicRunlevel("OPERATION SUCCESSFUL");
+														con.xyCoord(20,15);
+														cout << "Textbook deleted successfully.";
+														SAFE_DELETE(pRS);
+														this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+														this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
+													}else{
+														this->BasicRunlevel("ERROR");
+														con.xyCoord(5,15);
+														con.setColour(12);
+														cout << "Error: Could not delete textbook.";
+														con.setColour(15);
+														this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+														this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
+													}
 												}
 											}
-										*/
 										}else{
 											this->BasicRunlevel("ERROR");
 											con.xyCoord(5,15);
@@ -673,39 +674,46 @@ void MenuBuilder::callMenu(int menuId)
 											ReferenceType=MAGAZINETYPE;
 											this->BasicRunlevel("DELETE MAGAZINE");
 											magazineObj->showReferenceMaterial(17,5);
-											system("pause");
-											/*l_query.str("");
-											l_query << "delete FROM magazine WHERE referencenumber='" << this->queryString << "'";
-											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
-											if (!pRS->Valid()) {
-												this->BasicRunlevel("ERROR");
-												con.xyCoord(5,15);
-												con.setColour(12);
-												cout << "Error: " << pRS->GetLastError();
-												con.setColour(15);
-												SAFE_DELETE(pRS);
-												sqlite3_close(l_sql_db);
-												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
-											}else{
-												if(pRS!=NULL)
-												{
-													this->BasicRunlevel("OPERATION SUCCESSFUL");
-													con.xyCoord(20,15);
-													cout << "Magazine deleted successfully.";
+											this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
+											do
+											{
+												TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,NORMALMENU,true);
+											}while(TypeCheck==0);
+											if(TypeCheck==1)
+											{
+												l_query.str("");
+												l_query << "delete FROM magazine WHERE referencenumber='" << this->queryString << "'";
+												pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
+												if (!pRS->Valid()) {
+													this->BasicRunlevel("ERROR");
+													con.xyCoord(5,15);
+													con.setColour(12);
+													cout << "Error: " << pRS->GetLastError();
+													con.setColour(15);
 													SAFE_DELETE(pRS);
+													sqlite3_close(l_sql_db);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}else{
-													this->BasicRunlevel("ERROR");
-													con.xyCoord(20,15);
-													con.setColour(12);
-													cout << "Error: Could not delete magazine.";
-													con.setColour(15);
-													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
+													if(pRS!=NULL)
+													{
+														this->BasicRunlevel("OPERATION SUCCESSFUL");
+														con.xyCoord(20,15);
+														cout << "Magazine deleted successfully.";
+														SAFE_DELETE(pRS);
+														this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+														this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
+													}else{
+														this->BasicRunlevel("ERROR");
+														con.xyCoord(20,15);
+														con.setColour(12);
+														cout << "Error: Could not delete magazine.";
+														con.setColour(15);
+														this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+														this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
+													}
 												}
-											}*/
+											}
 										}else{
 											this->BasicRunlevel("ERROR");
 											con.xyCoord(5,15);
@@ -751,45 +759,50 @@ void MenuBuilder::callMenu(int menuId)
 											pRS->GetColValueVARCHAR(0,3,&topic);
 											pRS->GetColValueVARCHAR(0,4,&supervisor);
 											pRS->GetColValueVARCHAR(0,5,&sponsor);
-											sqlite3_close(l_sql_db);
-											SAFE_DELETE(pRS);
 											ResearchPaper * researchPaperObj = new ResearchPaper(refNo,title,author,topic,supervisor,sponsor);
 											ReferenceType=RESEARCHPAPERTYPE;
 											this->BasicRunlevel("DELETE RESEARCH PAPER");
 											researchPaperObj->showReferenceMaterial(15,5);
-											system("pause");
-											/*l_query.str("");
-											l_query << "delete FROM researchpaper WHERE referencenumber='" << this->queryString << "'";
-											pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);	
-											if (!pRS->Valid()) {
-												this->BasicRunlevel("ERROR");
-												con.xyCoord(5,15);
-												con.setColour(12);
-												cout << "Error: " << pRS->GetLastError();
-												con.setColour(15);
-												SAFE_DELETE(pRS);
-												sqlite3_close(l_sql_db);
-												this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-												this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
-											}else{
-												if(pRS!=NULL)
-												{
-													this->BasicRunlevel("OPERATION SUCCESSFUL");
-													con.xyCoord(20,15);
-													cout << "Research Paper deleted successfully.";
+											this->MenuShow(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ);
+											do
+											{
+												TypeCheck=this->menuBrowserOperator(this->DeleteConfirmMenu(),DELETECONFIRMMENU_SIZ,NORMALMENU,true);
+											}while(TypeCheck==0);
+											if(TypeCheck==1)
+											{
+												l_query.str("");
+												l_query << "delete FROM researchpaper WHERE referencenumber='" << this->queryString << "'";
+												pRS = SQL_Execute(l_query.str().c_str(), l_sql_db);
+												if (!pRS->Valid()) {
+													this->BasicRunlevel("ERROR");
+													con.xyCoord(5,15);
+													con.setColour(12);
+													cout << "Error: " << pRS->GetLastError();
+													con.setColour(15);
 													SAFE_DELETE(pRS);
+													sqlite3_close(l_sql_db);
 													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
 													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
 												}else{
-													this->BasicRunlevel("ERROR");
-													con.xyCoord(15,15);
-													con.setColour(12);
-													cout << "Error: Could not delete Research Paper.";
-													con.setColour(15);
-													this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
-													this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
+													if(pRS!=NULL)
+													{
+														this->BasicRunlevel("OPERATION SUCCESSFUL");
+														con.xyCoord(20,15);
+														cout << "Research Paper deleted successfully.";
+														SAFE_DELETE(pRS);
+														this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+														this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
+													}else{
+														this->BasicRunlevel("ERROR");
+														con.xyCoord(15,15);
+														con.setColour(12);
+														cout << "Error: Could not delete Research Paper.";
+														con.setColour(15);
+														this->MenuShow(AfterDeleteMenu(),AFTERSAVEMENU_SIZ);
+														this->menuBrowserOperator(AfterDeleteMenu(),AFTERSAVEMENU_SIZ,NORMALMENU,true);
+													}
 												}
-											}*/
+											}
 										}else{
 											this->BasicRunlevel("ERROR");
 											con.xyCoord(5,15);
