@@ -84,7 +84,7 @@ void TextBookForm::browseForm()
                 break;
             case 1:
                 *InputPtr = this->textBookPtr->getTitle();
-                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,30,TextBookCoord,FieldPosition,false);
+                KeyType=FormInputBuilderObj.FormInput(ALPHANUMERIC,SPACING,InputPtr,35,TextBookCoord,FieldPosition,false);
                 this->textBookPtr->setTitle(*InputPtr);
                 AllInput[FieldPosition] = *InputPtr;
                 break;
